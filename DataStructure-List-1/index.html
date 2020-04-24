@@ -91,7 +91,7 @@ This article wil,">
                 <a href="/categories/数据结构"><b>「
                     </b>数据结构<b> 」</b></a>
                 
-                四月 23, 2020
+                四月 24, 2020
             </p>
             <h3 class="post-title animated fadeInDown"><a href="/DataStructure-List-1/" title="数据结构复习笔记(2) • 线性表(1)" class="">数据结构复习笔记(2) • 线性表(1)</a>
             </h3>
@@ -100,13 +100,13 @@ This article wil,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    14k
+                    16k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    13 mins.
+                    15 mins.
                 </span>
                 
                 
@@ -243,7 +243,7 @@ public:
     }
 };</code></pre>
 <hr>
-<h2 id="2-线性表的顺序表示和实现-Sequential-representation-and-implementation-of-List"><a href="#2-线性表的顺序表示和实现-Sequential-representation-and-implementation-of-List" class="headerlink" title="2. 线性表的顺序表示和实现 Sequential representation and implementation of List"></a>2. 线性表的顺序表示和实现 Sequential representation and implementation of List</h2><h3 id="2-1-线性表的顺序表示-Order-representation-of-List"><a href="#2-1-线性表的顺序表示-Order-representation-of-List" class="headerlink" title="2.1 线性表的顺序表示 (Order representation of List)"></a><strong>2.1 线性表的顺序表示 (Order representation of List)</strong></h3><!-- ![List_1]() -->
+<h2 id="2-线性表的顺序表示和实现-Sequential-representation-and-implementation-of-List"><a href="#2-线性表的顺序表示和实现-Sequential-representation-and-implementation-of-List" class="headerlink" title="2. 线性表的顺序表示和实现 Sequential representation and implementation of List"></a>2. 线性表的顺序表示和实现 Sequential representation and implementation of List</h2><h3 id="2-1-线性表的顺序表示-Order-representation-of-List"><a href="#2-1-线性表的顺序表示-Order-representation-of-List" class="headerlink" title="2.1 线性表的顺序表示 (Order representation of List)"></a><strong>2.1 线性表的顺序表示 (Order representation of List)</strong></h3><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Data%20Structure/List/List_1.png">
 
 <p>线性表在计算机内部有多种表示方法，最简单最<code>常用</code>的<code>方法</code>即用<code>顺序表示</code>。即在内存中用<code>地址连续</code>的一块<code>有限</code>的<code>表空间</code>，<code>存储</code>线性表的<code>各种元素</code>，这种形式存储的线性表称为<code>顺序表</code>。</p>
 <p>顺序表用<code>物理</code>上的<code>相邻</code>(即内存中的<code>地址</code>是<code>连续</code>的，如：同一批产品的生产序号)<code>实现</code>元素之间的<code>逻辑相邻</code>关系。</p>
@@ -346,7 +346,7 @@ int seqList&lt;T&gt;::search(const T &amp;value) const
 </ul>
 <p>在顺序表下标为position的位置插入值为value的元素。</p>
 <p><code>时间</code>复杂度：<code>O(n)</code></p>
-<p>空间``复杂度：<code>O(1)</code></p>
+<p><code>空间</code>复杂度：<code>O(1)</code></p>
 <p>平均移动元素次数<code>(期望值)</code>：<code>n/2</code>，其中n为顺序表的元素个数。</p>
 <pre><code class="C++">template &lt;class T&gt;
 void seqList&lt;T&gt;::insert(int position, const T &amp;value)
@@ -415,7 +415,7 @@ void seqList&lt;T&gt;::inverse()
 <li><strong><code>扩大</code>表空间 (Expand seqList size)</strong></li>
 </ul>
 <p>算法思想：</p>
-<p>由于数组空间在内存中必须是连续的，因此，扩大数组空间的操作需要：<code>(1)</code>重新申请一个更大规模的新数组，<code>(2)</code>将原有数组的内容复制到新数组中，<code>(3)</code>释放原有数组空间，<code>(4)</code>将新数组作为线性表的存储区。</p>
+<p>由于数组空间在内存中<code>必须</code>是<code>连续</code>的，因此，<code>扩大</code>数组<code>空间</code>的操作需要：<code>(1)</code>重新申请一个更大规模的新数组，<code>(2)</code>将原有数组的内容复制到新数组中，<code>(3)</code>释放原有数组空间，<code>(4)</code>将新数组作为线性表的存储区。</p>
 <p><code>时间</code>复杂度：<code>O(n)</code></p>
 <pre><code class="C++">template &lt;class T&gt;
 void seqList&lt;T&gt;::resize()
@@ -455,6 +455,31 @@ void seqList&lt;T&gt;::resize()
 <li>静态存储与操作</li>
 </ul>
 <p>顺序表适合<code>静态</code>(不经常进行插入删除操作)、经常<code>定位访问</code>的线性表。</p>
+<p>The <code>seqList</code> has the following characteristics:</p>
+<ul>
+<li>Large storage density</li>
+</ul>
+<p>A large number of elements can be stored in the computer`s storage capacity.</p>
+<ul>
+<li>Random storage</li>
+</ul>
+<p>Due to the  consistency  between logical order and  physical order , the sequence table can be directly accessed according to the element symbol (subscript) , which has the advantage of random storage.</p>
+<ul>
+<li>Insert and delete operations are expensive</li>
+</ul>
+<p>Due to maintaining consistency  between the logical order and the physical order, the sequence table needs to move a large number of elements  when inserting and deleting operations (when inserting elements, the entire sequence table needs to be moved n / 2 elements,when deleting elements you need to move the entire linear table by almost ((n-1) / 2 elements)</p>
+<ul>
+<li>Easy to waste space and overflow</li>
+</ul>
+<p>The sequence table needs to allocate  storage space in advance, but due to the difficulty of reserving space, it is very easy to cause wasting of storage space during the allocation process, and when allocated space is too small , it appears Risk of overflow.</p>
+<ul>
+<li>Difficult to expand</li>
+</ul>
+<p>When changing the size of sequence table(such as expanding the table space by 2 times the original), you need to create a new sequence table and copy the data in the original table to the new table, Then free the old table` space.</p>
+<ul>
+<li>Static storage and operation</li>
+</ul>
+<p>The sequence table is suitable for a linear table that is static (insert and delete operations are not often performed) and frequently located access.</p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>If you like my blog post, you can Donate to me in the following ways.</p>
 <p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
