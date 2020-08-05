@@ -10,9 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="PhoenixNest&#39;s Blog,"> 
-    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在Dell PowerEdge R420服务器上对MySQL数据库进行配置与操作时的一些笔记分享。
+    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在 Dell PowerEdge R420 服务器上折腾 MySQL数据库时的一些笔记分享。
 在对MySQL进行配置与操作前，你需要执行👇：
-# 获取最,"> 
+# 获取最新的软,"> 
     <meta name="author" content="PhoenixNest"> 
     <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -84,7 +84,7 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/MySQL/mysql_logo.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/MySQL/mysql_logo.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -92,7 +92,7 @@
                     <a href="/categories/DataBase"><b>「
                     </b>DATABASE<b> 」</b></a>
                     
-                            八月 03, 2020
+                            八月 05, 2020
             </p>
             <h3 class="post-title animated fadeInDown">
                 <a href="/MySQL-on-Ubuntu-Server/" title="Ubuntu Server • MySQL" class="">Ubuntu Server • MySQL</a>
@@ -102,7 +102,7 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    7.5k
+                    7.3k
                 </span>
                         
                             
@@ -142,19 +142,25 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在<code>Dell PowerEdge R420</code>服务器上对<code>MySQL数据库</code>进行配置与操作时的一些笔记分享。</p>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在 <code>Dell PowerEdge R420</code> 服务器上折腾 <code>MySQL数据库</code>时的一些笔记分享。</p>
 <p>在对MySQL进行配置与操作前，你需要执行👇：</p>
 <pre><code class="bash"># 获取最新的软件清单
-ubs@ubuntu-server:~$ sudo apt-get update
+sudo apt-get update
 
 # [可选] 升级已有软件
-ubs@ubuntu-server:~$ sudo apt-get upgrade
+sudo apt-get upgrade
 
 # 安装MySQL
-ubs@ubuntu-server:~$ sudo apt-get install mysql-server
+sudo apt-get install mysql-server</code></pre>
+<p>参考资料：</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-move-a-mysql-data-directory-to-a-new-location-on-ubuntu-16-04" target="_blank" rel="noopener">Digital Ocean - How To Move a MySQL Data Directory to a New Location on Ubuntu</a></p>
+<!-- [知乎 • MySQL 骨灰级性能优化](https://zhuanlan.zhihu.com/p/89427540?utm_source=wechat_session) -->
 
-# 检查原有Data目录位置，默认的MySQL中Data文件夹位置位于 /var/lib/mysql/
-ubs@ubuntu-server:~$ sudo mysql
+<hr>
+<h2 id="（一）修改MySQL数据源Data文件夹位置"><a href="#（一）修改MySQL数据源Data文件夹位置" class="headerlink" title="（一）修改MySQL数据源Data文件夹位置"></a>（一）修改MySQL数据源Data文件夹位置</h2><h3 id="Step1-关闭MySQL服务"><a href="#Step1-关闭MySQL服务" class="headerlink" title="Step1: 关闭MySQL服务"></a>Step1: 关闭MySQL服务</h3><pre><code class="bash"># 检查原有Data目录位置，默认的MySQL中Data文件夹位置位于 /var/lib/mysql/
+sudo mysql
+
+# 输出结果：
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
 Server version: 8.0.21-0ubuntu0.20.04.3 (Ubuntu)
@@ -173,13 +179,13 @@ mysql&gt; select @@datadir;
 +-------------------+
 | /var/lib/mysql/ |
 +-------------------+
-1 row in set (0.00 sec)</code></pre>
-<p>参考资料：</p>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-move-a-mysql-data-directory-to-a-new-location-on-ubuntu-16-04" target="_blank" rel="noopener">Digital Ocean - How To Move a MySQL Data Directory to a New Location on Ubuntu</a></p>
-<hr>
-<h2 id="一-迁移MySQL中数据文件保存路径"><a href="#一-迁移MySQL中数据文件保存路径" class="headerlink" title="(一) 迁移MySQL中数据文件保存路径"></a>(一) 迁移MySQL中数据文件保存路径</h2><h3 id="Step1-关闭MySQL服务"><a href="#Step1-关闭MySQL服务" class="headerlink" title="Step1.关闭MySQL服务"></a>Step1.关闭MySQL服务</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo systemctl stop mysql</code></pre>
-<h3 id="Step2-检查MySQL运行状况"><a href="#Step2-检查MySQL运行状况" class="headerlink" title="Step2.检查MySQL运行状况"></a>Step2.检查MySQL运行状况</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo systemctl status mysql
-[sudo] password for ubs:
+1 row in set (0.00 sec)
+
+# 关闭MySQL服务
+sudo systemctl stop mysql</code></pre>
+<h3 id="Step2-检查MySQL运行状况"><a href="#Step2-检查MySQL运行状况" class="headerlink" title="Step2: 检查MySQL运行状况"></a>Step2: 检查MySQL运行状况</h3><pre><code class="bash">sudo systemctl status mysql
+
+# 输出结果：
 • mysql.service - MySQL Community Server
      Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
      Active: inactive (dead) since Mon 2020-08-03 03:32:37 UTC; 1h 55min ago
@@ -191,12 +197,12 @@ Aug 03 03:07:00 ubuntu-server systemd[1]: Started MySQL Community Server.
 Aug 03 03:32:35 ubuntu-server systemd[1]: Stopping MySQL Community Server...
 Aug 03 03:32:37 ubuntu-server systemd[1]: mysql.service: Succeeded.
 Aug 03 03:32:37 ubuntu-server systemd[1]: Stopped MySQL Community Server.</code></pre>
-<h3 id="Step3-迁移原MySQL数据文件"><a href="#Step3-迁移原MySQL数据文件" class="headerlink" title="Step3.迁移原MySQL数据文件"></a>Step3.迁移原MySQL数据文件</h3><p><code>Tips:</code> 此处假定待迁移Data目录置为 /data/test</p>
-<pre><code class="bash">ubs@ubuntu-server:~$ sudo rsync -av /var/lib/mysql /data/test</code></pre>
-<h3 id="Step4-备份原MySQL数据文件"><a href="#Step4-备份原MySQL数据文件" class="headerlink" title="Step4.备份原MySQL数据文件"></a>Step4.备份原MySQL数据文件</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo mv /var/lib/mysql /var/lib/mysql.bak</code></pre>
-<h3 id="Step5-交接目标目录权限"><a href="#Step5-交接目标目录权限" class="headerlink" title="Step5.交接目标目录权限"></a>Step5.交接目标目录权限</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo chown -R mysql:mysql /data/test</code></pre>
-<h3 id="Step6-修改MySQL配置文件"><a href="#Step6-修改MySQL配置文件" class="headerlink" title="Step6.修改MySQL配置文件"></a>Step6.修改MySQL配置文件</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></pre>
-<p><code>Tips:</code> 修改[mysqld]组中datadir的属性值</p>
+<h3 id="Step3-迁移原MySQL数据文件"><a href="#Step3-迁移原MySQL数据文件" class="headerlink" title="Step3: 迁移原MySQL数据文件"></a>Step3: 迁移原MySQL数据文件</h3><p><code>Tips:</code> 假定待迁移Data目录为: /data/test</p>
+<pre><code class="bash">sudo rsync -av /var/lib/mysql /data/test</code></pre>
+<h3 id="Step4-备份原MySQL数据文件"><a href="#Step4-备份原MySQL数据文件" class="headerlink" title="Step4: 备份原MySQL数据文件"></a>Step4: 备份原MySQL数据文件</h3><pre><code class="bash">sudo mv /var/lib/mysql /var/lib/mysql.bak</code></pre>
+<h3 id="Step5-交接目标目录权限"><a href="#Step5-交接目标目录权限" class="headerlink" title="Step5: 交接目标目录权限"></a>Step5: 交接目标目录权限</h3><pre><code class="bash">sudo chown -R mysql:mysql /data/test</code></pre>
+<h3 id="Step6-修改MySQL配置文件"><a href="#Step6-修改MySQL配置文件" class="headerlink" title="Step6: 修改MySQL配置文件"></a>Step6: 修改MySQL配置文件</h3><pre><code class="bash">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</code></pre>
+<p><code>Tips:</code> 修改[mysqld]组中datadir的属性值，新增一行datadir键值。</p>
 <pre><code class="bash">······
 [mysqld]
 #
@@ -209,8 +215,8 @@ user            = mysql
 # datadir       = /var/lib/mysql
   datadir       = /data/test/mysql
 ······</code></pre>
-<h3 id="Step7-修改apparmor的别名配置文件"><a href="#Step7-修改apparmor的别名配置文件" class="headerlink" title="Step7.修改apparmor的别名配置文件"></a>Step7.修改apparmor的别名配置文件</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo vim /etc/apparmor.d/tunables/alias</code></pre>
-<p><code>Tips:</code> 新增一项别名，并指向目标位置</p>
+<h3 id="Step7-修改apparmor的别名配置文件"><a href="#Step7-修改apparmor的别名配置文件" class="headerlink" title="Step7: 修改apparmor的别名配置文件"></a>Step7: 修改apparmor的别名配置文件</h3><pre><code class="bash">sudo vim /etc/apparmor.d/tunables/alias</code></pre>
+<p><code>Tips:</code> 新增一项别名，并指向目标位置。</p>
 <pre><code class="bash"># Alias rules can be used to rewrite paths and are done after variable
 # resolution. For example, if &#39;/usr&#39; is on removable media:
 # alias /usr/ -&gt; /mnt/usr/,
@@ -218,11 +224,13 @@ user            = mysql
 # Or if mysql databases are stored in /home:
 # alias /var/lib/mysql/ -&gt; /home/mysql/,
   alias /var/lib/mysql/ -&gt; /data/test/mysql/,</code></pre>
-<h3 id="Step8-重启系统apparmor服务"><a href="#Step8-重启系统apparmor服务" class="headerlink" title="Step8.重启系统apparmor服务"></a>Step8.重启系统apparmor服务</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo invoke-rc.d apparmor reload
-ubs@ubuntu-server:~$ sudo systemctl restart apparmor</code></pre>
-<h3 id="Step9-越过MySQL检查"><a href="#Step9-越过MySQL检查" class="headerlink" title="Step9.越过MySQL检查"></a>Step9.越过MySQL检查</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo mkdir /var/lib/mysql/mysql -p</code></pre>
-<h3 id="Step10-重启MySQL服务"><a href="#Step10-重启MySQL服务" class="headerlink" title="Step10.重启MySQL服务"></a>Step10.重启MySQL服务</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo systemctl start mysql
-ubs@ubuntu-server:~$ sudo systemctl status mysql
+<h3 id="Step8-重启系统apparmor服务"><a href="#Step8-重启系统apparmor服务" class="headerlink" title="Step8: 重启系统apparmor服务"></a>Step8: 重启系统apparmor服务</h3><pre><code class="bash">sudo invoke-rc.d apparmor reload
+sudo systemctl restart apparmor</code></pre>
+<h3 id="Step9-越过MySQL检查"><a href="#Step9-越过MySQL检查" class="headerlink" title="Step9: 越过MySQL检查"></a>Step9: 越过MySQL检查</h3><pre><code class="bash">sudo mkdir /var/lib/mysql/mysql -p</code></pre>
+<h3 id="Step10-重启MySQL服务"><a href="#Step10-重启MySQL服务" class="headerlink" title="Step10: 重启MySQL服务"></a>Step10: 重启MySQL服务</h3><pre><code class="bash">sudo systemctl start mysql
+sudo systemctl status mysql
+
+# 输出结果：
 ● mysql.service - MySQL Community Server
      Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
      Active: active (running) since Mon 2020-08-03 05:42:18 UTC; 7s ago
@@ -236,7 +244,9 @@ ubs@ubuntu-server:~$ sudo systemctl status mysql
 
 Aug 03 05:42:17 ubuntu-server systemd[1]: Starting MySQL Community Server...
 Aug 03 05:42:18 ubuntu-server systemd[1]: Started MySQL Community Server.</code></pre>
-<h3 id="Step11-修改后的MySQL中Data位置"><a href="#Step11-修改后的MySQL中Data位置" class="headerlink" title="Step11.修改后的MySQL中Data位置"></a>Step11.修改后的MySQL中Data位置</h3><pre><code class="bash">ubs@ubuntu-server:~$ sudo mysql
+<h3 id="End-修改后的MySQL中Data位置"><a href="#End-修改后的MySQL中Data位置" class="headerlink" title="End: 修改后的MySQL中Data位置"></a>End: 修改后的MySQL中Data位置</h3><pre><code class="bash">sudo mysql
+
+# 输出结果：
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
 Server version: 8.0.21-0ubuntu0.20.04.3 (Ubuntu)
@@ -316,7 +326,7 @@ mysql&gt; select @@datadir;
                 <ul>
                     <li>
                         <a href="/">
-                            4
+                            5
                                 <p>
                                     文章
                                 </p>
@@ -324,7 +334,7 @@ mysql&gt; select @@datadir;
                     </li>
                     <li>
                         <a href="/categories">
-                            4
+                            5
                                 <p>
                                     分类
                                 </p>
@@ -348,7 +358,7 @@ mysql&gt; select @@datadir;
                                 <h4>
                                     目录
                                 </h4>
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-迁移MySQL中数据文件保存路径"><span class="toc-number">2.</span> <span class="toc-text">(一) 迁移MySQL中数据文件保存路径</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">2.1.</span> <span class="toc-text">Step1.关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">2.2.</span> <span class="toc-text">Step2.检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">2.3.</span> <span class="toc-text">Step3.迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">2.4.</span> <span class="toc-text">Step4.备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">2.5.</span> <span class="toc-text">Step5.交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">2.6.</span> <span class="toc-text">Step6.修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">2.7.</span> <span class="toc-text">Step7.修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">2.8.</span> <span class="toc-text">Step8.重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">2.9.</span> <span class="toc-text">Step9.越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">2.10.</span> <span class="toc-text">Step10.重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step11-修改后的MySQL中Data位置"><span class="toc-number">2.11.</span> <span class="toc-text">Step11.修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）修改MySQL数据源Data文件夹位置"><span class="toc-number">2.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-修改后的MySQL中Data位置"><span class="toc-number">2.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                             </div>
                         </div>
                         
