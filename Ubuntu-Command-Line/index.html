@@ -5,17 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>微信小程序 • 自动化测试 - PhoenixNest&#39;s Blog</title>
+    <title>Ubuntu Linux • Command Line - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="PhoenixNest&#39;s Blog,"> 
-    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在小程序开发项目上所遇到的有关自动化测试的一些笔记分享。
-在进行小程序自动化测试前，你需要准备👇：
-
-Node.js - v8.0及以上
-
-微信开发者工具 -,"> 
+    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction2020年7月10日，Canonical开始将Flutter引入Ubuntu Linux，作为一个热(wo)爱(ai)学(mo)习(yu)的苦逼底层程序猿，也将计划已久的Fl,"> 
     <meta name="author" content="PhoenixNest"> 
     <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -62,7 +57,7 @@ Node.js - v8.0及以上
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">微信小程序 • 自动化测试</h3>
+        <h3 class="subtitle">Ubuntu Linux • Command Line</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -87,35 +82,35 @@ Node.js - v8.0及以上
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/MiniProgram/miniprogram_background.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/linux.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/微信小程序"><b>「
-                    </b>微信小程序<b> 」</b></a>
+                    <a href="/categories/Notes"><b>「
+                    </b>NOTES<b> 」</b></a>
                     
-                            七月 06, 2020
+                            八月 08, 2020
             </p>
             <h3 class="post-title animated fadeInDown">
-                <a href="/MiniProgram-AutoTest/" title="微信小程序 • 自动化测试" class="">微信小程序 • 自动化测试</a>
+                <a href="/Ubuntu-Command-Line/" title="Ubuntu Linux • Command Line" class="">Ubuntu Linux • Command Line</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    6.1k
+                    1.5k
                 </span>
                         
                             
                                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    6 mins.
+                    1 mins.
                 </span>
                                 
                                     
-                                        <span id="/MiniProgram-AutoTest/" class="leancloud_visitors" data-flag-title="微信小程序 • 自动化测试">
+                                        <span id="/Ubuntu-Command-Line/" class="leancloud_visitors" data-flag-title="Ubuntu Linux • Command Line">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">Unknown</span>
                                         </span>
@@ -124,7 +119,7 @@ Node.js - v8.0及以上
                 </p>
                 
                     
-                        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/WeChat-MiniProgram/" rel="tag">WeChat-MiniProgram</a></li></ul>
+                        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
                             
         </div>
     </div>
@@ -145,107 +140,9 @@ Node.js - v8.0及以上
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在<code>小程序开发</code>项目上所遇到的有关<code>自动化测试</code>的一些笔记分享。</p>
-<p>在进行小程序自动化测试前，你需要准备👇：</p>
-<ul>
-<li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> - v8.0及以上</p>
-</li>
-<li><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">微信开发者工具</a> - v1.02.1907232及以上</p>
-</li>
-<li><p><a href="https://github.com/wechat-miniprogram/miniprogram-demo" target="_blank" rel="noopener">微信官方小程序Demo</a> - 待测试的项目Demo</p>
-</li>
-</ul>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/" target="_blank" rel="noopener">微信小程序官方自动化测试开发文档</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/weixin_43827779/article/details/106164261" target="_blank" rel="noopener">小程序自动化测试快速开始</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/weixin_43827779/article/details/106180757" target="_blank" rel="noopener">小程序自动化测试+jest</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/qq_40816649/article/details/102463350" target="_blank" rel="noopener">miniprogram-automator微信小程序自动化工具</a></p>
-</li>
-</ul>
-<hr>
-<h2 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h2><h3 id="Step1-项目初始化"><a href="#Step1-项目初始化" class="headerlink" title="Step1: 项目初始化"></a>Step1: 项目初始化</h3><pre><code class="bash">cd miniprogram-demo
-
-npm i
-
-cd miniprogram
-
-npm i</code></pre>
-<h3 id="Step2-引入自动化测试插件与框架"><a href="#Step2-引入自动化测试插件与框架" class="headerlink" title="Step2: 引入自动化测试插件与框架"></a>Step2: 引入自动化测试插件与框架</h3><p>完成上述步骤后，安装miniprogram-automator，这是一款由<code>微信官方</code>推出的小程序自动化测试框架。</p>
-<pre><code class="bash">npm i miniprogram-automator --save-dev</code></pre>
-<p>引入jset测试框架</p>
-<pre><code class="bash">npm i jest</code></pre>
-<p><strong>PS: 在下载完jest后，还需要前往package.json配置jest。</strong></p>
-<pre><code class="JavaScript">&quot;scripts&quot;: {
-    &quot;test&quot;: &quot;jest&quot;
-  }</code></pre>
-<p>添加完上述代码后，在进行测试时系统会<code>自动找到</code>包括.test.js结尾的测试文件并运行。</p>
-<h3 id="Step3-开启自动化测试端口"><a href="#Step3-开启自动化测试端口" class="headerlink" title="Step3: 开启自动化测试端口"></a>Step3: 开启自动化测试端口</h3><p><strong>PS: (该步骤可省略，当第5步出现问题时，可先开启端口再执行第5步命令)</strong></p>
-<p>1) 打开微信开发者工具，前往设置 -&gt; 通用设置 -&gt; 安全 -&gt; 开启服务端口</p>
-<p>2) 前往你的微信开发者工具安装目录，例：D:\微信开发者工具，开启自动化测试端口</p>
-<pre><code class="bash">.\cli.bat --auto 你的项目地址 --auto-port 9420</code></pre>
-<p>当出现以下信息时，表示端口启用成功，并会同时开启/重启微信开发者工具。</p>
-<pre><code class="bash">PS D:\微信web开发者工具&gt; .\cli.bat --auto C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram --auto-port 9420
-√ IDE server has started, listening on http://127.0.0.1:33553
-[warn] DEPRECATED please upgrade to the following v2 command instead ( doc: https://developers.weixin.qq.com/miniprogram/dev/devtools/cli.html )
-
- cli auto --project C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram --auto-port 9420
-
-√ Open project with automation enabled success C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram</code></pre>
-<hr>
-<h3 id="Step4-编写测试脚本"><a href="#Step4-编写测试脚本" class="headerlink" title="Step4: 编写测试脚本"></a>Step4: 编写测试脚本</h3><p>开启完测试端口后，新建一个miniTest文件夹用于放置测试文件，创建index.test.js文件，开始编写测试脚本。</p>
-<p>此处使用官方的<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/demo.html" target="_blank" rel="noopener">测试脚本案例👇</a></p>
-<pre><code class="JavaScript">const automator = require(&#39;miniprogram-automator&#39;)
-
-describe(&#39;index&#39;, () =&gt; {
-  let miniProgram
-  let page
-
-  beforeAll(async () =&gt; {
-    miniProgram = await automator.launch({
-      cliPath:&#39;D://微信web开发者工具//cli.bat&#39;,// cli.bat文件一般在微信开发者工具目录下，MacOS下一般无需配置cliPath
-      projectPath: &#39;./&#39; // 默认当前项目地址即可
-    })
-    page = await miniProgram.reLaunch(&#39;/page/component/index&#39;) // 测试页面
-    await page.waitFor(500)
-  }, 30000)
-
-  // 测试脚本
-  it(&#39;desc&#39;, async () =&gt; {
-    const desc = await page.$(&#39;.index-desc&#39;)
-    expect(desc.tagName).toBe(&#39;view&#39;)
-    expect(await desc.text()).toContain(&#39;以下将展示小程序官方组件能力&#39;)
-  })
-
-  afterAll(async () =&gt; {
-    await miniProgram.close()
-  })
-})</code></pre>
-<h3 id="Step5-开始自动化测试"><a href="#Step5-开始自动化测试" class="headerlink" title="Step5: 开始自动化测试"></a>Step5: 开始自动化测试</h3><p>编写完测试脚本后，在终端输入npm run test，即可进行自动化测试，期间将会<code>打开/重启</code>微信开发者工具。</p>
-<pre><code class="bash">PS C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram&gt; npm run test
-
-&gt; miniprogram@1.0.0 test C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram
-&gt; jest
-
- PASS  miniTest/index.test.js (21.827 s)
-  index
-    √ desc (12 ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
-Snapshots:   0 total
-Time:        22.683 s, estimated 27 s
-Ran all test suites.</code></pre>
-<p>当出现上述信息时，表示自动化测试已通过。</p>
-<hr>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/automator.html" target="_blank" rel="noopener">Automator</a>模块提供了<code>启动及连接开发者工具</code>的方法。</p>
-<p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/miniprogram.html" target="_blank" rel="noopener">MiniProgram</a>模块提供了<code>控制小程序</code>的方法。</p>
-<p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/page.html" target="_blank" rel="noopener">Page</a>模块提供了<code>控制小程序页面</code>的方法。</p>
-<p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/element.html" target="_blank" rel="noopener">Element</a>模块提供了<code>控制小程序页面元素</code>的方法。</p>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>2020年7月10日，<a href="https://cn.ubuntu.com/blog/canonical-enables-linux-desktop-app-support-with-flutter-2" target="_blank" rel="noopener">Canonical开始将Flutter引入Ubuntu Linux</a>，作为一个热(wo)爱(ai)学(mo)习(yu)的苦逼底层程序猿，也将计划已久的<a href="https://flutterchina.club/" target="_blank" rel="noopener">Flutter</a>学习计划列进了日程。</p>
+<p><a href="https://flutterchina.club/" target="_blank" rel="noopener">Flutter</a>作为新时代跨平台语言的首选之一，也不断地在向世界展示其强大性与易用性：基于<a href="https://www.material.io/" target="_blank" rel="noopener">Material Design</a>的组件库，基于<a href="https://www.dartcn.com/" target="_blank" rel="noopener">Dart</a>的前端快速开发语言，热更新，原生体验。<a href="https://flutterchina.club/" target="_blank" rel="noopener">Flutter</a>能快速地在桌面端(Windows、macOS、Linux)与移动端(IOS，Android)之前进行部署构建，打造高质量原生用户界面。</p>
+<p>本篇将记录我在使用Ubuntu Linux时的一些笔记与问题解决分享，有关Flutter的学习笔记后续将会新开博文更新。</p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -336,7 +233,7 @@ Ran all test suites.</code></pre>
                                 <h4>
                                     目录
                                 </h4>
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Started"><span class="toc-number">2.</span> <span class="toc-text">Get Started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-项目初始化"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-引入自动化测试插件与框架"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 引入自动化测试插件与框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-开启自动化测试端口"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 开启自动化测试端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-编写测试脚本"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 编写测试脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-开始自动化测试"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 开始自动化测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">2.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                             </div>
                         </div>
                         
