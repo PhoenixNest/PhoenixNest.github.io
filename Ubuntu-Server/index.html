@@ -5,14 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ubuntu Server • DELL Server - PhoenixNest&#39;s Blog</title>
+    <title>Ubuntu Server - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="PhoenixNest&#39;s Blog,"> 
-    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在折腾 Dell PowerEdge R420 服务器的一些笔记分享。
+    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在Dell PowerEdge R420服务器上折腾Ubuntu Server 20.04LTS的一些笔记分享。
 在对服务器进行配置与操作前，你需要👇：
-• 下载Ubuntu Server 20.04,"> 
+
+下,"> 
     <meta name="author" content="PhoenixNest"> 
     <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -59,7 +60,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Ubuntu Server • DELL Server</h3>
+        <h3 class="subtitle">Ubuntu Server</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -89,30 +90,30 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/DELL Server"><b>「
-                    </b>DELL SERVER<b> 」</b></a>
+                    <a href="/categories/Ubuntu Server"><b>「
+                    </b>UBUNTU SERVER<b> 」</b></a>
                     
                             八月 04, 2020
             </p>
             <h3 class="post-title animated fadeInDown">
-                <a href="/Ubuntu-Server-on-DELL-Server/" title="Ubuntu Server • DELL Server" class="">Ubuntu Server • DELL Server</a>
+                <a href="/Ubuntu-Server/" title="Ubuntu Server" class="">Ubuntu Server</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    6.9k
+                    10k
                 </span>
                         
                             
                                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    6 mins.
+                    9 mins.
                 </span>
                                 
                                     
-                                        <span id="/Ubuntu-Server-on-DELL-Server/" class="leancloud_visitors" data-flag-title="Ubuntu Server • DELL Server">
+                                        <span id="/Ubuntu-Server/" class="leancloud_visitors" data-flag-title="Ubuntu Server">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">Unknown</span>
                                         </span>
@@ -142,16 +143,36 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在折腾 <code>Dell PowerEdge R420</code> 服务器的一些笔记分享。</p>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在<code>Dell PowerEdge R420</code>服务器上折腾<code>Ubuntu Server 20.04LTS</code>的一些笔记分享。</p>
 <p>在对服务器进行配置与操作前，你需要👇：</p>
-<p>• 下载<a href="http://releases.ubuntu.com/20.04/" target="_blank" rel="noopener">Ubuntu Server 20.04LTS</a>镜像并将其刷入U盘</p>
-<p>• (建议)在有网络连接的情况下安装Ubuntu Server 20.04LTS</p>
+<ul>
+<li><p>下载<a href="http://releases.ubuntu.com/20.04/" target="_blank" rel="noopener">Ubuntu Server 20.04LTS</a>镜像并将其刷入U盘</p>
+</li>
+<li><p><code>(建议)</code>在有网络连接的情况下安装Ubuntu Server 20.04LTS</p>
+</li>
+</ul>
+<hr>
+<p>参考资料:</p>
+<ul>
+<li><p><a href="https://ubuntu.com/download/server" target="_blank" rel="noopener">Download Ubuntu Server</a></p>
+</li>
+<li><p><a href="https://ubuntu.com/tutorials/install-ubuntu-server#1-overview" target="_blank" rel="noopener">Install Ubuntu Server</a></p>
+</li>
+<li><p><a href="https://www.tecmint.com/install-ubuntu-20-04-server/" target="_blank" rel="noopener">How to Install Ubuntu 20.04 Server</a></p>
+</li>
+<li><p><a href="https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/#:~:text=%20Perform%20the%20following%20steps%20as%20root%20or,verify%20that%20SSH%20is%20running%20by...%20More%20" target="_blank" rel="noopener">How to Enable SSH on Ubuntu 20.04</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词，意思是“人性”“我的存在是因为大家的存在”，是非洲传统的一种价值观。</p>
+<p>Ubuntu基于Debian发行版和Gnome桌面环境，而从11.04版起，Ubuntu发行版放弃了Gnome桌面环境，改为Unity。从前人们认为Linux难以安装、难以使用，在Ubuntu出现后这些都成为了历史。</p>
+<p>Ubuntu也拥有庞大的社区力量，用户可以方便地从社区获得帮助。自Ubuntu 18.04 LTS其，Ubuntu发行版又重新开始使用GNOME3桌面环境。</p>
 <hr>
 <h2 id="（一）-安装Ubuntu-Server"><a href="#（一）-安装Ubuntu-Server" class="headerlink" title="（一）. 安装Ubuntu Server"></a>（一）. 安装Ubuntu Server</h2><h3 id="Step1-选择语言"><a href="#Step1-选择语言" class="headerlink" title="Step1: 选择语言"></a>Step1: 选择语言</h3><p><code>Tips:</code> Ubuntu Server无简中，本章节将介绍英文版安装。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/install_1.png">
 
 <hr>
-<h3 id="Step2-选择键盘布局"><a href="#Step2-选择键盘布局" class="headerlink" title="Step2: 选择键盘布局"></a>Step2: 选择键盘布局</h3><p><code>Tips:</code> 该处使用美式键盘布局即可，能通用大部分的键盘布局。</p>
+<h3 id="Step2-选择键盘布局"><a href="#Step2-选择键盘布局" class="headerlink" title="Step2: 选择键盘布局"></a>Step2: 选择键盘布局</h3><p><code>Tips:</code> 该处使用美式键盘布局即可，通用大部分的键盘布局。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/install_2.png">
 
 <hr>
@@ -225,9 +246,66 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         TX packets 190  bytes 16652 (16.6 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
 <hr>
-<h3 id="Step5-使用远程链接工具链接"><a href="#Step5-使用远程链接工具链接" class="headerlink" title="Step5: 使用远程链接工具链接"></a>Step5: 使用远程链接工具链接</h3><p><code>Tips:</code> 该处选用XShell进行远程连接。</p>
+<h3 id="Step5-使用远程链接工具链接"><a href="#Step5-使用远程链接工具链接" class="headerlink" title="Step5: 使用远程链接工具链接"></a>Step5: 使用远程链接工具链接</h3><p><code>Tips:</code> 本章节选用<code>XShell</code>进行远程连接。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/ubuntu_ssh.png">
 
+<hr>
+<h2 id="（三）-常用命令"><a href="#（三）-常用命令" class="headerlink" title="（三）. 常用命令"></a>（三）. 常用命令</h2><pre><code class="bash"># Scan local disk
+sudo fdisk -l
+
+# Check disk information
+sudo df -HT
+
+# Create test dir
+sudo mkdir xxx
+# Eg: that you can create a test folder
+sudo mkdir /test
+
+# Mount a HDD/SDD to your system
+sudo mount xxxxxx xxxxxx
+# Eg: you can mount /dev/nvme0n1 with you localDir with /data
+sudo mount /dev/nvme0n1 /data
+
+# Change filesystem to xfs
+sudo mkfs.xfs xxxxxx
+# Eg: you can make the default change to the disk into xfs filesystem or the other filesystem you want to change(eg: ext4, ext3, ntfs)
+sudo mkfs.xfs /dev/nvme0n1
+
+# If you want to set the block size to another big one, try to add &#39;-b size=8k&#39;
+sudo mkfs.xfs -b size=xx xxxxxx
+# Eg: you can change the /dev/nvme0n1 into xfs with it&#39;s blocksize=8k
+# NOTICE: disk blocksize can not bigger than system default page size
+sudo mkfs.xfs -b size=8k /dev/nvme0n1
+
+# Get default system pagesize
+sudo getconf PAGESIZE
+
+# Reboot the computer immediately
+sudo reboot -h now
+
+# Shut down the computer immediately
+sudo shutdown -h now</code></pre>
+<hr>
+<h2 id="（四）-通过”dd”关键字对硬盘进行读写测试"><a href="#（四）-通过”dd”关键字对硬盘进行读写测试" class="headerlink" title="（四）. 通过”dd”关键字对硬盘进行读写测试"></a>（四）. 通过”dd”关键字对硬盘进行读写测试</h2><pre><code class="bash"># R/W Test
+# The server&#39;s write file size is usually 4k and 8K, here the disk will be written test from 4K, 8K, 64K, 1M order, and after the memory cache is cleared, the 1M file on the disk will be read and deleted.
+
+# Create Tiny Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=4k count=1024
+
+# Create Small Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=8k count=1024
+
+# Create Middle Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=64k count=1024
+
+# Create Large Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=1M count=1024
+
+# Remove Cache
+sudo sh -c &quot;sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches&quot;
+
+# Check Read Speed
+sudo dd if=./largefile of=./null bs=8k</code></pre>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>If you like my blog post, you can Donate to me in the following ways.</p>
 <p>Please indicate the source when reprinting.</p>
@@ -288,7 +366,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
                 <ul>
                     <li>
                         <a href="/">
-                            5
+                            6
                                 <p>
                                     文章
                                 </p>
@@ -296,7 +374,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
                     </li>
                     <li>
                         <a href="/categories">
-                            5
+                            4
                                 <p>
                                     分类
                                 </p>
@@ -304,7 +382,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
                     </li>
                     <li>
                         <a href="/tags">
-                            5
+                            6
                                 <p>
                                     标签
                                 </p>
@@ -320,7 +398,7 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
                                 <h4>
                                     目录
                                 </h4>
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-安装Ubuntu-Server"><span class="toc-number">2.</span> <span class="toc-text">（一）. 安装Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-选择语言"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 选择语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-选择键盘布局"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 选择键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-网络设置"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 网络设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-代理设置"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-镜像源配置"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 镜像源配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-引导空间配置"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 引导空间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-分区配置"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 分区配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-Ubuntu-Server账号配置"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: Ubuntu Server账号配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-SSH设置"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: SSH设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-等待Ubuntu-Server安装结束"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 等待Ubuntu Server安装结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-登录系统"><span class="toc-number">2.11.</span> <span class="toc-text">End: 登录系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-远程连接Ubuntu-Server"><span class="toc-number">3.</span> <span class="toc-text">（二）. 远程连接Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-安装net-tools用以查看ip"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 安装net-tools用以查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-查看本机ip"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 查看本机ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-修改远程访问权限"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 修改远程访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-使用指令查看ip"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 使用指令查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-使用远程链接工具链接"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 使用远程链接工具链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-安装Ubuntu-Server"><span class="toc-number">3.</span> <span class="toc-text">（一）. 安装Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-选择语言"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 选择语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-选择键盘布局"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 选择键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-网络设置"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 网络设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-代理设置"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-镜像源配置"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 镜像源配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-引导空间配置"><span class="toc-number">3.6.</span> <span class="toc-text">Step6: 引导空间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-分区配置"><span class="toc-number">3.7.</span> <span class="toc-text">Step7: 分区配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-Ubuntu-Server账号配置"><span class="toc-number">3.8.</span> <span class="toc-text">Step8: Ubuntu Server账号配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-SSH设置"><span class="toc-number">3.9.</span> <span class="toc-text">Step9: SSH设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-等待Ubuntu-Server安装结束"><span class="toc-number">3.10.</span> <span class="toc-text">Step10: 等待Ubuntu Server安装结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-登录系统"><span class="toc-number">3.11.</span> <span class="toc-text">End: 登录系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-远程连接Ubuntu-Server"><span class="toc-number">4.</span> <span class="toc-text">（二）. 远程连接Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-安装net-tools用以查看ip"><span class="toc-number">4.1.</span> <span class="toc-text">Step1: 安装net-tools用以查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-查看本机ip"><span class="toc-number">4.2.</span> <span class="toc-text">Step2: 查看本机ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-修改远程访问权限"><span class="toc-number">4.3.</span> <span class="toc-text">Step3: 修改远程访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-使用指令查看ip"><span class="toc-number">4.4.</span> <span class="toc-text">Step4: 使用指令查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-使用远程链接工具链接"><span class="toc-number">4.5.</span> <span class="toc-text">Step5: 使用远程链接工具链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）-常用命令"><span class="toc-number">5.</span> <span class="toc-text">（三）. 常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）-通过”dd”关键字对硬盘进行读写测试"><span class="toc-number">6.</span> <span class="toc-text">（四）. 通过”dd”关键字对硬盘进行读写测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                             </div>
                         </div>
                         

@@ -10,9 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="PhoenixNest&#39;s Blog,"> 
-    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在 Dell PowerEdge R420 服务器上折腾 MySQL数据库时的一些笔记分享。
-在对MySQL进行配置与操作前，你需要执行👇：
-# 获取最新的软,"> 
+    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近在 Ubuntu Server 20.04LTS 上折腾 MySQL时的一些笔记分享。
+在对MySQL进行部署与配置前，你需要执行👇：
+# refresh s,"> 
     <meta name="author" content="PhoenixNest"> 
     <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -89,20 +89,20 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/DataBase"><b>「
-                    </b>DATABASE<b> 」</b></a>
+                    <a href="/categories/Ubuntu Server"><b>「
+                    </b>UBUNTU SERVER<b> 」</b></a>
                     
                             八月 05, 2020
             </p>
             <h3 class="post-title animated fadeInDown">
-                <a href="/MySQL-on-Ubuntu-Server/" title="Ubuntu Server • MySQL" class="">Ubuntu Server • MySQL</a>
+                <a href="/Ubuntu-Server-MySQL/" title="Ubuntu Server • MySQL" class="">Ubuntu Server • MySQL</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    10k
+                    11k
                 </span>
                         
                             
@@ -112,7 +112,7 @@
                 </span>
                                 
                                     
-                                        <span id="/MySQL-on-Ubuntu-Server/" class="leancloud_visitors" data-flag-title="Ubuntu Server • MySQL">
+                                        <span id="/Ubuntu-Server-MySQL/" class="leancloud_visitors" data-flag-title="Ubuntu Server • MySQL">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">Unknown</span>
                                         </span>
@@ -142,20 +142,30 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在 <code>Dell PowerEdge R420</code> 服务器上折腾 <code>MySQL数据库</code>时的一些笔记分享。</p>
-<p>在对MySQL进行配置与操作前，你需要执行👇：</p>
-<pre><code class="bash"># 获取最新的软件清单
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在 <code>Ubuntu Server 20.04LTS</code> 上折腾 <code>MySQL</code>时的一些笔记分享。</p>
+<p>在对MySQL进行部署与配置前，你需要执行👇：</p>
+<pre><code class="bash"># refresh software list
 sudo apt-get update
 
-# [可选] 升级已有软件
+# [Optional] Upgrade your local software
 sudo apt-get upgrade
 
-# 安装MySQL
+# install MySQL
 sudo apt-get install mysql-server</code></pre>
+<hr>
 <p>参考资料：</p>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-move-a-mysql-data-directory-to-a-new-location-on-ubuntu-16-04" target="_blank" rel="noopener">Digital Ocean - How To Move a MySQL Data Directory to a New Location on Ubuntu</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/89427540?utm_source=wechat_session" target="_blank" rel="noopener">知乎 • MySQL 骨灰级性能优化</a></p>
-<p><a href="https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html" target="_blank" rel="noopener">mysqlslap — A Load Emulation Client</a></p>
+<ul>
+<li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-move-a-mysql-data-directory-to-a-new-location-on-ubuntu-16-04" target="_blank" rel="noopener">Digital Ocean - How To Move a MySQL Data Directory to a New Location on Ubuntu</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/89427540?utm_source=wechat_session" target="_blank" rel="noopener">知乎 • MySQL骨灰级性能优化</a></p>
+</li>
+<li><p><a href="https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html" target="_blank" rel="noopener">mysqlslap — A Load Emulation Client</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<p>MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
+<p>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。</p>
 <hr>
 <h2 id="（一）修改MySQL数据源Data文件夹位置"><a href="#（一）修改MySQL数据源Data文件夹位置" class="headerlink" title="（一）修改MySQL数据源Data文件夹位置"></a>（一）修改MySQL数据源Data文件夹位置</h2><p><code>Tips:</code> 原有MySQL的Data路径为/var/lib/mysql/，当我们进行长期存储时，硬盘空间将会持续吃紧，故本章介绍如何迁移MySQL中的Data路径以将MySQL的数据保存更换到新硬盘。</p>
 <h3 id="Step1-关闭MySQL服务"><a href="#Step1-关闭MySQL服务" class="headerlink" title="Step1: 关闭MySQL服务"></a>Step1: 关闭MySQL服务</h3><pre><code class="bash"># 检查原有Data目录位置，默认的MySQL中Data文件夹位置位于 /var/lib/mysql/
@@ -315,7 +325,7 @@ mysql&gt; select @@datadir;
 # 迭代的实验次数
 --iterations=100</code></pre>
 <hr>
-<h3 id="以下是我在我的机器上进行压力测试的结果"><a href="#以下是我在我的机器上进行压力测试的结果" class="headerlink" title="以下是我在我的机器上进行压力测试的结果:"></a>以下是我在我的机器上进行压力测试的结果:</h3><p><code>写入:</code></p>
+<h3 id="以下是我的机器上对MySQL进行压力测试的结果"><a href="#以下是我的机器上对MySQL进行压力测试的结果" class="headerlink" title="以下是我的机器上对MySQL进行压力测试的结果"></a>以下是我的机器上对MySQL进行压力测试的结果</h3><p><code>写入:</code></p>
 <pre><code class="bash"># 写入脚本
 sudo mysqlslap --user=root --password=root --create-schema=test --auto-generate-sql --auto-generate-sql-load-type=write --concurrency=20 --number-of-queries=1000 --iterations=100
 
@@ -400,7 +410,7 @@ Benchmark
                 <ul>
                     <li>
                         <a href="/">
-                            5
+                            6
                                 <p>
                                     文章
                                 </p>
@@ -408,7 +418,7 @@ Benchmark
                     </li>
                     <li>
                         <a href="/categories">
-                            5
+                            4
                                 <p>
                                     分类
                                 </p>
@@ -416,7 +426,7 @@ Benchmark
                     </li>
                     <li>
                         <a href="/tags">
-                            5
+                            6
                                 <p>
                                     标签
                                 </p>
@@ -432,7 +442,7 @@ Benchmark
                                 <h4>
                                     目录
                                 </h4>
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）修改MySQL数据源Data文件夹位置"><span class="toc-number">2.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-修改后的MySQL中Data位置"><span class="toc-number">2.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）通过mysqlslap对MySQL进行压力测试"><span class="toc-number">3.</span> <span class="toc-text">（二）通过mysqlslap对MySQL进行压力测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysqlLslap"><span class="toc-number">3.1.</span> <span class="toc-text">mysqlLslap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips-以下是常用的部分参数"><span class="toc-number">3.2.</span> <span class="toc-text">Tips: 以下是常用的部分参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是我在我的机器上进行压力测试的结果"><span class="toc-number">3.3.</span> <span class="toc-text">以下是我在我的机器上进行压力测试的结果:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）修改MySQL数据源Data文件夹位置"><span class="toc-number">3.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">3.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">3.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">3.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">3.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">3.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-修改后的MySQL中Data位置"><span class="toc-number">3.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）通过mysqlslap对MySQL进行压力测试"><span class="toc-number">4.</span> <span class="toc-text">（二）通过mysqlslap对MySQL进行压力测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysqlLslap"><span class="toc-number">4.1.</span> <span class="toc-text">mysqlLslap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips-以下是常用的部分参数"><span class="toc-number">4.2.</span> <span class="toc-text">Tips: 以下是常用的部分参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是我的机器上对MySQL进行压力测试的结果"><span class="toc-number">4.3.</span> <span class="toc-text">以下是我的机器上对MySQL进行压力测试的结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                             </div>
                         </div>
                         
