@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ubuntu Server 20.04LTS - PhoenixNest&#39;s Blog</title>
+    <title>Road to UbuntuServer - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -60,7 +60,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Ubuntu Server 20.04LTS</h3>
+        <h3 class="subtitle">Road to UbuntuServer</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -90,13 +90,13 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/Ubuntu Server"><b>「
-                    </b>UBUNTU SERVER<b> 」</b></a>
+                    <a href="/categories/Ubuntu"><b>「
+                    </b>UBUNTU<b> 」</b></a>
                     
                             八月 04, 2020
             </p>
             <h3 class="post-title animated fadeInDown">
-                <a href="/Ubuntu-Server/" title="Ubuntu Server 20.04LTS" class="">Ubuntu Server 20.04LTS</a>
+                <a href="/Road-to-UbuntuServer/" title="Road to UbuntuServer" class="">Road to UbuntuServer</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
@@ -113,7 +113,7 @@
                 </span>
                                 
                                     
-                                        <span id="/Ubuntu-Server/" class="leancloud_visitors" data-flag-title="Ubuntu Server 20.04LTS">
+                                        <span id="/Road-to-UbuntuServer/" class="leancloud_visitors" data-flag-title="Road to UbuntuServer">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">Unknown</span>
                                         </span>
@@ -146,9 +146,9 @@
             <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近在<code>Dell PowerEdge R420</code>服务器上折腾<code>Ubuntu Server 20.04LTS</code>的一些笔记分享。</p>
 <p>在对服务器进行配置与操作前，你需要👇：</p>
 <ul>
-<li><p>下载<a href="http://releases.ubuntu.com/20.04/" target="_blank" rel="noopener">Ubuntu Server 20.04LTS</a>镜像并将其刷入U盘</p>
+<li><p>下载<a href="http://releases.ubuntu.com/20.04/" target="_blank" rel="noopener">Ubuntu Server 20.04LTS</a>镜像并将其<a href="https://rufus.ie/zh_CN.html" target="_blank" rel="noopener">刷入U盘</a></p>
 </li>
-<li><p><code>(建议)</code>在有网络连接的情况下安装Ubuntu Server 20.04LTS</p>
+<li><p><code>(建议)</code>在<code>有网络</code>连接的情况下安装Ubuntu Server 20.04LTS</p>
 </li>
 </ul>
 <hr>
@@ -164,8 +164,8 @@
 </li>
 </ul>
 <hr>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Ubuntu是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词，意思是“人性”“我的存在是因为大家的存在”，是非洲传统的一种价值观。</p>
-<p>Ubuntu基于Debian发行版和Gnome桌面环境，而从11.04版起，Ubuntu发行版放弃了Gnome桌面环境，改为Unity。从前人们认为Linux难以安装、难以使用，在Ubuntu出现后这些都成为了历史。</p>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Ubuntu是一个以<code>桌面应用</code>为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词，意思是“人性”“我的存在是因为大家的存在”，是非洲传统的一种价值观。</p>
+<p>Ubuntu基于<code>Debian发行版</code>和Gnome桌面环境，而从11.04版起，Ubuntu发行版放弃了Gnome桌面环境，改为Unity。从前人们认为Linux难以安装、难以使用，在Ubuntu出现后这些都成为了历史。</p>
 <p>Ubuntu也拥有庞大的社区力量，用户可以方便地从社区获得帮助。自Ubuntu 18.04 LTS其，Ubuntu发行版又重新开始使用GNOME3桌面环境。</p>
 <hr>
 <h2 id="（一）-安装Ubuntu-Server"><a href="#（一）-安装Ubuntu-Server" class="headerlink" title="（一）. 安装Ubuntu Server"></a>（一）. 安装Ubuntu Server</h2><h3 id="Step1-选择语言"><a href="#Step1-选择语言" class="headerlink" title="Step1: 选择语言"></a>Step1: 选择语言</h3><p><code>Tips:</code> Ubuntu Server无简中，本章节将介绍英文版安装。</p>
@@ -301,7 +301,7 @@ sudo dd if=/dev/zero of=./largefile bs=64k count=1024
 # Create Large Size Test File &amp;&amp;  Start Write Speed Test
 sudo dd if=/dev/zero of=./largefile bs=1M count=1024
 
-# Remove Cache
+# Remove RAM Cache
 sudo sh -c &quot;sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches&quot;
 
 # Check Read Speed
@@ -364,7 +364,7 @@ sudo dd if=./largefile of=./null bs=8k</code></pre>
                 <ul>
                     <li>
                         <a href="/">
-                            7
+                            6
                                 <p>
                                     文章
                                 </p>
@@ -380,7 +380,7 @@ sudo dd if=./largefile of=./null bs=8k</code></pre>
                     </li>
                     <li>
                         <a href="/tags">
-                            7
+                            6
                                 <p>
                                     标签
                                 </p>
