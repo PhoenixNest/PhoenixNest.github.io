@@ -325,7 +325,7 @@ mysql&gt; select @@datadir;
 # 迭代的实验次数
 --iterations=100</code></pre>
 <hr>
-<h3 id="以下是我的机器上对MySQL进行压力测试的结果"><a href="#以下是我的机器上对MySQL进行压力测试的结果" class="headerlink" title="以下是我的机器上对MySQL进行压力测试的结果"></a>以下是我的机器上对MySQL进行压力测试的结果</h3><p><code>写入:</code></p>
+<h3 id="以下是我的机器上对MySQL进行一组压力测试的结果"><a href="#以下是我的机器上对MySQL进行一组压力测试的结果" class="headerlink" title="以下是我的机器上对MySQL进行一组压力测试的结果"></a>以下是我的机器上对MySQL进行一组压力测试的结果</h3><p><code>写入:</code></p>
 <pre><code class="bash"># 写入脚本
 sudo mysqlslap --user=root --password=root --create-schema=test --auto-generate-sql --auto-generate-sql-load-type=write --concurrency=20 --number-of-queries=1000 --iterations=100
 
@@ -408,7 +408,7 @@ Benchmark
                 <ul>
                     <li>
                         <a href="/">
-                            6
+                            7
                                 <p>
                                     文章
                                 </p>
@@ -416,7 +416,7 @@ Benchmark
                     </li>
                     <li>
                         <a href="/categories">
-                            4
+                            5
                                 <p>
                                     分类
                                 </p>
@@ -424,7 +424,7 @@ Benchmark
                     </li>
                     <li>
                         <a href="/tags">
-                            6
+                            7
                                 <p>
                                     标签
                                 </p>
@@ -440,7 +440,7 @@ Benchmark
                                 <h4>
                                     目录
                                 </h4>
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）修改MySQL数据源Data文件夹位置"><span class="toc-number">3.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">3.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">3.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">3.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">3.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">3.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-修改后的MySQL中Data位置"><span class="toc-number">3.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）通过mysqlslap对MySQL进行压力测试"><span class="toc-number">4.</span> <span class="toc-text">（二）通过mysqlslap对MySQL进行压力测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysqlLslap"><span class="toc-number">4.1.</span> <span class="toc-text">mysqlLslap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips-以下是常用的部分参数"><span class="toc-number">4.2.</span> <span class="toc-text">Tips: 以下是常用的部分参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是我的机器上对MySQL进行压力测试的结果"><span class="toc-number">4.3.</span> <span class="toc-text">以下是我的机器上对MySQL进行压力测试的结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）修改MySQL数据源Data文件夹位置"><span class="toc-number">3.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">3.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">3.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">3.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">3.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">3.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-修改后的MySQL中Data位置"><span class="toc-number">3.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）通过mysqlslap对MySQL进行压力测试"><span class="toc-number">4.</span> <span class="toc-text">（二）通过mysqlslap对MySQL进行压力测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysqlLslap"><span class="toc-number">4.1.</span> <span class="toc-text">mysqlLslap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips-以下是常用的部分参数"><span class="toc-number">4.2.</span> <span class="toc-text">Tips: 以下是常用的部分参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是我的机器上对MySQL进行一组压力测试的结果"><span class="toc-number">4.3.</span> <span class="toc-text">以下是我的机器上对MySQL进行一组压力测试的结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                             </div>
                         </div>
                         
