@@ -29,31 +29,6 @@
     
     
     <entry>
-      <title>Computer Network Technology</title>
-      <link href="/Notes-Computer-Network-Technology/"/>
-      <url>/Notes-Computer-Network-Technology/</url>
-      
-        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇整理了一些我在近期复习计算机网络期末考试时所整理的一些笔记。</p><p>所用教科书：《计算机网络（第7版）》 – 谢希仁 • 电子工业出版社</p><hr><h2 id="一-概述"><a href="#一-概述" class="headerlink" title="(一)概述"></a>(一)概述</h2><h3 id="1-计算机网络在信息时代的作用"><a href="#1-计算机网络在信息时代的作用" class="headerlink" title="1.计算机网络在信息时代的作用"></a>1.计算机网络在信息时代的作用</h3><p>互联网的<code>基本特点</code>：</p><p><code>连通性</code>：互联网上用户不管距离多远，都能通信，就像用户终端彼此连通。</p><p><code>共享性</code>：指资源共享，包含信息、软件、硬件等共享，就像资源在用户身边。</p><p>计算机网络的组成：由若干<code>结点</code>和连接这些结点的<code>链路</code>组成；结点可以是计算机、集线器、交换机、路由器等。</p><p>互<code>连</code>网：网络之间通过路由器连接，构成更大的网络，就是互连网，是<code>网络的网络</code>。</p><p>主机（Host）：与网络相连的计算机</p><h3 id="2-互联网的组成"><a href="#2-互联网的组成" class="headerlink" title="2.互联网的组成"></a>2.互联网的组成</h3><p>从<code>工作上</code>分成两大部分：</p><p>边缘部分：由互联网的主机组成，是<code>用户直接</code>使用的部分，用来进行通信和资源共享。</p><p>核心部分：由大量网络和连接这些网络的路由器组成，是<code>为边缘部分提供服务</code>的，提供连通性和交换。</p><h4 id="2-1-边缘部分"><a href="#2-1-边缘部分" class="headerlink" title="2.1 边缘部分"></a>2.1 边缘部分</h4><p>端系统：主机</p><p>计算机之间的通信：主机A上的进程与主机B上的进程进行通信</p><p>端系统间通信方式：</p><h5 id="1-客户-服务器方式"><a href="#1-客户-服务器方式" class="headerlink" title="1.客户 - 服务器方式"></a>1.客户 - 服务器方式</h5><p>概述：是最常见与传统的方式。一方请求服务，一方提供服务，通信可以是单向的。也可以是双向的。</p><p>客户和服务器：指通信中涉及的两个应用进程。</p><p>主要特征：客户是服务请求方，服务器是服务提供方。</p><p>主要特点：</p><p>客户程序：</p><p>(1) 用户调用后，在通信时主动向远地服务器发起通信(请求服务)。因此，客户程序必须知道服务器程序的地址。</p><p>(2) 不需要特殊的硬件和很复杂的操作系统。</p><p>服务器程序：</p><p>(1) 是一种专门提供服务的程序，可同时处理多个客户的请求。</p><p>(2) 系统启动后即自动调用不断运行，被动等待接受客户的通信请求。因此，服务器程序不需要知道客户程序的地址。</p><p>(3) 一般需要强大的硬件和操作系统支持。</p><h5 id="2-对等连接方式（P2P）-–-Peer-To-Peer"><a href="#2-对等连接方式（P2P）-–-Peer-To-Peer" class="headerlink" title="2.对等连接方式（P2P） – Peer To Peer"></a>2.对等连接方式（P2P） – Peer To Peer</h5><p>概述：两台主机不区分服务器和客户，只要都运行P2P软件，就可以进行平等对等的连接通信，双方都可以访问对方硬盘中的共享文档。可支持大量对等用户同时工作。</p><h4 id="2-2-核心部分"><a href="#2-2-核心部分" class="headerlink" title="2.2 核心部分"></a>2.2 核心部分</h4><p>路由器的重要性：路由器是一种专用计算机，是实现分组交换的关键组件，其任务是转发收到的分组，这是网络核心部分最重要的功能。</p><p>交换：按照某种方式动态分配传输线路的资源。</p><h5 id="三种交换方式"><a href="#三种交换方式" class="headerlink" title="三种交换方式"></a>三种交换方式</h5><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> Notes </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Exam </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Software Testing</title>
       <link href="/Notes-Software-Testing/"/>
       <url>/Notes-Software-Testing/</url>
