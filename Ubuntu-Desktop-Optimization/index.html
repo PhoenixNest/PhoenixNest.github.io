@@ -5,16 +5,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IDS • Snort - PhoenixNest&#39;s Blog</title>
+    <title>Ubuntu Desktop • Optimization - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="PhoenixNest&#39;s Blog,"> 
-    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍我在工作期间，对办公室的一台测试用服务器部署IDS(intrusion detection system)入侵检测系统时的一些笔记分享。
-
-参考资料:
-
-Snort,"> 
+    <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction本篇将介绍最近对Ubuntu Desktop 20.04LTS优化的一些笔记分享。
+本文将不定期更新。
+在进行优化前，你需要👇：
+sudo apt update
+sudo ,"> 
     <meta name="author" content="PhoenixNest"> 
     <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -61,7 +61,7 @@ Snort,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">IDS • Snort</h3>
+        <h3 class="subtitle">Ubuntu Desktop • Optimization</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -86,25 +86,25 @@ Snort,">
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/IDS/snort.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/ubuntu.png) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/IDS"><b>「
-                    </b>IDS<b> 」</b></a>
+                    <a href="/categories/Ubuntu"><b>「
+                    </b>UBUNTU<b> 」</b></a>
                     
-                            八月 09, 2020
+                            一月 20, 2021
             </p>
             <h3 class="post-title animated fadeInDown">
-                <a href="/IDS-Snort/" title="IDS • Snort" class="">IDS • Snort</a>
+                <a href="/Ubuntu-Desktop-Optimization/" title="Ubuntu Desktop • Optimization" class="">Ubuntu Desktop • Optimization</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.7k
+                    1.9k
                 </span>
                         
                             
@@ -114,7 +114,7 @@ Snort,">
                 </span>
                                 
                                     
-                                        <span id="/IDS-Snort/" class="leancloud_visitors" data-flag-title="IDS • Snort">
+                                        <span id="/Ubuntu-Desktop-Optimization/" class="leancloud_visitors" data-flag-title="Ubuntu Desktop • Optimization">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">Unknown</span>
                                         </span>
@@ -123,7 +123,7 @@ Snort,">
                 </p>
                 
                     
-                        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Snort/" rel="tag">Snort</a></li></ul>
+                        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu-Desktop/" rel="tag">Ubuntu Desktop</a></li></ul>
                             
         </div>
     </div>
@@ -144,32 +144,23 @@ Snort,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS(intrusion detection system)入侵检测系统</code>时的一些笔记分享。</p>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>本篇将介绍最近对<code>Ubuntu Desktop 20.04LTS</code>优化的一些笔记分享。</p>
+<p>本文将<code>不定期</code>更新。</p>
+<p>在进行优化前，你需要👇：</p>
+<pre><code class="bash">sudo apt update
+sudo apt upgrade</code></pre>
 <hr>
-<p>参考资料:</p>
+<h2 id="Desktop-UI"><a href="#Desktop-UI" class="headerlink" title="Desktop UI"></a>Desktop UI</h2><h3 id="gnome-tweaks"><a href="#gnome-tweaks" class="headerlink" title="gnome-tweaks"></a>gnome-tweaks</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
+<p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">Gnome Extensions</a></p>
 <ul>
-<li><p><a href="https://www.snort.org/" target="_blank" rel="noopener">Snort Official</a></p>
-</li>
-<li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/" target="_blank" rel="noopener">LinuxHint • Snort Ubuntu Tutorial</a></p>
-</li>
-<li><p><a href="https://www.wireshark.org/" target="_blank" rel="noopener">WireShark</a></p>
-</li>
+<li>Dash To Dock</li>
+<li>NetSpeed</li>
+<li>Blyr</li>
 </ul>
-<hr>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>本篇将介绍在诸多<code>开源</code>的IDS中，一个广为人知的开源系统<code>Snort</code>。</p>
-<p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p>
-<hr>
-<h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flex
-
-sudo apt-get install snort</code></pre>
-<h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre>
-<h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre>
-<h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogs
-
-sudo snort -d -l snortLogs</code></pre>
-<p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">WireShark</a>打开，或使用以下命令：</p>
-<pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre>
-<h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p>
+<p><a href="https://www.gnome-look.org/browse/cat/" target="_blank" rel="noopener">Download Gnome Theme</a></p>
+<h3 id="使用plank替换Dash-To-Dock"><a href="#使用plank替换Dash-To-Dock" class="headerlink" title="使用plank替换Dash To Dock"></a>使用plank替换Dash To Dock</h3><p>PS: 由于Dash To Dock只用到部分功能，后续将使用plank对Dock进行美化，故可卸载原有Dash To Dock</p>
+<pre><code class="bash">sudo apt install plank</code></pre>
+<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><pre><code class="bash">sudo apt install sassc optipng libcanberra-gtk-module libglib2.0-dev libxml2-utils </code></pre>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -260,7 +251,7 @@ sudo snort -d -l snortLogs</code></pre>
                                 <h4>
                                     目录
                                 </h4>
-                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-部署Snort"><span class="toc-number">3.</span> <span class="toc-text">(一) 部署Snort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-嗅探"><span class="toc-number">4.</span> <span class="toc-text">(二) 嗅探</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础用法"><span class="toc-number">4.1.</span> <span class="toc-text">1. 基础用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-展示数据内容"><span class="toc-number">4.2.</span> <span class="toc-text">2. 展示数据内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-网络IP数据包记录"><span class="toc-number">5.</span> <span class="toc-text">(三) 网络IP数据包记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-NIDS"><span class="toc-number">6.</span> <span class="toc-text">(四) NIDS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Desktop-UI"><span class="toc-number">2.</span> <span class="toc-text">Desktop UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks"><span class="toc-number">2.1.</span> <span class="toc-text">gnome-tweaks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用plank替换Dash-To-Dock"><span class="toc-number">2.2.</span> <span class="toc-text">使用plank替换Dash To Dock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">2.3.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                             </div>
                         </div>
                         
