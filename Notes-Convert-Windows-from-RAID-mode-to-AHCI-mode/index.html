@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ubuntu Desktop • Optimization - PhoenixNest&#39;s Blog</title>
+    <title>RAID -&gt; AHCI - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -14,12 +14,12 @@
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
-本篇将介绍最近对Ubuntu Desktop 20.04LTS优化的一些笔记分享。
-本文将不定期更新。
+本篇整理了一些我在近期对笔记本RAID模式与AHCI模式转换的一些随记。
 
-在进行优化前，你需要👇：
-sudo apt update
-sud,">
+所使用配置清单：
+
+型号：ASUS ZenBook X2 Duo
+系统：Windows 10 P,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -72,7 +72,7 @@ sud,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Ubuntu Desktop • Optimization</h3>
+        <h3 class="subtitle">RAID -> AHCI</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -97,25 +97,25 @@ sud,">
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/ubuntu.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/RAID%20to%20AHCI/windows_safe_mode.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/Ubuntu"><b>「
-                        </b>UBUNTU<b> 」</b></a>
+                    <a href="/categories/Notes"><b>「
+                        </b>NOTES<b> 」</b></a>
                 
-                八月 03, 2020
+                一月 28, 2021
             </p>
             <h3 class="post-title animated fadeInDown">
-                <a href="/Ubuntu-Desktop-Optimization/" title="Ubuntu Desktop • Optimization" class="">Ubuntu Desktop • Optimization</a>
+                <a href="/Notes-Convert-Windows-from-RAID-mode-to-AHCI-mode/" title="RAID -&gt; AHCI" class="">RAID -&gt; AHCI</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.9k
+                    2k
                 </span>
                     
                     
@@ -125,8 +125,8 @@ sud,">
                 </span>
                     
                     
-                        <span id="/Ubuntu-Desktop-Optimization/" class="leancloud_visitors"
-                              data-flag-title="Ubuntu Desktop • Optimization">
+                        <span id="/Notes-Convert-Windows-from-RAID-mode-to-AHCI-mode/" class="leancloud_visitors"
+                              data-flag-title="RAID -> AHCI">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">Unknown</span>
                                         </span>
@@ -135,7 +135,7 @@ sud,">
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu-Desktop/" rel="tag">Ubuntu Desktop</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Daily/" rel="tag">Daily</a></li></ul>
             
         </div>
     </div>
@@ -157,24 +157,37 @@ sud,">
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
-<p>本篇将介绍最近对<code>Ubuntu Desktop 20.04LTS</code>优化的一些笔记分享。</p>
-<p>本文将<code>不定期</code>更新。</p>
+<p>本篇整理了一些我在近期对笔记本RAID模式与AHCI模式转换的一些随记。</p>
 </blockquote>
-<p>在进行优化前，你需要👇：</p>
-<pre><code class="bash">sudo apt update
-sudo apt upgrade</code></pre>
-<hr>
-<h2 id="Desktop-UI"><a href="#Desktop-UI" class="headerlink" title="Desktop UI"></a>Desktop UI</h2><h3 id="gnome-tweaks"><a href="#gnome-tweaks" class="headerlink" title="gnome-tweaks"></a>gnome-tweaks</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
-<p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">Gnome Extensions</a></p>
+<p>所使用配置清单：</p>
 <ul>
-<li>Dash To Dock</li>
-<li>NetSpeed</li>
-<li>Blyr</li>
+<li>型号：<code>ASUS</code> ZenBook X2 Duo</li>
+<li>系统：<code>Windows 10</code> Professional Workstation</li>
 </ul>
-<p><a href="https://www.gnome-look.org/browse/cat/" target="_blank" rel="noopener">Download Gnome Theme</a></p>
-<h3 id="使用plank替换Dash-To-Dock"><a href="#使用plank替换Dash-To-Dock" class="headerlink" title="使用plank替换Dash To Dock"></a>使用plank替换Dash To Dock</h3><p>PS: 由于Dash To Dock只用到部分功能，后续将使用plank对Dock进行美化，故可卸载原有Dash To Dock</p>
-<pre><code class="bash">sudo apt install plank</code></pre>
-<h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><pre><code class="bash">sudo apt install sassc optipng libcanberra-gtk-module libglib2.0-dev libxml2-utils </code></pre>
+<p>由于我的这台 Zenbook X2 Duo 只有一个硬盘位，鉴于华硕出厂时对 BIOS 的奇葩配置，导致<code>硬盘设置（Advanced -&gt; SATA Configuration）</code>直接就是<code>RAID</code>（一个硬盘无法组成<a href="https://baike.baidu.com/item/RAID%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/10588130" target="_blank" rel="noopener">磁盘阵列</a>，此时RAID于事无补），造成后期安装双系统时难以避免的<code>硬盘模式冲突</code>问题。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/RAID%20to%20AHCI/my_asus_disassemble.jpg">
+
+<hr>
+<h2 id="RAID-to-AHCI"><a href="#RAID-to-AHCI" class="headerlink" title="RAID to AHCI"></a>RAID to AHCI</h2><p>由于出厂就设置的RAID导致Windows中缺少对AHCI的驱动支持，直接对BIOS中的硬盘设置进行修改也将导致Windows无法正常启动。</p>
+<p>因此建议先保留RAID设置，在系统能正常运行的时候对引导进行修改，进入Windows的安全模式中让系统自动修复缺失的AHCI驱动。</p>
+<p>操作过程如下：</p>
+<ol>
+<li><p><code>保持RAID模式</code>，正常开机</p>
+</li>
+<li><p>Win + R 运行 msconfig，在<code>引导标签页</code>下选择<code>安全引导</code>，让系统默认以安全模式重新启动。</p>
+</li>
+<li><p>重启电脑，进入BIOS，<code>修改硬盘模式为AHCI</code></p>
+</li>
+<li><p>系统将会自动以安全模式启动，并在启动期间尝试<code>自动修复AHCI驱动</code>。</p>
+</li>
+<li><p>在安全模式启动后，再次运行 Win + R 运行 msconfig，<code>取消安全引导</code>，让系统恢复正常启动。</p>
+</li>
+<li><p>重启电脑，系统将在AHCI模式下正常运行。</p>
+</li>
+</ol>
+<hr>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/RAID%20to%20AHCI/windows_login.png">
+
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -267,7 +280,7 @@ sudo apt upgrade</code></pre>
                             <h4>
                                 目录
                             </h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Desktop-UI"><span class="toc-number">2.</span> <span class="toc-text">Desktop UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks"><span class="toc-number">2.1.</span> <span class="toc-text">gnome-tweaks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用plank替换Dash-To-Dock"><span class="toc-number">2.2.</span> <span class="toc-text">使用plank替换Dash To Dock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">2.3.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAID-to-AHCI"><span class="toc-number">2.</span> <span class="toc-text">RAID to AHCI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
