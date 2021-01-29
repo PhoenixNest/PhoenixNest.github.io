@@ -105,7 +105,7 @@ sud,">
                     <a href="/categories/Ubuntu"><b>「
                         </b>UBUNTU<b> 」</b></a>
                 
-                八月 03, 2020
+                十月 20, 2020
             </p>
             <h3 class="post-title animated fadeInDown">
                 <a href="/Ubuntu-Desktop-Optimization/" title="Ubuntu Desktop • Optimization" class="">Ubuntu Desktop • Optimization</a>
@@ -115,13 +115,13 @@ sud,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.9k
+                    4.8k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    2 mins.
+                    4 mins.
                 </span>
                     
                     
@@ -164,17 +164,78 @@ sud,">
 <pre><code class="bash">sudo apt update
 sudo apt upgrade</code></pre>
 <hr>
-<h2 id="Desktop-UI"><a href="#Desktop-UI" class="headerlink" title="Desktop UI"></a>Desktop UI</h2><h3 id="gnome-tweaks"><a href="#gnome-tweaks" class="headerlink" title="gnome-tweaks"></a>gnome-tweaks</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
+<h2 id="一些实用的-APT-工具"><a href="#一些实用的-APT-工具" class="headerlink" title="一些实用的 APT 工具"></a>一些实用的 APT 工具</h2><pre><code class="bash"># neofetch - 系统信息
+sudo apt install neofetch
+
+# htop - 性能监视器
+sudo apt install htop
+
+# Vim - 大名鼎鼎的文本编辑器
+sudo apt install vim
+
+# Thunderbird - 邮箱管理
+sudo apt install thunderbird
+
+# Remmina - Linux下不输给XShell的远程连接工具
+sudo apt install remmina</code></pre>
+<hr>
+<h2 id="Ubuntu-Cleaner-Ubuntu-清理工具"><a href="#Ubuntu-Cleaner-Ubuntu-清理工具" class="headerlink" title="Ubuntu Cleaner - Ubuntu 清理工具"></a>Ubuntu Cleaner - Ubuntu 清理工具</h2><pre><code class="bash">sudo add-apt-repository ppa:gerardpuig/ppa
+sudo apt update
+sudo apt install ubuntu-cleaner</code></pre>
+<hr>
+<h2 id="Nvidia-驱动"><a href="#Nvidia-驱动" class="headerlink" title="Nvidia 驱动"></a>Nvidia 驱动</h2><pre><code class="bash"># 检查适合系统的NAVIDIA版本
+nvidia-detector 
+
+# 安装推荐的显卡驱动 - xxx为你的推荐显驱
+sudo apt install nvidia-driver-xxx
+
+# 检测安装是否成功
+nvidia-smi
+
+# 查看NVIDIA显卡型号
+lspci |grep -i nvidia
+
+# 查看NVIDIA驱动版本
+sudo dpkg --list | grep nvidia-*</code></pre>
+<h3 id="卸载-Nidia-驱动"><a href="#卸载-Nidia-驱动" class="headerlink" title="卸载 Nidia 驱动"></a>卸载 Nidia 驱动</h3><pre><code class="bash">sudo apt-get --purge remove nvidia*
+sudo apt-get --purge remove &quot;*nvidia*&quot;
+sudo apt-get --purge remove &quot;*cublas*&quot; &quot;cuda*&quot;
+sudo apt autoremove</code></pre>
+<hr>
+<h2 id="Desktop-UI-美化"><a href="#Desktop-UI-美化" class="headerlink" title="Desktop UI 美化"></a>Desktop UI 美化</h2><h3 id="gnome-tweaks-调整工具"><a href="#gnome-tweaks-调整工具" class="headerlink" title="gnome-tweaks - 调整工具"></a>gnome-tweaks - 调整工具</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
 <p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">Gnome Extensions</a></p>
 <ul>
 <li>Dash To Dock</li>
-<li>NetSpeed</li>
-<li>Blyr</li>
+<li>NetSpeed - 顶栏网速监控</li>
+<li>Blyr - Apply a Blur Effect to GNOME Shell UI elements.</li>
 </ul>
 <p><a href="https://www.gnome-look.org/browse/cat/" target="_blank" rel="noopener">Download Gnome Theme</a></p>
 <h3 id="使用plank替换Dash-To-Dock"><a href="#使用plank替换Dash-To-Dock" class="headerlink" title="使用plank替换Dash To Dock"></a>使用plank替换Dash To Dock</h3><p>PS: 由于Dash To Dock只用到部分功能，后续将使用plank对Dock进行美化，故可卸载原有Dash To Dock</p>
 <pre><code class="bash">sudo apt install plank</code></pre>
 <h3 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h3><pre><code class="bash">sudo apt install sassc optipng libcanberra-gtk-module libglib2.0-dev libxml2-utils </code></pre>
+<hr>
+<h2 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h2><h3 id="从-NodeSource-中安装-Node-js-和-npm"><a href="#从-NodeSource-中安装-Node-js-和-npm" class="headerlink" title="从 NodeSource 中安装 Node.js 和 npm"></a>从 NodeSource 中安装 Node.js 和 npm</h3><blockquote>
+<p><a href="https://nodesource.com/" target="_blank" rel="noopener">NodeSource</a> 是一个公司，聚焦于提供企业级的 Node 支持。它维护了一个 APT 软件源，其中包含了很多 Node.js 版本。如果你的应用需要指定版本的Node.js 版本，使用这个软件源。</p>
+</blockquote>
+<ul>
+<li>以 sudo 用户身份运行下面的命令，下载并执行 NodeSource 安装脚本：</li>
+</ul>
+<pre><code class="bash">curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -</code></pre>
+<p>这个脚本将会添加 NodeSource 的签名 key 到你的系统，创建一个 apt 源文件，安装必备的软件包，并且刷新 apt 缓存。</p>
+<p>如果你需要另外的 Node.js 版本，例如12.x，将setup_14.x修改为setup_12.x。</p>
+<ul>
+<li>一旦 NodeSource 源被启用，安装 Node.js 和 npm:</li>
+</ul>
+<pre><code class="bash">sudo apt install nodejs</code></pre>
+<p>nodejs 软件包同时包含node和npm二进制包。</p>
+<ul>
+<li>验证 Node.js 和 npm 是否正确安装。</li>
+</ul>
+<pre><code class="bash">node -v
+npm -v</code></pre>
+<hr>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><pre><code class="bash">sudo apt install git</code></pre>
+<h3 id="Github-Desktop"><a href="#Github-Desktop" class="headerlink" title="Github Desktop"></a>Github Desktop</h3><p><a href="https://meshworld.in/install-github-desktop-on-ubuntu-20-04-or-ubuntu-based-distributions/" target="_blank" rel="noopener">install-github-desktop-on-ubuntu-20-04-or-ubuntu-based-distributions</a></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -267,7 +328,7 @@ sudo apt upgrade</code></pre>
                             <h4>
                                 目录
                             </h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Desktop-UI"><span class="toc-number">2.</span> <span class="toc-text">Desktop UI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks"><span class="toc-number">2.1.</span> <span class="toc-text">gnome-tweaks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用plank替换Dash-To-Dock"><span class="toc-number">2.2.</span> <span class="toc-text">使用plank替换Dash To Dock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">2.3.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些实用的-APT-工具"><span class="toc-number">2.</span> <span class="toc-text">一些实用的 APT 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-Cleaner-Ubuntu-清理工具"><span class="toc-number">3.</span> <span class="toc-text">Ubuntu Cleaner - Ubuntu 清理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-驱动"><span class="toc-number">4.</span> <span class="toc-text">Nvidia 驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-Nidia-驱动"><span class="toc-number">4.1.</span> <span class="toc-text">卸载 Nidia 驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Desktop-UI-美化"><span class="toc-number">5.</span> <span class="toc-text">Desktop UI 美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks-调整工具"><span class="toc-number">5.1.</span> <span class="toc-text">gnome-tweaks - 调整工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用plank替换Dash-To-Dock"><span class="toc-number">5.2.</span> <span class="toc-text">使用plank替换Dash To Dock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">5.3.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-number">6.</span> <span class="toc-text">NodeJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从-NodeSource-中安装-Node-js-和-npm"><span class="toc-number">6.1.</span> <span class="toc-text">从 NodeSource 中安装 Node.js 和 npm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">7.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-Desktop"><span class="toc-number">7.1.</span> <span class="toc-text">Github Desktop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">8.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
