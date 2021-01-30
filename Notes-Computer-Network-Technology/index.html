@@ -114,13 +114,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    39k
+                    44k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    35 mins.
+                    40 mins.
                 </span>
                     
                     
@@ -1046,6 +1046,7 @@
 <p>使用多个中间设备，距离较远的源节点和目的节点彼此可以间接相连。但是，在网络中使用物理设备并不会影响逻辑拓扑，如图所示。在图中，添加中间物理连接不会改变逻辑拓扑。逻辑点对点连接相同。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_6_2.png">
 
+<hr>
 <h3 id="LAN-拓扑"><a href="#LAN-拓扑" class="headerlink" title="LAN 拓扑"></a>LAN 拓扑</h3><blockquote>
 <p>在多路访问局域网中，终端设备（即节点）使用<code>星型或扩展星型</code>拓扑相互连接，如图所示。在这种类型的拓扑中，终端设备连接到一个中央中间设备，在本例中是一个以太网交换机。扩展星型（扩展星型）通过连接多个以太网交换机来扩展此拓扑。星型和扩展星型拓扑安装简单、扩展性好（易于添加和删除终端设备），而且故障排除容易。早期的星型拓扑使用以太网集线器互连终端设备。</p>
 </blockquote>
@@ -1061,7 +1062,115 @@
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_7.png" alt="物理拓扑"></p>
-<h3 id="半双工与全双工通信"><a href="#半双工与全双工通信" class="headerlink" title="半双工与全双工通信"></a>半双工与全双工通信</h3><p>…</p>
+<hr>
+<h3 id="半双工与全双工通信"><a href="#半双工与全双工通信" class="headerlink" title="半双工与全双工通信"></a>半双工与全双工通信</h3><blockquote>
+<p>半双工通信</p>
+</blockquote>
+<p>两台设备都可以通过该介质发送和接收，但<code>无法同时执行</code>这两个操作。WLAN和带有以太网集线器的传统总线拓扑使用半双工模式。半双工<code>每次只允许一台设备</code>通过共享介质发送或接收。</p>
+<blockquote>
+<p>全双工通信</p>
+</blockquote>
+<p>两台设备都可以在共享介质上<code>同时发送和接收</code>。数据链路层假定介质随时可供两个节点实现传输。默认情况下，以太网交换机在全双工模式下运行，<code>但是如果与以太网集线器等设备连接，它们则可以在半双工模式下运</code>行。</p>
+<blockquote>
+<p>总之，<strong>半双工通信限制为每次在一个方向进行数据交换</strong>。<strong>全双工允许同时发送和接收数据</strong>。两个互连设备，比如一个主机网卡和以太网交换机上的一个接口，必须采用同一双工模式运行。否则，将会出现双工不匹配，导致链路效率低下和延时。</p>
+</blockquote>
+<hr>
+<h3 id="访问控制方法"><a href="#访问控制方法" class="headerlink" title="访问控制方法"></a>访问控制方法</h3><blockquote>
+<p>以太网 LAN 和 WLAN 都是多路访问网络的示例。多路访问网络是指可能有两个或多个终端设备同时试图访问网络的网络。</p>
+<p>某些多路访问网络需要使用规则来管理设备共享物理介质的方式。对于共享介质，有两种基本的访问控制方法：</p>
+</blockquote>
+<ul>
+<li><p><strong>基于竞争的访问</strong></p>
+<blockquote>
+<p>在基于竞争的多路访问网络中，<code>所有节点都工作在半双工方式，争夺介质的使用</code>。然而，<code>一次只有一台设备能够发送</code>。因此，当多台设备同时传输时，会使用一个处理过程。</p>
+</blockquote>
+<p>基于竞争的访问方法示例如下：</p>
+<ul>
+<li><p>在传统总线拓扑以太网局域网上使用载波侦听多路访问/冲突检测 (CSMA/CD)</p>
+</li>
+<li><p>在无线局域网上使用载波侦听多路访问/冲突避免 (CSMA/CA)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_9_1.png" alt="基于竞争的访问"></p>
+<ul>
+<li><p><strong>受控访问</strong></p>
+<blockquote>
+<p>在基于控制的多路访问网络中，<code>每个节点都有自己的时间来使用介质</code>。这种确定性的传统网络类型效率很低，因为设备必须等到轮到自己才能访问介质。使用受控访问的多路访问网络的示例包括：</p>
+</blockquote>
+<ul>
+<li><p>传统令牌环</p>
+</li>
+<li><p>传统ARCNET</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_9_2.png" alt="受控访问"></p>
+<blockquote>
+<p>注意: <strong>如今，以太网网络以全双工方式运行，不需要访问方法。</strong></p>
+</blockquote>
+<hr>
+<h3 id="基于竞争的访问-CSMA-CD"><a href="#基于竞争的访问-CSMA-CD" class="headerlink" title="基于竞争的访问 - CSMA/CD"></a>基于竞争的访问 - CSMA/<code>CD</code></h3><p>基于竞争的访问网络示例如下：</p>
+<ul>
+<li><p>无线局域网（使用 CSMA/CA）</p>
+</li>
+<li><p>传统总线拓扑以太网局域网（使用 CSMA/CD）</p>
+</li>
+<li><p>使用集线器的传统以太网局域网（使用 CSMA/CD）</p>
+</li>
+</ul>
+<p>这些网络在<code>半双工模式</code>下运行，意味着<code>一台设备一次只能发送或接收</code>。这<code>需要有一个进程来管理设备何时可以发送以及当多台设备同时发送时会发生什么情况</code>。</p>
+<p>如果两台设备<code>同时传输</code>，则会发生<code>冲突</code>。<strong>对于传统以太网局域网，两台设备将会检测到网络上的冲突。这就是 CSMA/<code>CD</code> 的冲突检测（<code>CD</code>）部分。</strong>网卡通过比较传输的数据与接收的数据，或通过识别介质中的信号振幅是否高于正常状况来实现。<code>两台设备发送的数据会损坏且需重新发送</code>。</p>
+<blockquote>
+<p>PC1 有一个以太网帧要发送给 PC3。PC1 的网卡需要确定是否有设备正在通过介质传输。如果它没有检测到载波信号，也就是说，它没有收到来自其他设备的传输，则假定网络可用于发送。</p>
+<p>当介质可用时，PC1 NIC 发送以太网帧，如图所示。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_1.png" alt="PC1发送帧"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_2.png" alt="集线器接收帧"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_3.png" alt="集线器发送帧"></p>
+<hr>
+<h3 id="基于竞争的访问-CSMA-CA"><a href="#基于竞争的访问-CSMA-CA" class="headerlink" title="基于竞争的访问 - CSMA/CA"></a>基于竞争的访问 - CSMA/<code>CA</code></h3><p><strong>IEEE 802.11 WLAN</strong> 所使用的另一种 CSMA 形式为载波侦听多路访问/冲突避免 (CSMA/<code>CA</code>)。</p>
+<p>CMSA/<code>CA</code> 采用一种与 CSMA/CD 类似的方法来检测介质是否空闲。CMSA/<code>CA</code> 采用其他技术。在无线环境中，设备可能无法检测到冲突。<strong>CMSA/<code>CA</code> 不会检测冲突</strong>，但会通过在传输之前等待来尝试避免冲突。每台设备发送时都会包含传输所需的持续时间。所有其他无线设备都会收到此信息，知道介质将有多长时间不可用。</p>
+<blockquote>
+<p>在图中，如果主机 A 从接入点接收到一个无线帧，那么主机 B 和 C 也会看到该帧以及介质有多久不可用。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_11.png" alt="集线器发送帧"></p>
+<p>当无线设备发送 802.11 帧后，接收方会返回确认，以使发送方知道帧已到达。</p>
+<p>不管是使用集线器的以太网 LAN，还是 WLAN，基于竞争的系统在介质使用率高的情况下都无法很好地扩展。</p>
+<p><code>注意：</code>使用交换机的以太网 LAN 不使用基于竞争的系统，因为交换机和主机网卡在全双工模式下运行。</p>
+<hr>
+<h3 id="帧"><a href="#帧" class="headerlink" title="帧"></a>帧</h3><blockquote>
+<p>数据链路层通过使用<code>帧头和帧尾</code>将其封装以<code>创建帧</code>，从而<code>准备封装后的数据</code>（通常是IPv4或IPv6数据包），以便在本地介质上进行传输。</p>
+<p>数据链路协议负责<code>同一网络中的网卡间通信</code>。虽然有许多描述数据链路层帧的不同数据链路层协议，但每种帧均有<code>三个基本组成部分</code>：</p>
+</blockquote>
+<ul>
+<li><p>帧头</p>
+</li>
+<li><p>数据</p>
+</li>
+<li><p>帧尾</p>
+</li>
+</ul>
+<p>与其他封装协议不同，<code>数据链路层以帧尾的形式在帧的末尾附加信息</code>。</p>
+<blockquote>
+<p><strong>所有数据链路层协议均将数据封装于帧的数据字段内</strong>。但是，由于协议的不同，帧结构以及帧头和帧尾中包含的字段会存在差异。</p>
+</blockquote>
+<p><strong>没有一种帧结构能满足通过所有类型介质的全部数据传输需求</strong>。根据环境的不同，帧中所需的控制信息量也相应变化，以匹配介质和逻辑拓扑的访问控制需求。例如，WLAN帧必须包含避免冲突的过程，因此与以太网帧相比需要额外的控制信息。</p>
+<p>如图所示，在脆弱的环境下，需要更多控制才能确保送达。<code>由于所需控制信息较多，因此帧头和帧尾字段都较大</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_12.png" alt="帧"></p>
+<hr>
+<h3 id="帧字段"><a href="#帧字段" class="headerlink" title="帧字段"></a>帧字段</h3><blockquote>
+<p>成帧技术将位流拆分成可破解的多个分组，且将控制信息作为不同字段值插入帧头和帧尾中。此格式使物理信号具备能被节点识别且可在目的地解码成数据包的一种结构。</p>
+</blockquote>
+<p>图中显示了<code>通用帧字段</code>。<code>并非所有协议均包含全部此类字段</code>。特定数据链路协议的标准定义了实际帧格式。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_13.png" alt="帧字段"></p>
+<p>数据链路层协议将帧尾添加到各帧结尾处。</p>
+<blockquote>
+<p>在一个叫做<code>错误检测</code>的过程中，帧尾会判断帧是否到达时没有错误。它将组成帧的各个位的逻辑或数学摘要放入帧尾中。要将错误检测添加到数据链路层，因为介质中的信号可能遭受干扰、失真或丢失，从而大幅更改这些信号所代表的位值。</p>
+</blockquote>
+<p>发送节点会创建帧内容的逻辑摘要，称为循环冗余校验（CRC）值。此值将放入帧校验序列（FCS）字段中以代表帧内容。在以太网尾部，FCS 为接收节点提供一种方法，用于确定帧是否出现传输错误。</p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -1154,7 +1263,7 @@
                             <h4>
                                 目录
                             </h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当今网络"><span class="toc-number">2.</span> <span class="toc-text">当今网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络影响着我们的生活"><span class="toc-number">2.1.</span> <span class="toc-text">网络影响着我们的生活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络组件"><span class="toc-number">2.2.</span> <span class="toc-text">网络组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络表示方式和网络拓扑"><span class="toc-number">2.3.</span> <span class="toc-text">网络表示方式和网络拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见网络类型"><span class="toc-number">2.4.</span> <span class="toc-text">常见网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Internet-连接"><span class="toc-number">2.5.</span> <span class="toc-text">Internet 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可靠网络"><span class="toc-number">2.6.</span> <span class="toc-text">可靠网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络趋势"><span class="toc-number">2.7.</span> <span class="toc-text">网络趋势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络安全"><span class="toc-number">2.8.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全解决方案"><span class="toc-number">2.9.</span> <span class="toc-text">安全解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议和模型"><span class="toc-number">3.</span> <span class="toc-text">协议和模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#规则"><span class="toc-number">3.1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议"><span class="toc-number">3.2.</span> <span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议功能"><span class="toc-number">3.3.</span> <span class="toc-text">协议功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议簇"><span class="toc-number">3.4.</span> <span class="toc-text">协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-协议示例"><span class="toc-number">3.5.</span> <span class="toc-text">TCP&#x2F;IP 协议示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-协议簇"><span class="toc-number">3.6.</span> <span class="toc-text">TCP&#x2F;IP 协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用层"><span class="toc-number">3.7.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层"><span class="toc-number">3.8.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互联网层"><span class="toc-number">3.9.</span> <span class="toc-text">互联网层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络接入层"><span class="toc-number">3.10.</span> <span class="toc-text">网络接入层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开放标准"><span class="toc-number">3.11.</span> <span class="toc-text">开放标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互联网标准组织"><span class="toc-number">3.12.</span> <span class="toc-text">互联网标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子和通信标准组织"><span class="toc-number">3.13.</span> <span class="toc-text">电子和通信标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考模型"><span class="toc-number">3.14.</span> <span class="toc-text">参考模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI-模型与-TCP-IP-模型的比较"><span class="toc-number">3.15.</span> <span class="toc-text">OSI 模型与 TCP&#x2F;IP 模型的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据封装"><span class="toc-number">3.16.</span> <span class="toc-text">数据封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据访问"><span class="toc-number">3.17.</span> <span class="toc-text">数据访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层（第3层）逻辑地址"><span class="toc-number">3.18.</span> <span class="toc-text">网络层（第3层）逻辑地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同一网络（局域网）中的设备"><span class="toc-number">3.19.</span> <span class="toc-text">同一网络（局域网）中的设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）地址的作用：相同的-IP-网络（局域网）"><span class="toc-number">3.20.</span> <span class="toc-text">数据链路层（第2层）地址的作用：相同的 IP 网络（局域网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层地址的作用"><span class="toc-number">3.21.</span> <span class="toc-text">网络层地址的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层地址的作用：不同的IP网络"><span class="toc-number">3.22.</span> <span class="toc-text">数据链路层地址的作用：不同的IP网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）地址"><span class="toc-number">3.23.</span> <span class="toc-text">数据链路层（第2层）地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理层（第1层）"><span class="toc-number">4.</span> <span class="toc-text">物理层（第1层）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#物理层标准"><span class="toc-number">4.1.</span> <span class="toc-text">物理层标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编码"><span class="toc-number">4.2.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信令"><span class="toc-number">4.3.</span> <span class="toc-text">信令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带宽"><span class="toc-number">4.4.</span> <span class="toc-text">带宽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带宽术语"><span class="toc-number">4.5.</span> <span class="toc-text">带宽术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#延迟"><span class="toc-number">4.6.</span> <span class="toc-text">延迟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#吞吐量"><span class="toc-number">4.7.</span> <span class="toc-text">吞吐量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实际吞吐量"><span class="toc-number">4.8.</span> <span class="toc-text">实际吞吐量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层（第2层）"><span class="toc-number">5.</span> <span class="toc-text">数据链路层（第2层）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-802LAN-MAN-数据链路子层"><span class="toc-number">5.1.</span> <span class="toc-text">IEEE 802LAN&#x2F;MAN 数据链路子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提供介质访问"><span class="toc-number">5.2.</span> <span class="toc-text">提供介质访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）标准"><span class="toc-number">5.3.</span> <span class="toc-text">数据链路层（第2层）标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拓扑"><span class="toc-number">5.4.</span> <span class="toc-text">拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WAN-拓补"><span class="toc-number">5.5.</span> <span class="toc-text">WAN 拓补</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点对点-WAN-拓扑"><span class="toc-number">5.6.</span> <span class="toc-text">点对点 WAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LAN-拓扑"><span class="toc-number">5.7.</span> <span class="toc-text">LAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#半双工与全双工通信"><span class="toc-number">5.8.</span> <span class="toc-text">半双工与全双工通信</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当今网络"><span class="toc-number">2.</span> <span class="toc-text">当今网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络影响着我们的生活"><span class="toc-number">2.1.</span> <span class="toc-text">网络影响着我们的生活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络组件"><span class="toc-number">2.2.</span> <span class="toc-text">网络组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络表示方式和网络拓扑"><span class="toc-number">2.3.</span> <span class="toc-text">网络表示方式和网络拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见网络类型"><span class="toc-number">2.4.</span> <span class="toc-text">常见网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Internet-连接"><span class="toc-number">2.5.</span> <span class="toc-text">Internet 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可靠网络"><span class="toc-number">2.6.</span> <span class="toc-text">可靠网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络趋势"><span class="toc-number">2.7.</span> <span class="toc-text">网络趋势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络安全"><span class="toc-number">2.8.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全解决方案"><span class="toc-number">2.9.</span> <span class="toc-text">安全解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议和模型"><span class="toc-number">3.</span> <span class="toc-text">协议和模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#规则"><span class="toc-number">3.1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议"><span class="toc-number">3.2.</span> <span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议功能"><span class="toc-number">3.3.</span> <span class="toc-text">协议功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议簇"><span class="toc-number">3.4.</span> <span class="toc-text">协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-协议示例"><span class="toc-number">3.5.</span> <span class="toc-text">TCP&#x2F;IP 协议示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-协议簇"><span class="toc-number">3.6.</span> <span class="toc-text">TCP&#x2F;IP 协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用层"><span class="toc-number">3.7.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层"><span class="toc-number">3.8.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互联网层"><span class="toc-number">3.9.</span> <span class="toc-text">互联网层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络接入层"><span class="toc-number">3.10.</span> <span class="toc-text">网络接入层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开放标准"><span class="toc-number">3.11.</span> <span class="toc-text">开放标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互联网标准组织"><span class="toc-number">3.12.</span> <span class="toc-text">互联网标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子和通信标准组织"><span class="toc-number">3.13.</span> <span class="toc-text">电子和通信标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考模型"><span class="toc-number">3.14.</span> <span class="toc-text">参考模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI-模型与-TCP-IP-模型的比较"><span class="toc-number">3.15.</span> <span class="toc-text">OSI 模型与 TCP&#x2F;IP 模型的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据封装"><span class="toc-number">3.16.</span> <span class="toc-text">数据封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据访问"><span class="toc-number">3.17.</span> <span class="toc-text">数据访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层（第3层）逻辑地址"><span class="toc-number">3.18.</span> <span class="toc-text">网络层（第3层）逻辑地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同一网络（局域网）中的设备"><span class="toc-number">3.19.</span> <span class="toc-text">同一网络（局域网）中的设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）地址的作用：相同的-IP-网络（局域网）"><span class="toc-number">3.20.</span> <span class="toc-text">数据链路层（第2层）地址的作用：相同的 IP 网络（局域网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层地址的作用"><span class="toc-number">3.21.</span> <span class="toc-text">网络层地址的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层地址的作用：不同的IP网络"><span class="toc-number">3.22.</span> <span class="toc-text">数据链路层地址的作用：不同的IP网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）地址"><span class="toc-number">3.23.</span> <span class="toc-text">数据链路层（第2层）地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理层（第1层）"><span class="toc-number">4.</span> <span class="toc-text">物理层（第1层）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#物理层标准"><span class="toc-number">4.1.</span> <span class="toc-text">物理层标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编码"><span class="toc-number">4.2.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信令"><span class="toc-number">4.3.</span> <span class="toc-text">信令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带宽"><span class="toc-number">4.4.</span> <span class="toc-text">带宽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带宽术语"><span class="toc-number">4.5.</span> <span class="toc-text">带宽术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#延迟"><span class="toc-number">4.6.</span> <span class="toc-text">延迟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#吞吐量"><span class="toc-number">4.7.</span> <span class="toc-text">吞吐量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实际吞吐量"><span class="toc-number">4.8.</span> <span class="toc-text">实际吞吐量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层（第2层）"><span class="toc-number">5.</span> <span class="toc-text">数据链路层（第2层）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-802LAN-MAN-数据链路子层"><span class="toc-number">5.1.</span> <span class="toc-text">IEEE 802LAN&#x2F;MAN 数据链路子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提供介质访问"><span class="toc-number">5.2.</span> <span class="toc-text">提供介质访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）标准"><span class="toc-number">5.3.</span> <span class="toc-text">数据链路层（第2层）标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拓扑"><span class="toc-number">5.4.</span> <span class="toc-text">拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WAN-拓补"><span class="toc-number">5.5.</span> <span class="toc-text">WAN 拓补</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点对点-WAN-拓扑"><span class="toc-number">5.6.</span> <span class="toc-text">点对点 WAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LAN-拓扑"><span class="toc-number">5.7.</span> <span class="toc-text">LAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#半双工与全双工通信"><span class="toc-number">5.8.</span> <span class="toc-text">半双工与全双工通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问控制方法"><span class="toc-number">5.9.</span> <span class="toc-text">访问控制方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于竞争的访问-CSMA-CD"><span class="toc-number">5.10.</span> <span class="toc-text">基于竞争的访问 - CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于竞争的访问-CSMA-CA"><span class="toc-number">5.11.</span> <span class="toc-text">基于竞争的访问 - CSMA&#x2F;CA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帧"><span class="toc-number">5.12.</span> <span class="toc-text">帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帧字段"><span class="toc-number">5.13.</span> <span class="toc-text">帧字段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
