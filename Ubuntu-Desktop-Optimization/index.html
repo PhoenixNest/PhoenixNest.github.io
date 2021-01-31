@@ -202,15 +202,13 @@ sudo apt-get --purge remove &quot;*nvidia*&quot;
 sudo apt-get --purge remove &quot;*cublas*&quot; &quot;cuda*&quot;
 sudo apt autoremove</code></pre>
 <hr>
-<h2 id="亮度调节"><a href="#亮度调节" class="headerlink" title="亮度调节"></a>亮度调节</h2><blockquote>
-<p>由于我的笔记本是双屏笔记本，无法直接通过Ubuntu设置中的亮度调节对副屏的亮度进行调节，在查阅网上解决方法后，我找到了这个工具</p>
-</blockquote>
-<p><a href="https://askubuntu.com/questions/1200391/how-do-i-change-the-backlight-intensity-brightness-of-external-display-asus-sc" target="_blank" rel="noopener">How do I change the backlight intensity / brightness of external display ASUS Screenpad</a></p>
+<h2 id="亮度调节"><a href="#亮度调节" class="headerlink" title="亮度调节"></a>亮度调节</h2><p><a href="https://askubuntu.com/questions/1200391/how-do-i-change-the-backlight-intensity-brightness-of-external-display-asus-sc" target="_blank" rel="noopener">How do I change the backlight intensity / brightness of external display ASUS Screenpad</a></p>
+<pre><code class="bash">echo 255 | sudo tee &#39;/sys/class/leds/asus::screenpad/brightness&#39;</code></pre>
 <pre><code class="bash">sudo add-apt-repository ppa:apandada1/brightness-controller
 sudo apt update
 sudo apt install brightness-controller</code></pre>
 <hr>
-<h2 id="Desktop-UI-美化"><a href="#Desktop-UI-美化" class="headerlink" title="Desktop UI 美化"></a>Desktop UI 美化</h2><h3 id="gnome-tweaks-调整工具"><a href="#gnome-tweaks-调整工具" class="headerlink" title="gnome-tweaks - 调整工具"></a>gnome-tweaks - 调整工具</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
+<h2 id="UI-美化"><a href="#UI-美化" class="headerlink" title="UI 美化"></a>UI 美化</h2><h3 id="gnome-tweaks-整体调整工具"><a href="#gnome-tweaks-整体调整工具" class="headerlink" title="gnome-tweaks - 整体调整工具"></a>gnome-tweaks - 整体调整工具</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
 <p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">Gnome Extensions</a></p>
 <ul>
 <li>Dash To Dock</li>
@@ -304,7 +302,7 @@ npm -v</code></pre>
                 <ul>
                     <li>
                         <a href="/">
-                            12
+                            13
                             <p>
                                 文章
                             </p>
@@ -312,7 +310,7 @@ npm -v</code></pre>
                     </li>
                     <li>
                         <a href="/categories">
-                            5
+                            4
                             <p>
                                 分类
                             </p>
@@ -320,7 +318,7 @@ npm -v</code></pre>
                     </li>
                     <li>
                         <a href="/tags">
-                            10
+                            9
                             <p>
                                 标签
                             </p>
@@ -336,7 +334,7 @@ npm -v</code></pre>
                             <h4>
                                 目录
                             </h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些实用的-APT-工具"><span class="toc-number">2.</span> <span class="toc-text">一些实用的 APT 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-Cleaner-Ubuntu-清理工具"><span class="toc-number">3.</span> <span class="toc-text">Ubuntu Cleaner - Ubuntu 清理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-驱动"><span class="toc-number">4.</span> <span class="toc-text">Nvidia 驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-Nidia-驱动"><span class="toc-number">4.1.</span> <span class="toc-text">卸载 Nidia 驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#亮度调节"><span class="toc-number">5.</span> <span class="toc-text">亮度调节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Desktop-UI-美化"><span class="toc-number">6.</span> <span class="toc-text">Desktop UI 美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks-调整工具"><span class="toc-number">6.1.</span> <span class="toc-text">gnome-tweaks - 调整工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用plank替换Dash-To-Dock"><span class="toc-number">6.2.</span> <span class="toc-text">使用plank替换Dash To Dock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">6.3.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-number">7.</span> <span class="toc-text">NodeJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从-NodeSource-中安装-Node-js-和-npm"><span class="toc-number">7.1.</span> <span class="toc-text">从 NodeSource 中安装 Node.js 和 npm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">8.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-Desktop"><span class="toc-number">8.1.</span> <span class="toc-text">Github Desktop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">9.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些实用的-APT-工具"><span class="toc-number">2.</span> <span class="toc-text">一些实用的 APT 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-Cleaner-Ubuntu-清理工具"><span class="toc-number">3.</span> <span class="toc-text">Ubuntu Cleaner - Ubuntu 清理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-驱动"><span class="toc-number">4.</span> <span class="toc-text">Nvidia 驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-Nidia-驱动"><span class="toc-number">4.1.</span> <span class="toc-text">卸载 Nidia 驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#亮度调节"><span class="toc-number">5.</span> <span class="toc-text">亮度调节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UI-美化"><span class="toc-number">6.</span> <span class="toc-text">UI 美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks-整体调整工具"><span class="toc-number">6.1.</span> <span class="toc-text">gnome-tweaks - 整体调整工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用plank替换Dash-To-Dock"><span class="toc-number">6.2.</span> <span class="toc-text">使用plank替换Dash To Dock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">6.3.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-number">7.</span> <span class="toc-text">NodeJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从-NodeSource-中安装-Node-js-和-npm"><span class="toc-number">7.1.</span> <span class="toc-text">从 NodeSource 中安装 Node.js 和 npm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">8.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-Desktop"><span class="toc-number">8.1.</span> <span class="toc-text">Github Desktop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">9.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
