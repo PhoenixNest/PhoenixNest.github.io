@@ -17,8 +17,10 @@
 本篇将介绍有关Git与Github使用的一些笔记分享。
 
 
-Github 访问加速
-对于Windows系统，在日常使用过程中经常会出现访问速度慢的情况，此处将介绍通过修改 ,">
+Git 配置
+配置Github用户名与邮箱。
+
+git config -global user.name = &amp;,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -114,13 +116,13 @@ Github 访问加速
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.6k
+                    2.5k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    2 mins.
                 </span>
                     
                     
@@ -159,6 +161,33 @@ Github 访问加速
 <p>本篇将介绍有关<code>Git与Github使用</code>的一些笔记分享。</p>
 </blockquote>
 <hr>
+<h2 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h2><blockquote>
+<p>配置Github用户名与邮箱。</p>
+</blockquote>
+<pre><code class="bash">git config -global user.name = &quot;你的 Github 用户名&quot;
+git config -global user.email = &quot;你的 Github 邮箱&quot;</code></pre>
+<blockquote>
+<p>配置远端 SSH 公钥。</p>
+</blockquote>
+<pre><code class="bash"># 进入 ~/.ssh，若没有则创建（mkdir ~/.ssh）
+cd ~/.ssh
+
+# 生成公钥
+ssh-keygen -t rsa -C &quot;你的 Github 邮箱&quot;
+
+# 查看公钥文件
+cat id_rsa.pub</code></pre>
+<blockquote>
+<p>上传密钥</p>
+</blockquote>
+<p>访问Github并登录，点击右上角头像，进入 Settings - SSH and GPG keys,点击右上角的 New SSH key。</p>
+<p>在 Key 输入框内填入 id_rsa.pub 中的全部内容。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/git_ssh_1.png">
+
+<hr>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/git_ssh_2.png">
+
+<hr>
 <h2 id="Github-访问加速"><a href="#Github-访问加速" class="headerlink" title="Github 访问加速"></a>Github 访问加速</h2><blockquote>
 <p>对于Windows系统，在日常使用过程中经常会出现访问速度慢的情况，此处将介绍通过修改 host 文件对 Github 进行加速的笔记。</p>
 <p>Windows 环境下的host文件位于：<strong>C:\Windows\System32\drivers\etc</strong>下<br>修改时需要管理员权限</p>
@@ -167,7 +196,9 @@ Github 访问加速
 <pre><code class="text">140.82.112.3    github.com
 199.232.69.194  github.global.ssl.fastly.net
 199.232.96.133  avatars.githubusercontent.com
-199.232.96.133  raw.githubusercontent.com</code></pre>
+199.232.96.133  raw.githubusercontent.com
+199.232.96.133  user-images.githubusercontent.com
+199.232.96.133  camo.githubusercontent.com</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/ipaddress.png" alt="ipaddress"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/hosts.png" alt="修改后的 host 文件"></p>
 <hr>
@@ -262,7 +293,7 @@ Github 访问加速
                             <h4>
                                 目录
                             </h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-访问加速"><span class="toc-number">2.</span> <span class="toc-text">Github 访问加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-配置"><span class="toc-number">2.</span> <span class="toc-text">Git 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-访问加速"><span class="toc-number">3.</span> <span class="toc-text">Github 访问加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
