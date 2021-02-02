@@ -93,6 +93,93 @@ pre code .language-mark b {
   font-size: 0.8rem;
   font-family: Rubik, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
 }
+.link .post-cards {
+  margin: -10px 10px 0;
+}
+.link .post-cards .md-links {
+  overflow: auto;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.link .post-cards .md-links > .md-links-item {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 20px 7px;
+  padding: 0;
+  width: calc(100% / 3 - 14px);
+  height: 90px;
+  border-radius: 8px;
+  list-style: none;
+  line-height: 17px;
+  transform: perspective(1px) translateZ(0);
+}
+.link .post-cards .md-links > .md-links-item:hover img {
+  transform: rotate(540deg);
+}
+.link .post-cards .md-links > .md-links-item:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: #49b1f5;
+  content: '';
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transform: scale(0);
+}
+.link .post-cards .md-links > .md-links-item:hover:before,
+.link .post-cards .md-links > .md-links-item:focus:before,
+.link .post-cards .md-links > .md-links-item:active:before {
+  transform: scale(1);
+}
+.link .post-cards .md-links > .md-links-item a {
+  color: #333;
+  text-decoration: none;
+}
+.link .post-cards .md-links > .md-links-item a img {
+  float: left;
+  margin: 11px 10px;
+  padding: 4px;
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+  transition: all 0.3s;
+}
+.link .post-cards .md-links > .md-links-item a .md-links-title {
+  overflow: hidden;
+  padding: 16px 10px 0 0;
+  height: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 20px;
+}
+.link .post-cards .md-links > .md-links-item a .md-links-des {
+  overflow: hidden;
+  height: 50px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+.link .comment-word {
+  font-weight: bold;
+  font-size: 1.7em;
+}
+@media screen and (max-width: 1100px) {
+  .link .md-links .md-links-item {
+    width: calc(50% - 14px) !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .link .md-links .md-links-item {
+    width: calc(100% - 14px) !important;
+  }
+}
 /* Responsive style */
 body {
   margin: 0;
@@ -2069,6 +2156,63 @@ h1.title {
   font-weight: 900;
   margin-block-start: 1.2em;
   margin-block-end: 0;
+}
+.article .sidebars {
+  position: relative;
+}
+.article .sidebars .boxs {
+  position: relative;
+  border-radius: 16px;
+  background: transparent;
+  margin-top: 7rem;
+  animation-delay: 800ms;
+  animation-duration: 1.2s;
+}
+.article .sidebars .boxs:first-of-type {
+  margin-top: 0;
+}
+.article .sidebars .boxs .subboxs {
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(16,14,23,0.25);
+  padding: 1rem;
+  background: #fff;
+}
+.article .sidebars .boxs .subboxs span {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 10px;
+  color: #9e9e9e;
+}
+.article .sidebars .boxs .subboxs .ul {
+  margin: 0;
+  padding-left: 30px;
+  font-weight: normal;
+  list-style: none;
+}
+.article .sidebars .boxs .subboxs hr {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border: 0;
+  font-size: 28px;
+  font-weight: 300;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  border: none;
+  text-align: center;
+  color: var(--code-gradient-dark);
+}
+.article .sidebars .boxs .subboxs hr:before {
+  content: "~.~.~.~.~.~.~.~.~.~";
+  line-height: 1.4;
+  font-style: italic;
+  text-indent: 0.6em;
+  letter-spacing: 0.6em;
 }
 @-webkit-keyframes pulsate {
   0% {
