@@ -10,14 +10,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
     
-        <meta name="keywords" content="PhoenixNest,blog,Peter Chen,PhoenixNest&#39;s Blog,">
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
 本篇将介绍最近对Ubuntu Desktop 20.04LTS优化的一些笔记分享。本文将不定期更新。
 
-
-本机型号：华硕灵耀 X2 Duo - ASUS Zenbook X,">
+在进行优化前，你需要👇：
+sudo apt update
+sudo,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -28,7 +29,6 @@
     
         <link rel="icon" href="/img/favicon.png">
     
-    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
     
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
 
@@ -50,6 +50,7 @@
     
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
+    
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
@@ -103,15 +104,14 @@
                 
                 十月 20, 2020
             </p>
-            <h3 class="post-title animated fadeInDown">
-                <a href="/Ubuntu-Desktop-Optimization/" title="Ubuntu Desktop • Optimization" class="">Ubuntu Desktop • Optimization</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Ubuntu-Desktop-Optimization/" title="Ubuntu Desktop • Optimization" class="">Ubuntu Desktop • Optimization</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                            1.9k
+                    1.6k
                 </span>
                     
                     
@@ -120,15 +120,13 @@
                     3 mins.
                 </span>
                     
-
                     
                         <span id="/Ubuntu-Desktop-Optimization/" class="leancloud_visitors"
                               data-flag-title="Ubuntu Desktop • Optimization">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">Unknown</span>
-                                        </span>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
                     
-
                     
                 </p>
             
@@ -156,9 +154,6 @@
         <div class="content markdown animated fadeIn">
             <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
 <p>本篇将介绍最近对<code>Ubuntu Desktop 20.04LTS</code>优化的一些笔记分享。<br>本文将<code>不定期</code>更新。</p>
-</blockquote>
-<blockquote>
-<p>本机型号：华硕灵耀 X2 Duo - ASUS Zenbook X2 Duo (UX481FL/UX4000F)</p>
 </blockquote>
 <p>在进行优化前，你需要👇：</p>
 <pre><code class="bash">sudo apt update
@@ -202,12 +197,22 @@ sudo apt-get --purge remove &quot;*nvidia*&quot;
 sudo apt-get --purge remove &quot;*cublas*&quot; &quot;cuda*&quot;
 sudo apt autoremove</code></pre>
 <hr>
-<h2 id="亮度调节"><a href="#亮度调节" class="headerlink" title="亮度调节"></a>亮度调节</h2><p><a href="https://askubuntu.com/questions/1200391/how-do-i-change-the-backlight-intensity-brightness-of-external-display-asus-sc" target="_blank" rel="noopener">How do I change the backlight intensity / brightness of external display ASUS Screenpad</a></p>
-<pre><code class="bash">echo 255 | sudo tee &#39;/sys/class/leds/asus::screenpad/brightness&#39;</code></pre>
-<pre><code class="bash">sudo add-apt-repository ppa:apandada1/brightness-controller
+<!-- ## 亮度调节
+
+[How do I change the backlight intensity / brightness of external display ASUS Screenpad](https://askubuntu.com/questions/1200391/how-do-i-change-the-backlight-intensity-brightness-of-external-display-asus-sc)
+
+```bash
+echo 255 | sudo tee '/sys/class/leds/asus::screenpad/brightness'
+```
+
+```bash
+sudo add-apt-repository ppa:apandada1/brightness-controller
 sudo apt update
-sudo apt install brightness-controller</code></pre>
-<hr>
+sudo apt install brightness-controller
+```
+
+--- -->
+
 <h2 id="UI-美化"><a href="#UI-美化" class="headerlink" title="UI 美化"></a>UI 美化</h2><h3 id="gnome-tweaks-整体调整工具"><a href="#gnome-tweaks-整体调整工具" class="headerlink" title="gnome-tweaks - 整体调整工具"></a>gnome-tweaks - 整体调整工具</h3><pre><code class="bash">sudo apt install gnome-tweaks</code></pre>
 <p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">Gnome Extensions</a></p>
 <ul>
@@ -263,17 +268,18 @@ npm -v</code></pre>
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
-                   data-autoplay=" false ">
+                   data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
             
                 <ul id="audio-list" style="display:none">
                     
                         
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/Music.mp3'></li>
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft Terran Band - Blood and Glory.mp3'></li>
                         
                     
                 </ul>
+            
             
             
             
@@ -284,37 +290,14 @@ npm -v</code></pre>
             <div class="box animated fadeInRight">
                 <div class="subbox">
                     <img src="/img/favicon.png" height=300 width=300></img>
-                    <p>
-                        PhoenixNest
-                    </p>
+                    <p>PhoenixNest</p>
                     <span>用实力让情怀落地</span>
                     
                 </div>
                 <ul>
-                    <li>
-                        <a href="/">
-                            16
-                            <p>
-                                文章
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/categories">
-                            4
-                            <p>
-                                分类
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/tags">
-                            17
-                            <p>
-                                标签
-                            </p>
-                        </a>
-                    </li>
+                    <li><a href="/">24 <p>文章</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -322,10 +305,8 @@ npm -v</code></pre>
                 
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
-                            <h4>
-                                目录
-                            </h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些实用的-APT-工具"><span class="toc-number">2.</span> <span class="toc-text">一些实用的 APT 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-Cleaner-Ubuntu-清理工具"><span class="toc-number">3.</span> <span class="toc-text">Ubuntu Cleaner - Ubuntu 清理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-驱动"><span class="toc-number">4.</span> <span class="toc-text">Nvidia 驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-Nidia-驱动"><span class="toc-number">4.1.</span> <span class="toc-text">卸载 Nidia 驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#亮度调节"><span class="toc-number">5.</span> <span class="toc-text">亮度调节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UI-美化"><span class="toc-number">6.</span> <span class="toc-text">UI 美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks-整体调整工具"><span class="toc-number">6.1.</span> <span class="toc-text">gnome-tweaks - 整体调整工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">6.2.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-number">7.</span> <span class="toc-text">NodeJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从-NodeSource-中安装-Node-js-和-npm"><span class="toc-number">7.1.</span> <span class="toc-text">从 NodeSource 中安装 Node.js 和 npm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">8.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-Desktop"><span class="toc-number">8.1.</span> <span class="toc-text">Github Desktop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">9.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些实用的-APT-工具"><span class="toc-number">2.</span> <span class="toc-text">一些实用的 APT 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-Cleaner-Ubuntu-清理工具"><span class="toc-number">3.</span> <span class="toc-text">Ubuntu Cleaner - Ubuntu 清理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-驱动"><span class="toc-number">4.</span> <span class="toc-text">Nvidia 驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载-Nidia-驱动"><span class="toc-number">4.1.</span> <span class="toc-text">卸载 Nidia 驱动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UI-美化"><span class="toc-number">5.</span> <span class="toc-text">UI 美化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gnome-tweaks-整体调整工具"><span class="toc-number">5.1.</span> <span class="toc-text">gnome-tweaks - 整体调整工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependencies"><span class="toc-number">5.2.</span> <span class="toc-text">Dependencies</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-number">6.</span> <span class="toc-text">NodeJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#从-NodeSource-中安装-Node-js-和-npm"><span class="toc-number">6.1.</span> <span class="toc-text">从 NodeSource 中安装 Node.js 和 npm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git"><span class="toc-number">7.</span> <span class="toc-text">Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-Desktop"><span class="toc-number">7.1.</span> <span class="toc-text">Github Desktop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">8.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
@@ -333,6 +314,7 @@ npm -v</code></pre>
         </div>
     </div>
 </div>
+
     </div>
 </div>
 <div id="back-to-top" class="animated fadeIn faster">
@@ -343,12 +325,16 @@ npm -v</code></pre>
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy;
-        2021
+        &copy; 2021
         <span class="gradient-text">
             PhoenixNest
-        </span>. Powered by
-        <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
     </p>
 </footer>
 
@@ -411,7 +397,6 @@ npm -v</code></pre>
 
 
 
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -429,6 +414,7 @@ npm -v</code></pre>
 
 
 <script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
  
 <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
   
@@ -567,3 +553,8 @@ npm -v</code></pre>
     });
 </script>
 
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机网络原理 • 网络安全基础 - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+本篇是对计算机网络原理一文中的网络安全基础知识部分的详细介绍。
+所用教学平台：Cisco Networking Academy
+
+
+安全威胁和漏洞威胁类型有线和无线计算机网,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">计算机网络原理 • 网络安全基础</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cyber_security.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/计算机网络"><b>「
+                        </b>计算机网络<b> 」</b></a>
+                
+                一月 11, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-Cyber-Security/" title="计算机网络原理 • 网络安全基础" class="">计算机网络原理 • 网络安全基础</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    10k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    19 mins.
+                </span>
+                    
+                    
+                        <span id="/School-Computer-Network-Technology-Cyber-Security/" class="leancloud_visitors"
+                              data-flag-title="计算机网络原理 • 网络安全基础">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Let the feelings with the strength landing.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="hhttps://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80">网络安全基础知识</a>部分的详细介绍。</p>
+<p>所用教学平台：<a href=""https://cn.netacad.com/"">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h2 id="安全威胁和漏洞"><a href="#安全威胁和漏洞" class="headerlink" title="安全威胁和漏洞"></a>安全威胁和漏洞</h2><h3 id="威胁类型"><a href="#威胁类型" class="headerlink" title="威胁类型"></a>威胁类型</h3><p>有线和无线计算机网络是人们日常活动中不可或缺的一部分。个人和组织都同样依赖其计算机和网络。不速之客的入侵可能导致代价高昂的网络中断和工作成果的丢失。针对网络的攻击有时具有相当的破坏性，可能造成重要信息或资产的损坏或失窃，导致时间上和金钱上的损失。</p>
+<p>入侵者会通过软件漏洞、硬件攻击或通过猜测某人的用户名和密码来获取网络访问。通过修改或利用软件漏洞来获取访问权的入侵者通常被称为威胁发起者。</p>
+<p>一旦威胁发起者取得网络的访问权，就可能给网络带来四种威胁。</p>
+<blockquote>
+<p>信息盗窃</p>
+</blockquote>
+<p>指侵入计算机以获取机密信息。信息可以用于各种目的或出售。例子: 盗窃组织的专有信息，例如研究和开发数据。</p>
+<img style="height: 240px;width: 240px" src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_1_1.png">
+
+<hr>
+<blockquote>
+<p>数据丢失与操纵</p>
+</blockquote>
+<p>是指闯入计算机破坏或更改数据记录。数据丢失的示例是：一个威胁发起者发送可重新格式化计算机硬盘的病毒。数据操纵示例是：闯入记录系统来更改信息（例如物品价格）。</p>
+<img style="height: 240px;width: 240px" src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_1_2.png">
+
+<hr>
+<blockquote>
+<p>身份盗窃</p>
+</blockquote>
+<p>是一种信息盗窃形式，以冒用他人的身份为目的窃取个人信息。利用此类信息，威胁发起者便可以非法获取文件、申请信用贷款或者进行未经授权的在线购物。身份盗窃案件日渐增多，每年造成的损失达数十亿之多。</p>
+<img style="height: 240px;width: 240px" src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_1_3.png">
+
+<hr>
+<blockquote>
+<p>服务中断</p>
+</blockquote>
+<p>阻止合法用户访问他们有权访问的服务。例如: 对服务器、网络设备或网络通信链路发起的拒绝服务 (DoS) 攻击。</p>
+<img style="height: 240px;width: 240px" src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_1_4.png">
+
+<hr>
+<h3 id="漏洞分类"><a href="#漏洞分类" class="headerlink" title="漏洞分类"></a>漏洞分类</h3><p>漏洞是指网络或设备的薄弱程度。路由器、交换机、桌面、服务器、甚至安全设备都存在一定程度的漏洞。一般而言，受到攻击的网络设备都是端点设备，例如服务器和台式计算机。</p>
+<p>有三种主要的漏洞或弱点：技术、配置和安全策略。所有这三种漏洞源都会让网络或设备对各种攻击保持开放状态，包括恶意代码攻击和网络攻击。</p>
+<hr>
+<blockquote>
+<p>技术漏洞</p>
+</blockquote>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_2_1.png">
+
+<hr>
+<blockquote>
+<p>配置漏洞</p>
+</blockquote>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_2_2.png">
+
+<hr>
+<blockquote>
+<p>策略漏洞</p>
+</blockquote>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_2_3.png">
+
+<hr>
+<h3 id="物理安全"><a href="#物理安全" class="headerlink" title="物理安全"></a>物理安全</h3><p>网络中一个同样重要的漏洞区域是设备的物理安全性。如果网络资源可以被物理性破坏，攻击发起者便可借此拒绝对网络资源的使用。</p>
+<p>物理威胁分为四类：</p>
+<ul>
+<li><strong>硬件威胁</strong> － 这包括对服务器、路由器、交换机、布线间和工作站的物理破坏</li>
+<li><strong>环境威胁</strong> －这包括极端温度（过热或过冷）或极端湿度（过湿或过干）</li>
+<li><strong>电气威胁</strong> － 这包括电压过高、电源电压不足（电气管制）、不合格电源（噪音），以及断电</li>
+<li><strong>维护威胁</strong> － 这包括关键电气组件处理不佳（静电放电），缺少关键备用组件、布线混乱和标识不明</li>
+</ul>
+<p>必须创建和实现一个良好的物理安全计划来解决这些问题。该图显示了物理安全计划的一个示例。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_3.png" alt="制定物理安全规划，限制对设备的破坏"></p>
+<hr>
+<h2 id="网络攻击"><a href="#网络攻击" class="headerlink" title="网络攻击"></a>网络攻击</h2><h3 id="恶意软件的类型"><a href="#恶意软件的类型" class="headerlink" title="恶意软件的类型"></a>恶意软件的类型</h3><p>上一主题介绍了网络威胁的类型以及使威胁成为可能的漏洞。本主题将详细介绍威胁发起者如何获得网络的访问权限或限制授权用户的访问权限。</p>
+<p>恶意软件是“有恶意的软件”的简称。是专门用来损坏、破坏、窃取数据、主机或网络或对数据、主机或网络进行“坏的”或者非法操作的代码或软件。恶意软件的类型包括病毒、蠕虫和特洛伊木马</p>
+<ul>
+<li>病毒</li>
+</ul>
+<blockquote>
+<p>计算机病毒是一种通过将自身副本插入另一个程序并成为其一部分来传播的恶意软件类型。它在计算机之间传播，感染所到之处。病毒从严重程度上来讲包括从导致轻度恼人影响到损坏数据或软件和导致拒绝服务 (DoS) 条件。几乎所有的病毒都是附加到一个可执行文件中，这意味着病毒可能在系统上存在，但在用户运行或打开恶意主机文件或程序前不会处于活跃状态也不会传播。执行主机代码后，也就执行了病毒代码。通常情况下，主机程序在感染了病毒后仍继续运行。但是，一些病毒用其自身副本覆盖其他程序，这就完全破坏了主机程序。当病毒附加的软件或文档通过网络、磁盘、文件共享或被感染的电子邮件附件从一台计算机传输到另一台计算机时，也传播了病毒。</p>
+</blockquote>
+<ul>
+<li>蠕虫</li>
+</ul>
+<blockquote>
+<p>计算机蠕虫与病毒相似，它们均可复制自身的功能副本，并造成相同类型的损坏。与病毒相比，病毒需要通过感染的主机文件来传播，而蠕虫属于独立软件，无需借助主机程序或人工帮助即可传播。蠕虫不需要附加在程序中来感染主机并通过系统漏洞进入计算机。蠕虫无需帮助便可利用系统功能在网络中传输。</p>
+</blockquote>
+<ul>
+<li>特洛伊木马</li>
+</ul>
+<blockquote>
+<p>特洛伊木马是另一种类型的恶意软件，以希腊人用来潜入特洛伊的木马来命名。它是看起来合法的有害软件。用户通常是被骗加载特洛伊木马并在他们的系统上执行。特洛伊木马激活后，可以在主机上进行任意数量的攻击，从激怒用户（过多的弹窗或改变桌面）到破坏主机（删除文件、窃取数据或激活和传播病毒等其他恶意软件）。众所周知，特洛伊木马为恶意用户访问系统创建后门。</p>
+</blockquote>
+<p>不同于病毒和蠕虫，特洛伊木马不通过感染其他文件进行复制。它们也不自我复制。特洛伊木马必须通过用户交互传播，如打开电子邮件附件或从互联网下载并运行文件。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_4.gif">
+
+<hr>
+<h3 id="侦察攻击"><a href="#侦察攻击" class="headerlink" title="侦察攻击"></a>侦察攻击</h3><p>除了恶意代码攻击外，网络还可能遭受各种网络攻击。网络攻击可分为三大类别：</p>
+<ul>
+<li><strong>侦察攻击</strong> – 搜索和映射系统、服务或漏洞</li>
+<li><strong>访问攻击</strong> – 数据、系统或用户访问权限的未授权控制</li>
+<li><strong>拒绝服务</strong> – 网络、系统或服务的禁用或损坏</li>
+</ul>
+<p>对于侦察攻击，外部威胁发起者可以使用互联网工具（如nslookup和whois实用程序）轻松地确定分配给公司或实体的 IP 地址空间。确定 IP 地址空间后，威胁发起者可以 ping 这些公有 IP 地址以确定哪些地址正在使用。为帮助自动执行此步骤，威胁发起者可能会使用 ping 扫描工具，例如<strong>fping</strong>或<strong>gping</strong>。它系统地向给定范围或子网中的所有网络地址执行 ping 操作。这类似于浏览电话簿的某一部分，拨打其中列出的每个号码，看哪些号码有人接听。</p>
+<blockquote>
+<p>互联网查询</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_5_1.gif" alt="威胁发起者正在查找与目标相关的初始信息。他可以使用多种工具，其中包括Google搜索、组织机构网站、whois等。"></p>
+<blockquote>
+<p>Ping 扫描</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_5_2.gif" alt="现在，威胁发起 ping 扫描，以确定哪些 IP 地址处于活动状态。"></p>
+<blockquote>
+<p>端口扫描</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_5_3.gif" alt="威胁发起者对发现的活动 IP 地址执行端口扫描。"></p>
+<hr>
+<h3 id="访问攻击"><a href="#访问攻击" class="headerlink" title="访问攻击"></a>访问攻击</h3><p>访问攻击利用身份验证服务、FTP 服务和 Web 服务的已知漏洞，获取对 Web 帐户、机密数据库和其他敏感信息的访问。访问攻击使个人能够对他们无权查阅的信息进行未经授权访问。访问攻击可分为四种类型：密码攻击、信任利用、端口重定向和中间人攻击。</p>
+<blockquote>
+<p>密码攻击</p>
+</blockquote>
+<p>威胁发起者可以使用多种方法实施密码攻击：</p>
+<ul>
+<li>暴力攻击</li>
+<li>特洛伊木马攻击</li>
+<li>数据包嗅探</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_6_1.png">
+
+<hr>
+<blockquote>
+<p>信任利用</p>
+</blockquote>
+<p>在信任利用攻击中，威胁发起者会使用未经授权的特权来访问系统，可能还会进一步攻陷目标。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_6_2.gif">
+
+<hr>
+<blockquote>
+<p>端口重定向</p>
+</blockquote>
+<p>在端口重定向攻击中，威胁发起者会把攻陷的系统作为攻击其他目标的大本营。图中的示例显示出威胁发起者使用 SSH（端口22）连接受攻击主机 A 的威胁发起者。主机 B 信任主机 A；因此，允许威胁发起者使用 Telnet 访问主机 B。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_6_3.png">
+
+<hr>
+<blockquote>
+<p>中间人</p>
+</blockquote>
+<p>在中间人攻击中，威胁发起者会置身于两个合法实体之间，以便读取或修改双方之间传输的数据。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_6_4.png">
+
+<hr>
+<h3 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h3><p>拒绝服务 (DoS) 攻击是知名度最高的攻击，并且是最难防范的攻击。然而，由于其实施简单、破坏力强大，安全管理员需要特别关注 DoS 攻击。</p>
+<p>DoS 攻击的方式多种多样。不过其目的都是通过消耗系统资源使授权用户无法正常使用服务。为了帮助防止 DoS 攻击，必须使操作系统和应用程序与最新的安全更新保持同步。</p>
+<blockquote>
+<p>DoS攻击</p>
+</blockquote>
+<p>DoS 攻击属于重大风险，因为它们可以中断通信，并在时间和财务上造成大量损失。这些攻击执行起来相对简单，即使是缺乏技能的威胁发起者也可以执行。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_7_1.gif">
+
+<hr>
+<blockquote>
+<p>DDoS攻击</p>
+</blockquote>
+<p>分布式 DoS 攻击 (DDoS) 与 DoS 攻击类似，但是它从多个协同攻击源发起攻击。举例来说，威胁发起者建立了一个受感染主机的网络，受感染的主机称为僵尸主机。受感染主机（僵尸）的网络称为僵尸网络。威胁发起者使用命令和控制(CnC)程序来指示僵尸网络进行DDoS攻击。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_7_2.gif">
+
+<hr>
+<h2 id="网络攻击缓解"><a href="#网络攻击缓解" class="headerlink" title="网络攻击缓解"></a>网络攻击缓解</h2><h3 id="纵深防御方法"><a href="#纵深防御方法" class="headerlink" title="纵深防御方法"></a>纵深防御方法</h3><p>现在您已经了解了更多有关威胁发起者如何入侵网络的信息，您需要了解如何防止这种未经授权的访问。本主题详细介绍了为使您的网络更加安全可以采取的一些措施。</p>
+<p>要缓解网络攻击，必须首先保护设备，包括路由器、交换机、服务器和主机。大多数组织机构使用纵深防御法（也称为分层方法）来确保安全性。这需要网络设备和服务相互配套以协同工作。</p>
+<p>思考图中的网络。已经实施了若干安全设备和服务来保护用户和资产免受 TCP/IP 威胁的侵害。</p>
+<p>通过所有网络设备（包括路由器和交换机）各自图标上显示的密码组合锁判断，这些网络设备也经过了强化。这表示这些设备已受到保护，以防止威胁发起者对其获取访问权和进行篡改。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_8.png">
+
+<hr>
+<h3 id="保留备份"><a href="#保留备份" class="headerlink" title="保留备份"></a>保留备份</h3><p>备份设备配置和数据是防止数据丢失的最有效方式之一。数据备份可将计算机上的信息副本存储到可放在安全地方的可移动备份介质中。基础设施设备应该在FTP或类似的文件服务器上备份配置文件和IOS映像。如果计算机或路由器硬件发生故障，可以使用备份副本恢复数据或配置。</p>
+<p>应根据安全策略中的规定定期执行备份。数据备份通常存储在非现场位置，在主要设施发生任何问题时能保护备份介质。Windows 主机提供了备份和还原实用程序。对用户来说，将数据备份到其他驱动器或基于云的存储提供商非常重要。</p>
+<p>该表显示了备份考虑事项及其描述。</p>
+<table>
+<thead>
+<tr>
+<th align="left">考虑事项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">频率</td>
+<td align="left">1. 根据安全策略中的标识定期执行备份。 2.完全备份可能非常耗时，因此需要每月或 或每周执行一次备份，并经常对更改的文件进行部分备份。</td>
+</tr>
+<tr>
+<td align="left">存储容量</td>
+<td align="left">务必对备份进行验证，以确保数据的完整性并验证文件恢复程序。验证文件恢复程序。</td>
+</tr>
+<tr>
+<td align="left">安全</td>
+<td align="left">应按照安全策略的要求，每天，每周或每月轮流将备份转移到批准的异地存储位置。</td>
+</tr>
+<tr>
+<td align="left">验证</td>
+<td align="left">应使用强密码保护备份。恢复数据需要提供密码。</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="升级、更新和补丁"><a href="#升级、更新和补丁" class="headerlink" title="升级、更新和补丁"></a>升级、更新和补丁</h3><p>保持与最新进展同步会使对网络攻击的防御更加有效。随着新的恶意软件不断涌现，企业必须保持当前的防病毒软件为最新版本。</p>
+<p>缓解蠕虫攻击的最有效方法是从操作系统厂商处下载安全更新，并为所有存在漏洞的系统应用补丁。管理大量系统时，会牵涉到创建用于部署在新系统或升级系统上的标准软件映像（经授权可在客户端系统中使用的操作系统和可信任的应用程序）。但是，安全要求不断变化，而且已部署系统也可能需要安装安全更新补丁。</p>
+<p>管理关键安全补丁的一个解决方案是确保所有终端系统自动下载更新，如图中Windows 10所示。安全补丁会自动下载并安装，无需用户干预。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_10.png">
+
+<hr>
+<h3 id="认证、授权和记账"><a href="#认证、授权和记账" class="headerlink" title="认证、授权和记账"></a>认证、授权和记账</h3><p>所有网络设备都应该进行安全配置，只允许经过授权的个人访问。认证、授权和记账（AAA 或“三 A”）网络安全服务提供了设置网络设备访问控制的主要框架。</p>
+<p>AAA 方法用于控制可以访问网络的用户（认证）、用户访问网络时可以执行的操作（授权），以及把他们在那里时所做的事记录下来（记账）。</p>
+<p>AAA 的概念类似于信用卡的使用。信用卡会确定谁可以使用它、消费限额是多少，并记录使用者的消费项目，如图所示。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_11.png">
+
+<hr>
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>防火墙是保护用户远离外部威胁的最为有效的安全工具之一。防火墙可通过防止不必要的流量进入内部网络来保护计算机和网络。</p>
+<p>防火墙驻留在两个或多个网络之间，控制其间的流量并帮助阻止未授权的访问。例如，图中上面的拓扑说明防火墙如何使来自内部网络主机的流量离开并返回到内部网络。底部拓扑说明系统如何拒绝外部网络（即 Internet）发起的流量访问内部网络。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_12_1.png" alt="防火墙操作"></p>
+<p>防火墙可以允许外部用户控制对特定服务的访问。例如，外部用户可访问的服务器通常位于称为隔离区 (DMZ) 的特殊网络中，如图所示。DMZ 使网络管理员能够为连接到该网络的主机应用特定策略。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/16_12_2.png" alt="带有DMZ的防火墙拓扑"></p>
+<hr>
+<h3 id="防火墙的类型"><a href="#防火墙的类型" class="headerlink" title="防火墙的类型"></a>防火墙的类型</h3><p>防火墙产品可以打包成各种形式。这些产品使用不同技术来区分应禁止和应允许的网络访问。其包括以下内容：</p>
+<ul>
+<li><strong>数据包过滤</strong> - 根据 IP 或 MAC 地址阻止或允许访问</li>
+<li><strong>应用程序过滤</strong> - 根据端口号阻止或允许访问特定类型的应用程序</li>
+<li><strong>URL 过滤</strong> - 根据特定的 URL 或关键字阻止或允许访问网站</li>
+<li><strong>状态包侦测（SPI，Serial Peripheral Interface）</strong> - 传入数据包必须是对内部主机所发出请求的合法响应。除非得到特别允许，否则未经请求的数据包会被拦截。状态包侦测还可具有识别和过滤特定类型攻击，例如拒绝服务 (DoS) 的能力。</li>
+</ul>
+<hr>
+<h3 id="终端安全"><a href="#终端安全" class="headerlink" title="终端安全"></a>终端安全</h3><p>端点，或主机，是充当网络客户端的单个计算机系统或设备。常见终端包括笔记本电脑、台式机、服务器、智能手机和平板电脑。保护端点设备是网络管理员最具挑战性的工作之一，因为它牵涉到人类本性。</p>
+<p>公司必须制定适当的有明确记录的策略，并且员工必须了解这些规则。需要培训员工正确使用网络。</p>
+<p>策略通常包括使用防病毒软件和主机入侵防御。更全面的终端安全解决方案依赖网络访问控制。</p>
+<hr>
+<h2 id="设备安全"><a href="#设备安全" class="headerlink" title="设备安全"></a>设备安全</h2><p>在网路中有很多区域需要格外提供安全防护，设备本身就是其中之一。您可能已经有了计算机、智能手机或平板电脑的密码。它是否足够坚固？您是否使用其他工具来增强设备的安全性? 本主题会告诉您怎么做。</p>
+<p>当在设备上安装新的操作系统时，安全设置保留为默认值。在大多数情况下，这种安全级别并不够。对于思科路由器，思科AutoSecure 功能可用于协助保护系统，如示例所示。</p>
+<pre><code class="CISCO">Router# auto secure
+                --- AutoSecure Configuration ---
+*** AutoSecure configuration enhances the security of
+the router but it will not make router absolutely secure
+from all security attacks ***</code></pre>
+<p>此外，还有以下适用于大部分操作系统的一些简单步骤：</p>
+<ul>
+<li>立即更换默认用户名和密码。</li>
+<li>限制对系统资源的访问，只有授权用户才可以访问。</li>
+<li>尽可能关闭和卸载任何不必要的服务和应用程序。</li>
+</ul>
+<p>通常，制造商提供的设备已经在仓库中存放了一段时间，并没有安装最新补丁。必须在实施之前更新所有软件并安装所有安全补丁。</p>
+<hr>
+<h3 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h3><p>为了保护网络设备，使用强密码非常重要。以下是需要遵循的标准原则：</p>
+<ul>
+<li>使用的密码长度至少为 8 个字符，最好是 10 个或更多字符。密码越长越安全。</li>
+<li>使用复杂密码。如果条件允许，密码中混合使用大写和小写字母、数字、符号和空格。</li>
+<li>密码中避免使用重复的常用字词、字母或数字顺序、用户名、亲属或宠物的名字、个人传记信息（例如出生日期、身份证号码、祖先的名字）或其他易于识别的信息。</li>
+<li>故意将口令中的词拼错。例如，Smith = Smyth = 5mYth 或 Security = 5ecur1ty。</li>
+<li>定期更改密码。如果密码不知不觉地遭到破坏，那么威胁发起者使用该密码的机会就会受到限制。</li>
+<li>请勿将密码写出来并放在显眼位置上，比如桌面上或显示屏上。</li>
+</ul>
+<blockquote>
+<p>弱密码</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">弱密码</th>
+<th align="center">密码薄弱的原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">secret</td>
+<td align="center">简单词典密码</td>
+</tr>
+<tr>
+<td align="center">smith</td>
+<td align="center">姓氏</td>
+</tr>
+<tr>
+<td align="center">toyota</td>
+<td align="center">汽车品牌</td>
+</tr>
+<tr>
+<td align="center">bob1967</td>
+<td align="center">用户的姓名和生日</td>
+</tr>
+<tr>
+<td align="center">Blueleaf23</td>
+<td align="center">简单的单词和数字</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>强密码</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">强密码</th>
+<th align="center">密码强的原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">b67n42d39c</td>
+<td align="center">组合使用字母数字字符</td>
+</tr>
+<tr>
+<td align="center">12^h u4@1p7</td>
+<td align="center">组合使用字母数字字符和特殊符号，并包括空格</td>
+</tr>
+</tbody></table>
+<p>思科路由器会忽略密码中的前置空格，但第一个字符之后的空格不会忽略。因此，创建强密码的一种方法就是使用空格键和创建一个由多个词组成的短语。这就是所谓的密码短语。密码短语通常比简单密码更易记忆。而且猜到它所用时间更长，也更难猜到。</p>
+<hr>
+<h3 id="其他密码安全性"><a href="#其他密码安全性" class="headerlink" title="其他密码安全性"></a>其他密码安全性</h3><p>强密码只有在保持其机密性才是有用的。在思科路由器和交换机上可以采取以下几个步骤来帮助确保密码的机密性：</p>
+<ul>
+<li>加密所有的明文密码</li>
+<li>设置可接受的最小密码长度</li>
+<li>阻止暴力密码猜测攻击</li>
+<li>在指定时间后 禁用非活动的特权 EXEC 模式访问。</li>
+</ul>
+<p>如图中的示例配置所示，<strong>service password-encryption</strong>全局配置命令防止未经授权的个人在配置文件中查看明文形式的密码。哪个命令可加密所有的明文密码？请注意在示例中，密码 “cisco” 已加密为 “03095A0F034F”。</p>
+<p>为了确保配置的所有密码至少为指定的最小长度，请在全局配置模式下使用 <strong>security passwords min-length</strong>命令。在图中，任何新配置的密码都必须至少有8个字符。</p>
+<p>威胁发起者可以使用密码破解软件对网络设备进行暴力攻击。这种攻击不断尝试猜测有效的密码，直到其中一个成功为止。使用 <strong>login block-for # attempts # within #</strong> 全局配置命令来阻止此类攻击。如图中示例，<strong>login block-for 120 attempts 3 within 60</strong>命令是在 60 秒内有 3 次登录尝试失败时阻止vty登录尝试 120 秒。</p>
+<p>网络管理员可能会分心，意外地在终端上打开一个特权执行模式会话。这可能使内部威胁发起者能够更改或删除设备配置。</p>
+<p>默认情况下，思科路由器将在 10 分钟不活动后注销 EXEC 会话。但是，您可以使用 <strong>exec-timeout</strong> 分 秒 线路配置命令减少此设置。此命令可应用于在线控制台、辅助线路和 vty 线路。在图中，我们告诉思科设备在用户闲置 5 分 30 秒后自动断开 vty 线上的非活动用户。</p>
+<pre><code class="CISCO">R1(config)# service password-encryption 
+R1(config)# security passwords min-length 8 
+R1(config)# login block-for 120 attempts 3 within 60
+R1(config)# line vty 0 4 
+R1(config-line)# password cisco 
+R1(config-line)# exec-timeout 5 30 
+R1(config-line)# transport input ssh 
+R1(config-line)# end 
+R1# 
+R1# show running-config | section line vty
+line vty 0 4
+ password 7 094F471A1A0A
+ exec-timeout 5 30
+ login
+ transport input ssh
+R1#</code></pre>
+<hr>
+<h3 id="启用-SSH"><a href="#启用-SSH" class="headerlink" title="启用 SSH"></a>启用 SSH</h3><p>Telnet简化了远程设备访问，但并不安全。Telnet 数据包中包含的数据以未加密形式传输。因此，强烈建议在设备上启用安全外壳 (SSH) 以进行安全远程访问。</p>
+<p>可以通过下列六个步骤来配置思科设备以支持 SSH。</p>
+<ul>
+<li><strong>步骤 1. 配置唯一的主机名</strong> - 设备必须有一个唯一的主机名，而不是默认主机名。</li>
+<li><strong>步骤 2. 配置 IP 域名</strong> - 使用全局配置命令 <strong>ip-domain name</strong> 配置网络的 IP 域名。</li>
+<li><strong>步骤 3. 生成密钥来加密 SSH 流量</strong> - SSH 加密源和目的地之间的流量。但是，要这样做，必须使用全局配置命令 <strong>crypto key generate rsa general-keys modulus</strong> 位数 生成唯一的身份验证密钥。该模数位数确定密钥大小并且可配置为 360 位至 2048 位。位值越大，密钥越安全。然而，较大的位值也需要较长的时间来加密和解密信息。最小建议系数长度为 1024 位。</li>
+<li><strong>步骤 4. 验证或创建一个本地数据库条目</strong> - 使用 username 全局配置命令来创建本地数据库用户名条目。在示例中，使用了参数secret，因此密码将使用MD5加密。</li>
+<li><strong>步骤 5. 向本地数据库认证身份</strong> - 使用 <strong>login local</strong> 线路配置命令对本地数据库的vty线路进行身份验证。</li>
+<li><strong>步骤 6. 启用 vty inbound SSH 会话</strong> - 默认情况下，在 vty 线路上不允许输入会话。您可以使用 <strong>transport input [ssh | telnet]</strong> 命令指定多个输入协议，包括 Telnet 和 SSH。</li>
+</ul>
+<p>如示例所示，路由器 R1 配置在 span.com 域中。此信息与<strong>crypto key generate rsa general-keys modulus</strong>命令中指定的位值一起使用，用于创建加密密钥。</p>
+<p>接下来，为名为 Bob 的用户创建本地数据库条目。最后，将vty线路配置为根据本地数据库进行身份验证，并且只接受传入的SSH会话。</p>
+<pre><code class="CISCO">Router# configure terminal
+Router(config)# hostname R1
+R1(config)# ip domain name span.com
+R1(config)# crypto key generate rsa general-keys modulus 1024
+The name for the keys will be: Rl.span.com % The key modulus size is 1024 bits
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
+•Dec 13 16:19:12.079: %SSH-5-ENABLED: SSH 1.99 has been enabled
+R1(config)#
+R1(config)# username Bob secret cisco
+R1(config)# line vty 0 4
+R1(config-line)# login local
+R1(config-line)# transport input ssh
+R1(config-line)# exit
+R1(config)#</code></pre>
+<hr>
+<h3 id="禁用未使用的服务"><a href="#禁用未使用的服务" class="headerlink" title="禁用未使用的服务"></a>禁用未使用的服务</h3><p>思科路由器和交换机启动时会有一列活动服务，这些活动在您的网络中可能需要或不需要。禁用任何未使用的服务以保留系统资源，如CPU周期和RAM，并防止威胁发起者利用这些服务。默认打开的服务类型将根据IOS版本而有所不同。例如，IOS-XE 通常只打开 HTTPS 和 DHCP 端口。您可以使用 show ip ports all 命令来验证这一点，如示例所示。</p>
+<pre><code class="CISCO">Router# show ip ports all
+Proto Local Address               Foreign Address             State       PID/Program Name
+TCB       Local Address               Foreign Address             (state)
+tcp   :::443                     :::*                        LISTEN      309/[IOS]HTTP CORE
+tcp   *:443                      *:*                         LISTEN      309/[IOS]HTTP CORE
+udp   *:67                        0.0.0.0:0                               387/[IOS]DHCPD Receive
+Router#</code></pre>
+<p>IOS-XE 之前的 IOS 版本使用 show control-plane host open-ports 命令。我们提到此命令，因为您可能会在旧设备上看到它。输出是相似的。但是，请注意，这个较旧的路由器有不安全的 HTTP 服务器和 Telnet 正在运行。这两种服务都应该被禁用。如示例所示，使用 no ip http server 全局配置命令禁用 HTTP。通过在行配置命令transport input ssh中指定仅 SSH 来禁用 Telnet 。</p>
+<pre><code class="CISCO">Router# show control-plane host open-ports 
+Active internet connections (servers and established)
+Prot        Local Address      Foreign Address                  Service    State
+ tcp                 *:23                  *:0                   Telnet   LISTEN
+ tcp                 *:80                  *:0                HTTP CORE   LISTEN
+ udp                 *:67                  *:0            DHCPD Receive   LISTEN
+Router# configure terminal
+Router(config)# no ip http server
+Router(config)# line vty 0 15
+Router(config-line)# transport input ssh</code></pre>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>安全威胁和漏洞</li>
+</ul>
+<blockquote>
+<p>针对网络的攻击有时具有相当的破坏性，可能造成重要信息或资产的损坏或失窃，导致时间上和金钱上的损失。通过修改或利用软件漏洞来获取访问权的入侵者通常是威胁发起者。当黑客取得网络的访问权后，就可能给网络带来以下四种威胁：信息盗窃、数据丢失或操纵、身份盗窃以及服务中断。有三种主要的漏洞或弱点：技术、配置和安全策略。物理威胁分为四类：硬件、环境、电气和维护。</p>
+</blockquote>
+<ul>
+<li>网络攻击</li>
+</ul>
+<blockquote>
+<p>恶意软件是“有恶意的软件”的简称。是专门用来损坏、破坏、窃取数据、主机或网络或对数据、主机或网络进行“坏的”或者非法操作的代码或软件。恶意软件的类型包括病毒、蠕虫和特洛伊木马网络攻击可分为三大类：侦察、访问和拒绝服务。物理威胁分为四类：硬件、环境、电气和维护。三种类型的侦察攻击是：互联网查询、ping 扫描和端口扫描。四种类型的访问攻击是：密码（暴力、木马、数据包嗅探器）、信任利用、端口重定向和中间人。服务中断攻击的两种类型是：DoS 和 DDoS。</p>
+</blockquote>
+<ul>
+<li>网络攻击缓解</li>
+</ul>
+<blockquote>
+<p>要缓解网络攻击，必须首先保护设备，包括路由器、交换机、服务器和主机。大多数组织机构使用纵深防御法来确保安全性。这需要网络设备和服务相互配合以协同工作。这个环境中部署了一些安全设备和服务，来保护组织机构的用户、资产，免遭TCP/IP威胁的侵害：VPN、ASA防火墙、IPS、ESA/WSA和AAA服务器。基础设施设备应该在FTP或类似的文件服务器上备份配置文件和IOS映像。如果计算机或路由器硬件发生故障，可以使用备份副本恢复数据或配置。缓解蠕虫攻击的最有效方法是从操作系统厂商处下载安全更新，并为所有存在漏洞的系统应用补丁。要管理重要的安全补丁，请确保所有终端系统自动下载更新。AAA 方法用于控制可以访问网络的用户（认证）、用户可以执行的操作（授权），以及用户在访问网络时的行为（记账）。防火墙驻留在两个或多个网络之间，控制其间的流量并帮助阻止未授权的访问。外部用户可访问的服务器通常位于称为DMZ的特殊网络中。防火墙使用各种技术来确定允许或拒绝访问网络的内容，包括：数据包过滤、应用程序过滤、URL过滤和 SPI。保护终端设备的安全对于网络安全至关重要。公司必须制定有据可查的策略，其中可能包括使用杀毒软件和主机入侵防御。更全面的终端安全解决方案依赖网络访问控制。</p>
+</blockquote>
+<ul>
+<li>设备安全</li>
+</ul>
+<blockquote>
+<p>当在设备上安装新的OS时，安全设置保留为默认值。这种安全级别并不够。对于思科路由器，思科 AutoSecure 功能可用于协助保护系统。对于大多数OS的默认用户名和密码应该立即更改，对系统资源的访问应仅限于被授权使用这些资源的个人，任何不必要的服务和应用程序都应该尽可能地关闭和卸载。为了保护网络设备，使用强密码非常重要。密码短语通常比简单密码更易记忆。而且猜到它所用时间更长，也更难猜到。对于路由器和交换机，加密所有明文密码，设置可接受的最小密码长度，阻止暴力密码猜测攻击，并在指定时间后禁用非活动特权 EXEC 模式访问。配置适当的设备来支持SSH，并禁用未使用的服务。</p>
+</blockquote>
+<hr>
+<h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
+<p>转载时请注明出处 ©️PhoenixNest</p>
+<table>
+<thead>
+<tr>
+<th align="center">Donate 😇</th>
+<th align="center">Qr code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Wechat</td>
+<td align="center"><img src="/img/wechat.png" alt="Wechat"></td>
+</tr>
+<tr>
+<td align="center">Ali Pay</td>
+<td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td>
+</tr>
+</tbody></table>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft Terran Band - Blood and Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">24 <p>文章</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全威胁和漏洞"><span class="toc-number">2.</span> <span class="toc-text">安全威胁和漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#威胁类型"><span class="toc-number">2.1.</span> <span class="toc-text">威胁类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞分类"><span class="toc-number">2.2.</span> <span class="toc-text">漏洞分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理安全"><span class="toc-number">2.3.</span> <span class="toc-text">物理安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络攻击"><span class="toc-number">3.</span> <span class="toc-text">网络攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#恶意软件的类型"><span class="toc-number">3.1.</span> <span class="toc-text">恶意软件的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦察攻击"><span class="toc-number">3.2.</span> <span class="toc-text">侦察攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问攻击"><span class="toc-number">3.3.</span> <span class="toc-text">访问攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拒绝服务攻击"><span class="toc-number">3.4.</span> <span class="toc-text">拒绝服务攻击</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络攻击缓解"><span class="toc-number">4.</span> <span class="toc-text">网络攻击缓解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#纵深防御方法"><span class="toc-number">4.1.</span> <span class="toc-text">纵深防御方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保留备份"><span class="toc-number">4.2.</span> <span class="toc-text">保留备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#升级、更新和补丁"><span class="toc-number">4.3.</span> <span class="toc-text">升级、更新和补丁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#认证、授权和记账"><span class="toc-number">4.4.</span> <span class="toc-text">认证、授权和记账</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙"><span class="toc-number">4.5.</span> <span class="toc-text">防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙的类型"><span class="toc-number">4.6.</span> <span class="toc-text">防火墙的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#终端安全"><span class="toc-number">4.7.</span> <span class="toc-text">终端安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设备安全"><span class="toc-number">5.</span> <span class="toc-text">设备安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密码"><span class="toc-number">5.1.</span> <span class="toc-text">密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他密码安全性"><span class="toc-number">5.2.</span> <span class="toc-text">其他密码安全性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启用-SSH"><span class="toc-number">5.3.</span> <span class="toc-text">启用 SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用未使用的服务"><span class="toc-number">5.4.</span> <span class="toc-text">禁用未使用的服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Let the feelings with the strength landing.', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音.',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

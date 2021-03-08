@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
     
-        <meta name="keywords" content="PhoenixNest,blog,Peter Chen,PhoenixNest&#39;s Blog,">
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
@@ -28,7 +28,6 @@
     
         <link rel="icon" href="/img/favicon.png">
     
-    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
     
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
 
@@ -50,6 +49,7 @@
     
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
+    
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
@@ -103,15 +103,14 @@
                 
                 八月 05, 2020
             </p>
-            <h3 class="post-title animated fadeInDown">
-                <a href="/Ubuntu-Server-MySQL/" title="Ubuntu Server • MySQL" class="">Ubuntu Server • MySQL</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Ubuntu-Server-MySQL/" title="Ubuntu Server • MySQL" class="">Ubuntu Server • MySQL</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                            6k
+                    6k
                 </span>
                     
                     
@@ -120,15 +119,13 @@
                     11 mins.
                 </span>
                     
-
                     
                         <span id="/Ubuntu-Server-MySQL/" class="leancloud_visitors"
                               data-flag-title="Ubuntu Server • MySQL">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">Unknown</span>
-                                        </span>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
                     
-
                     
                 </p>
             
@@ -387,17 +384,18 @@ Benchmark
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
-                   data-autoplay=" false ">
+                   data-autoplay="false">
                 <source type="audio/mpeg" src="">
             </audio>
             
                 <ul id="audio-list" style="display:none">
                     
                         
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/Music.mp3'></li>
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft Terran Band - Blood and Glory.mp3'></li>
                         
                     
                 </ul>
+            
             
             
             
@@ -408,37 +406,14 @@ Benchmark
             <div class="box animated fadeInRight">
                 <div class="subbox">
                     <img src="/img/favicon.png" height=300 width=300></img>
-                    <p>
-                        PhoenixNest
-                    </p>
+                    <p>PhoenixNest</p>
                     <span>用实力让情怀落地</span>
                     
                 </div>
                 <ul>
-                    <li>
-                        <a href="/">
-                            16
-                            <p>
-                                文章
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/categories">
-                            4
-                            <p>
-                                分类
-                            </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/tags">
-                            17
-                            <p>
-                                标签
-                            </p>
-                        </a>
-                    </li>
+                    <li><a href="/">24 <p>文章</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -446,9 +421,7 @@ Benchmark
                 
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
-                            <h4>
-                                目录
-                            </h4>
+                            <h4>目录</h4>
                             <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）修改MySQL数据源Data文件夹位置"><span class="toc-number">3.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-关闭MySQL服务"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-检查MySQL运行状况"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-迁移原MySQL数据文件"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-备份原MySQL数据文件"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-交接目标目录权限"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-修改MySQL配置文件"><span class="toc-number">3.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-修改apparmor的别名配置文件"><span class="toc-number">3.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-重启系统apparmor服务"><span class="toc-number">3.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-越过MySQL检查"><span class="toc-number">3.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-重启MySQL服务"><span class="toc-number">3.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-修改后的MySQL中Data位置"><span class="toc-number">3.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）通过mysqlslap对MySQL进行压力测试"><span class="toc-number">4.</span> <span class="toc-text">（二）通过mysqlslap对MySQL进行压力测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysqlLslap"><span class="toc-number">4.1.</span> <span class="toc-text">mysqlLslap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips-以下是常用的部分参数"><span class="toc-number">4.2.</span> <span class="toc-text">Tips: 以下是常用的部分参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下是我的机器上对MySQL进行一组压力测试的结果"><span class="toc-number">4.3.</span> <span class="toc-text">以下是我的机器上对MySQL进行一组压力测试的结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
@@ -457,6 +430,7 @@ Benchmark
         </div>
     </div>
 </div>
+
     </div>
 </div>
 <div id="back-to-top" class="animated fadeIn faster">
@@ -467,12 +441,16 @@ Benchmark
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy;
-        2021
+        &copy; 2021
         <span class="gradient-text">
             PhoenixNest
-        </span>. Powered by
-        <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
     </p>
 </footer>
 
@@ -535,7 +513,6 @@ Benchmark
 
 
 
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -553,6 +530,7 @@ Benchmark
 
 
 <script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
  
 <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
   
@@ -691,3 +669,8 @@ Benchmark
     });
 </script>
 
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

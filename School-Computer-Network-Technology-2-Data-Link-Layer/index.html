@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机网络原理 • （二）数据链路层 - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+本篇是对计算机网络原理一文中的数据链路层的详细介绍。
+所用教学平台：Cisco Networking Academy
+
+
+数据链路层（第2层）
+
+OSI模型的数据链路层（第,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">计算机网络原理 • （二）数据链路层</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/计算机网络"><b>「
+                        </b>计算机网络<b> 」</b></a>
+                
+                一月 11, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-2-Data-Link-Layer/" title="计算机网络原理 • （二）数据链路层" class="">计算机网络原理 • （二）数据链路层</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    7.4k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    13 mins.
+                </span>
+                    
+                    
+                        <span id="/School-Computer-Network-Technology-2-Data-Link-Layer/" class="leancloud_visitors"
+                              data-flag-title="计算机网络原理 • （二）数据链路层">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Let the feelings with the strength landing.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%88%E7%AC%AC-2-%E5%B1%82%EF%BC%89">数据链路层</a>的详细介绍。</p>
+<p>所用教学平台：<a href=""https://cn.netacad.com/"">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h2 id="数据链路层（第2层）"><a href="#数据链路层（第2层）" class="headerlink" title="数据链路层（第2层）"></a>数据链路层（第2层）</h2><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_1.png" alt="层级示意图"></p>
+<blockquote>
+<p>OSI模型的数据链路层（第2层）为物理网络准备网络数据。数据链路层负责网络接口卡（NIC）到网络接口卡的通信。数据链路层执行以下操作：</p>
+</blockquote>
+<ul>
+<li>允许上层访问介质。上层协议完全不知道用于转发数据的介质类型。</li>
+<li>接受数据，通常是第 3 层数据包（即 IPv4 或 IPv6），并将它们封装到第 2 层帧中。</li>
+<li>控制数据在介质上的放置和接收方式，</li>
+<li>通过网络介质在终端之间交换帧。</li>
+<li>接收封装的数据，通常是第 3 层数据包，并将它们定向到适当的上层协议。</li>
+<li>执行错误检测并拒绝任何损坏的帧。</li>
+</ul>
+<hr>
+<p>在计算机网络中，<code>节点是可以沿通信路径接收、创建、存储或转发数据的设备</code>。节点可以是笔记本电脑或移动电话等终端设备，也可以是中间设备如以太网交换机。</p>
+<p>如果没有数据链路层，则网络层协议（如：IP）必须提供连接到传输路径中可能存在的各种类型介质所需的连接。此外，<code>每当开发出一种新的网络技术或介质时，IP必须做出相应调整</code>。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_1_1.png">
+
+<hr>
+<h3 id="IEEE-802LAN-MAN-数据链路子层"><a href="#IEEE-802LAN-MAN-数据链路子层" class="headerlink" title="IEEE 802LAN/MAN 数据链路子层"></a>IEEE 802LAN/MAN 数据链路子层</h3><blockquote>
+<p>IEEE 802 LAN/MAN 标准专用于以太网局域网、无线局域网（WLAN）、无线个人区域网（WPAN）和其他类型的局域网和城域网。IEEE 802 LAN/MAN 数据链路层由以下两个子层组成：</p>
+</blockquote>
+<ul>
+<li><strong>逻辑链路控制（LLC）</strong> - 这个 IEEE 802.2 子层在上层的网络软件与下层的设备硬件之间进行通信。它放入帧中的信息用于确定帧所使用的网络层协议。此信息允许多个第 3 层协议（如 IPv4 和 IPv6）使用相同的网络接口和介质。</li>
+<li><strong>介质访问控制（MAC）</strong> - 在硬件上实现这个子层（IEEE 802.3、802.11 或 802.15）。它负责数据封装和介质访问控制。它提供数据链路层寻址，并与各种物理层技术集成。</li>
+</ul>
+<hr>
+<p>该图显示了数据链路层的两个子层（LLC 和 MAC）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_2.png" alt="数据链路子层"></p>
+<blockquote>
+<p>LLC 子层获取网络协议数据（通常是 IPv4 或 IPv6数据包）并加入第2层控制信息，帮助将数据包传送到目的节点。</p>
+</blockquote>
+<p>MAC 子层控制网卡和负责在有线或无线LAN/MAN介质上发送和接收数据的其他硬件。</p>
+<p>MAC 子层提供数据封装：</p>
+<ul>
+<li><strong>帧定界</strong> - 在成帧过程中提供重要的定界符，用来标识帧中的字段。这些定界符位可以在发送节点与接收节点之间提供同步。</li>
+<li><strong>编址</strong> - 提供源和目的编址，用于在同一共享介质上的设备之间传输第 2 层帧。</li>
+<li><strong>错误检测</strong> - 包含一个帧尾，用于检测传输错误。</li>
+</ul>
+<p>MAC 子层还提供介质访问控制，允许多个设备通过共享（半双工）介质进行通信。全双工通信不需要访问控制。</p>
+<hr>
+<h3 id="提供介质访问"><a href="#提供介质访问" class="headerlink" title="提供介质访问"></a>提供介质访问</h3><blockquote>
+<p>在数据包从本地主机传送到远程主机的过程中，其遇到的各种网络环境可能具有不同的特性。</p>
+</blockquote>
+<p>例如，以太网 LAN 通常由许多争用网络介质访问的主机组成。</p>
+<p>MAC 子层解决了这个问题。对于串行链路，访问方法可能只包括两个设备之间的直接连接，通常是两个路由器。因此，它们不需要 IEEE 802 MAC 子层所使用的技术。</p>
+<blockquote>
+<p>路由器接口将数据包封装到适当的帧中。使用合适的介质访问控制方法来访问每个链路。在任意指定的网络层数据包交换过程中，可能存在多次数据链路层和介质的转换。</p>
+</blockquote>
+<p>在路径上的每一跳，路由器都执行以下第 2 层功能：</p>
+<ol>
+<li>从介质接受帧</li>
+<li>解封帧</li>
+<li>将数据包重新封装到新帧中</li>
+<li>从适合该物理网络网段的介质转发新帧</li>
+</ol>
+<hr>
+<h3 id="数据链路层（第2层）标准"><a href="#数据链路层（第2层）标准" class="headerlink" title="数据链路层（第2层）标准"></a>数据链路层（第2层）标准</h3><blockquote>
+<p>与 TCP/IP 的上层协议不同，数据链路层协议通常不是由征求意见 (RFC) 文档定义的。互联网工程任务组 (IETF) 虽然维护着 TCP/IP 协议簇上层的工作协议和服务，但它没有定义TCP/IP模型的网络接入层的功能和操作。</p>
+</blockquote>
+<p>定义适用于网络接入层（即，OSI的物理和数据链路层）的开放标准和协议的工程组织包括：</p>
+<ul>
+<li><strong>电气电子工程师协会 (IEEE)</strong></li>
+<li><strong>国际电信联盟 (ITU)</strong></li>
+<li><strong>国际标准化组织 (ISO)</strong></li>
+<li><strong>美国国家标准学会 (ANSI)</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_3.png" alt="工程组织徽标"></p>
+<hr>
+<h2 id="拓扑"><a href="#拓扑" class="headerlink" title="拓扑"></a>拓扑</h2><h3 id="物理和逻辑拓扑"><a href="#物理和逻辑拓扑" class="headerlink" title="物理和逻辑拓扑"></a>物理和逻辑拓扑</h3><blockquote>
+<p>网络拓扑是指网络设备及它们之间的互连布局或关系。</p>
+</blockquote>
+<p>描述 LAN 和 WAN 网络时使用两种类型的拓扑：</p>
+<p><strong>物理拓扑</strong> - 标识物理连接，以及终端设备和中间设备（即，路由器、交换机和无线接入点）如何互连。这个拓扑还可能包括特定的设备位置，如房间号和设备机架上的位置。物理拓扑通常是点对点拓扑或星型拓扑。</p>
+<p><strong>逻辑拓扑</strong> - 是指网络将帧从一个节点传输到另一节点的方法。此拓扑使用设备接口和第 3 层 IP 寻址方案识别虚拟连接。</p>
+<blockquote>
+<p>在控制对介质的数据访问时，数据链路层“看见”的是网络的逻辑拓扑。正是<strong>逻辑拓扑在影响网络成帧和介质访问控制的类型</strong>。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_4_1.png" alt="物理拓扑"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_4_2.png" alt="逻辑拓扑"></p>
+<hr>
+<h3 id="WAN-拓补"><a href="#WAN-拓补" class="headerlink" title="WAN 拓补"></a>WAN 拓补</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_5_1.png" alt="点对点"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_5_2.png" alt="中心辐射型"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_5_3.png" alt="网状"></p>
+<blockquote>
+<p>混合拓扑是任何拓扑的变体或组合。例如，部分网状就是一种混合拓扑，因为其中一些而并非所有的终端设备都是互连的。</p>
+</blockquote>
+<hr>
+<h3 id="点对点-WAN-拓扑"><a href="#点对点-WAN-拓扑" class="headerlink" title="点对点 WAN 拓扑"></a>点对点 WAN 拓扑</h3><blockquote>
+<p>物理点对点拓扑直接连接两个节点。在这种布局中，<strong>两个节点无需与其他主机共享介质</strong>。此外，当使用串行通信协议，如点对点协议(PPP)时，节点无需判定收到的帧是指向它还是指向另一节点。</p>
+</blockquote>
+<p>因此，逻辑数据链路协议将非常简单，因为介质中的所有帧都只去往或来自这两个节点。节点将帧放置到一端的介质上，然后点对点线路另一端的节点从介质取走帧。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_6_1.png">
+
+<p>注意：通过以太网进行的点对点连接需要设备确定传入帧是否发往此节点。</p>
+<p>使用多个中间设备，距离较远的源节点和目的节点彼此可以间接相连。但是，在网络中使用物理设备并不会影响逻辑拓扑，如图所示。在图中，添加中间物理连接不会改变逻辑拓扑。逻辑点对点连接相同。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_6_2.png">
+
+<hr>
+<h3 id="LAN-拓扑"><a href="#LAN-拓扑" class="headerlink" title="LAN 拓扑"></a>LAN 拓扑</h3><blockquote>
+<p>在多路访问局域网中，终端设备（即节点）使用<code>星型或扩展星型</code>拓扑相互连接，如图所示。在这种类型的拓扑中，终端设备连接到一个中央中间设备，在本例中是一个以太网交换机。扩展星型（扩展星型）通过连接多个以太网交换机来扩展此拓扑。星型和扩展星型拓扑安装简单、扩展性好（易于添加和删除终端设备），而且故障排除容易。早期的星型拓扑使用以太网集线器互连终端设备。</p>
+</blockquote>
+<p>有时可能只有���个设备连接在以太网局域网上。两个相互连接的路由器就是一个例子。</p>
+<p><code>传统LAN拓扑</code></p>
+<blockquote>
+<p>早期的以太网和传统令牌环局域网技术包括另外两种拓扑结构:</p>
+</blockquote>
+<ul>
+<li><p><strong>总线</strong> - <code>所有终端系统都相互连接</code>，并在两端以某种形式端接。终端设备互连时不需要基础设施设备（例如交换机）。传统的以太网络中会使用采用同轴电缆的总线拓扑，因为它<code>价格低廉而且安装简易</code>。</p>
+</li>
+<li><p><strong>环</strong> - <code>终端系统与其各自的邻居相连</code>，形成一个环状。与总线拓扑不同，环拓扑不需要端接。传统的光纤分布式数据接口 (FDDI) 和令牌环网络使用环拓扑。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_7.png" alt="物理拓扑"></p>
+<hr>
+<h3 id="半双工与全双工通信"><a href="#半双工与全双工通信" class="headerlink" title="半双工与全双工通信"></a>半双工与全双工通信</h3><blockquote>
+<p>半双工通信</p>
+</blockquote>
+<p>两台设备都可以通过该介质发送和接收，但<code>无法同时执行</code>这两个操作。WLAN和带有以太网集线器的传统总线拓扑使用半双工模式。半双工<code>每次只允许一台设备</code>通过共享介质发送或接收。</p>
+<blockquote>
+<p>全双工通信</p>
+</blockquote>
+<p>两台设备都可以在共享介质上<code>同时发送和接收</code>。数据链路层假定介质随时可供两个节点实现传输。默认情况下，以太网交换机在全双工模式下运行，<code>但是如果与以太网集线器等设备连接，它们则可以在半双工模式下运</code>行。</p>
+<blockquote>
+<p>总之，<strong>半双工通信限制为每次在一个方向进行数据交换</strong>。<strong>全双工允许同时发送和接收数据</strong>。两个互连设备，比如一个主机网卡和以太网交换机上的一个接口，必须采用同一双工模式运行。否则，将会出现双工不匹配，导致链路效率低下和延时。</p>
+</blockquote>
+<hr>
+<h3 id="访问控制方法"><a href="#访问控制方法" class="headerlink" title="访问控制方法"></a>访问控制方法</h3><blockquote>
+<p>以太网 LAN 和 WLAN 都是多路访问网络的示例。多路访问网络是指可能有两个或多个终端设备同时试图访问网络的网络。</p>
+<p>某些多路访问网络需要使用规则来管理设备共享物理介质的方式。对于共享介质，有两种基本的访问控制方法：</p>
+</blockquote>
+<ul>
+<li><p><strong>基于竞争的访问</strong></p>
+<blockquote>
+<p>在基于竞争的多路访问网络中，<code>所有节点都工作在半双工方式，争夺介质的使用</code>。然而，<code>一次只有一台设备能够发送</code>。因此，当多台设备同时传输时，会使用一个处理过程。</p>
+</blockquote>
+<p>基于竞争的访问方法示例如下：</p>
+<ul>
+<li>在传统总线拓扑以太网局域网上使用载波侦听多路访问/冲突检测 (CSMA/CD)</li>
+<li>在无线局域网上使用载波侦听多路访问/冲突避免 (CSMA/CA)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_9_1.png" alt="基于竞争的访问"></p>
+<ul>
+<li><p><strong>受控访问</strong></p>
+<blockquote>
+<p>在基于控制的多路访问网络中，<code>每个节点都有自己的时间来使用介质</code>。这种确定性的传统网络类型效率很低，因为设备必须等到轮到自己才能访问介质。使用受控访问的多路访问网络的示例包括：</p>
+</blockquote>
+<ul>
+<li>传统令牌环</li>
+<li>传统ARCNET</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_9_2.png" alt="受控访问"></p>
+<blockquote>
+<p>注意: <strong>如今，以太网网络以全双工方式运行，不需要访问方法。</strong></p>
+</blockquote>
+<hr>
+<h3 id="基于竞争的访问-CSMA-CD"><a href="#基于竞争的访问-CSMA-CD" class="headerlink" title="基于竞争的访问 - CSMA/CD"></a>基于竞争的访问 - CSMA/<code>CD</code></h3><p>基于竞争的访问网络示例如下：</p>
+<ul>
+<li>无线局域网（使用 CSMA/CA）</li>
+<li>传统总线拓扑以太网局域网（使用 CSMA/CD）</li>
+<li>使用集线器的传统以太网局域网（使用 CSMA/CD）</li>
+</ul>
+<p>这些网络在<code>半双工模式</code>下运行，意味着<code>一台设备一次只能发送或接收</code>。这<code>需要有一个进程来管理设备何时可以发送以及当多台设备同时发送时会发生什么情况</code>。</p>
+<p>如果两台设备<code>同时传输</code>，则会发生<code>冲突</code>。<strong>对于传统以太网局域网，两台设备将会检测到网络上的冲突。这就是 CSMA/<code>CD</code> 的冲突检测（<code>CD</code>）部分。</strong>网卡通过比较传输的数据与接收的数据，或通过识别介质中的信号振幅是否高于正常状况来实现。<code>两台设备发送的数据会损坏且需重新发送</code>。</p>
+<blockquote>
+<p>PC1 有一个以太网帧要发送给 PC3。PC1 的网卡需要确定是否有设备正在通过介质传输。如果它没有检测到载波信号，也就是说，它没有收到来自其他设备的传输，则假定网络可用于发送。</p>
+<p>当介质可用时，PC1 NIC 发送以太网帧，如图所示。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_1.png" alt="PC1发送帧"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_2.png" alt="集线器接收帧"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_3.png" alt="集线器发送帧"></p>
+<hr>
+<h3 id="基于竞争的访问-CSMA-CA"><a href="#基于竞争的访问-CSMA-CA" class="headerlink" title="基于竞争的访问 - CSMA/CA"></a>基于竞争的访问 - CSMA/<code>CA</code></h3><p><strong>IEEE 802.11 WLAN</strong> 所使用的另一种 CSMA 形式为载波侦听多路访问/冲突避免 (CSMA/<code>CA</code>)。</p>
+<p>CMSA/<code>CA</code> 采用一种与 CSMA/CD 类似的方法来检测介质是否空闲。CMSA/<code>CA</code> 采用其他技术。在无线环境中，设备可能无法检测到冲突。<strong>CMSA/<code>CA</code> 不会检测冲突</strong>，但会通过在传输之前等待来尝试避免冲突。每台设备发送时都会包含传输所需的持续时间。所有其他无线设备都会收到此信息，知道介质将有多长时间不可用。</p>
+<blockquote>
+<p>在图中，如果主机 A 从接入点接收到一个无线帧，那么主机 B 和 C 也会看到该帧以及介质有多久不可用。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_11.png" alt="集线器发送帧"></p>
+<p>当无线设备发送 802.11 帧后，接收方会返回确认，以使发送方知道帧已到达。</p>
+<p>不管是使用集线器的以太网 LAN，还是 WLAN，基于竞争的系统在介质使用率高的情况下都无法很好地扩展。</p>
+<p><code>注意：</code>使用交换机的以太网 LAN 不使用基于竞争的系统，因为交换机和主机网卡在全双工模式下运行。</p>
+<hr>
+<h2 id="数据链路帧"><a href="#数据链路帧" class="headerlink" title="数据链路帧"></a>数据链路帧</h2><h3 id="帧"><a href="#帧" class="headerlink" title="帧"></a>帧</h3><blockquote>
+<p>数据链路层通过使用<code>帧头和帧尾</code>将其封装以<code>创建帧</code>，从而<code>准备封装后的数据</code>（通常是IPv4或IPv6数据包），以便在本地介质上进行传输。</p>
+<p>数据链路协议负责<code>同一网络中的网卡间通信</code>。虽然有许多描述数据链路层帧的不同数据链路层协议，但每种帧均有<code>三个基本组成部分</code>：</p>
+</blockquote>
+<ul>
+<li>帧头</li>
+<li>数据</li>
+<li>帧尾</li>
+</ul>
+<p>与其他封装协议不同，<code>数据链路层以帧尾的形式在帧的末尾附加信息</code>。</p>
+<blockquote>
+<p><strong>所有数据链路层协议均将数据封装于帧的数据字段内</strong>。但是，由于协议的不同，帧结构以及帧头和帧尾中包含的字段会存在差异。</p>
+</blockquote>
+<p><strong>没有一种帧结构能满足通过所有类型介质的全部数据传输需求</strong>。根据环境的不同，帧中所需的控制信息量也相应变化，以匹配介质和逻辑拓扑的访问控制需求。例如，WLAN帧必须包含避免冲突的过程，因此与以太网帧相比需要额外的控制信息。</p>
+<p>如图所示，在脆弱的环境下，需要更多控制才能确保送达。<code>由于所需控制信息较多，因此帧头和帧尾字段都较大</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_12.png" alt="帧"></p>
+<hr>
+<h3 id="帧字段"><a href="#帧字段" class="headerlink" title="帧字段"></a>帧字段</h3><blockquote>
+<p>成帧技术将位流拆分成可破解的多个分组，且将控制信息作为不同字段值插入帧头和帧尾中。此格式使物理信号具备能被节点识别且可在目的地解码成数据包的一种结构。</p>
+</blockquote>
+<p>图中显示了<code>通用帧字段</code>。<code>并非所有协议均包含全部此类字段</code>。特定数据链路协议的标准定义了实际帧格式。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_13.png" alt="帧字段"></p>
+<p>数据链路层协议将帧尾添加到各帧结尾处。</p>
+<blockquote>
+<p>在一个叫做<code>错误检测</code>的过程中，帧尾会判断帧是否到达时没有错误。它将组成帧的各个位的逻辑或数学摘要放入帧尾中。要将错误检测添加到数据链路层，因为介质中的信号可能遭受干扰、失真或丢失，从而大幅更改这些信号所代表的位值。</p>
+</blockquote>
+<p>发送节点会创建帧内容的逻辑摘要，称为循环冗余校验（CRC）值。此值将放入帧校验序列（FCS）字段中以代表帧内容。在以太网尾部，FCS 为接收节点提供一种方法，用于确定帧是否出现传输错误。</p>
+<hr>
+<h3 id="第2层地址"><a href="#第2层地址" class="headerlink" title="第2层地址"></a>第2层地址</h3><blockquote>
+<p>数据链路层提供了通过共享本地介质传输帧时要用到的编址。此层中的设备地址称为物理地址。<code>数据链路层地址包含在帧头中</code>，它指定了帧在本地网络中的目的节点。它通常位于帧的开头，因此<code>网卡可以在接受帧的其余部分之前快速确定它是否匹配自己的第 2 层地址</code>。<code>帧头还可能包含帧的源地址</code>。</p>
+</blockquote>
+<p>与分层式第 3 层逻辑地址不同，物理地址不会表示设备位于哪个网络。相反，<code>物理地址对于特定设备是唯一的。即使设备移至另一网络或子网，它将仍使用相同的第 2 层物理地址</code>。因此，<code>第2层地址仅用于在相同的共享介质中，在相同的IP网络上连接设备</code>。</p>
+<p>该图阐述了第 2 层和第 3 层地址的功能。当 IP 数据包从主机到路由器、从路由器到路由器和最终从路由器到主机传输时，沿途中的每个点上都会将 IP 数据包封装到新的数据链路帧中。每个数据链路帧包含发送帧的网卡的源数据链路地址和接收帧的网卡的目的数据链路地址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_14_1.png" alt="主机到路由器 - 源主机将第 3 层IP数据包封装成第 2 层帧。在帧头中，主机将其第 2 层地址添加为源地址，R1 的第 2 层地址添加为目的地址。"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_14_2.png" alt="路由器到路由器 - R1 将第 3 层IP数据包封装成新的第 2 层帧。在帧头中，R1 将其第 2 层地址添加为源地址，R2 的第 2 层地址添加为目的地址。"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_14_3.png" alt="路由器到主机 - R2 将第 3 层IP数据包封装成新的第 2 层帧。在帧头中，R2 将其第 2 层地址添加为源地址，服务器的第 2 层地址添加为目的地址。"></p>
+<p>数据链路层地址仅用于本地传送。该层地址在本地网络之外无任何意义。将它与第 3 层进行比较，我们发现在第 3 层中，无论途中有多少个网络跳点，数据包报头中的地址都会从源主机传送到目的主机。</p>
+<blockquote>
+<p>如果数据必须传递到另一网段上，则需要使用中间设备，比如路由器。路由器必须<code>根据物理地址接受帧并解封帧，以便检查分层地址，即 IP 地址</code>。路由器使用 IP 地址可以确定目的设备的网络地址以及到达该地址的最佳路径。当知道要将数据包转发到何处时，路由器会为数据包创建一个新帧，并将新帧发送到通往最终目的地的下一网段。</p>
+</blockquote>
+<hr>
+<h3 id="LAN-和-WAN-上的帧"><a href="#LAN-和-WAN-上的帧" class="headerlink" title="LAN 和 WAN 上的帧"></a>LAN 和 WAN 上的帧</h3><blockquote>
+<p><code>以太网协议由有线局域网使用。无线通信属于无线局域网（IEEE 802.11）协议范围</code>。这些协议都是<code>为多路访问网络而设计</code>的。</p>
+</blockquote>
+<p>WAN 传统上在各种类型的点对点、中心辐射和全网状拓扑中使用其他类型的协议。多年来，一些<code>常见的广域网协议</code>包括：</p>
+<ul>
+<li><strong>点对点协议 (PPP)</strong></li>
+<li><strong>高级数据链路控制 (HDLC)</strong></li>
+<li><strong>帧中继</strong></li>
+<li><strong>异步传输模式 (ATM)</strong></li>
+<li><strong>X.25</strong></li>
+</ul>
+<blockquote>
+<p>这些第2层协议现在正在被以太网在广域网中取代。</p>
+</blockquote>
+<p>在 TCP/IP 网络中，<code>所有 OSI 第 2 层协议都与 OSI 第 3 层的 IP 一起使用</code>。但是，所用的第 2 层协议取决于逻辑拓扑和物理介质。</p>
+<p>每个协议执行指定第 2 层逻辑拓扑的介质访问控制。这意味着在执行这些协议时，有很多种不同的网络设备都可以充当运行在数据链路层上的节点。这些设备包括计算机上的网卡以及路由器和第 2 层交换机上的接口。</p>
+<p><code>用于特定网络拓扑的第 2 层协议取决于实施该拓扑的技术。所使用的技术取决于网络规模（根据主机数量和地理范围判断）以及通过网络提供的服务</code>。</p>
+<p><code>LAN 通常使用能支持大量主机的高带宽技术</code>。由于 LAN 的地理范围相对较小（单个建筑物或多个建筑物的园区），用户的密集度高，因此这种技术比较节约成本。</p>
+<p>但是，对于服务范围较广（例如一个城市或多个城市）的 WAN，使用高带宽技术通常不够经济。长距离物理链路的成本以及长距离传送信号的技术一般都会使带宽容量降低。</p>
+<p><code>带宽差异常会导致 LAN 和 WAN 使用不同的协议</code>。</p>
+<p>数据链路层协议包括：</p>
+<ul>
+<li><strong>以太网</strong></li>
+<li><strong>802.11 无线</strong></li>
+<li><strong>点对点协议 (PPP)</strong></li>
+<li><strong>高级数据链路控制 (HDLC)</strong></li>
+<li><strong>帧中继</strong></li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>数据链路层的用途</li>
+</ul>
+<blockquote>
+<p>OSI模型的数据链路层(第2层)为物理网络准备网络数据。数据链路层负责网络接口卡 (NIC) 到网络接口卡的通信。如果没有数据链路层，则网络层协议（如 IP）必须提供连接到传输路径中可能存在的各种类型介质所需的连接。IEEE 802 LAN/MAN 数据链路层由以下两个子层组成：LLC和MAC。MAC子层通过帧定界符、编址和错误检测提供数据封装。路由器接口将数据包封装到适当的帧中。使用合适的介质访问控制方法来访问每个链路。定义适用于数据链路层的开放标准和协议的工程组织包括： IEEE、ITU、ISO和ANSI。</p>
+</blockquote>
+<ul>
+<li>拓扑</li>
+</ul>
+<blockquote>
+<p>局域网和广域网中使用的两种拓扑是物理拓扑和逻辑拓扑。在控制对介质的数据访问时，数据链路层“看见”的是网络的逻辑拓扑。逻辑拓扑影响所使用的网络成帧和介质访问控制的类型。三种常见的物理 WAN 拓扑类型是：点对点、中心辐射以及网状。物理点对点拓扑直接连接两个终端设备(节点)。添加中间物理连接不会改变逻辑拓扑。在多路访问局域网中，节点使用星型或扩展星型拓扑相互连接。在这种类型的拓扑中，节点连接到一个中央中间设备。物理局域网拓扑包括：星型、扩展星型、总线和环型。半双工通信每次在一个方向进行数据交换。全双工同时发送和接收数据。两个相互连接的接口必须使用相同的双工模式，否则将出现双工不匹配，从而导致链路上的效率低下和延迟。以太网 LAN 和 WLAN 都是多路访问网络的示例。多路访问网络是指可能有多个节点同时访问网络的网络。某些多路访问网络需要使用规则来管理设备共享物理介质的方式。共享介质有两种基本访问控制方法：基于竞争的访问和受控访问。在基于竞争的多路访问网络中，所有节点都以半双工形式运行。当多台设备同时传输时，会使用一个进程。基于竞争的访问方法的示例包括：用于总线拓扑以太网局域网的 CSMA/CD 和用于 WLAN 的 CSMA/CA。</p>
+</blockquote>
+<ul>
+<li>数据链路层帧</li>
+</ul>
+<blockquote>
+<p>数据链路层通过使用帧头和帧尾进行封装以创建帧，从而准备封装后的数据（通常是IPv4或IPv6数据包），以便在本地介质上进行传输。数据链路层协议负责同一网络中的网卡间通信。有许多描述数据链路层帧的不同数据链路层协议，但每种帧均有三个基本组成部分：帧头、数据和帧尾。与其他封装协议不同，数据链路层在帧尾中附加信息。没有一种帧结构能满足通过所有类型介质的全部数据传输需求。根据环境的不同，帧中所需的控制信息量也相应变化，以匹配介质和逻辑拓扑的访问控制需求。帧字段包括：帧起始和停止标志、编址、类型、控制、数据和错误检测。数据链路层提供了通过共享本地介质传输帧时要用到的编址。此层中的设备地址是物理地址。数据链路层地址包含在帧头中，它指定了帧在本地网络中的目的节点。数据链路层地址仅用于本地传送。在 TCP/IP 网络中，所有 OSI 第 2 层协议都与 OSI 第 3 层的 IP 一起使用。但是，所用的第 2 层协议取决于逻辑拓扑和物理介质。每个协议执行指定第 2 层逻辑拓扑的介质访问控制。用于特定网络拓扑的第 2 层协议取决于实施该拓扑的技术。数据链路层协议包括：以太网、802.11 无线、PPP、HDLC 和帧中继。</p>
+</blockquote>
+<hr>
+<h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
+<p>转载时请注明出处 ©️PhoenixNest</p>
+<table>
+<thead>
+<tr>
+<th align="center">Donate 😇</th>
+<th align="center">Qr code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Wechat</td>
+<td align="center"><img src="/img/wechat.png" alt="Wechat"></td>
+</tr>
+<tr>
+<td align="center">Ali Pay</td>
+<td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td>
+</tr>
+</tbody></table>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft Terran Band - Blood and Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">24 <p>文章</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层（第2层）"><span class="toc-number">2.</span> <span class="toc-text">数据链路层（第2层）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-802LAN-MAN-数据链路子层"><span class="toc-number">2.1.</span> <span class="toc-text">IEEE 802LAN&#x2F;MAN 数据链路子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提供介质访问"><span class="toc-number">2.2.</span> <span class="toc-text">提供介质访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）标准"><span class="toc-number">2.3.</span> <span class="toc-text">数据链路层（第2层）标准</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓扑"><span class="toc-number">3.</span> <span class="toc-text">拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#物理和逻辑拓扑"><span class="toc-number">3.1.</span> <span class="toc-text">物理和逻辑拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WAN-拓补"><span class="toc-number">3.2.</span> <span class="toc-text">WAN 拓补</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点对点-WAN-拓扑"><span class="toc-number">3.3.</span> <span class="toc-text">点对点 WAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LAN-拓扑"><span class="toc-number">3.4.</span> <span class="toc-text">LAN 拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#半双工与全双工通信"><span class="toc-number">3.5.</span> <span class="toc-text">半双工与全双工通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问控制方法"><span class="toc-number">3.6.</span> <span class="toc-text">访问控制方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于竞争的访问-CSMA-CD"><span class="toc-number">3.7.</span> <span class="toc-text">基于竞争的访问 - CSMA&#x2F;CD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于竞争的访问-CSMA-CA"><span class="toc-number">3.8.</span> <span class="toc-text">基于竞争的访问 - CSMA&#x2F;CA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路帧"><span class="toc-number">4.</span> <span class="toc-text">数据链路帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#帧"><span class="toc-number">4.1.</span> <span class="toc-text">帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帧字段"><span class="toc-number">4.2.</span> <span class="toc-text">帧字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第2层地址"><span class="toc-number">4.3.</span> <span class="toc-text">第2层地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LAN-和-WAN-上的帧"><span class="toc-number">4.4.</span> <span class="toc-text">LAN 和 WAN 上的帧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Let the feelings with the strength landing.', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音.',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

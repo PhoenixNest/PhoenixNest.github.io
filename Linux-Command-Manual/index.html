@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Linux Command Manual - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+本篇将介绍我在学习有关Linux终端使用的一些笔记分享。
+必要时请使用sudo权限，但不建议所有命令均使用sudo。
+
+
+参考资料：
+
+The Linux Command ,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Linux Command Manual</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/linux.png) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/Linux"><b>「
+                        </b>LINUX<b> 」</b></a>
+                
+                八月 09, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Linux-Command-Manual/" title="Linux Command Manual" class="">Linux Command Manual</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    3.4k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    6 mins.
+                </span>
+                    
+                    
+                        <span id="/Linux-Command-Manual/" class="leancloud_visitors"
+                              data-flag-title="Linux Command Manual">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Terminal/" rel="tag">Terminal</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Let the feelings with the strength landing.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>本篇将介绍我在学习有关<code>Linux终端使用</code>的一些笔记分享。</p>
+<p>必要时请使用<code>sudo</code>权限，但<code>不建议</code>所有命令均使用sudo。</p>
+</blockquote>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/Warehouse@master/Notes/The%20Linux%20Command%20Line.pdf" target="_blank" rel="noopener">The Linux Command Line</a></p>
+</li>
+<li><p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/Warehouse@master/Notes/Ubuntu%20Server%20CLI%20pro%20tips.pdf" target="_blank" rel="noopener">Ubuntu Server CLI pro tips</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="获取所有网卡的IP地址"><a href="#获取所有网卡的IP地址" class="headerlink" title="获取所有网卡的IP地址"></a>获取所有网卡的IP地址</h3><pre><code class="bash"># get the IP address of all interfaces
+networkctl status</code></pre>
+<h3 id="显示所有主机的IP地址"><a href="#显示所有主机的IP地址" class="headerlink" title="显示所有主机的IP地址"></a>显示所有主机的IP地址</h3><pre><code class="bash"># display all IP addresses of the host
+hostname -I</code></pre>
+<h3 id="开启-关闭某个网络接口"><a href="#开启-关闭某个网络接口" class="headerlink" title="开启/关闭某个网络接口"></a>开启/关闭某个网络接口</h3><pre><code class="bash"># enable/disable interface
+ip link set &lt;interface&gt; up
+ip link set &lt;interface&gt; down</code></pre>
+<h3 id="防火墙规则"><a href="#防火墙规则" class="headerlink" title="防火墙规则"></a>防火墙规则</h3><pre><code class="bash"># enable firewall:
+sudo ufw enable
+
+# list rules:
+sudo ufw status
+
+# allow port:
+sudo ufw allow &lt;port&gt;
+# sudo ufw allow 22
+
+# deny port:
+sudo ufw deny &lt;port&gt;</code></pre>
+<h3 id="SSH远程连接"><a href="#SSH远程连接" class="headerlink" title="SSH远程连接"></a>SSH远程连接</h3><pre><code class="bash"># connect remotely through SSH
+ssh &lt;user&gt;@&lt;host IP&gt;</code></pre>
+<hr>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><h3 id="查看当前登录账户"><a href="#查看当前登录账户" class="headerlink" title="查看当前登录账户"></a>查看当前登录账户</h3><pre><code class="bash"># show which users are logged in
+w</code></pre>
+<h3 id="查看用户密码逾期时间"><a href="#查看用户密码逾期时间" class="headerlink" title="查看用户密码逾期时间"></a>查看用户密码逾期时间</h3><pre><code class="bash"># Get password expiration date for &lt;user&gt;
+chage -l &lt;user&gt;</code></pre>
+<h3 id="设置用户密码逾期时间"><a href="#设置用户密码逾期时间" class="headerlink" title="设置用户密码逾期时间"></a>设置用户密码逾期时间</h3><pre><code class="bash"># Set password expiration date for &lt;user&gt;
+sudo chage &lt;user&gt;</code></pre>
+<h3 id="锁定用户"><a href="#锁定用户" class="headerlink" title="锁定用户"></a>锁定用户</h3><pre><code class="bash"># lock a user account
+sudo passwd -l &lt;user&gt;</code></pre>
+<h3 id="解锁用户"><a href="#解锁用户" class="headerlink" title="解锁用户"></a>解锁用户</h3><pre><code class="bash"># unlock a user account
+sudo passwd -u &lt;user&gt;</code></pre>
+<h3 id="列出开放的端口与其关联的进程"><a href="#列出开放的端口与其关联的进程" class="headerlink" title="列出开放的端口与其关联的进程"></a>列出开放的端口与其关联的进程</h3><pre><code class="bash"># List open ports and associated processes
+sudo netstat -tulpn</code></pre>
+<h3 id="自动检测并禁止危险IP"><a href="#自动检测并禁止危险IP" class="headerlink" title="自动检测并禁止危险IP"></a>自动检测并禁止危险IP</h3><pre><code class="bash"># automatically detect and ban abusive IP addresses
+sudo apt install fail2ban
+
+# show banned IP addresses
+sudo fail2ban-client status
+sudo fail2ban-client status &lt;jail&gt;</code></pre>
+<h3 id="内核热更新"><a href="#内核热更新" class="headerlink" title="内核热更新"></a>内核热更新</h3><pre><code class="bash"># visit ubuntu.com/livepatch to get a free token for up to 3 machines.
+sudo snap install canonical-livepatch
+sudo canonical-livepatch enable &lt;token&gt;</code></pre>
+<hr>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="文件列表"><a href="#文件列表" class="headerlink" title="文件列表"></a>文件列表</h3><pre><code class="bash"># List files
+ls
+
+# List files with permissions and dates
+ls -al</code></pre>
+<h3 id="文件间操作"><a href="#文件间操作" class="headerlink" title="文件间操作"></a>文件间操作</h3><pre><code class="bash"># create empty:
+touch &lt;filename&gt;
+
+# create with content:
+echo &quot;&lt;content&gt;&quot; &gt; &lt;filename&gt;
+
+# append content:
+echo &quot;&lt;content&gt;&quot; &gt;&gt; &lt;filename&gt;
+
+# display a text file:
+cat &lt;file&gt;
+
+# copy:
+cp &lt;file&gt; &lt;target filename&gt;
+
+# move/rename:
+mv &lt;file&gt; &lt;target directory/filename&gt;
+
+# delete:
+rm &lt;file&gt;
+
+# find files modified in the last n minutes
+find &lt;directory&gt; -mmin -&lt;n&gt; -type f
+# eg. find . -mmin -5 -type f
+
+# display file paginated
+less &lt;filename&gt;
+
+# display first n lines
+head -n &lt;n&gt; &lt;filename&gt;
+
+# display last n line
+tail -n &lt;n&gt; &lt;filename&gt;
+
+# follow file content as it inncreases
+tail -f &lt;filename&gt;</code></pre>
+<h3 id="压缩文件操作"><a href="#压缩文件操作" class="headerlink" title="压缩文件操作"></a>压缩文件操作</h3><pre><code class="bash"># Pack a directory into an archive
+# zip: 
+zip -r &lt;target&gt; &lt;source dir&gt;
+# tar.gz: 
+tar cvzf &lt;target&gt;.tar.gz &lt;source dir&gt;
+
+# Unpack an archive
+# zip: 
+unzip &lt;zip file&gt;
+# tar.gz: 
+tar xf &lt;tar.gz file&gt;</code></pre>
+<h3 id="远程服务器文件操作"><a href="#远程服务器文件操作" class="headerlink" title="远程服务器文件操作"></a>远程服务器文件操作</h3><pre><code class="bash"># Copy file to remote server
+scp &lt;filename&gt; &lt;user@server&gt;:&lt;destination&gt;
+# eg. scp config.yaml admin@192.0.0.0:/config
+
+# Copy directory recursively from remote server
+scp -r &lt;user@server&gt;:&lt;source&gt; &lt;destination&gt;
+# eg. scp -r admin@192.0.0.0:/config /tmp</code></pre>
+<h3 id="文件夹操作"><a href="#文件夹操作" class="headerlink" title="文件夹操作"></a>文件夹操作</h3><pre><code class="bash"># create a directory
+mkdir &lt;directory&gt;
+
+# create directories recursively
+mkdir -p &lt;directory1&gt;&lt;directory2&gt;...
+
+# delete a directory recursively
+rm -r &lt;directory1&gt;&lt;directory2&gt;...</code></pre>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><pre><code class="bash"># quick file search
+locate &lt;q&gt;
+
+# search string in file
+grep &lt;string&gt; &lt;filename&gt;
+
+# search string recursively in directory
+grep -Iris &lt;string&gt; &lt;directory&gt;</code></pre>
+<hr>
+<h2 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h2><h3 id="软-硬件信息"><a href="#软-硬件信息" class="headerlink" title="软/硬件信息"></a>软/硬件信息</h3><pre><code class="bash"># display kernel version
+uname -r
+
+# get disk usage
+df -h
+
+# get memory usage
+cat /proc/meminfo</code></pre>
+<h3 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h3><pre><code class="bash"># get system time
+timedatectl status
+
+# set system timezone
+timedatectl list-timezones
+sudo timedatectl set-timezone &lt;zone&gt;</code></pre>
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><pre><code class="bash"># monitor new logs for a service
+journalctl -u &lt;service&gt; --since now -f</code></pre>
+<h3 id="登录记录"><a href="#登录记录" class="headerlink" title="登录记录"></a>登录记录</h3><pre><code class="bash"># get the list of recent logins
+last</code></pre>
+<h3 id="性能监控"><a href="#性能监控" class="headerlink" title="性能监控"></a>性能监控</h3><pre><code class="bash"># display running processes
+sudo apt install htop
+htop</code></pre>
+<h3 id="服务-进程-任务管理"><a href="#服务-进程-任务管理" class="headerlink" title="服务/进程/任务管理"></a>服务/进程/任务管理</h3><pre><code class="bash"># get all running services
+systemctl --state running
+
+# start or stop a service
+service &lt;service&gt; start/stop
+
+# kill process by id
+kill &lt;process id&gt;
+
+# kill process by name
+pkill &lt;process name&gt;
+
+# run command in the background
+&lt;command&gt; &amp;
+
+# display background commands
+jobs
+
+# bring command &lt;n&gt; to the foreground
+fg &lt;n&gt;</code></pre>
+<hr>
+<h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
+<p>转载时请注明出处 ©️PhoenixNest</p>
+<table>
+<thead>
+<tr>
+<th align="center">Donate 😇</th>
+<th align="center">Qr code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Wechat</td>
+<td align="center"><img src="/img/wechat.png" alt="Wechat"></td>
+</tr>
+<tr>
+<td align="center">Ali Pay</td>
+<td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td>
+</tr>
+</tbody></table>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft Terran Band - Blood and Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">24 <p>文章</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络"><span class="toc-number">2.</span> <span class="toc-text">网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取所有网卡的IP地址"><span class="toc-number">2.1.</span> <span class="toc-text">获取所有网卡的IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示所有主机的IP地址"><span class="toc-number">2.2.</span> <span class="toc-text">显示所有主机的IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启-关闭某个网络接口"><span class="toc-number">2.3.</span> <span class="toc-text">开启&#x2F;关闭某个网络接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙规则"><span class="toc-number">2.4.</span> <span class="toc-text">防火墙规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH远程连接"><span class="toc-number">2.5.</span> <span class="toc-text">SSH远程连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全性"><span class="toc-number">3.</span> <span class="toc-text">安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看当前登录账户"><span class="toc-number">3.1.</span> <span class="toc-text">查看当前登录账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看用户密码逾期时间"><span class="toc-number">3.2.</span> <span class="toc-text">查看用户密码逾期时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置用户密码逾期时间"><span class="toc-number">3.3.</span> <span class="toc-text">设置用户密码逾期时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁定用户"><span class="toc-number">3.4.</span> <span class="toc-text">锁定用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解锁用户"><span class="toc-number">3.5.</span> <span class="toc-text">解锁用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出开放的端口与其关联的进程"><span class="toc-number">3.6.</span> <span class="toc-text">列出开放的端口与其关联的进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动检测并禁止危险IP"><span class="toc-number">3.7.</span> <span class="toc-text">自动检测并禁止危险IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内核热更新"><span class="toc-number">3.8.</span> <span class="toc-text">内核热更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件"><span class="toc-number">4.</span> <span class="toc-text">文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件列表"><span class="toc-number">4.1.</span> <span class="toc-text">文件列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件间操作"><span class="toc-number">4.2.</span> <span class="toc-text">文件间操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩文件操作"><span class="toc-number">4.3.</span> <span class="toc-text">压缩文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程服务器文件操作"><span class="toc-number">4.4.</span> <span class="toc-text">远程服务器文件操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件夹操作"><span class="toc-number">4.5.</span> <span class="toc-text">文件夹操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-number">4.6.</span> <span class="toc-text">搜索</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统"><span class="toc-number">5.</span> <span class="toc-text">系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软-硬件信息"><span class="toc-number">5.1.</span> <span class="toc-text">软&#x2F;硬件信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时区"><span class="toc-number">5.2.</span> <span class="toc-text">时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志"><span class="toc-number">5.3.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录记录"><span class="toc-number">5.4.</span> <span class="toc-text">登录记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能监控"><span class="toc-number">5.5.</span> <span class="toc-text">性能监控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务-进程-任务管理"><span class="toc-number">5.6.</span> <span class="toc-text">服务&#x2F;进程&#x2F;任务管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Let the feelings with the strength landing.', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音.',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

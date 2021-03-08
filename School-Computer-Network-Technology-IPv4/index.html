@@ -1,0 +1,1189 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机网络原理 • IPv4 编址 - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+本篇是对计算机网络原理一文中的IPv4 编址部分的详细介绍。
+所用教学平台：Cisco Networking Academy
+
+
+IPv4 编址IPv4 地址结构 - 网络,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">计算机网络原理 • IPv4 编址</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/计算机网络"><b>「
+                        </b>计算机网络<b> 」</b></a>
+                
+                一月 11, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-IPv4/" title="计算机网络原理 • IPv4 编址" class="">计算机网络原理 • IPv4 编址</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    22k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    40 mins.
+                </span>
+                    
+                    
+                        <span id="/School-Computer-Network-Technology-IPv4/" class="leancloud_visitors"
+                              data-flag-title="计算机网络原理 • IPv4 编址">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Let the feelings with the strength landing.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#IPv4%E7%BC%96%E5%9D%80">IPv4 编址部分</a>的详细介绍。</p>
+<p>所用教学平台：<a href=""https://cn.netacad.com/"">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h2 id="IPv4-编址"><a href="#IPv4-编址" class="headerlink" title="IPv4 编址"></a>IPv4 编址</h2><h3 id="IPv4-地址结构-网络部分和主机部分"><a href="#IPv4-地址结构-网络部分和主机部分" class="headerlink" title="IPv4 地址结构 - 网络部分和主机部分"></a>IPv4 地址结构 - 网络部分和主机部分</h3><p>IPv4 地址为32位分层地址，由网络部分和主机部分两个部分组成。在确定网络部分和主机部分时，必须先查看 32 位数据流，如图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_1.png" alt="IPv4 地址"></p>
+<blockquote>
+<p>对于同一网络中的所有设备，<code>地址的网络部分中的位必须完全相同</code>。<code>地址的主机部分中的位必须唯一，这方便识别网络中的特定主机</code>。如果两台主机在 32 位数据流中的指定网络部分有相同的位模式，则这两台主机位于同一网络。</p>
+</blockquote>
+<p>但是，主机如何知道 32 位数据流中的哪一部分用于标识网络，哪一部分用于标识主机呢？这就是子网掩码的作用。</p>
+<hr>
+<h3 id="IPv4-地址结构-子网掩码"><a href="#IPv4-地址结构-子网掩码" class="headerlink" title="IPv4 地址结构 - 子网掩码"></a>IPv4 地址结构 - 子网掩码</h3><p>如图所示，为主机分配 IPv4 地址需要以下内容：</p>
+<ul>
+<li>IPv4 地址 - 这是主机的唯一 IPv4 地址。</li>
+<li>子网掩码\ - 用于标识 IPv4 地址的网络部分/主机部分。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_2_1.png" alt="Windows 计算机上的 IPv4 配置"></p>
+<p>注意: 访问远程网络需要一个默认网关IPv4地址，<code>将域名转换为IPv4地址需要DNS服务器的IPv4地址</code>。</p>
+<blockquote>
+<p>IPv4子网掩码用于将地址的网络部分与IPv4地址的主机部分区分开来。当把 IPv4 地址分配给一台设备时，该设备使用子网掩码来确定设备的网络地址。网络地址代表同一网络中的所有设备的地址。</p>
+</blockquote>
+<p>下图以点分十进制和二进制格式显示了32位子网掩码。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_2_2.png" alt="子网掩码"></p>
+<p>请注意子网掩码是一个1位连续序列，后面跟有一个0位连续序列组成的序列。</p>
+<p>为了确定 IPv4 地址的网络部分和主机部分，要将子网掩码与 IPv4 地址进行从左到右逐位比较（如图所示）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_2_3.png" alt="子网掩码"></p>
+<p>注意，子网掩码实际上不包含 IPv4 地址的网络部分或主机部分，它仅通知计算机在哪里查找IPv4地址的网络部分和主机部分。</p>
+<p>用于确定网络部分和主机部分的实际流程叫做 AND 运算。</p>
+<hr>
+<h3 id="前缀长度"><a href="#前缀长度" class="headerlink" title="前缀长度"></a>前缀长度</h3><p>使用点分十进制子网掩码地址表示网络地址和主机地址会变得很麻烦。幸运的是，还有另一种识别子网掩码的方法，称为前缀长度。</p>
+<blockquote>
+<p><code>前缀长度是子网掩码中设置为 1 的位数</code>。使用“斜线记法”写入，即“/”紧跟设置为 1 的位数。借此计算子网掩码中的位数，并在前面加斜线表示。</p>
+</blockquote>
+<p>请参阅下表示例：第一列中列出了主机地址使用的各种子网掩码。第二列显示转换的 32 位二进制地址。最后一列显示最终的前缀长度。</p>
+<table>
+<thead>
+<tr>
+<th align="center">子网掩码</th>
+<th align="center">32 位地址</th>
+<th align="center">前缀长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>255</strong>.0.0.0</td>
+<td align="center"><strong>11111111</strong>.00000000.00000000.00000000</td>
+<td align="center">/<strong>8</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255</strong>.0.0</td>
+<td align="center"><strong>11111111.11111111</strong>.00000000.00000000</td>
+<td align="center">/<strong>16</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255</strong>.0</td>
+<td align="center"><strong>11111111.11111111.11111111</strong>.00000000</td>
+<td align="center">/<strong>24</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255.128</strong></td>
+<td align="center"><strong>11111111.11111111.11111111</strong>.10000000</td>
+<td align="center">/<strong>25</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255.192</strong></td>
+<td align="center"><strong>11111111.11111111.11111111.11</strong>000000</td>
+<td align="center">/<strong>26</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255.224</strong></td>
+<td align="center"><strong>11111111.11111111.11111111.111</strong>00000</td>
+<td align="center">/<strong>27</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255.240</strong></td>
+<td align="center"><strong>11111111.11111111.11111111.1111</strong>0000</td>
+<td align="center">/<strong>28</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255.248</strong></td>
+<td align="center"><strong>11111111.11111111.11111111.11111</strong>000</td>
+<td align="center">/<strong>29</strong></td>
+</tr>
+<tr>
+<td align="center"><strong>255.255.255.252</strong></td>
+<td align="center"><strong>11111111.11111111.11111111.111111</strong>00</td>
+<td align="center">/<strong>30</strong></td>
+</tr>
+</tbody></table>
+<p>注意: 网络地址也称为前缀或网络前缀。因此，前缀长度是子网掩码中设置为 1 的位数。</p>
+<blockquote>
+<p>当使用前缀长度表示 IPv4 地址时，IPv4 地址后面写入不带空格的前缀长度。例如，192.168.10.10 255.255.255.0可以写成192.168.10.10/24。后面将讨论各种类型前缀长度的使用。目前，重点是 /24（例如 255.255.255.0）前缀。</p>
+</blockquote>
+<hr>
+<h3 id="确定网络：逻辑与-AND"><a href="#确定网络：逻辑与-AND" class="headerlink" title="确定网络：逻辑与(AND)"></a>确定网络：逻辑与(AND)</h3><blockquote>
+<p>逻辑与(AND)是布尔或数字逻辑中使用的三种布尔运算之一。另外两种是或(OR)和非(NOT)。使用“与”运算来确定网络地址。</p>
+</blockquote>
+<p>逻辑与运算比较两个位，所得结果如下所示。<code>注意只有 1 AND 1 等于 1。任何其他组合都会产生 0</code>。</p>
+<ul>
+<li><strong>1 AND 1 = 1</strong></li>
+<li><strong>0 AND 1 = 0</strong></li>
+<li><strong>1 AND 0 = 0</strong></li>
+<li><strong>0 AND 0 = 0</strong></li>
+</ul>
+<blockquote>
+<p>注意: 在数字逻辑中，1 表示真，0 表示假。使用AND运算时，两个输入值都必须为 True (1)，结果才能为 True (1)。</p>
+</blockquote>
+<blockquote>
+<p>要确定 IPv4 主机的网络地址，应将 IPv4 地址与子网掩码逐位进行逻辑 AND 运算。地址和子网掩码之间的 AND 运算得到的结果就是网络地址。</p>
+</blockquote>
+<p>要举例说明 AND 是如何用于发现网络地址的，假设主机的 IPv4 地址为 192.168.10.10，子网掩码为 255.255.255.0，如图所示：</p>
+<ul>
+<li><strong>IPv4 主机地址 (192.168.10.10)</strong> - 主机的 IPv4 地址，采用点分十进制和二进制格式。</li>
+<li><strong>子网掩码 (255.255.255.0)</strong> - 主机的子网掩码，采用点分十进制和二进制格式。</li>
+<li><strong>网络地址 (192.168.10.0)</strong> - IPv4地址和子网掩码之间的逻辑AND运算产生一个点分十进制和二进制格式的IPv4网络地址。</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_4.png">
+
+<p>该图显示了 IPv4 主机地址和子网掩码之间的AND运算过程，产生主机的 IPv4 网络地址。IPv4主机地址是192.168.10.10。下面，地址被转换为11000000 10101000 00001010 00001010。下面，将写入子网掩码255.255.255.0。下面，子网掩码被转换为11111111 11111111 11111111 00000000。在子网掩码的二进制等效值下画了一条线。线下方是由AND运算过程确定的 IPv4 网络地址的点分十进制和二进制等效值。蓝色阴影框显示了 IPv4 主机地址的第一位（1），与子网掩码的第一位相比(也是 1)，从而产生 IPv4 网络地址中的第一位值为 1。IPv4 网络地址是 192.168.10.0，其二进制等效值是11000000 101001000 00001010 00000000。</p>
+<p>以第一个位序列为例，请注意AND运算是在主机地址的1位和子网掩码的1位上执行的。这将产生网络地址的 1 位。1 AND 1 = 1。</p>
+<p>IPv4 主机地址和子网掩码之间的AND运算过程，产生主机的 IPv4 网络地址。在此示例中，主机地址 192.168.10.10 与子网掩码 255.255.255.0 (/24) 之间的 AND运算会产生 IPv4 网络地址为192.168.10.0/24。这是一个重要的 IPv4运算，因为它会告诉主机其所属的网络。</p>
+<hr>
+<h3 id="网络地址、主机地址和广播地址"><a href="#网络地址、主机地址和广播地址" class="headerlink" title="网络地址、主机地址和广播地址"></a>网络地址、主机地址和广播地址</h3><p>在每个网络中有三种类型的 IP 地址：</p>
+<ul>
+<li><strong>网络地址</strong></li>
+<li><strong>主机地址</strong></li>
+<li><strong>广播地址</strong></li>
+</ul>
+<p>使用图中的拓扑，将检查这三种类型的地址。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_5.png">
+
+<hr>
+<blockquote>
+<p>网络地址</p>
+</blockquote>
+<p>网络地址是表示特定网络的地址。如果设备满足以下三个条件，则属于此网络：</p>
+<ul>
+<li>它具有<code>与网络地址相同的子网掩码</code>。</li>
+<li>它具有<code>与网络地址相同的网络位</code>，如子网掩码所示。</li>
+<li>它<code>与具有相同网络地址的其他主机位于同一广播域中</code>。</li>
+</ul>
+<p>主机通过在其 IPv4 地址与其子网掩码之间执行一个AND运算来确定其网络地址。</p>
+<p>如表中所示，由子网掩码确定的网络地址在主机部分中包含所有 0 位。在此示例中，网络地址是 192.168.10.0/24。无法将网络地址分配给设备。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_6.png" alt="网络地址、主机地址和广播地址"></p>
+<hr>
+<blockquote>
+<p>主机地址</p>
+</blockquote>
+<p><code>主机地址是可以分配给设备的地址</code>，如主机，笔记本电脑，智能手机，网络摄像头，打印机，路由器等。地址的主机部分是由子网掩码中 0 位表示的位。除了全0位（这将是网络地址）或全1位（这将是广播地址）之外，主机地址在主机部分可以有任何位的组合。</p>
+<p>同一网络中的所有设备，必须具有相同的子网掩码和相同的网络位。只有主机位会有所不同，且必须是唯一的。</p>
+<p>请注意表中，有第一个和最后一个主机地址：</p>
+<ul>
+<li><strong>第一个主机地址</strong> - 网络中的第一个主机，除最后一位（最右边）为1位外包含所有0位。在这个例子中，它的地址是192.168.10.1/24。</li>
+<li><strong>最后一个主机地址</strong> - 网络中的最后一个主机，除最后一位（最右边）为0位外包含所有1位。在这个例子中，它的地址是192.168.10.254/24。<br>从192.168.10.1/24到192.168.10.254/24之间（包含）的任何地址都可以分配给网络上的设备。</li>
+</ul>
+<hr>
+<blockquote>
+<p>广播地址</p>
+</blockquote>
+<p><code>广播地址是在需要访问IPv4网络上的所有设备时使用的地址</code>。如表中所示，由子网掩码确定的网络广播地址在主机部分中包含所有 1 位。在此示例中，网络地址是 192.168.10.255/24。<code>无法将广播地址分配给设备</code>。</p>
+<hr>
+<h3 id="IPv4-单播"><a href="#IPv4-单播" class="headerlink" title="IPv4 单播"></a>IPv4 单播</h3><blockquote>
+<p>单播传输是指在<strong>一对一通信中</strong>，<strong>一个设备向另一个设备发送消息</strong>。</p>
+</blockquote>
+<blockquote>
+<p><code>单播数据包具有一个目的 IP 地址，该地址是一个单播地址，该地址指向一个单独的接收者</code>。<strong>源 IP 地址只能是单播地址，因为数据包只能来自单个源</strong>。这与目的IP地址是单播、广播还是组播无关。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_7_1.png" alt="源主机发送单播信息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_7_2.png" alt="目的主机接受单播信息"></p>
+<p><strong>IPv4 单播主机地址的地址范围是 1.1.1.1到 223.255.255.255</strong>。不过，此范围中的很多地址被留作特殊用途。</p>
+<hr>
+<h3 id="IPv4-广播"><a href="#IPv4-广播" class="headerlink" title="IPv4 广播"></a>IPv4 广播</h3><blockquote>
+<p>广播播传输是指设备在一对多通信中，向网络上的所有设备发送消息。</p>
+</blockquote>
+<p>广播数据包以主机部分全部为 1 的地址或 32 个 1 位作为目的 IP 地址。</p>
+<p>注意: <strong>IPv4 使用广播数据包</strong>，但是<code>IPv6 没有广播数据包</code>。</p>
+<blockquote>
+<p>广播数据包必须由同一广播域中的所有设备处理。广播域标识同一网段上的所有主机。可以对广播进行定向或限制。定向广播是将数据包发送给特定网络中的所有主机。例如，位于 172.16.4.0/24 网络的主机向 172.16.4.255 发送数据包。受限广播将被发送至 255.255.255.255。默认情况下，路由器不转发广播。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_8_1.png" alt="源主机向交换机发送信息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_8_2.png" alt="交换机向余下主机与设备发送广播信息"></p>
+<p><strong>广播数据包使用网络上的资源，使网络上的所有接收主机都处理该数据包</strong>。因此，<code>广播通信应加以限制，以免对网络或设备的性能造成负面影响</code>。因为<code>路由器可分隔广播域，所以细分网络可以通过消除过多的广播通信来提高网络性能</code>。</p>
+<hr>
+<p>IP直接广播</p>
+<p><code>除了 255.255.255.255 的广播地址外，每个网络还有一个广播 IPv4 地址。这个地址称为定向广播，它使用网络范围内的最大地址，即所有主机位全部为 1 的地址</code>。例如，网络 192.168.1.0/24的定向广播地址是 192.168.1.255。<code>此地址允许与该网络中的所有主机进行通信。要向网络中的所有主机发送数据，主机只需以该网络广播地址为目标地址发送一个数据包即可</code>。</p>
+<blockquote>
+<p>未直接连接到目标网络的设备转发 IP 定向广播，其方式与转发去往网络上主机的单播 IP 数据包相同。当定向广播数据包到达直接连接到目标网络的路由器时，该数据包在目标网络上进行广播。</p>
+</blockquote>
+<p>注意: 由于安全问题和恶意用户的滥用，从思科 IOS 版本 12.0 开始通过全局配置命令 no ip directed-broadcasts，定向广播在默认情况下是关闭的。</p>
+<hr>
+<h3 id="IPv4-组播"><a href="#IPv4-组播" class="headerlink" title="IPv4 组播"></a>IPv4 组播</h3><blockquote>
+<p>主机通过<code>组播</code>传输可以<code>向所属组播组中的选定主机组发送一个数据包</code>，<code>从而减少了流量</code>。</p>
+</blockquote>
+<p>组播数据包是一个目的IP地址为组播地址的数据包。IPv4 将 224.0.0.0 到 239.255.255.255 的地址保留为组播范围。</p>
+<blockquote>
+<p><strong>接收特定组播数据包的主机称为组播客户端</strong>。组播客户端使用客户端程序请求的服务来加入组播组。</p>
+</blockquote>
+<p>每个组播组由一个 IPv4 组播目的地址代表。<code>当 IPv4 主机加入组播组后，该主机既要处理目的地址为此组播地址的数据包，也要处理发往其唯一单播地址的数据包</code>。</p>
+<p>路由协议（如 OSPF）使用组播传输。例如，启用 OSPF 的路由器使用保留的 OSPF 组播地址 224.0.0.5 相互通信。只有启用 OSPF 的设备才会以 224.0.0.5 作为目的 IPv4 地址处理这些数据包。所有其他设备将忽略这些数据包。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_9_1.png" alt="源主机向交换机发送信息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_9_2.png" alt="交换机向余下主机与设备发送信息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_9_3.png" alt="各主机与设备检查信息是否为源主机所指定"></p>
+<hr>
+<h3 id="公有和私有-IPv4-地址"><a href="#公有和私有-IPv4-地址" class="headerlink" title="公有和私有 IPv4 地址"></a>公有和私有 IPv4 地址</h3><p>正如有不同的方式传输 IPv4 数据包一样，也有不同类型的 IPv4 地址。一些 IPv4 地址不能用于外联到互联网，而其他地址则专门用于路由到互联网。一些用于验证连接，另一些则是自分配的。</p>
+<blockquote>
+<p>公有 IPv4 地址是能在 ISP（互联网运营商）路由器之间全局路由的地址。但是，并非所有可用的 IPv4 地址都可用于互联网。大多数组织使用称为私有地址的地址块向内部主机分配 IPv4 地址。</p>
+</blockquote>
+<p>20 世纪 90 年代中期，随着万维网(WWW)的引入，由于 IPv4 地址空间耗尽，引入了私有 IPv4 地址。私有 IPv4 地址并不是唯一的，可以在任何网络内部使用它。</p>
+<p>注意: <strong>IPv4 地址耗尽的长期解决方案是 IPv6</strong>。</p>
+<table>
+<thead>
+<tr>
+<th align="center">网络地址和前缀</th>
+<th align="center">RFC 1918 私有地址范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10.0.0.0/8</td>
+<td align="center">10.0.0.0 - 10.255.255.255</td>
+</tr>
+<tr>
+<td align="center">172.16.0.0/12</td>
+<td align="center">172.16.0.0 - 172.31.255.255</td>
+</tr>
+<tr>
+<td align="center">192.168.0.0/16</td>
+<td align="center">192.168.0.0 - 192.168.255.255</td>
+</tr>
+</tbody></table>
+<p>注意: 私有地址在 RFC 1918 中定义，有时也称为 RFC 1918 地址空间。</p>
+<hr>
+<h3 id="路由到互联网"><a href="#路由到互联网" class="headerlink" title="路由到互联网"></a>路由到互联网</h3><p>大多数内部网络（从大型企业到家庭网络）都使用私有 IPv4 地址来编址所有内部设备（Intranet），包括主机和路由器。但是，私有地址不可全局路由。</p>
+<blockquote>
+<p>在图中，客户网络 1、2 和 3 正在其内部网络之外发送数据包。这些数据包有一个源IPv4地址，它是一个私有地址，还有一个目的IPv4地址，它是公有地址(全局可路由)。<code>在将数据包转发给ISP之前，必须过滤(丢弃)带有私有地址的数据包或将其转换为公有地址</code>。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_11_1.png" alt="Private IPv4 Addresses and Network Address Translation (NAT)"></p>
+<blockquote>
+<p><code>在 ISP 可以转发此数据包之前，它必须使用网络地址转换 (NAT) 将源 IPv4 地址（即私有地址）转换为公有 IPv4 地址</code>。<strong>NAT用于转换私有和公有 IPv4 地址</strong>。这通常是在将内部网络连接到 ISP 网络的路由器上完成。在路由到互联网之前，组织内部网中的私有 IPv4 地址将被转换为公有 IPv4 地址。</p>
+</blockquote>
+<p>注意: 虽然具有私有 IPv4 地址的设备无法通过互联网从另一个设备直接访问，但 IETF 并不认为私有 IPv4 地址或 NAT 是有效的安全措施。</p>
+<p>拥有可用于互联网的资源的组织（如 Web 服务器）也将拥有具有公有 IPv4 地址的设备。如图所示，该网络的这一部分被称为DMZ（非军事区）。图中的路由器不仅执行路由，还执行 NAT 并充当安全防火墙。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_11_1.png" alt="Private IPv4 Addresses and Network Address Translation (NAT)"></p>
+<p>注意: 私有 IPv4 地址通常用于教育目的，而不是使用最有可能属于组织的公有 IPv4 地址。</p>
+<hr>
+<h3 id="专用-IPv4-地址"><a href="#专用-IPv4-地址" class="headerlink" title="专用 IPv4 地址"></a>专用 IPv4 地址</h3><blockquote>
+<p>一些地址，比如网络地址和广播地址不能分配给主机。还有些特殊地址可以分配给主机，但这些主机在网络内的交互方式却受到限制。</p>
+</blockquote>
+<ul>
+<li><strong>环回地址</strong></li>
+</ul>
+<p>环回地址（127.0.0.0 /8 或 127.0.0.1 到 127.255.255.254）通常仅被标识为127.0.0.1，主机使用这些特殊地址将流量指向其自身。例如，如图所示，主机可以使用这个特殊地址测试 TCP/IP 配置是否运行正常。注意 127.0.0.1 环回地址对ping命令的应答。也要注意该块中的任何地址是如何环回到本地主机的，如图的第二个ping所示。</p>
+<p>对环回接口执行 ping 操作</p>
+<pre><code class="bash">C:\Users\NetAcad&gt; ping 127.0.0.1
+Pinging 127.0.0.1 with 32 bytes of data:
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Ping statistics for 127.0.0.1:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\NetAcad&gt; ping 127.1.1.1
+Pinging 127.1.1.1 with 32 bytes of data:
+Reply from 127.1.1.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.1.1.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.1.1.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.1.1.1: bytes=32 time&lt;1ms TTL=128
+Ping statistics for 127.1.1.1:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms</code></pre>
+<ul>
+<li><strong>本地链路地址</strong></li>
+</ul>
+<blockquote>
+<p>本地链路地址（169.254.0.0 /16 或 169.254.0.1 至 169.254.255.254）通常称为自动私有 IP 编址 (APIPA) 地址或自分配地址。 <strong>当没有可用的DHCP服务器时，Windows DHCP客户端使用它们进行自我配置。本地链路地址可以用于点对点连接，但通常不用于此目的</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="传统有类编址"><a href="#传统有类编址" class="headerlink" title="传统有类编址"></a>传统有类编址</h3><p>1981 年，使用在<a href="https://tools.ietf.org/html/rfc790" target="_blank" rel="noopener">RFC 790</a> 中 Assigned Numbers 部分定义的有类编址对 IPv4 地址进行了分配。根据三个类别（A 类、B 类或 C 类）之一为客户分配网络地址。RFC 将单播范围分为具体的类别：</p>
+<ul>
+<li><strong>A 类 (0.0.0.0/8 - 127.0.0.0/8)</strong> - 用于<strong>支持拥有 1600 万以上主机地址的规模非常大的网络</strong>。<code>A类的第一个八位组使用固定的 /8 前缀表示网络地址，其他的三个八位组表示主机地址(每个网络支持1600 万以上主机地址)</code>。</li>
+<li><strong>B 类 (128.0.0.0 /16 – 191.255.0.0 /16)</strong> - 用于<strong>支持拥有大约 65,000 个主机地址的大中型网络</strong>。<code>B类的两个高位八位组使用固定的 /16 前缀表示网络地址，其他的两个八位组表示主机地址(每个网络支持65,000个以上主机地址)</code>。</li>
+<li><strong>C 类 (192.0.0.0 /24 – 223.255.255.0 /24)</strong> - 用于<strong>支持最多拥有 254 台主机的小型网络</strong>。<code>C类的前三个八位组使用固定的 /24 前缀表示网络地址，其余的八位组表示主机地址（每个网络中只有254个主机地址）</code>。</li>
+</ul>
+<blockquote>
+<p>注意: 还有包含 224.0.0.0 到 239.0.0.0 的 D 类组播块以及包含 240.0.0.0 – 255.0.0.0 的 E 类实验地址块。</p>
+</blockquote>
+<p>当时，由于使用互联网的计算机数量有限，有类编址是分配地址的有效手段。如图所示，A 类和 B 类网络具有非常多的主机地址，而C类只有很少的主机地址。A 类网络占 IPv4 网络的 50%。这导致大多数可用的 IPv4 地址未被使用。</p>
+<p>该图是一个饼图，显示了A、B、C、D 和 E IPv4编址的百分比，每个 A、B 和 C 类网络的网络和主机总数。百分比为:<strong>A类= 50%，B类= 25%，C类= 12.5%，D类和E类= 12.5%</strong>。每个网络的网络总数和主机总数为：<strong>A 类 = 128 个网络，每个网络共有 16,777,214 个主机</strong>；<strong>B 类 = 16,384 个网络，每个网络共有 65,534 个主机</strong>；<strong>C 类 = 2,097,152 个网络，每个网络共有 254 个主机</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_13.png">
+
+<p>二十世纪90年代中期，随着万维网 (WWW) 的引入，有类编址被弃用，以便更有效地分配有限的 IPv4 地址空间。有类地址分配被替换为今天使用的无类编址。无类编址会忽略A、B、C类的规则。公有 IPv4 网络地址（网络地址和子网掩码）是根据合理的地址数量分配的。</p>
+<hr>
+<h3 id="IP-地址的分配"><a href="#IP-地址的分配" class="headerlink" title="IP 地址的分配"></a>IP 地址的分配</h3><p>公有 IPv4 地址是能通过互联网全局路由的地址。公有 IPv4 地址必须是唯一的。</p>
+<blockquote>
+<p>IPv4 和 IPv6 地址是通过互联网编号指派机构 (IANA) 管理的。IANA 管理并向地区性互联网注册机构 (RIR) 分配 IP 地址块。图中显示了五个RIR。</p>
+</blockquote>
+<blockquote>
+<p>RIR 的职责是向 ISP 分配 IP 地址，而 ISP 将向组织和更小的 ISP 提供 IPv4 地址块。根据 RIR 的政策规定，组织也可直接从 RIR 获取地址。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_14.png" alt="Regional Internet Registries"></p>
+<hr>
+<h3 id="广播域和分段"><a href="#广播域和分段" class="headerlink" title="广播域和分段"></a>广播域和分段</h3><p>您是否收到过群发给您公司或学校每个人的电子邮件？这就是一个广播电子邮件。它包含了您们每个人都需要知道的信息。但是，通常广播并不是与邮件列表中的每个人都相关。有时候，只有一部分人需要阅读这些信息。</p>
+<p>在以太网局域网中，设备使用广播和地址解析协议 (ARP) 来定位其他设备。地址解析协议 (ARP)将第 2 层广播发送到本地网络上的已知 IPv4 地址，以发现相关 MAC 地址。以太网局域网上的设备还可以使用服务定位其他设备。主机通常需要使用动态主机配置协议 (DHCP) 来获取 IPv4 地址配置，这会发送本地网络上的广播来定位 DHCP 服务器。</p>
+<p>交换机会将广播传播到所有接口，接收它的接口除外。例如，如果图中的交换机接收到广播，则它会将其转发到网络上连接的其他交换机和其他用户。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_15.png" alt="路由器分段广播域"></p>
+<p>路由器不传播广播。路由器在收到广播时，它不会将其转发到其他接口。例如，当 R1 在其 Gigabit Ethernet 0/0 接口收到广播时，它不会将其转发到另一个接口。</p>
+<p>因此，每个路由器接口都连接了一个广播域，而广播只能在特定广播域内传播。</p>
+<hr>
+<h3 id="大型广播域存在的问题"><a href="#大型广播域存在的问题" class="headerlink" title="大型广播域存在的问题"></a>大型广播域存在的问题</h3><p>大型广播域是连接很多主机的网络。大型广播域的一个问题是这些主机会生成太多广播，这会对网络造成不良影响。在图中，局域网1 连接了 400 个用户，可能会产生过量的广播流量。这会导致网络操作速度缓慢，因为它会导致大量的流量，而设备操作变慢是因为设备必须接受和处理每个广播数据包。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_16_1.png" alt="大型广播域"></p>
+<p>解决方案是使用称为“子网划分”的过程缩减网络的规模以创建更小的广播域。这些较小的网络空间通常称为“子网”。</p>
+<p>在图中，网络地址为 172.16.0.0 /16 的 LAN 1 中的 400 个用户被划分到两个子网中，每个子网包含 200 个用户，网络地址分别为 172.16.0.0 /24 和 172.16.1.0 /24。广播仅在更小的网络域内传播。因此，LAN 1 中的广播不会传播到 LAN 2。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_16_2.png" alt="在网络之间通信"></p>
+<p>注意，从一个单一的/16网络到两个/24网络前缀长度是如何变化的。这是基本的子网划分：使用主机位可以创建其他子网。</p>
+<p>注意: 术语“子网”和“网络”经常互换使用。大多数网络是一些较大地址块的子网。</p>
+<hr>
+<h3 id="划分网络的原因"><a href="#划分网络的原因" class="headerlink" title="划分网络的原因"></a>划分网络的原因</h3><p>子网划分可以降低整体网络流量并改善网络性能。它也能让管理员实施安全策略，例如哪些子网允许或不允许进行通信。另一个原因是，它减少了由于错误配置、硬件/软件问题或恶意意图而受到异常广播流量影响的设备数量。</p>
+<p>使用子网有多种方法，可帮助管理网络设备。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_17_1.png" alt="位置"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_17_2.png" alt="组域功能"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_17_3.png" alt="设备类型"></p>
+<p>网络管理员可以使用对网络有意义的任何其他划分来创建子网。注意，在每个图中，子网使用较长的前缀来标识网络。</p>
+<p>理解如何对网络划分子网是所有网络管理员必须掌握的基本技能。已经创建了各种方法来帮助理解这一过程。虽然开始时会让您有点晕头转向，但是请把注意力集中于细节和实践操作，那样就会更容易理解子网划分。</p>
+<hr>
+<h3 id="在二进制八位组边界上划分子网"><a href="#在二进制八位组边界上划分子网" class="headerlink" title="在二进制八位组边界上划分子网"></a>在二进制八位组边界上划分子网</h3><p>在上一个主题中，您了解了对网络进行划分的几个很好的理由。您还了解到，划分一个网络称为子网划分。子网划分是管理 IPv4 网络时的一项关键技能。一开始可能会有点困难，但是通过练习会变得容易得多。</p>
+<p>创建 IPv4 子网时会将一个或多个主机位作为网络位。具体做法是延长子网掩码，从地址的主机部分借用若干位来增加网络位。借用的主机位越多，可以定义的子网也就越多。为了增加子网数量而借用的位越多，每个子网的主机数量就越少。</p>
+<p>网络在二进制八位数边界 /8、/16 和 /24 处最容易进行子网划分。该表标识了这些前缀长度。注意，使用较长的前缀会减少每个子网能包含的主机数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_18_1.png" alt="八位组边界上的子网掩码"></p>
+<p>为了理解如何在二进制八位组边界上进行子网划分，请考虑以下示例。假设企业选择了私有地址 10.0.0.0/8 作为其内部网络地址。该网络地址可以在一个广播域中连接 16,777,214 个主机。显然，在一个子网上拥有超过 1600 万台主机并不理想。</p>
+<p>企业可以进一步在二进制八位组边界 /16 处对 10.0.0.0/8 地址进行子网划分，如表所示。这能让企业定义多达 256 个子网（例如，10.0.0.0/16 – 10.255.0.0/16），每个子网可以连接 65,534 个主机。注意，前两个二进制八位组标识地址的网络部分，而后两个二进制八位组用于标识主机 IP 地址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_18_2.png" alt="使用 /16前缀对网络 10.0.0.0/8进行子网划分"></p>
+<p>另外，企业也可以选择在 /24 二进制八位组边界处对 10.0.0.0/8 网络进行子网划分，如表所示。这将让企业能定义 65,536 个子网，每个子网能连接 254 个主机。/24 边界在子网划分中使用非常广泛，因为它在这个二进制八位数边界处可以容纳足够多的主机，并且子网划分也很方便。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_18_3.png" alt="使用/24前缀对网络10.0.0.0/8进行 子网划分"></p>
+<hr>
+<h3 id="在二进制八位组边界内-划分子网"><a href="#在二进制八位组边界内-划分子网" class="headerlink" title="在二进制八位组边界内 划分子网"></a>在二进制八位组边界内 划分子网</h3><p>到目前为止所展示的示例都是从常见的 /8、/16 和 /24 网络前缀借用了主机位。然而，子网可以从任何主机位借用位来创建其他掩码。</p>
+<p>例如，/24 网络地址通常通过从第 4 个二进制八位数借用位来使用更长的前缀进行子网划分。这可以让管理员在将网络地址分配到更少数量的终端设备时具有很好的灵活性。</p>
+<p>参考下表可以看到6种对/24网络划分子网的方式。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_19.png" alt="对 /24 网络划分子网"></p>
+<p>对在第 4 个二进制八位组中借用的每个位，可用的子网数会加倍，同时每个子网的主机地址数会减少。</p>
+<ul>
+<li><strong>/25 行</strong> - 从第 4 个二进制八位组借用 1 位可以创建每个能容纳 126 个主机的 2 个子网。</li>
+<li><strong>/26 行</strong> - 借用 2 位可以创建每个能容纳 62 个主机的 4 个子网。</li>
+<li><strong>/27 行</strong> - 借用 3 位可以创建每个能容纳 30 个主机的 8 个子网。</li>
+<li><strong>/28 行</strong> - 借用 4 位可以创建每个能容纳 14 个主机的 16 个子网。</li>
+<li><strong>/29 行</strong> - 借用 5 位可以创建每个能容纳 6 个主机的 32 个子网。</li>
+<li><strong>/30 行</strong> - 借用 6 位可以创建每个能容纳 2 个主机的 64 个子网。</li>
+</ul>
+<hr>
+<h3 id="使用-16-前缀创建子网"><a href="#使用-16-前缀创建子网" class="headerlink" title="使用 /16 前缀创建子网"></a>使用 /16 前缀创建子网</h3><p>有些子网比其他子网更容易。本主题介绍如何创建具有相同数量主机的子网。</p>
+<p>在要求较多子网的情况下，需要 IPv4 网络有更多主机位可以借用。例如，网络地址 172.16.0.0 具有默认掩码 255.255.0.0 或 /16。该地址的网络部分有 16 位，主机部分也有 16 位。主机部分的这 16 位可借用来创建子网。表突出显示了对 /16 前缀进行子网划分的所有可能的场景。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_20.png" alt="对 /16 网络划分子网"></p>
+<p>虽然您不需要记住这个表，但仍然需要很好地了解表中每个值的生成方式。不要让表的大小吓着了您。变大的原因是因为它有 8 个能借用的额外位，因此子网和主机的数量只能是变大。</p>
+<hr>
+<h3 id="使用-16-前缀创建-100-个子网"><a href="#使用-16-前缀创建-100-个子网" class="headerlink" title="使用 /16 前缀创建 100 个子网"></a>使用 /16 前缀创建 100 个子网</h3><p>假设一家大型企业需要至少 100 个子网，并且已选择私有地址 172.16.0.0/16 作为其内部网络地址。</p>
+<p>当从 /16 地址借用位时，从借用第三个二进制八位组开始，并遵循从左向右的顺序。一次借用一个位直至所需的位数能创建 100 个子网。</p>
+<p>该图显示了当从第三个二进制八位组和第四个二进制八位组借用位时能创建的子网数。注意，现在可以借用的主机位多达 14 个。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_21_1.png" alt="创建的子网数"></p>
+<p>要满足企业100个子网的要求，需要借用 7 位（即 2^7= 128 个子网），如图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_21_2.png" alt="172.16.0.0/23 网络"></p>
+<p>回想一下，子网掩码必须作出更改以反映借用的位。在本示例中，当借用 7 个位时，掩码将扩展 7 个位到第三个二进制八位数。该掩码以十进制表示为 255.255.254.0，或者 /23 前缀，因为，第三个二进制八位组以二进制表示为 11111110，第四个二进制八位组以二进制表示为 00000000。</p>
+<p>图中显示了生成的子网范围从 172.16.0.0 /23 到 172.16.254.0 /23。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_21_3.png" alt="产生 /23 子网"></p>
+<p>在为子网借用 7 个位之后，第三个二进制八位组中剩余 1 个主机位，第四个二进制八位组中剩余 8 个主机位，所以总共有 9 个位没有借用。2的9次幂会产生 512 个主机地址。第一个地址是为网络地址保留的，最后一个地址是为广播地址保留的，因此减去这两个地址 (2^9-2) 等于每个 /23 子网有 510 个可用的主机地址。</p>
+<p>如图所示，第一个子网的第一个主机地址是 172.16.0.1，最后一个主机地址是 172.16.1.254。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_21_4.png" alt="172.16.0.0/23 子网的地址范围"></p>
+<hr>
+<h3 id="使用-8-前缀创建-1000-个子网"><a href="#使用-8-前缀创建-1000-个子网" class="headerlink" title="使用 /8 前缀创建 1000 个子网"></a>使用 /8 前缀创建 1000 个子网</h3><p>一些组织，例如小型服务提供商或大型企业，可能需要更多的子网。例如，小型 ISP 可能需要 1000 个子网来满足其客户端。每个客户端可能在主机部分需要足够的空间来创建自己的子网。</p>
+<p>ISP有一个网络地址 10.0.0.0 255.0.0.0 或 10.0.0/8。这意味着网络部分有 8 个位，24 个主机位可以在子网划分时借用。因此，小型 ISP 将对 10.0.0.0/8 网络进行子网划分。</p>
+<p>为了创建子网，我们必须从现有互联网络 IPv4 地址的主机部分借用位。从第一个可用主机位开始从左到右借用，一次借用一个位，直到达到创建 1000 个子网所需的位数。如图所示，您需要借用 10 位来创建 1024 个子网(210 = 1024)。这包括从第二个二进制八位组借用 8 位，从第三个二进制八位组再借用 2 位。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_22_1.png" alt="创建的子网数"></p>
+<p>该图显示了网络地址和生成的子网掩码（转换为 255.255.192.0 或 10.0.0.0/18）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_22_2.png" alt="10.0.0.0/18 网络"></p>
+<p>该图显示借用 10 位生成的子网，创建了从 10.0.0.0 /18 到 10.255.128.0 /18 的子网。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_22_3.png" alt="产生 /18 子网"></p>
+<p>借用10位来创建子网，每个子网留下14位主机位。每个子网减去两个主机(一个用于网络地址，另一个用于广播地址)等于每个子网2^14 - 2 = 16382个主机。这意味着1000个子网中的每个子网最多可以支持16,382个主机。</p>
+<p>该图显示了第一个子网的具体情况。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_22_4.png" alt="10.0.0.0/18 子网的地址范围"></p>
+<hr>
+<h3 id="对私有和公有IPv4地址空间进行子网划分"><a href="#对私有和公有IPv4地址空间进行子网划分" class="headerlink" title="对私有和公有IPv4地址空间进行子网划分"></a>对私有和公有IPv4地址空间进行子网划分</h3><p>虽然可以快速地将网络划分为子网，但是您的组织的网络可能同时使用公有和私有IPv4地址。这会影响您的网络划分子网的方式。</p>
+<p>该图显示了典型的企业网络：</p>
+<ul>
+<li><strong>内部网</strong> - 这是公司网络的内部部分，只能在组织内部访问。内部网中的设备使用私有 IPv4 地址。</li>
+<li><strong>DMZ</strong> - 这是公司网络的一部分，其中包含可供互联网使用的资源，如 Web 服务器。DMZ 中的设备使用公有 IPv4 地址。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_23.png" alt="公有和私有 IPv4 地址空间"></p>
+<p>内部网和 DMZ 都有自己的子网划分要求和挑战。</p>
+<p>内部网使用私有 IPv4 编址空间。这允许组织使用任何私有 IPv4 网络地址，包括带有 24 个主机位和超过 1600 万台主机的 10.0.0/8 前缀。使用有 24 个主机位的网络地址可使子网划分更容易、更灵活。这包括使用 /16 或 /24 在八位组边界上进行子网划分。</p>
+<p>例如，私有 IPv4 网络地址 10.0.0.0/8 可以使用 /16 掩码进行子网划分。如表中所示，这将产生 256 个子网，每个子网有 65,534 个主机。如果一个组织需要的子网少于200个，允许一定的增长，这将给每个子网提供了足够多的主机地址。</p>
+<ul>
+<li><strong>使用 /16前缀对网络 10.0.0.0/8进行子网划分</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">子网地址（256 个可能的子网）</th>
+<th align="center">主机范围（每个子网可能有 65,534 个主机）</th>
+<th align="center">广播</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>10.0</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.0</strong>.0.1 - <strong>10.0</strong>.255.254</td>
+<td align="center"><strong>10.0</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.1</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.1</strong>.0.1 - <strong>10.1</strong>.255.254</td>
+<td align="center"><strong>10.1</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.2</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.2</strong>.0.1 - <strong>10.2</strong>.255.254</td>
+<td align="center"><strong>10.2</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.3</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.3</strong>.0.1 - <strong>10.3</strong>.255.254</td>
+<td align="center"><strong>10.3</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.4</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.4</strong>.0.1 - <strong>10.4</strong>.255.254</td>
+<td align="center"><strong>10.4</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.5</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.5</strong>.0.1 - <strong>10.5</strong>.255.254</td>
+<td align="center"><strong>10.5</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.6</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.6</strong>.0.1 - <strong>10.6</strong>.255.254</td>
+<td align="center"><strong>10.6</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.7</strong>.0.0/<strong>16</strong></td>
+<td align="center"><strong>10.7</strong>.0.1 - <strong>10.7</strong>.255.254</td>
+<td align="center"><strong>10.7</strong>.255.255</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="center"><strong>10.255</strong>.0.0/16</td>
+<td align="center"><strong>10.255</strong>.0.1 - <strong>10.255</strong>.255.254</td>
+<td align="center"><strong>10.255</strong>.255.255</td>
+</tr>
+</tbody></table>
+<p>使用 10.0.0.0/8 私有 IPv4 网络地址的另一种选择是使用 /24 掩码进行子网划分。如表中所示，这将产生 65,536 个子网，每个子网有 254 个主机。如果一个组织需要超过256个子网，那么使用/24进行子网划分，每个子网有254个主机可以使用。</p>
+<ul>
+<li>使用 /24 对网络10.0.0.0/8进行子网划分</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">子网地址(65,536 个可能的子网)</th>
+<th align="center">主机范围（每个子网可能有 254 个主机）</th>
+<th align="center">广播</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>10.0.0</strong>.0/24</td>
+<td align="center"><strong>10.0.0</strong>.1 - <strong>10.0.0</strong>.254</td>
+<td align="center"><strong>10.0.0</strong>.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.0.1</strong>.0/24</td>
+<td align="center"><strong>10.0.1</strong>.1 - <strong>10.0.1</strong>.254</td>
+<td align="center"><strong>10.0.1</strong>.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.0.2</strong>.0/24</td>
+<td align="center"><strong>10.0.2</strong>.1 - <strong>10.0.2</strong>.254</td>
+<td align="center"><strong>10.0.2</strong>.255</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="center"><strong>10.0.255</strong>.0/24</td>
+<td align="center"><strong>10.0.255</strong>.1 - <strong>10.0.255</strong>.254</td>
+<td align="center"><strong>10.0.255</strong>.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.1.0</strong>.0/24</td>
+<td align="center"><strong>10.1.0</strong>.1 - <strong>10.1.0</strong>.254</td>
+<td align="center"><strong>10.1.0</strong>.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.1.1</strong>.0/24</td>
+<td align="center"><strong>10.1.1</strong>.1 - <strong>10.1.1</strong>.254</td>
+<td align="center"><strong>10.1.1</strong>.255</td>
+</tr>
+<tr>
+<td align="center"><strong>10.1.2</strong>.0/24</td>
+<td align="center"><strong>10.1.2</strong>.1 - <strong>10.1.2</strong>.254</td>
+<td align="center"><strong>10.1.2</strong>.255</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="center"><strong>10.100.0</strong>.0/24</td>
+<td align="center"><strong>10.100.0</strong>.1 - <strong>10.100.0</strong>.254</td>
+<td align="center"><strong>10.100.0</strong>.255</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="center"><strong>10.255.255</strong>.0/24</td>
+<td align="center"><strong>10.255.255</strong>.1 - <strong>10.255.255</strong>.254</td>
+<td align="center"><strong>10.255.255</strong>.255</td>
+</tr>
+</tbody></table>
+<p>10.0.0.0/8还可以使用任何其他前缀长度的数字进行子网划分，如/12、/18、/20等。这将为网络管理员提供多种选择。使用10.0.0.0/8私有IPv4网络地址使子网规划和实现变得简单。</p>
+<ul>
+<li>关于DMZ</li>
+</ul>
+<p>因为这些设备需要从互联网公开访问，所以DMZ中的设备需要公有IPv4地址。从20世纪90年代中期开始，公有IPv4地址空间的耗尽成为了一个问题。自 2011 年以来，IANA 和五个 RIR 中的四个用尽了 IPv4 地址空间。虽然组织正在向IPv6过渡，但是剩余的IPv4地址空间仍然非常有限。这意味着组织必须最大限度地提高其自身有限数量的公有 IPv4 地址。这要求网络管理员将其公有地址空间划分到具有不同子网掩码的子网中，以便最大限度地减少每个子网的未使用主机地址数量。这称为可变长子网掩码 (VLSM)。</p>
+<hr>
+<h3 id="最小化未使用的主机-IPv4-地址并最大化子网"><a href="#最小化未使用的主机-IPv4-地址并最大化子网" class="headerlink" title="最小化未使用的主机 IPv4 地址并最大化子网"></a>最小化未使用的主机 IPv4 地址并最大化子网</h3><p>要尽量减少未使用的主机 IPv4 地址数量并最大化可用子网数量，在规划子网时需要考虑两个因素：每个网络所需的主机地址数量和所需的单个子网数量。</p>
+<p>该表显示了对 /24 网络进行子网划分的具体情况。注意，子网数量与主机数量成反比。借用越多的位来创建子网，可用的主机位越少。如果需要更多主机地址，就需要更多主机位，那么子网数就会更少。</p>
+<p>最大子网中所需的主机地址数量将决定主机部分必须保留多少个位。回想一下，有 2 个地址不能使用，因此可用地址的数量可以这样计算：2^n-2。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_24.png" alt="对 /24 网络划分子网"></p>
+<p>网络管理员必须设计网络编址方案，以满足每个网络的最大主机数量和子网数量需求。编址方案应允许每个子网的主机地址数量和子网的总数量的增长。</p>
+<hr>
+<h3 id="示例：高效的IPv4子网划分"><a href="#示例：高效的IPv4子网划分" class="headerlink" title="示例：高效的IPv4子网划分"></a>示例：高效的IPv4子网划分</h3><p>在本示例中，公司总部的ISP为其分配了一个公共网络地址172.16.0.0/22(10个主机位)。如图所示，这将提供 1022 个主机地址。</p>
+<p>注意: 172.16.0.0/22 是 IPv4 私有地址空间的一部分。我们使用的是此地址，而不是实际的公有 IPv4 地址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_25_1.png" alt="网络地址"></p>
+<p>公司总部有一个 DMZ 和四个分支机构，每个分支机构都需要自己的公有 IPv4 地址空间。企业总部需要充分利用有限的IPv4地址空间。</p>
+<p>图中显示的拓扑包括五个站点：一个公司办公室和四个分支站点。每个站点都需要互联网连接，因此需要五个互联网连接。这意味着组织需要来自公司 172.16.0.0/22 公共地址的 10 个子网。最大子网需要 40 个地址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_25_2.png" alt="具有五个站点的企业拓扑"></p>
+<p>172.16.0.0/22 网络地址有 10 个主机位，如图所示。由于最大子网需要 40 台主机，为 40 台主机提供编址至少需要 6 个主机位。这根据以下公式确定：2^6 -2 = 62 主机。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_25_3.png" alt="子网方案"></p>
+<p>使用公式确定子网数，结果为 16 个子网：24= 16。由于示例中网际网络要求 10 个子网，这一数量可以满足其要求而且允许增加一定数量的子网。</p>
+<p>因此，前 4 个主机位可用于分配子网。这意味着第三个八位组的两个位和第四个八位组的两个位将被借用。当从172.16.0.0/22网络借用 4 个位时，新的前缀长度为 /26，子网掩码为 255.255.255.192。</p>
+<p>如图所示，子网可以分配给每个位置和路由器到路由器的连接。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_25_4.png" alt="为每个站点和 ISP 分配子网"></p>
+<hr>
+<h3 id="IP-地址保留"><a href="#IP-地址保留" class="headerlink" title="IP 地址保留"></a>IP 地址保留</h3><p>由于公有IPv4地址空间的耗尽，所以在对IPv4网络进行子网划分时，充分利用可用的主机地址是主要关注的问题。</p>
+<p>注意: 更大的IPv6地址允许比IPv4更容易的地址规划和分配。保留IPv6地址不是问题。这是向IPv6 过渡的驱动力之一。</p>
+<p>使用传统子网划分，为每个子网分配相同数量的地址。如果所有子网对主机数量的要求相同，或者保留IPv4地址空间不是问题，那么这些固定大小的地址块效率就会很高。通常，对于公有 IPv4 地址，情况并非如此。</p>
+<p>例如，图中显示的拓扑要求七个子网，其中四个子网分别用于四个 LAN，而另外三个分别用于路由器之间的三个连接。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_26_1.png">
+
+<p>对指定地址 192.168.20.0/24 进行传统子网划分，从最后一个二进制八位组的主机部分可以借用 3 个位，以满足其七个子网的要求。如图所示，借用 3 个位可以创建 8 个子网，剩余 5 个主机位，每个子网有 30 个可用主机。该方案创建了所需子网，并且满足其最大 LAN 对主机的要求。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_26_2.png" alt="基本子网方案"></p>
+<p>如图所示，这七个子网可以分配给局域网和广域网网络。</p>
+<p>该图显示了由七个子网组成的网络拓扑的子网分配。有四个路由器，每个路由器都有一个连接的局域网和主机编址要求，以及三个路由器到路由器的连接，每个需要 2 个主机。R1 路由器大楼A的局域网有 25 个主机，并分配了子网 192.168.20.0/27。R2 路由器大楼B的局域网有 20 个主机，并分配了子网 192.168.20.32/27。R3 路由器大楼C的局域网有 15 个主机，并分配了子网 192.168.20.64/27。R4 路由器大楼D的局域网有 28 个主机，并分配了子网 192.168.20.96/27。R1 到 R2 的连接分配了子网192.168.20.128/27。R2 到 R3 的连接分配了子网192.168.20.160/27。R3 到 R4 的连接分配了子网192.168.20.192/27。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_26_3.png">
+
+<p>虽然该传统子网划分满足最大 LAN 的需要，并将地址空间划分为足够的子网，但它产生了大量未使用地址，造成地址浪费。</p>
+<p>例如，这三个 WAN 链路的每个子网中仅仅需要两个地址。由于每个子网有 30 个可用地址，这些子网中每个子网有 28 个未使用地址。如图所示，这将产生 84 个未使用地址 (28x3)。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_26_4.png" alt="在 WAN 子网中未使用的地址"></p>
+<p>此外，这样做还减少了可用子网的总数，从而限制了未来的发展。这种低效的地址使用率正是传统子网划分的缺点。对示例场景采用传统子网划分方案，效率并不是非常高，而且比较浪费。</p>
+<p>变长子网掩码(VLSM)是为了避免浪费地址而开发的，它使我们能够对子网进行子网划分。</p>
+<hr>
+<h3 id="可变长子网掩码（VLSM，Variable-Length-Subnet-Mask）"><a href="#可变长子网掩码（VLSM，Variable-Length-Subnet-Mask）" class="headerlink" title="可变长子网掩码（VLSM，Variable Length Subnet Mask）"></a>可变长子网掩码（VLSM，Variable Length Subnet Mask）</h3><p>在前面主题的所有子网示例中，所有子网都使用相同的子网掩码。这意味着每个子网有相同数量的可用主机地址。如图左边所示，传统子网划分可以创建大小相等的子网。传统方案中每个子网都使用相同的子网掩码。如图右边所示，VLSM 使网络空间能够分为大小不等的部分。使用 VLSM，子网掩码将根据特定子网所借用的位数而变化，从而成为 VLSM 的“变量”部分。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_27_1.png">
+
+<p>VLSM 就是指对子网划分子网。图中显示了以前使用的相同拓扑。同样，我们会使用192.168.20.0/24网络，将其划分为七个子网，其中四个子网用于四个局域网，三个子网用于路由器之间的连接。</p>
+<p>该图显示了由七个子网组成的网络拓扑。有四个路由器，每个路由器都有一个连接的局域网和主机编址要求，以及三个路由器到路由器的连接，每个需要 2 个主机。R1路由器的局域网是有25台主机的大楼A；R2路由器的局域网是有20台主机的大楼B；R3路由器的局域网是有15台主机的大楼C；R4路由器的局域网是有28台主机的大楼D。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_27_2.png">
+
+<p>该图显示了网络192.168.20.0/24如何划分成8个大小相等的子网，每个子网有30个可用的主机地址。其中四个子网用于局域网，三个子网可用于路由器之间的连接。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_27_3.png" alt="基本子网划分方案"></p>
+<p>但是，路由器之间的连接每个子网仅需要两个主机地址（每个路由器接口一个主机地址）。目前，所有子网中的每个子网都有 30 个可用的主机地址。为了避免每个子网浪费28个地址，可以使用 VLSM 为 路由器之间的连接创建较小子网。</p>
+<p>为了为路由器之间的链路创建较小子网，将其中一个子网细分。在本示例中，对最后一个子网 192.168.20.224/27 进一步划分子网。该图显示了通过使用子网掩码 255.255.255.252 或 /30 进一步对最后一个子网进行子网划分。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_27_4.png" alt="VLSM 子网划分方案"></p>
+<p>为什么是/30 回想一下，当所需主机地址的数量已知时，可以使用公式 2^n-2（其中 n 等于剩余主机位的数量）。要提供两个可用地址，必须在主机部分保留 2 个主机位。</p>
+<p>因为划分子网的 192.168.20.224/27 地址空间有 5 个主机位，所以可以借用 3 个位，在主机部分保留 2 个位，如图 2 所示。此时的计算与传统子网划分使用的计算完全相同。借用了位，并确定了子网范围。该图显示了如何将四个 /27 子网分配给局域网，将三个 /30 子网分配给路由器之间的链路。</p>
+<p>该图显示了由四个 LAN 和三个 WAN 组成的网络拓扑的VLSM子网分配。有四个路由器，每个路由器都有一个连接的局域网和主机编址要求，以及三个路由器到路由器的连接，每个需要 2 个主机。R1 路由器大楼A的局域网有 25 个主机，并分配了子网 192.168.20.0/27。R2 路由器大楼B的局域网有 20 个主机，并分配了子网 192.168.20.32/27。R3 路由器大楼C的局域网有 15 个主机，并分配了子网 192.168.20.64/27。R4 路由器大楼D的局域网有 28 个主机，并分配了子网 192.168.20.96/27。R1 到 R2 的连接分配了子网192.168.20.224/30。R2 到 R3 的连接分配了子网192.168.20.228/30。R3 到 R4 的连接分配了子网192.168.20.232/30。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_27_5.png">
+
+<p>这种 VLSM 子网划分方案将每个子网的地址数目减少到适合需要较少子网的网络的大小。对路由器之间的链路的子网 7 划分子网，使子网 4、5 和 6 能够用于未来网络，而且路由器之间的链路中能够有 5 个额外的子网可用。</p>
+<p>注意: 当使用 VLSM 时，请始终从满足最大子网的主机要求开始。继续子网划分直至满足最小子网的主机要求。</p>
+<hr>
+<h3 id="VLSM-拓扑地址分配"><a href="#VLSM-拓扑地址分配" class="headerlink" title="VLSM 拓扑地址分配"></a>VLSM 拓扑地址分配</h3><p>使用 VLSM 子网，可以为 LAN 和路由器之间网段提供地址，而不产生不必要浪费。</p>
+<p>下图显示了分配给每个路由器接口的网络地址分配和 IPv4 地址。</p>
+<p>该图显示了由四个 LAN 和三个 WAN 组成的网络拓扑的 VLSM 子网分配和接口 IP编址。有四个路由器，每个路由器都有一个连接的局域网和主机编址要求，以及三个路由器到路由器的连接，每个需要 2 个主机。R1 路由器大楼A的局域网连接到了R1的G0/0/0接口，地址是192.168.20.1/27，有 25 个主机，并分配了子网 192.168.20.0/27。R2 路由器大楼B的局域网连接到了R2的G0/0/0接口，地址是192.168.20.33/27，有 20 个主机，并分配了子网 192.168.20.32/27。R3 路由器大楼C的局域网连接到了R3的G0/0/0接口，地址是192.168.20.65/27，有 15 个主机，并分配了子网 192.168.20.64/27。R4 路由器大楼D的局域网连接到了R4的G0/0/0接口，地址是192.168.20.97/27，有 28 个主机，并分配了子网 192.168.20.96/27。R1 至 R2 的连接，分配了子网 192.168.20.224/30，将地址为 .225 的 R1 的 G0/0/1 接口连接到地址为 .226 的 R2 的 G0/0/1 接口。R2 至 R3 的连接，分配了子网 192.168.20.228/30，将地址为 .229 的 R2 的 G0/1/0 接口连接到地址为 .230 的 R3 的 G0/0/1 接口。R3 至 R4 的连接，分配了子网 192.168.20.232/30，将地址为 .233 的 R3 的 G0/1/0 接口连接到地址为 .234 的 R4 的 G0/0/1 接口。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/9_28.png">
+
+<p>使用常用编址方案，将每个子网的第一个主机 IPv4 地址分配给路由器的 LAN 接口。每个子网中的主机都将拥有该子网主机地址范围内的一个主机 IPv4 地址和一个合适的掩码。主机将与路由器 LAN 接口相连的地址作为默认网关地址。</p>
+<p>该表显示了每个网络的网络地址和主机地址范围。显示了四个局域网的默认网关地址。</p>
+<table>
+<thead>
+<tr>
+<th align="center">-</th>
+<th align="center">网络地址</th>
+<th align="center">主机地址范围</th>
+<th align="center">默认网关地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">大楼 A</td>
+<td align="center">192.168.20.0/27</td>
+<td align="center">192.168.20.1/27 至 192.168.20.30/27</td>
+<td align="center">192.168.20.1/27</td>
+</tr>
+<tr>
+<td align="center">大楼 B</td>
+<td align="center">192.168.20.32/27</td>
+<td align="center">192.168.20.33/27 至 192.168.20.62/27</td>
+<td align="center">192.168.20.1/27</td>
+</tr>
+<tr>
+<td align="center">大楼 C</td>
+<td align="center">192.168.20.64/27</td>
+<td align="center">192.168.20.65/27 至 192.168.20.94/27</td>
+<td align="center">192.168.20.1/27</td>
+</tr>
+<tr>
+<td align="center">大楼 D</td>
+<td align="center">192.168.20.96/27</td>
+<td align="center">192.168.20.97/27 至 192.168.20.126/27</td>
+<td align="center">192.168.20.1/27</td>
+</tr>
+<tr>
+<td align="center">R1至R2</td>
+<td align="center">192.168.20.224/30</td>
+<td align="center">192.168.20.225/30 至 192.168.20.226/30</td>
+<td align="center">\</td>
+</tr>
+<tr>
+<td align="center">R2至R3</td>
+<td align="center">192.168.20.228/30</td>
+<td align="center">192.168.20.229/30 至 192.168.20.230/30</td>
+<td align="center">\</td>
+</tr>
+<tr>
+<td align="center">R3至R4</td>
+<td align="center">192.168.20.232/30</td>
+<td align="center">192.168.20.233/30 至 192.168.20.234/30</td>
+<td align="center">\</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="结构化设计"><a href="#结构化设计" class="headerlink" title="结构化设计"></a>结构化设计</h2><h3 id="IPv4网络地址规划"><a href="#IPv4网络地址规划" class="headerlink" title="IPv4网络地址规划"></a>IPv4网络地址规划</h3><p>在开始子网划分之前，您应该为整个网络开发一个 IPv4 编址方案。您要了解您需要多少子网、特定子网需要多少主机、哪些设备是子网的一部分、网络的哪些部分使用私有地址、哪些使用公有地址以及许多其他决定因素。一个良好的编址方案允许增长。一个良好的编址方案也是一个良好的网络管理员的标志。</p>
+<p>IPv4网络子网的规划要求同时分析组织的网络使用需求和子网的构建方法。进行网络需求调研是子网规划的起点。这意味着查看整个网络，包括内部网和DMZ，并确定如何划分每个区域。地址计划包括确定哪里需要地址保留(通常在DMZ中)，哪里有更大的灵活性(通常在内部网中)。</p>
+<p>如果需要地址保留，计划应确定需要多少个子网以及每个子网有多少个主机。如前所述，这通常是DMZ中的公有IPv4地址空间所需要的。这很可能包括使用 VLSM。</p>
+<p>在企业内部网中，地址保留通常不是问题，这主要是由于使用私有IPv4编址，包括10.0.0.0/8，有超过1600万个主机IPv4地址。</p>
+<p>对于大多数组织，私有 IPv4 地址允许提供足够多的内部（内部网）地址。对于许多较大的组织和ISP来说，即使是私有的IPv4地址空间也不足以满足它们的内部需求。这也是组织向 IPv6 过渡的另一个原因。</p>
+<p>对于使用私有 IPv4 地址的内部网和使用公有 IPv4 地址的 DMZ，地址规划和分配非常重要。</p>
+<p>在需要时，地址计划包括根据大小确定每个子网的需要。每个子网将有多少台主机地址计划还需要包括如何分配主机地址，哪些主机要求静态 IPv4 地址和哪些主机可以使用 DHCP 获取其编址信息的需求。这也将有助于防止地址重复，同时允许出于性能和安全原因对地址进行监测和管理。</p>
+<p>了解您的IPv4地址需求将确定您实施的主机地址的范围，并帮助确保有足够的地址满足您的网络需求。</p>
+<hr>
+<h3 id="设备地址分配"><a href="#设备地址分配" class="headerlink" title="设备地址分配"></a>设备地址分配</h3><p>在一个网络中，有不同类型的设备需要分配地址：</p>
+<ul>
+<li><strong>终端用户客户端</strong> – 大部分网络使用动态主机配置协议 (DHCP)动态地将IPv4地址分配给客户端设备。这能减少网络支持人员的负担，并显著减少输入错误。使用 DHCP 时，地址仅租用一段时间，并且可以在租约到期时重新使用。这是支持临时用户和无线设备的网络的一个重要特性。更改子网划分方案意味着 DHCP 服务器需要进行重新配置，并且客户端必须续订其 IPv4 地址。IPv6 客户端可以使用 DHCPv6 或 SLAAC 获取地址信息。</li>
+<li><strong>服务器和外部设备</strong> - 这些应具有可预测的静态 IP 地址。对这些设备使用统一的编号系统。</li>
+<li><strong>可从互联网访问的服务器</strong> - 需要在互联网上公开可用的服务器必须具有公有 IPv4 地址，通常使用 NAT 访问。在一些组织中，必须使远程用户可以使用内部服务器(不可公开使用)。在大多数情况下，这些服务器在内部分配了私有地址，用户需要创建一个虚拟专用网络 (VPN) 连接来访问服务器。这与用户从内部网中的主机访问服务器具有相同的效果。</li>
+<li><strong>中间设备</strong> – 这些设备出于网络管理、监视和安全目的分配了地址。因为我们必须知道如何与中间设备通信，所以它们应当具有可以预测的静态地址。</li>
+<li><strong>网关</strong> - 路由器和防火墙设备给每个接口分配一个 IP 地址，用作该网络中主机的网关。路由器接口一般使用网络中的最小地址或最大地址。</li>
+</ul>
+<p>在制定 IP 编址方案时，通常建议您使用一种固定模式为各类设备分配地址。这样有益于管理员添加和删除设备、根据 IP 过滤流量和简化文档。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>IPv4地址结构</li>
+</ul>
+<blockquote>
+<p>IPv4 地址为32位分层地址，由网络部分和主机部分两个部分组成。对于同一网络中的所有设备，地址的网络部分中的位必须完全相同。地址的主机部分中的位必须唯一，这方便识别网络中的特定主机。主机需要唯一的 IPv4 地址和子网掩码来显示地址的网络/主机部分。前缀长度是子网掩码中设置为 1 的位数。使用“斜线记法”写入，即“/”紧跟设置为 1 的位数。逻辑 AND 运算比较两个位。只有 1 AND 1 生成 1，任何其他组合都会产生 0。任何其他组合都会产生 0。每个网络中都有网络地址、主机地址和广播地址。</p>
+</blockquote>
+<ul>
+<li>IPv4单播、广播和组播</li>
+</ul>
+<blockquote>
+<p>单播传输是指在一对一通信中，一个设备向另一个设备发送消息。单播数据包是具有目的IP 地址的数据包，该 IP 地址是单个收件人的单播地址。广播播传输是指设备在一对多通信中，向网络上的所有设备发送消息。广播数据包以主机部分全部为 1 的地址或32个1位作为目的 IP地址。主机通过组播传输可以向所属组播组中的选定主机组发送一个数据包，从而减少了流量。组播数据包是一个目的IP地址为组播地址的数据包。IPv4 将 224.0.0.0 到 239.255.255.255 的地址保留为组播范围。</p>
+</blockquote>
+<ul>
+<li>IPv4地址类型</li>
+</ul>
+<blockquote>
+<p>公有 IPv4 地址能在 ISP路由器之间进行全局路由。并非所有可用的 IPv4 地址都可用于互联网。大多数组织使用称为私有地址的地址块向内部主机分配 IPv4 地址。大多数内部网络使用私有IPv4地址来编址所有内部设备(内部网);然而，这些私有地址不可全局路由。主机使用环回地址将流量引导回自己。本地链接地址通常称为 APIPA 地址或自行分配地址。1981 年，IPv4 地址是使用有类编址分配的：A类、B类 或 C类。公有 IPv4 地址必须是唯一的，并且通过互联网全局路由。IPv4 和 IPv6 地址均由 IANA 管理，IANA 将 IP 地址块分配给 RIR。</p>
+</blockquote>
+<ul>
+<li>网络分段</li>
+</ul>
+<blockquote>
+<p>在以太网局域网中，设备广播使用ARP定位其他设备。交换机会将广播传播到所有接口，接收它的接口除外。路由器不传播广播，而是每个路由器接口都连接了一个广播域，而广播只能在特定域内传播。大型广播域是连接很多主机的网络。大型广播域的一个问题是这些主机会生成太多广播，这会对网络造成不良影响。解决方案是使用称为“子网划分”的过程缩减网络的规模以创建更小的广播域。这些较小的网络空间通常称为“子网”。子网划分可以降低整体网络流量并改善网络性能。管理员可以根据位置、网络之间或设备类型划分子网。</p>
+</blockquote>
+<ul>
+<li>IPv4网络的子网</li>
+</ul>
+<blockquote>
+<p>创建 IPv4 子网时会将一个或多个主机位作为网络位。具体做法是延长子网掩码，从地址的主机部分借用若干位来增加网络位。借用的主机位越多，可以定义的子网也就越多。借来增加子网数量的比特越多也会减少每个子网的主机数量。网络在二进制八位数边界 /8、/16 和 /24 处最容易进行子网划分。子网可以从任何主机位借用位来创建其他掩码。</p>
+</blockquote>
+<ul>
+<li>使用/16和/8前缀划分子网</li>
+</ul>
+<blockquote>
+<p>在要求较多子网的情况下，需要 IPv4 网络有更多主机位可以借用。为了创建子网，我们必须从现有互联网络 IPv4 地址的主机部分借用位。从第一个可用主机位开始从左到右借用，一次借用一位，直到达到创建所需子网数量的位数。当从 /16 地址借用位时，从借用第三个二进制八位数开始，并遵循从左向右的顺序。第一个地址保留给网络地址，最后一个地址保留给广播地址。</p>
+</blockquote>
+<ul>
+<li>满足需求的子网划分</li>
+</ul>
+<blockquote>
+<p>典型的企业网络包含内部网和 DMZ。两者都有子网划分要求和挑战。内部网使用私有 IPv4 编址空间。10.0.0.0/8还可以使用任何其他前缀长度的数字进行子网划分，如/12、/18、/20等。这将为网络管理员提供多种选择。因为这些设备需要从互联网公开访问，所以DMZ中的设备需要公有IPv4地址。组织必须最大限度地提高其自身有限数量的公有 IPv4 地址。要减少每个子网的未使用主机地址数，网络管理员将其公有地址空间划分到具有不同子网掩码的子网中。这称为可变长子网掩码 (VLSM)。管理员必须考虑每个网络需要多少个主机地址以及需要多少个子网。</p>
+</blockquote>
+<ul>
+<li>VLSM</li>
+</ul>
+<blockquote>
+<p>传统的子网划分可以满足组织对其最大局域网的需要，并将地址空间划分为足够数量的子网。但它也可能导致大量未使用地址的浪费。VLSM 使网络空间能够分为大小不等的部分。使用 VLSM，子网掩码将根据特定子网所借用的位数而变化，这是 VLSM 的“变量”部分。VLSM 就是指对子网划分子网。当使用 VLSM 时，请始终从满足最大子网的主机要求开始。继续子网划分直至满足最小子网的主机要求。子网划分始终需要在适当的位边界上启动。</p>
+</blockquote>
+<ul>
+<li>结构化设计</li>
+</ul>
+<blockquote>
+<p>网络管理员应该研究网络需求，以便更好地规划IPv4网络子网的结构。这意味着查看整个网络，包括内部网和DMZ，并确定如何划分每个区域。地址计划包括确定哪里需要地址保留(通常在DMZ中)，哪里有更大的灵活性(通常在内部网中)。需要保护地址的位置，计划应确定每个子网需要多少个子网以及多少个主机。这通常是DMZ中的公有IPv4地址空间所需要的。这很可能包括使用 VLSM。地址计划包括如何分配主机地址，哪些主机要求静态 IPv4 地址和哪些主机可以使用 DHCP 获取其编址信息的需求。在网络中，有不同类型的设备需要地址：最终用户客户端、服务器和外部设备、可从互联网访问的服务器、中间设备和网关。在制定 IP 编址方案时，使用一种固定模式为各类设备分配地址。这有助于添加和删除设备、根据 IP 过滤流量和简化文档。</p>
+</blockquote>
+<hr>
+<h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
+<p>转载时请注明出处 ©️PhoenixNest</p>
+<table>
+<thead>
+<tr>
+<th align="center">Donate 😇</th>
+<th align="center">Qr code</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Wechat</td>
+<td align="center"><img src="/img/wechat.png" alt="Wechat"></td>
+</tr>
+<tr>
+<td align="center">Ali Pay</td>
+<td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td>
+</tr>
+</tbody></table>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft Terran Band - Blood and Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">24 <p>文章</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv4-编址"><span class="toc-number">2.</span> <span class="toc-text">IPv4 编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-地址结构-网络部分和主机部分"><span class="toc-number">2.1.</span> <span class="toc-text">IPv4 地址结构 - 网络部分和主机部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-地址结构-子网掩码"><span class="toc-number">2.2.</span> <span class="toc-text">IPv4 地址结构 - 子网掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前缀长度"><span class="toc-number">2.3.</span> <span class="toc-text">前缀长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确定网络：逻辑与-AND"><span class="toc-number">2.4.</span> <span class="toc-text">确定网络：逻辑与(AND)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络地址、主机地址和广播地址"><span class="toc-number">2.5.</span> <span class="toc-text">网络地址、主机地址和广播地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-单播"><span class="toc-number">2.6.</span> <span class="toc-text">IPv4 单播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-广播"><span class="toc-number">2.7.</span> <span class="toc-text">IPv4 广播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-组播"><span class="toc-number">2.8.</span> <span class="toc-text">IPv4 组播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公有和私有-IPv4-地址"><span class="toc-number">2.9.</span> <span class="toc-text">公有和私有 IPv4 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由到互联网"><span class="toc-number">2.10.</span> <span class="toc-text">路由到互联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#专用-IPv4-地址"><span class="toc-number">2.11.</span> <span class="toc-text">专用 IPv4 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传统有类编址"><span class="toc-number">2.12.</span> <span class="toc-text">传统有类编址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-地址的分配"><span class="toc-number">2.13.</span> <span class="toc-text">IP 地址的分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广播域和分段"><span class="toc-number">2.14.</span> <span class="toc-text">广播域和分段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大型广播域存在的问题"><span class="toc-number">2.15.</span> <span class="toc-text">大型广播域存在的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#划分网络的原因"><span class="toc-number">2.16.</span> <span class="toc-text">划分网络的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在二进制八位组边界上划分子网"><span class="toc-number">2.17.</span> <span class="toc-text">在二进制八位组边界上划分子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在二进制八位组边界内-划分子网"><span class="toc-number">2.18.</span> <span class="toc-text">在二进制八位组边界内 划分子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-16-前缀创建子网"><span class="toc-number">2.19.</span> <span class="toc-text">使用 &#x2F;16 前缀创建子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-16-前缀创建-100-个子网"><span class="toc-number">2.20.</span> <span class="toc-text">使用 &#x2F;16 前缀创建 100 个子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-8-前缀创建-1000-个子网"><span class="toc-number">2.21.</span> <span class="toc-text">使用 &#x2F;8 前缀创建 1000 个子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对私有和公有IPv4地址空间进行子网划分"><span class="toc-number">2.22.</span> <span class="toc-text">对私有和公有IPv4地址空间进行子网划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最小化未使用的主机-IPv4-地址并最大化子网"><span class="toc-number">2.23.</span> <span class="toc-text">最小化未使用的主机 IPv4 地址并最大化子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例：高效的IPv4子网划分"><span class="toc-number">2.24.</span> <span class="toc-text">示例：高效的IPv4子网划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-地址保留"><span class="toc-number">2.25.</span> <span class="toc-text">IP 地址保留</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可变长子网掩码（VLSM，Variable-Length-Subnet-Mask）"><span class="toc-number">2.26.</span> <span class="toc-text">可变长子网掩码（VLSM，Variable Length Subnet Mask）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VLSM-拓扑地址分配"><span class="toc-number">2.27.</span> <span class="toc-text">VLSM 拓扑地址分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构化设计"><span class="toc-number">3.</span> <span class="toc-text">结构化设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4网络地址规划"><span class="toc-number">3.1.</span> <span class="toc-text">IPv4网络地址规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设备地址分配"><span class="toc-number">3.2.</span> <span class="toc-text">设备地址分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Let the feelings with the strength landing.', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音.',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

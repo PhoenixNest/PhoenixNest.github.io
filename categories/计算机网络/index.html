@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Category: 计算机网络 - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/about/" title="ABOUT" external="false">ABOUT</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" external="false">CATEGORIES</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" external="false">TAGS</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/links/" title="LINKS" external="false">LINKS</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" external="false">ARCHIVES</a>
+            </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2021 PhoenixNest.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input"/>
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+             data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
+        </div>
+    </div>
+</div>
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/about/" title="ABOUT" external="false" class="menu-link">ABOUT</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/categories/" title="CATEGORIES" external="false" class="menu-link">CATEGORIES</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/tags/" title="TAGS" external="false" class="menu-link">TAGS</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/links/" title="LINKS" external="false" class="menu-link">LINKS</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/archives/" title="ARCHIVES" external="false" class="menu-link">ARCHIVES</a>
+                </li>
+            
+            
+                <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+                animation-delay: 900ms;
+                animation-duration: 2.8s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
+        </div>
+    </div>
+    
+        <div id="post0" class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/计算机网络"><b>「
+                        </b>计算机网络<b> 」</b></a>
+                
+                一月 12, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown">
+                <a href="/School-Computer-Network-Technology/" title="计算机网络原理" class="posttitle">计算机网络原理</a></h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                41k
+            </span>
+                    
+                    
+                        <span>
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                1:15
+            </span>
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+            <div class="md-content animated fadeIn">
+                
+                    <blockquote>
+<p>本篇整理了我学习<code>计算机网络原理</code>时的一些笔记。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="网络影响着我们的生活"><a href="#网络影响着我们的生活" class="headerlink" title="网络影响着我们的生活"></a>网络影响着我们的生活</h3><p>当今世界有了网络，人与人的联系达到空前状态。当人们想到某个创意时，可以即时与其他人沟通，使创意变为现实。用来交流思想和信息的网上社区的形成可能会提高全球的生产力。云的创建让我们可以存储文档和图片，并随时随地访问它们。</p>
+<hr>
+<h3 id="网络组件"><a href="#网络组件" class="headerlink" title="网络组件"></a>网络组件</h3><blockquote>
+<p>连接到网络并直接参...</p></blockquote>
+                
+                <span class="read-more"><a href="/School-Computer-Network-Technology/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            </div>
+        </div>
+    
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="typed-text"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="primary">
+        
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cyber_security.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-Cyber-Security/" title="计算机网络原理 • 网络安全基础" class="posttitle">计算机网络原理 • 网络安全基础</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        10k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        19 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="hhttps://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80">网络安全基础知识</a>部分的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="威胁类型"><a href="#威胁类型" class="headerlink" title="威胁类型"></a>威胁类型</h3><p>有线和无线计算机网络是人们日常活动中不可或缺的一部分。个人和组织都同样依赖其计算机和网络。不速之客的入侵可能导致代价高昂的网络中断和工作成果的丢失。针对网络的攻击有时具有相当的破坏性，可能造成重要信息或资产的损坏或失窃，导致时间上和金钱上的损失。</p>
+<p>入...</p>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-Cyber-Security/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-IPv6/" title="计算机网络原理 • IPv6 编址" class="posttitle">计算机网络原理 • IPv6 编址</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        22k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        40 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#IPv6%E7%BC%96%E5%9D%80">IPv6 编址</a>部分的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="IPv6-的必要性"><a href="#IPv6-的必要性" class="headerlink" title="IPv6 的必要性"></a>IPv6 的必要性</h3><p>您已经知道IPv4的地址用完了。这就是为什么您需要了解 IPv6 的原因。</p>
+<p>IPv6 旨在接替 IPv4。IPv6 拥有更大的 128 位地址空间，提供 340 涧（即，340后面有36个0）个不确定地址。不过，IPv6 不只是具有更大的地址...</p>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-IPv6/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-IPv4/" title="计算机网络原理 • IPv4 编址" class="posttitle">计算机网络原理 • IPv4 编址</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        22k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        40 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#IPv4%E7%BC%96%E5%9D%80">IPv4 编址部分</a>的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="IPv4-地址结构-网络部分和主机部分"><a href="#IPv4-地址结构-网络部分和主机部分" class="headerlink" title="IPv4 地址结构 - 网络部分和主机部分"></a>IPv4 地址结构 - 网络部分和主机部分</h3><p>IPv4 地址为32位分层地址，由网络部分和主机部分两个部分组成。在确定网络部分和主机部分时，必须先查看 32 位数据流，如图所示。</p>
+<p></p>
+<blockquote>
+<p>对于同一网络中的所有设备，<code>地址的网络部分中的位必须完全相同</code>。<code>地址的主机部分中的位...</code></p></blockquote>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-IPv4/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-7-Application-layer/" title="计算机网络原理 • （七）应用层" class="posttitle">计算机网络原理 • （七）应用层</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        11k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        21 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%88%E7%AC%AC-7-%E5%B1%82%EF%BC%89">应用层</a>的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<p>在OSI和TCP/IP 模型中的应用层最接近最终用户。如图所示，该层为用于通信的应用程序和用于消息传输的底层网络提供接口。应用层协议用于在源主机和目的主机上运行的程序之间进行数据交换。</p>
+
+
+<p>基于TCP/IP模型，OSI 模型上面三层（应用层、表示层和会话层）定义了 TCP/...</p>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-7-Application-layer/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-4-Transport-Layer/" title="计算机网络原理 • （四）传输层" class="posttitle">计算机网络原理 • （四）传输层</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        14k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        25 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%88%E7%AC%AC-4-%E5%B1%82%EF%BC%89">传输层</a>的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="传输层的作用"><a href="#传输层的作用" class="headerlink" title="传输层的作用"></a>传输层的作用</h3><blockquote>
+<p>应用层程序生成必须在源主机和目的主机之间交换的数据。传输层负责在不同主机上运行的应用程序之间进行的逻辑通信。这可能包括在两个主机之间建立临时会话以及应用程序信息的可靠传输等服务。</p>
+</blockquote>
+<p>传输层将应用层与负责网络传输的下层连接起来。</p>
+<p></p>
+<p>传输层并不了解目标主机类型、...</p>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-4-Transport-Layer/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-3-Network-Layer/" title="计算机网络原理 • （三）网络层" class="posttitle">计算机网络原理 • （三）网络层</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        11k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        19 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E7%BD%91%E7%BB%9C%E5%B1%82%EF%BC%88%E7%AC%AC-3-%E5%B1%82%EF%BC%89">网络层</a>的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>网络层即 OSI 第 3 层，提供能够让终端设备跨整个网络交换数据的服务。如图所示，IP 版本 4 (IPv4) 和 IP 版本 6 (IPv6) 是主要的网络层通信协议。其他网络层协议包括<strong>路由协议</strong>，如开放式最短路径优先协议(OSPF)，和<strong>消息传递协议</strong>，如<strong>Internet...</strong></p></blockquote>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-3-Network-Layer/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-2-Data-Link-Layer/" title="计算机网络原理 • （二）数据链路层" class="posttitle">计算机网络原理 • （二）数据链路层</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        7.4k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        13 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%88%E7%AC%AC-2-%E5%B1%82%EF%BC%89">数据链路层</a>的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<p></p>
+<blockquote>
+<p>OSI模型的数据链路层（第2层）为物理网络准备网络数据。数据链路层负责网络接口卡（NIC）到网络接口卡的通信。数据链路层执行以下操作：</p>
+</blockquote>
+<ul>
+<li>允许上层访问介质。上层协议完全不知道用于转发数据的介质类型。</li>
+<li>接受数据，通常是第 3 层数据包（即 IPv4 或 IPv6）...</li></ul>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-2-Data-Link-Layer/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-1-Physical-Layer/" title="计算机网络原理 • （一）物理层" class="posttitle">计算机网络原理 • （一）物理层</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        3.6k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        6 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E7%89%A9%E7%90%86%E5%B1%82%EF%BC%88%E7%AC%AC-1-%E5%B1%82%EF%BC%89">物理层</a>的详细介绍。</p>
+<p>所用教学平台：<a href https: cn.netacad.com "">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<p></p>
+<blockquote>
+<p>OSI物理层通过网络介质传输构成数据链路层帧的比特（位）。该层从数据链路层接收完整的帧，并将这些帧编码为一系列信号，传输到本地介质上。帧由经过编码的比特（位）构成，这些位可以被终端设备或中间设备接收。</p>
+</blockquote>
+<hr>
+<h3 id="物理层标准"><a href="#物理层标准" class="headerlink" title="物理层标准"></a>物理层标准</h3><blockquote>
+<p>OSI上层的协议及操作是使用软件工程师和计算机科学...</p></blockquote>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-1-Physical-Layer/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    
+</div>
+<div id="preview"></div>
+
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.5" target="_blank" rel="noopener">v1.4.5</a></small>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Let the feelings with the strength landing.', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音.',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>
