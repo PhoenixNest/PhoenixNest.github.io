@@ -111,13 +111,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    5k
+                    6.4k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    9 mins.
+                    12 mins.
                 </span>
                     
                     
@@ -457,26 +457,30 @@
 </blockquote>
 <p>即<code>系统调用</code>，为用户执行过程中访问资源而设置，<code>是用户获取操作系统服务的唯一途径</code>。</p>
 <hr>
-<h3 id="操作系统和-CPU-的两种状态"><a href="#操作系统和-CPU-的两种状态" class="headerlink" title="操作系统和 CPU 的两种状态"></a>操作系统和 CPU 的两种状态</h3><blockquote>
-<p>核心态：管态/特权态/系统态</p>
-</blockquote>
-<ul>
-<li>运行<code>操作系统程序</code>，<code>操作硬件</code>。</li>
-<li>可执行包括<code>特权指令</code>在内的<code>一切机器指令</code>。</li>
-<li>程序<code>不受硬件限制</code>，可访问<code>全部存储器</code>和<code>寄存器</code>。</li>
-</ul>
 <blockquote>
-<p>用户态：常态/目态</p>
+<p>用户态 -&gt; 核心态</p>
 </blockquote>
+<p><strong>主动方式</strong>：<code>系统调用</code>。</p>
 <ul>
-<li>运行<code>用户程序</code>。</li>
-<li>只能执行<code>非特权指令</code>。</li>
-<li><code>用户程序</code>通常在此状态下执行。</li>
-<li><code>受硬件限制</code>，访问<code>有限</code>的<code>存储空间</code>和<code>指定寄存器</code>。</li>
+<li>用户态主动切换到内核态。</li>
+<li>申请使用操作系统提供给的服务程序完成工作。</li>
+</ul>
+<p><strong>被动方式</strong>：不可预知、可能存在。</p>
+<ul>
+<li><strong>异常</strong>：用户程序发生了不可预知的意外事件而切换到相应内核程序，如缺页、死循环、除数为零等。</li>
+<li><strong>外设中断</strong>：如磁盘完成 I/O。</li>
 </ul>
 <hr>
+<blockquote>
+<p>核心态 -&gt; 用户态</p>
+</blockquote>
+<p>通过<code>执行一个特权指令</code>，将程序状态字（PSW）的标志位设置为“用户态”。</p>
+<hr>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>简单来说，“指令”就是处理器（CPU）能识别、执行的最基本指令。</p>
+<p>比如：加法指令就是让 CPU 进行加法运算。</p>
+<hr>
 <p><code>特权指令</code></p>
-<p>只能由操作系统使用、用户程序不能使用的指令。</p>
+<p><code>只能</code>由操作系统使用、用户程序<code>不能</code>使用的指令。</p>
 <p>示例：</p>
 <ul>
 <li>停机</li>
@@ -499,21 +503,101 @@
 <li>数据传送、存数、取数</li>
 </ul>
 <hr>
-<blockquote>
-<p>用户态转核心态</p>
+<h3 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h3><blockquote>
+<p>中断的概念和作用</p>
 </blockquote>
-<p><strong>主动方式</strong>：<code>系统调用</code></p>
 <ul>
-<li>用户态主动切换到内核态。</li>
-<li>申请使用操作系统提供给的服务程序完成工作。</li>
+<li>1、当中断发生时，CPU立即进入核心态。</li>
+<li>2、当中断发生后，当前运行的进程将暂停运行，并由操作系统内核对中断进行处理。</li>
+<li>3、对于不同的中断信号，会进行不同的处理。</li>
 </ul>
-<p><strong>被动方式</strong>：不可预知、可能存在</p>
+<p>发生了中断，就意味着需要操作系统介入，开展管理工作。由于操作系统的管理工作（比如进程切换、分配 I/O 设备等）需要使用特权指令，因此 CPU 要从用户态转为核心态。</p>
+<p><code>中断</code>可以使 CPU 从<code>用户态转为核心态</code>，<code>使操作系统获得计算机的控制权</code>。</p>
+<p>有了中断，才能实现多道程序并发执行。</p>
+<hr>
+<blockquote>
+<p>中断的<code>分类</code></p>
+</blockquote>
+<blockquote>
+<p>内中断（也称<code>异常</code>、例外、陷入）</p>
+</blockquote>
+<p>信号的来源：CPU <code>内部</code>与当前执行的指令<code>有关</code>。</p>
 <ul>
-<li><strong>异常</strong>：用户程序发生了不可预知的意外事件而切换到相应内核程序，如缺页、死循环、除数为零等。</li>
-<li><strong>外设中断</strong>：如磁盘完成 I/O。</li>
+<li>自愿中断、指令中断（系统调用时使用的访管指令，又叫陷入指令，trap 指令）</li>
+<li>强迫中断 - 硬件故障（如：缺页）、软件中断（如：整数除 0）</li>
+</ul>
+<blockquote>
+<p>外中断（<code>狭义</code>的中断）</p>
+</blockquote>
+<p>信号的来源：CPU <code>外部</code>与当前执行的指令<code>无关</code>。</p>
+<ul>
+<li>外设请求（如：I/O 操作完成发出的中断信号）</li>
+<li>人工干预（如：用户强行终止一个进程）</li>
 </ul>
 <hr>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><blockquote>
+<blockquote>
+<p>中断的<code>另一种分类</code>方式</p>
+</blockquote>
+<blockquote>
+<p>内中断（内部异常）</p>
+</blockquote>
+<p>信号来源：CPU 内部</p>
+<ul>
+<li>陷阱、陷入（trap）：有意为之的异常，如：系统调用。</li>
+<li>故障（fault）：由错误条件引起的，可能被故障处理程序修复，如：缺页。</li>
+<li>终止（abort）：不可恢复的致命错误造成的结果，终止处理程序不再将控制返回给引发终止的应用程序，如：整数除0。</li>
+</ul>
+<blockquote>
+<p>外中断</p>
+</blockquote>
+<p>信号来源：CPU 外部</p>
+<ul>
+<li>I/O 中断请求</li>
+<li>人工干预</li>
+</ul>
+<hr>
+<blockquote>
+<p>外中断的处理过程</p>
+</blockquote>
+<ul>
+<li>Step1：执行完每个指令之后，CPU 都要检查当前是否有外部中断信号。</li>
+<li>Step2：如果检测到外部中断信号，则需要保护被中断的 CPU 环境（如：程序状态字 PSW、程序计数器 PC、各种通用寄存器）</li>
+<li>Step3：根据中断信号类型传入相应的中断处理程序。</li>
+<li>Step4：恢复原进程的 CPU 环境并退出中断，返回原程序继续往下执行。</li>
+</ul>
+<hr>
+<h3 id="处理器状态"><a href="#处理器状态" class="headerlink" title="处理器状态"></a>处理器状态</h3><p>用程序状态字寄存器（PSW）中的某标志位来标识当前处理器处于什么状态。如：0为用户态，1为核心态。</p>
+<blockquote>
+<p>核心态：管态/特权态/系统态</p>
+</blockquote>
+<p>特权指令、非特权指令都能执行。</p>
+<ul>
+<li>运行<code>操作系统程序</code>，<code>操作硬件</code>。</li>
+<li>可执行包括<code>特权指令</code>在内的<code>一切机器指令</code>。</li>
+<li>程序<code>不受硬件限制</code>，可访问<code>全部存储器</code>和<code>寄存器</code>。</li>
+</ul>
+<blockquote>
+<p>用户态：常态/目态</p>
+</blockquote>
+<p>此时 CPU 只能执行非特权指令。</p>
+<ul>
+<li>运行<code>用户程序</code>。</li>
+<li>只能执行<code>非特权指令</code>。</li>
+<li><code>用户程序</code>通常在此状态下执行。</li>
+<li><code>受硬件限制</code>，访问<code>有限</code>的<code>存储空间</code>和<code>指定寄存器</code>。</li>
+</ul>
+<hr>
+<h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><blockquote>
+<p>内核程序</p>
+</blockquote>
+<p>操作系统的内核程序是系统的管理者，<strong>既可以执行特权指令，也可以执行非特权指令</strong>，<code>运行在核心态</code>。</p>
+<blockquote>
+<p>应用程序</p>
+</blockquote>
+<p>为了保证系统能安全运行，普通应用程序<strong>只能执行非特权指令</strong>，<code>运行在用户态</code>。</p>
+<hr>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Operating%20System/1_1.png" alt="操作系统结构"></p>
+<blockquote>
 <p>无结构操作系统</p>
 </blockquote>
 <p>主要任务：功能实现和系统高效，不考虑操作系统的结构性。</p>
@@ -561,7 +645,7 @@
 </ul>
 <hr>
 <blockquote>
-<p>微内核结构操作系统</p>
+<p><code>微内核</code>结构操作系统</p>
 </blockquote>
 <ul>
 <li>在<code>OS 内核中只保留最基本的功能</code>，将其他服务分离出去，形成 “客户/服务器” 模式。<code>客户进程可通过内核向服务器进程发送请求，以取得 OS 的服务</code>。</li>
@@ -588,6 +672,37 @@
 <li>提供了对分布式系统的支持。</li>
 </ul>
 <p><strong>缺点</strong>：系统效率低。</p>
+<hr>
+<h3 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Operating%20System/1_1.png" alt="大内核和微内核"></p>
+<p><code>内核</code>是计算机上配置的<code>底层软件</code>，是操作系统<code>最基本</code>、<code>最核心</code>的部分，实现操作系统内核功能的程序就是<code>内核程序</code>。</p>
+<blockquote>
+<p>大内核</p>
+</blockquote>
+<p>将<code>操作系统的主要功能模块都作为系统内核</code>，<code>运行在核心态</code>。</p>
+<ul>
+<li>优点：高性能。</li>
+<li>缺点：内核代码庞大，结构混乱，难以维护。</li>
+</ul>
+<blockquote>
+<p>微内核</p>
+</blockquote>
+<p>只<code>把最基本的功能保留在内核</code>。</p>
+<ul>
+<li>优点：内核功能少，结构清晰，方便维护。</li>
+<li>缺点：需要频繁地在核心态和用户态之间切换，性能低。</li>
+</ul>
+<hr>
+<blockquote>
+<p>类比：</p>
+</blockquote>
+<p>操作系统的体系结构问题与企业的管理问题很相似。</p>
+<p><code>内核</code>就是企业的<code>管理层</code>，负责一些重要的工作。只有管理层才能执行<code>特权指令</code>，普通员工只能执行<code>非特权指令</code>。<code>用户态、核心态</code>之间的<code>切换</code>相当于普通员工和管理层之间的工作交接。</p>
+<ul>
+<li><p><code>大内核</code>：企业初创时体量不大，管理层的人会负责大部分的事情。优点是效率高；缺点是组织结构混乱，难以维护。</p>
+</li>
+<li><p><code>微内核</code>：随着企业体量越来越大，管理层只负责最核心的一些工作。优点是组织结构清晰，方便维护；缺点是效率低。</p>
+</li>
+</ul>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -638,8 +753,8 @@
                     
                 </div>
                 <ul>
-                    <li><a href="/">24 <p>文章</p></a></li>
-                    <li><a href="/categories">13 <p>分类</p></a></li>
+                    <li><a href="/">25 <p>文章</p></a></li>
+                    <li><a href="/categories">14 <p>分类</p></a></li>
                     <li><a href="/tags">23 <p>标签</p></a></li>
                 </ul>
             </div>
@@ -649,7 +764,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绪论"><span class="toc-number">2.</span> <span class="toc-text">绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">2.2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">2.3.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展动力"><span class="toc-number">2.4.</span> <span class="toc-text">发展动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.5.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-number">2.6.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-number">2.7.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统和-CPU-的两种状态"><span class="toc-number">2.8.</span> <span class="toc-text">操作系统和 CPU 的两种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构"><span class="toc-number">2.9.</span> <span class="toc-text">结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绪论"><span class="toc-number">2.</span> <span class="toc-text">绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">2.2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">2.3.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展动力"><span class="toc-number">2.4.</span> <span class="toc-text">发展动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.5.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-number">2.6.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-number">2.7.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令"><span class="toc-number">2.8.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中断和异常"><span class="toc-number">2.9.</span> <span class="toc-text">中断和异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理器状态"><span class="toc-number">2.10.</span> <span class="toc-text">处理器状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序"><span class="toc-number">2.11.</span> <span class="toc-text">程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构"><span class="toc-number">2.12.</span> <span class="toc-text">结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内核"><span class="toc-number">2.13.</span> <span class="toc-text">内核</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
