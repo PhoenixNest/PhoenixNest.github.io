@@ -111,13 +111,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    6.4k
+                    7k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    12 mins.
+                    13 mins.
                 </span>
                     
                     
@@ -704,6 +704,65 @@
 </li>
 </ul>
 <hr>
+<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p>操作系统作为用户和计算机硬件之间的接口，需要向上提供一些简单易用的服务。主要包括命令接口和程序接口。其中，程序接口由一组<code>系统调用</code>组成。</p>
+<p>“系统调用”是操作系统提供给应用程序（程序员/编程人员）使用的接口，可以理解为一种可供应用程序调用的特殊函数，应用程序可以发出系统调用请求来获得操作系统的服务。</p>
+<blockquote>
+<p>作用</p>
+</blockquote>
+<p>应用程序通过<code>系统调用</code>请求操作系统的服务。系统中的各种共享资源都由操作系统统一掌管，因此在用户程序中，凡是与资源有关的操作（如：存储分配、I/O 操作、文件管理等），都必须通过系统调用的方向操作系统提出服务请求，由操作系统代为完成。这样<code>可以保证系统的稳定性和安全性</code>，防止用户进行非法操作。</p>
+<blockquote>
+<p>按功能分类</p>
+</blockquote>
+<p>系统调用相关处理涉及到对系统资源的管理、对进程的控制，这些功能需要执行一些<code>特权指令</code>才能完成，因此<code>系统调用的相关处理</code>需要在<code>核心态</code>下进行。</p>
+<ul>
+<li>设备管理</li>
+</ul>
+<p>完成<code>设备</code>的 <code>请求/释放/启动</code> 等功能。</p>
+<ul>
+<li>文件管理</li>
+</ul>
+<p>完成<code>文件</code>的 <code>读/写/创建/删除</code> 等功能。</p>
+<ul>
+<li>进程控制</li>
+</ul>
+<p>完成<code>进程</code>的 <code>创建/撤销/阻塞/唤醒</code> 等功能。</p>
+<ul>
+<li>进程通信</li>
+</ul>
+<p>完成<code>进程之间</code>的 <code>消息传递/信号传递</code> 等功能。</p>
+<ul>
+<li>内存管理</li>
+</ul>
+<p>完成<code>内存</code>的 <code>分配/回收</code> 等功能。</p>
+<hr>
+<blockquote>
+<p>系统调用与库函数的区别</p>
+<blockquote>
+<p><code>不涉及系统调用</code>的库函数，如：“取绝对值”函数</p>
+</blockquote>
+<blockquote>
+<p><code>涉及系统调用</code>的库函数，如：“创建一个新文件”函数</p>
+</blockquote>
+</blockquote>
+<pre><code class="TEXT">层级调用关系
+
+裸机 -&gt; 操作系统 -&gt; 编程语言 -&gt; 普通应用程序</code></pre>
+<ul>
+<li>普通应用程序</li>
+</ul>
+<p>可直接进行系统调用，也可以使用库函数。有的库涉及系统调用，有的不涉及。</p>
+<ul>
+<li>编程语言</li>
+</ul>
+<p>向上提供库函数。有时会将系统调用封装成库函数，以隐藏系统调用的一些细节，使上层进行系统调用更加方便。</p>
+<ul>
+<li>操作系统</li>
+</ul>
+<p>向上提供系统调用。</p>
+<ul>
+<li>裸机</li>
+</ul>
+<hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
 <table>
@@ -764,7 +823,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绪论"><span class="toc-number">2.</span> <span class="toc-text">绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">2.2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">2.3.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展动力"><span class="toc-number">2.4.</span> <span class="toc-text">发展动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.5.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-number">2.6.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-number">2.7.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令"><span class="toc-number">2.8.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中断和异常"><span class="toc-number">2.9.</span> <span class="toc-text">中断和异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理器状态"><span class="toc-number">2.10.</span> <span class="toc-text">处理器状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序"><span class="toc-number">2.11.</span> <span class="toc-text">程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构"><span class="toc-number">2.12.</span> <span class="toc-text">结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内核"><span class="toc-number">2.13.</span> <span class="toc-text">内核</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绪论"><span class="toc-number">2.</span> <span class="toc-text">绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-number">2.2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">2.3.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展动力"><span class="toc-number">2.4.</span> <span class="toc-text">发展动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征"><span class="toc-number">2.5.</span> <span class="toc-text">特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-number">2.6.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-number">2.7.</span> <span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令"><span class="toc-number">2.8.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中断和异常"><span class="toc-number">2.9.</span> <span class="toc-text">中断和异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理器状态"><span class="toc-number">2.10.</span> <span class="toc-text">处理器状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序"><span class="toc-number">2.11.</span> <span class="toc-text">程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构"><span class="toc-number">2.12.</span> <span class="toc-text">结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内核"><span class="toc-number">2.13.</span> <span class="toc-text">内核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统调用"><span class="toc-number">2.14.</span> <span class="toc-text">系统调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
