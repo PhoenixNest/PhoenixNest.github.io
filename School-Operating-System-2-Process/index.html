@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>深度学习 - PhoenixNest&#39;s Blog</title>
+    <title>操作系统 • （二）进程 - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -14,18 +14,14 @@
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
-本篇整理了我学习深度学习时的一些笔记。
-所用教学平台：MOOC
-
-你需要准备👇：
-
-Anaconda - 环境部署
-
-TensorFlow - 神经网络工具集
+本篇整理了我学习操作系统时的一些笔记。
+所用教学平台：BiliBili
+本文对应思维导图：第二章 进程.xmind
 
 
+定义程序就是一个指令序列。
 
-概论,">
+早期的计算机（只支持单,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -79,7 +75,7 @@ TensorFlow - 神经网络工具集
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">深度学习</h3>
+        <h3 class="subtitle">操作系统 • （二）进程</h3>
         <div class="social">
             <div>
                 <div class="share">
@@ -101,24 +97,24 @@ TensorFlow - 神经网络工具集
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/deep_learning.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/operating_system.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/人工智能"><b>「
-                        </b>人工智能<b> 」</b></a>
+                    <a href="/categories/操作系统"><b>「
+                        </b>操作系统<b> 」</b></a>
                 
-                二月 18, 2021
+                一月 13, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/School-Deep-Learning/" title="深度学习" class="">深度学习</a>
+            <h3 class="post-title animated fadeInDown"><a href="/School-Operating-System-2-Process/" title="操作系统 • （二）进程" class="">操作系统 • （二）进程</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    829
+                    1k
                 </span>
                     
                     
@@ -128,8 +124,8 @@ TensorFlow - 神经网络工具集
                 </span>
                     
                     
-                        <span id="/School-Deep-Learning/" class="leancloud_visitors"
-                              data-flag-title="深度学习">
+                        <span id="/School-Operating-System-2-Process/" class="leancloud_visitors"
+                              data-flag-title="操作系统 • （二）进程">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">0</span>
                 </span>
@@ -138,7 +134,7 @@ TensorFlow - 神经网络工具集
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li></ul>
             
         </div>
     </div>
@@ -149,7 +145,7 @@ TensorFlow - 神经网络工具集
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s">Let the feelings with the strength landing.</span>
+                    <span class="animated fadeIn delay-1s"></span>
                 </p>
             </div>
         </div>
@@ -160,43 +156,50 @@ TensorFlow - 神经网络工具集
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
-<p>本篇整理了我学习<code>深度学习</code>时的一些笔记。</p>
-<p>所用教学平台：<a href=""https://www.icourse163.org/"">MOOC</a></p>
-</blockquote>
-<p>你需要准备👇：</p>
-<ul>
-<li><p><a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda</a> - 环境部署</p>
-</li>
-<li><p><a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a> - 神经网络工具集</p>
-</li>
-</ul>
-<hr>
-<h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><h3 id="机器学习学习形式分类"><a href="#机器学习学习形式分类" class="headerlink" title="机器学习学习形式分类"></a>机器学习学习形式分类</h3><ul>
-<li>有监督学习（<strong>S</strong>upervised <strong>L</strong>earning）</li>
-</ul>
-<blockquote>
-<p>指的是事先需要准备好输入与正确输出（区分方法）相配套的训练数据，让计算机进行学习，以便当它被输入某个数据时能够得到正确的输出（区分方法）。</p>
-</blockquote>
-<ul>
-<li>无监督学习（<strong>U</strong>nsupervised <strong>L</strong>earning）</li>
-</ul>
-<blockquote>
-<p>目的是让计算机自己学习怎样做一些事情，所有数据只有特征没有标记。<br><br>无监督学习被运用与仅提供输入用数据、需要计算机自己找出数据内在结构的场合。其目的是让计算机从数据中抽取其中所包含的模式及规则。</p>
-</blockquote>
-<ul>
-<li>半监督学习（<strong>S</strong>emi-<strong>S</strong>upervised <strong>L</strong>earning）</li>
-</ul>
-<blockquote>
-<p>位于上述两者的中间地带。<br><br>对于半监督学习，其训练数据一部分有标记，另一部分没标记，而没有标记数据的数量常常极大于有标记数据的数量。<br><br>他的基本规律是：数据的分布必然不是完全随机的，通过结合有标记数据的局部特征，以及大量没标记数据的整体分布，可以得到比较好的分类结果。</p>
-</blockquote>
-<ul>
-<li>强化学习（<strong>R</strong>einforcement <strong>L</strong>earning）</li>
-</ul>
-<blockquote>
-<p>为解决计算机从感知到决策控制的问题，从而实现通用人工智能、<br><br>强化学习是目标导向的，从白纸一张的状态开始，经由许多个步骤来实现某一维度上的目标最大化。从简单的理解是在训练过程中，不断去尝试，错误就惩罚，正确就奖励，由此训练得到的模型在各个状态环境都最好。<br><br>对强化学习来说，他虽然没有标记，但有一个延迟奖励与训练相关，通过学习过程中的激励函数获得某种从状态到行为的映射。强化学习强调如何基于环境而行动，以取得最大化的预期利益。<br><br>强化学习一般在游戏、下棋等需要连续决策的领域。</p>
+<p>本篇整理了我学习<code>操作系统</code>时的一些笔记。</p>
+<p>所用教学平台：<a href=""https://www.bilibili.com/"">BiliBili</a></p>
+<p>本文对应思维导图：<a href="https://github.com/PhoenixNest/Box/blob/main/%E8%80%83%E7%A0%94/408/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E8%BF%9B%E7%A8%8B.xmind" target="_blank">第二章 进程.xmind</a></p>
 </blockquote>
 <hr>
-<h2 id="简明-Python-基础"><a href="#简明-Python-基础" class="headerlink" title="简明 Python 基础"></a><a href="https://phoenixnest.github.io/Concise-Python-Foundation/">简明 Python 基础</a></h2><hr>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><p>就是一个指令序列。</p>
+<hr>
+<h3 id="早期的计算机（只支持单道程序）"><a href="#早期的计算机（只支持单道程序）" class="headerlink" title="早期的计算机（只支持单道程序）"></a>早期的计算机（只支持<code>单道</code>程序）</h3><p>此时该程序进程将<code>占用所有计算机的 CPU、内存、I/O设备资源</code>。</p>
+<p>进程对内存的存放也只是单一固定的存放，为典型的栈结构，栈顶可为程序段，栈底为数据段。</p>
+<blockquote>
+<p><strong>程序的代码存放在程序段内</strong>。<br><strong>程序运行过程处理的数据放在数据段内</strong>（如：变量）</p>
+</blockquote>
+<hr>
+<h3 id="引入多道程序技术之后"><a href="#引入多道程序技术之后" class="headerlink" title="引入多道程序技术之后"></a>引入多道程序技术之后</h3><p>为了方便操作系统管理，完成各程序<code>并发</code>执行，引入了<code>进程</code>、<code>进程实体</code>的概念。</p>
+<p><code>PCB</code>（Process Control Block）、<code>程序段</code>、<code>数据段</code>三部分构成了<code>进程实体（进程映像）</code></p>
+<blockquote>
+<p><strong>内存中同时放入多道程序</strong>，各个程序的代码、运算数据存放的位置不同。<br><strong>操作系统通过为每个运行的程序配置一个数据结构，称为进程控制块（PCB）</strong>，用来描述进程的各种信息（如：程序代码存放位置）。</p>
+</blockquote>
+<hr>
+<p>程序段、数据段、PCB三部分组成了进程实体（进程映像）。一般情况下，我们把进程实体就简称为进程。</p>
+<p>例如：所谓创建进程，实质上是创建进程实体中的PCB；而撤销进程，实质上是撤销进程实体中的 PCB。</p>
+<blockquote>
+<p>注意：PCB 是进程存在的<code>唯一标志</code>。</p>
+</blockquote>
+<p>从不同角的角度，进程可以有不同的定义，比较传统典型的定义有：</p>
+<ul>
+<li>1、进程是程序的一次执行过程。</li>
+<li>2、进程是一个程序及其数据在处理机上顺序执行时所发生的活动。</li>
+<li>3、进程是具有独立功能的程序在数据集合上运行的过程（强调 “动态性” ），它是系统进行资源分配和调度的一个独立单位。</li>
+</ul>
+<hr>
+<p>引入进程实体的概念后，可把进程定义为：</p>
+<p><code>进程</code>是进程实体的<code>运行过程</code>，是系统进行<code>资源分配</code>和<code>调度</code>的一个独立单位。</p>
+<blockquote>
+<p>注意：严格来说，<code>进程实体和进程并不一样</code>，<strong>进程实体是</strong><code>静态</code><strong>的</strong>，<strong>进程则是</strong><code>动态</code><strong>的</strong>。<br>不过，除非题目专门考察二者区别，否则可以认为进程实体就是进程。因此我们也可以说 “进程由程序段、数据段、PCB三部分组成”。</p>
+</blockquote>
+<hr>
+<h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><p>进程（进程实体）由程序段、数据段、PCB三部分组成。</p>
+<ul>
+<li>操作系统通过 PCB 来管理进程，因此 PCB 中应该包含操作系统对其进行管理所需的各种信息。</li>
+<li>代码段：用于存放程序代码。</li>
+<li>数据段：用于程序运行时使用、产生的运算数据。如：全局变量、局部变量、宏定义的变量就存放在数据段内。</li>
+</ul>
+<hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
 <table>
@@ -247,7 +250,7 @@ TensorFlow - 神经网络工具集
                 </div>
                 <ul>
                     <li><a href="/">25 <p>文章</p></a></li>
-                    <li><a href="/categories">14 <p>分类</p></a></li>
+                    <li><a href="/categories">13 <p>分类</p></a></li>
                     <li><a href="/tags">23 <p>标签</p></a></li>
                 </ul>
             </div>
@@ -257,7 +260,7 @@ TensorFlow - 神经网络工具集
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概论"><span class="toc-number">2.</span> <span class="toc-text">概论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#机器学习学习形式分类"><span class="toc-number">2.1.</span> <span class="toc-text">机器学习学习形式分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简明-Python-基础"><span class="toc-number">3.</span> <span class="toc-text">简明 Python 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">2.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#程序"><span class="toc-number">2.1.</span> <span class="toc-text">程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#早期的计算机（只支持单道程序）"><span class="toc-number">2.2.</span> <span class="toc-text">早期的计算机（只支持单道程序）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入多道程序技术之后"><span class="toc-number">2.3.</span> <span class="toc-text">引入多道程序技术之后</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组成"><span class="toc-number">3.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
