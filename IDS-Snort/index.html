@@ -13,13 +13,11 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
 本篇将介绍我在工作期间，对办公室的一台测试用服务器部署IDS(intrusion detection system)入侵检测系统时的一些笔记分享。
 
 
-参考资料:
-
-Sno,">
+在1998年，Martin Roesch,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -112,13 +110,13 @@ Sno,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    862
+                    813
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    2 mins.
+                    1 mins.
                 </span>
                     
                     
@@ -153,22 +151,12 @@ Sno,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
 <p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS(intrusion detection system)入侵检测系统</code>时的一些笔记分享。</p>
 </blockquote>
-<hr>
-<p>参考资料:</p>
-<ul>
-<li><p><a href="https://www.snort.org/" target="_blank" rel="noopener">Snort Official</a></p>
-</li>
-<li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/" target="_blank" rel="noopener">LinuxHint • Snort Ubuntu Tutorial</a></p>
-</li>
-<li><p><a href="https://www.wireshark.org/" target="_blank" rel="noopener">WireShark</a></p>
-</li>
-</ul>
-<hr>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>本篇将介绍在诸多<code>开源</code>的IDS中，一个广为人知的开源系统<code>Snort</code>。</p>
+<blockquote>
 <p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p>
+</blockquote>
 <hr>
 <h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flex
 
@@ -181,6 +169,8 @@ sudo snort -d -l snortLogs</code></pre>
 <p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">WireShark</a>打开，或使用以下命令：</p>
 <pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre>
 <h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.snort.org/" target="_blank" rel="noopener">Snort Official</a><br><a href="https://linuxhint.com/snort-ubuntu-tutorial/" target="_blank" rel="noopener">LinuxHint • Snort Ubuntu Tutorial</a><br><a href="https://www.wireshark.org/" target="_blank" rel="noopener">WireShark</a></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -231,9 +221,9 @@ sudo snort -d -l snortLogs</code></pre>
                     
                 </div>
                 <ul>
-                    <li><a href="/">25 <p>文章</p></a></li>
-                    <li><a href="/categories">13 <p>分类</p></a></li>
-                    <li><a href="/tags">23 <p>标签</p></a></li>
+                    <li><a href="/">26 <p>文章</p></a></li>
+                    <li><a href="/categories">14 <p>分类</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -242,7 +232,7 @@ sudo snort -d -l snortLogs</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-部署Snort"><span class="toc-number">3.</span> <span class="toc-text">(一) 部署Snort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-嗅探"><span class="toc-number">4.</span> <span class="toc-text">(二) 嗅探</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础用法"><span class="toc-number">4.1.</span> <span class="toc-text">1. 基础用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-展示数据内容"><span class="toc-number">4.2.</span> <span class="toc-text">2. 展示数据内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-网络IP数据包记录"><span class="toc-number">5.</span> <span class="toc-text">(三) 网络IP数据包记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-NIDS"><span class="toc-number">6.</span> <span class="toc-text">(四) NIDS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-部署Snort"><span class="toc-number">2.</span> <span class="toc-text">(一) 部署Snort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-嗅探"><span class="toc-number">3.</span> <span class="toc-text">(二) 嗅探</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础用法"><span class="toc-number">3.1.</span> <span class="toc-text">1. 基础用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-展示数据内容"><span class="toc-number">3.2.</span> <span class="toc-text">2. 展示数据内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-网络IP数据包记录"><span class="toc-number">4.</span> <span class="toc-text">(三) 网络IP数据包记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-NIDS"><span class="toc-number">5.</span> <span class="toc-text">(四) NIDS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

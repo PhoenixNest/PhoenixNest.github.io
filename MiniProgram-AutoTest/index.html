@@ -13,14 +13,11 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
 本篇将介绍最近在小程序开发项目上所遇到的有关自动化测试的一些笔记分享。
 
-在进行小程序自动化测试前，你需要准备👇：
 
-Node.js - v8.0及以上
-
-微信开发者工具,">
+微信小程序，小程序的一种，英文名Wechat Mini Program，是一种不需要下载安装即可使用的应用，它实现了,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -113,7 +110,7 @@ Node.js - v8.0及以上
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.5k
+                    2.9k
                 </span>
                     
                     
@@ -154,29 +151,18 @@ Node.js - v8.0及以上
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
 <p>本篇将介绍最近在<code>小程序开发</code>项目上所遇到的有关<code>自动化测试</code>的一些笔记分享。</p>
 </blockquote>
+<blockquote>
+<p>微信小程序，小程序的一种，英文名Wechat Mini Program，是一种不需要下载安装即可使用的应用，它实现了应用“触手可及”的梦想，用户扫一扫或搜一下即可打开应用。<br>全面开放申请后，主体类型为企业、政府、媒体、其他组织或个人的开发者，均可申请注册小程序。微信小程序、微信订阅号、微信服务号、微信企业号是并行的体系。<br>微信小程序是一种不用下载就能使用的应用，也是一项创新，经过将近两年的发展，已经构造了新的微信小程序开发环境和开发者生态。微信小程序也是这么多年来中国IT行业里一个真正能够影响到普通程序员的创新成果，已经有超过150万的开发者加入到了微信小程序的开发，与我们一起共同发力推动微信小程序的发展，微信小程序应用数量超过了一百万，覆盖200多个细分的行业，日活用户达到两个亿，微信小程序还在许多城市实现了支持地铁、公交服务。微信小程序发展带来更多的就业机会，2017年小程序带动就业104万人，社会效应不断提升。</p>
+</blockquote>
+<hr>
 <p>在进行小程序自动化测试前，你需要准备👇：</p>
 <ul>
-<li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> - v8.0及以上</p>
-</li>
-<li><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">微信开发者工具</a> - v1.02.1907232及以上</p>
-</li>
-<li><p><a href="https://github.com/wechat-miniprogram/miniprogram-demo" target="_blank" rel="noopener">微信官方小程序Demo</a> - 待测试的项目Demo</p>
-</li>
-</ul>
-<hr>
-<p>参考资料：</p>
-<ul>
-<li><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/" target="_blank" rel="noopener">微信小程序官方自动化测试开发文档</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/weixin_43827779/article/details/106164261" target="_blank" rel="noopener">小程序自动化测试快速开始</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/weixin_43827779/article/details/106180757" target="_blank" rel="noopener">小程序自动化测试+jest</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/qq_40816649/article/details/102463350" target="_blank" rel="noopener">miniprogram-automator微信小程序自动化工具</a></p>
-</li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> - v8.0及以上</li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">微信开发者工具</a> - v1.02.1907232及以上</li>
+<li><a href="https://github.com/wechat-miniprogram/miniprogram-demo" target="_blank" rel="noopener">微信官方小程序Demo</a> - 待测试的项目Demo</li>
 </ul>
 <hr>
 <h2 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h2><h3 id="Step1-项目初始化"><a href="#Step1-项目初始化" class="headerlink" title="Step1: 项目初始化"></a>Step1: 项目初始化</h3><pre><code class="bash">cd miniprogram-demo
@@ -253,10 +239,9 @@ Time:        22.683 s, estimated 27 s
 Ran all test suites.</code></pre>
 <p>当出现上述信息时，表示自动化测试已通过。</p>
 <hr>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/automator.html" target="_blank" rel="noopener">Automator</a>模块提供了<code>启动及连接开发者工具</code>的方法。</p>
-<p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/miniprogram.html" target="_blank" rel="noopener">MiniProgram</a>模块提供了<code>控制小程序</code>的方法。</p>
-<p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/page.html" target="_blank" rel="noopener">Page</a>模块提供了<code>控制小程序页面</code>的方法。</p>
-<p>• <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/element.html" target="_blank" rel="noopener">Element</a>模块提供了<code>控制小程序页面元素</code>的方法。</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/automator.html" target="_blank" rel="noopener">Automator</a>模块提供了<code>启动及连接开发者工具</code>的方法。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/miniprogram.html" target="_blank" rel="noopener">MiniProgram</a>模块提供了<code>控制小程序</code>的方法。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/page.html" target="_blank" rel="noopener">Page</a>模块提供了<code>控制小程序页面</code>的方法。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/element.html" target="_blank" rel="noopener">Element</a>模块提供了<code>控制小程序页面元素</code>的方法。</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/" target="_blank" rel="noopener">微信小程序官方自动化测试开发文档</a><br><a href="https://blog.csdn.net/weixin_43827779/article/details/106164261" target="_blank" rel="noopener">小程序自动化测试快速开始</a><br><a href="https://blog.csdn.net/weixin_43827779/article/details/106180757" target="_blank" rel="noopener">小程序自动化测试+jest</a><br><a href="https://blog.csdn.net/qq_40816649/article/details/102463350" target="_blank" rel="noopener">miniprogram-automator微信小程序自动化工具</a></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -307,9 +292,9 @@ Ran all test suites.</code></pre>
                     
                 </div>
                 <ul>
-                    <li><a href="/">25 <p>文章</p></a></li>
-                    <li><a href="/categories">13 <p>分类</p></a></li>
-                    <li><a href="/tags">23 <p>标签</p></a></li>
+                    <li><a href="/">26 <p>文章</p></a></li>
+                    <li><a href="/categories">14 <p>分类</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -318,7 +303,7 @@ Ran all test suites.</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Started"><span class="toc-number">2.</span> <span class="toc-text">Get Started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-项目初始化"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-引入自动化测试插件与框架"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 引入自动化测试插件与框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-开启自动化测试端口"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 开启自动化测试端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-编写测试脚本"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 编写测试脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-开始自动化测试"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 开始自动化测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Started"><span class="toc-number">2.</span> <span class="toc-text">Get Started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-项目初始化"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-引入自动化测试插件与框架"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 引入自动化测试插件与框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-开启自动化测试端口"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 开启自动化测试端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-编写测试脚本"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 编写测试脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-开始自动化测试"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 开始自动化测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

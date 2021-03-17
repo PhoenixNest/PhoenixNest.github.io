@@ -13,13 +13,14 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
 本篇整理了一些我在近期对笔记本RAID模式与AHCI模式转换的经验分享。
+
 
 所使用配置清单：
 
 型号：ASUS ZenBook X2 Duo
-系统：Windows 10 P,">
+系统：Windows 10 Profession,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -112,7 +113,7 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    676
+                    666
                 </span>
                     
                     
@@ -153,15 +154,16 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
-<p>本篇整理了一些我在近期对笔记本RAID模式与AHCI模式转换的经验分享。</p>
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇整理了一些我在近期对笔记本<code>RAID模式与AHCI模式转换</code>的经验分享。</p>
 </blockquote>
+<blockquote>
 <p>所使用配置清单：</p>
 <ul>
 <li>型号：<code>ASUS</code> ZenBook X2 Duo</li>
-<li>系统：<code>Windows 10</code> Professional Workstation</li>
+<li>系统：<code>Windows 10</code> Professional Workstation<br>由于家里的这台 Zenbook X2 Duo 只有一个硬盘位，且鉴于华硕出厂时对 BIOS 的奇葩配置，导致<code>硬盘设置（Advanced -&gt; SATA Configuration）</code>直接就是<code>RAID</code>（一个硬盘无法组成<a href="https://baike.baidu.com/item/RAID%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/10588130" target="_blank" rel="noopener">磁盘阵列</a>，此时RAID于事无补），造成后期安装双系统时难以避免的<code>硬盘模式冲突</code>问题。</li>
 </ul>
-<p>由于家里的这台 Zenbook X2 Duo 只有一个硬盘位，且鉴于华硕出厂时对 BIOS 的奇葩配置，导致<code>硬盘设置（Advanced -&gt; SATA Configuration）</code>直接就是<code>RAID</code>（一个硬盘无法组成<a href="https://baike.baidu.com/item/RAID%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97/10588130" target="_blank" rel="noopener">磁盘阵列</a>，此时RAID于事无补），造成后期安装双系统时难以避免的<code>硬盘模式冲突</code>问题。</p>
+</blockquote>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/RAID%20to%20AHCI/my_asus_disassemble.jpg">
 
 <hr>
@@ -235,9 +237,9 @@
                     
                 </div>
                 <ul>
-                    <li><a href="/">25 <p>文章</p></a></li>
-                    <li><a href="/categories">13 <p>分类</p></a></li>
-                    <li><a href="/tags">23 <p>标签</p></a></li>
+                    <li><a href="/">26 <p>文章</p></a></li>
+                    <li><a href="/categories">14 <p>分类</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -246,7 +248,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAID-to-AHCI"><span class="toc-number">2.</span> <span class="toc-text">RAID to AHCI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAID-to-AHCI"><span class="toc-number">2.</span> <span class="toc-text">RAID to AHCI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">3.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

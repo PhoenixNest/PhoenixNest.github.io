@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ubuntu Server • OpenStack - PhoenixNest&#39;s Blog</title>
+    <title>Git • Github - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -13,11 +13,11 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
-本篇将介绍最近在Ubuntu Sever 20.04LTS上折腾 OpenStack时的一些笔记分享。
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍我在学习Git 与 Github 使用的一些笔记分享。
 
-在对OpenStack进行部署前，你需要执行👇：
-# refre,">
+
+Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git 是 L,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -71,7 +71,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Ubuntu Server • OpenStack</h3>
+        <h3 class="subtitle">Git • Github</h3>
         <div class="social">
             <div>
                 <div class="share">
@@ -93,24 +93,24 @@
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/OpenStack/openstack.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/github.jpeg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/Ubuntu"><b>「
-                        </b>UBUNTU<b> 」</b></a>
+                    <a href="/categories/Git"><b>「
+                        </b>GIT<b> 」</b></a>
                 
-                八月 08, 2020
+                一月 28, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Ubuntu-Server-OpenStack/" title="Ubuntu Server • OpenStack" class="">Ubuntu Server • OpenStack</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Git-Manual/" title="Git • Github" class="">Git • Github</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    946
+                    1.1k
                 </span>
                     
                     
@@ -120,8 +120,8 @@
                 </span>
                     
                     
-                        <span id="/Ubuntu-Server-OpenStack/" class="leancloud_visitors"
-                              data-flag-title="Ubuntu Server • OpenStack">
+                        <span id="/Git-Manual/" class="leancloud_visitors"
+                              data-flag-title="Git • Github">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">0</span>
                 </span>
@@ -130,7 +130,7 @@
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/OpenStack/" rel="tag">OpenStack</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu-Server/" rel="tag">Ubuntu Server</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
             
         </div>
     </div>
@@ -151,42 +151,64 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
-<p>本篇将介绍最近在<code>Ubuntu Sever 20.04LTS</code>上折腾 <code>OpenStack</code>时的一些笔记分享。</p>
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍我在学习<code>Git 与 Github 使用</code>的一些笔记分享。</p>
 </blockquote>
-<p>在对OpenStack进行部署前，你需要执行👇：</p>
-<pre><code class="bash"># refresh software list
-sudo apt-get update
-
-# [Optional] Upgrade your local software
-sudo apt-get upgrade
-
-# install MicroStack
-# --devmode 将不会收到更新
-sudo snap install microstack --beta --devmode
-
-# Once installed, you should see the following message on the terminal:
-microstack (beta) stein from Canonical✓ installed</code></pre>
-<hr>
-<p>参考资料：</p>
-<p><a href="https://ubuntu.com/openstack/install" target="_blank" rel="noopener">Canonical • Install OpenStack yourself</a></p>
-<p><a href="https://discourse.charmhub.io/t/microstack-install-error/4047/3" target="_blank" rel="noopener">OpenStack • Microstack install error</a></p>
-<p><a href="https://docs.openstack.org/newton/install-guide-ubuntu/" target="_blank" rel="noopener">OpenStack • Installation Tutorial for Ubuntu</a></p>
-<p><a href="https://docs.openstack.org/image-guide/ubuntu-image.html" target="_blank" rel="noopener">OpenStack • Example: Ubuntu image</a></p>
-<p><a href="https://docs.openstack.org/horizon/queens/install/install-ubuntu.html" target="_blank" rel="noopener">OpenStack • Install and configure for Ubuntu</a></p>
-<hr>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>OpenStack是一个开源的云计算管理平台项目，是一系列软件开源项目的组合。由NASA(美国国家航空航天局)和Rackspace合作研发并发起，以Apache许可证（Apache软件基金会发布的一个自由软件许可证）授权的开源代码项目。</p>
-<p>OpenStack为私有云和公有云提供可扩展的弹性的云计算服务。项目目标是提供实施简单、可大规模扩展、丰富、标准统一的云计算管理平台。</p>
-<hr>
-<h2 id="Initialise"><a href="#Initialise" class="headerlink" title="Initialise"></a>Initialise</h2><blockquote>
-<p>自动初始化</p>
-</blockquote>
-<pre><code class="bash">sudo microstack init --auto --control</code></pre>
 <blockquote>
-<p>生成登录密钥</p>
+<p>Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。<br>Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper 。</p>
 </blockquote>
-<p>登录端口： <span><a href="http://10.20.20.1/" target="_blank" rel="noopener">http://10.20.20.1/</a></span></p>
-<pre><code class="bash">sudo snap get microstack config.credentials.keystone-password</code></pre>
+<hr>
+<h2 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h2><blockquote>
+<p>配置 Github 用户名与邮箱。</p>
+</blockquote>
+<pre><code class="bash">git config --global user.name=&quot;你的 Github 用户名&quot;
+git config --global user.email=&quot;你的 Github 邮箱&quot;</code></pre>
+<blockquote>
+<p>检查 git 配置</p>
+</blockquote>
+<pre><code class="bash">git config --list</code></pre>
+<blockquote>
+<p>配置远端 SSH 公钥。</p>
+</blockquote>
+<pre><code class="bash"># 进入 ~/.ssh，若没有则创建（mkdir ~/.ssh）
+cd ~/.ssh
+
+# 生成公钥
+ssh-keygen -t rsa -C &quot;你的 Github 邮箱&quot;
+
+# 查看公钥文件
+cat id_rsa.pub</code></pre>
+<blockquote>
+<p>上传密钥</p>
+</blockquote>
+<p>访问Github并登录，点击右上角头像，进入 Settings - SSH and GPG keys,点击右上角的 New SSH key。</p>
+<p>在 Key 输入框内填入 id_rsa.pub 中的全部内容。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/git_ssh_1.png">
+
+<hr>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/git_ssh_2.png">
+
+<blockquote>
+<p>测试远端链接是否成功</p>
+</blockquote>
+<pre><code class="bash">ssh git@github.com</code></pre>
+<hr>
+<h2 id="Github-访问加速"><a href="#Github-访问加速" class="headerlink" title="Github 访问加速"></a>Github 访问加速</h2><blockquote>
+<p>对于<code>Windows系统</code>，在日常使用过程中经常会出现访问速度慢的情况，此处将介绍通过修改 host 文件对 Github 进行加速的笔记。</p>
+<p><code>Windows 环境</code>下的host文件位于：<strong>C:\Windows\System32\drivers\etc</strong>下<br>修改时需要管理员权限</p>
+</blockquote>
+<p>在尾部追加以下ip，有关 Github 的 IP 信息可到<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">ipaddress</a>上查询并<code>修改为自己所查询到的准确地址</code>。</p>
+<p>如：</p>
+<pre><code class="text">140.82.112.3    github.com
+199.232.69.194  github.global.ssl.fastly.net
+199.232.96.133  avatars.githubusercontent.com
+199.232.96.133  raw.githubusercontent.com
+199.232.96.133  user-images.githubusercontent.com
+199.232.96.133  camo.githubusercontent.com</code></pre>
+<pre><code class="bash"># 刷新 DNS 缓存
+ipconfig /flushdns</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/ipaddress.png" alt="ipaddress"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/hosts.png" alt="修改后的 host 文件"></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -237,9 +259,9 @@ microstack (beta) stein from Canonical✓ installed</code></pre>
                     
                 </div>
                 <ul>
-                    <li><a href="/">25 <p>文章</p></a></li>
-                    <li><a href="/categories">13 <p>分类</p></a></li>
-                    <li><a href="/tags">23 <p>标签</p></a></li>
+                    <li><a href="/">26 <p>文章</p></a></li>
+                    <li><a href="/categories">14 <p>分类</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -248,7 +270,7 @@ microstack (beta) stein from Canonical✓ installed</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number">2.</span> <span class="toc-text">About</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialise"><span class="toc-number">3.</span> <span class="toc-text">Initialise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-配置"><span class="toc-number">2.</span> <span class="toc-text">Git 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-访问加速"><span class="toc-number">3.</span> <span class="toc-text">Github 访问加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
