@@ -110,13 +110,13 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    6.3k
+                    13k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    11 mins.
+                    23 mins.
                 </span>
                     
                     
@@ -213,7 +213,9 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/</code></pre>
 <hr>
-<h2 id="Docker-帮助命令"><a href="#Docker-帮助命令" class="headerlink" title="Docker 帮助命令"></a>Docker 帮助命令</h2><h3 id="docker-version"><a href="#docker-version" class="headerlink" title="docker version"></a>docker version</h3><p>查看 Docker 版本信息</p>
+<h2 id="Docker-帮助命令"><a href="#Docker-帮助命令" class="headerlink" title="Docker 帮助命令"></a>Docker 帮助命令</h2><h3 id="docker-version"><a href="#docker-version" class="headerlink" title="docker version"></a>docker version</h3><blockquote>
+<p>查看 Docker 版本信息。</p>
+</blockquote>
 <pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker version
 Client: Docker Engine - Community
  Cloud integration: 1.0.9
@@ -235,9 +237,11 @@ Server: Docker Engine - Community
   Built:            Tue Mar  2 20:15:47 2021
   OS/Arch:          linux/amd64
   Experimental:     false
-...</code></pre>
+......</code></pre>
 <hr>
-<h3 id="docker-info"><a href="#docker-info" class="headerlink" title="docker info"></a>docker info</h3><p>查看 Docker 信息</p>
+<h3 id="docker-info"><a href="#docker-info" class="headerlink" title="docker info"></a>docker info</h3><blockquote>
+<p>查看 Docker 信息。</p>
+</blockquote>
 <pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker info
 Client:
  Context:    default
@@ -300,7 +304,9 @@ WARNING: No blkio throttle.write_bps_device support
 WARNING: No blkio throttle.read_iops_device support
 WARNING: No blkio throttle.write_iops_device support</code></pre>
 <hr>
-<h3 id="docker-xx-–help"><a href="#docker-xx-–help" class="headerlink" title="docker xx –help"></a>docker xx –help</h3><p>查看 Docker 命令的帮助文档</p>
+<h3 id="docker-xx-–help"><a href="#docker-xx-–help" class="headerlink" title="docker xx –help"></a>docker xx –help</h3><blockquote>
+<p>查看 Docker 命令的帮助文档。</p>
+</blockquote>
 <p>例如：<code>docker images --help</code></p>
 <pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker images --help
 
@@ -316,7 +322,9 @@ Options:
       --no-trunc        Don&#39;t truncate output
   -q, --quiet           Only show image IDs</code></pre>
 <hr>
-<h2 id="Docker-镜像命令"><a href="#Docker-镜像命令" class="headerlink" title="Docker 镜像命令"></a>Docker 镜像命令</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><p>查看本机所有 Docker 镜像</p>
+<h2 id="Docker-镜像命令"><a href="#Docker-镜像命令" class="headerlink" title="Docker 镜像命令"></a>Docker 镜像命令</h2><h3 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h3><blockquote>
+<p>查看本机所有 Docker 镜像。</p>
+</blockquote>
 <ul>
 <li>-a, –all 列出所有镜像</li>
 <li>-q, –quite 只显示镜像id</li>
@@ -329,15 +337,19 @@ REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
 docker/getting-started   latest    021a1b85e641   3 months ago    27.6MB
 hello-world              latest    bf756fb1ae65   14 months ago   13.3kB</code></pre>
 <hr>
-<h3 id="docker-search-镜像关键词"><a href="#docker-search-镜像关键词" class="headerlink" title="docker search 镜像关键词"></a>docker search 镜像关键词</h3><p>搜索 Docker 镜像</p>
+<h3 id="docker-search-镜像关键词"><a href="#docker-search-镜像关键词" class="headerlink" title="docker search 镜像关键词"></a>docker search 镜像关键词</h3><blockquote>
+<p>搜索 Docker 镜像。</p>
+</blockquote>
 <pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker search ubuntu
 NAME                                                      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
 ubuntu                                                    Ubuntu is a Debian-based Linux operating sys…   11944     [OK]
 dorowu/ubuntu-desktop-lxde-vnc                            Docker image to provide HTML5 VNC interface …   504                  [OK]
-...</code></pre>
+......</code></pre>
 <hr>
 <h3 id="docker-pull-镜像名-tag"><a href="#docker-pull-镜像名-tag" class="headerlink" title="docker pull 镜像名[:tag]"></a>docker pull 镜像名[:tag]</h3><p><a href="https://hub.docker.com/" target="_blank" rel="noopener">Docker 镜像库</a></p>
-<p>拉取 Docker 镜像</p>
+<blockquote>
+<p>拉取 Docker 镜像。</p>
+</blockquote>
 <pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker pull mysql:latest
 latest: Pulling from library/mysql # 如果不指定 tag，则默认 latest
 a076a628af6f: Pull complete # 分层下载，联合文件系统
@@ -356,12 +368,274 @@ Digest: sha256:feada149cb8ff54eade1336da7c1d080c4a1c7ed82b5e320efb5beebed85ae8c 
 Status: Downloaded newer image for mysql:latest
 docker.io/library/mysql:latest # 真实地址</code></pre>
 <hr>
-<h3 id="docker-rmi-镜像"><a href="#docker-rmi-镜像" class="headerlink" title="docker rmi 镜像"></a>docker rmi 镜像</h3><p>删除 Docker 镜像</p>
+<h3 id="docker-rmi-镜像"><a href="#docker-rmi-镜像" class="headerlink" title="docker rmi 镜像"></a>docker rmi 镜像</h3><blockquote>
+<p>删除 Docker 镜像。</p>
+</blockquote>
 <pre><code class="bash">docker rmi -f 容器id # 删除指定镜像
 docker rmi -f 容器id 容器id ... # 删除多个镜像
 docker rmi -f $(docker images -aq) # 删除所有镜像</code></pre>
 <hr>
-<h2 id="Docker-容器命令"><a href="#Docker-容器命令" class="headerlink" title="Docker 容器命令"></a>Docker 容器命令</h2><hr>
+<h2 id="Docker-容器命令"><a href="#Docker-容器命令" class="headerlink" title="Docker 容器命令"></a>Docker 容器命令</h2><h3 id="docker-run-可选参数-image"><a href="#docker-run-可选参数-image" class="headerlink" title="docker run [可选参数] image"></a>docker run [可选参数] image</h3><blockquote>
+<p>通过指定镜像，生成指定容器。</p>
+</blockquote>
+<p>搭配 -it 与终端路径可对应进入指定 Linux 容器。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>可选参数</strong></th>
+<th align="center"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">–name=”Name”</td>
+<td align="center">容器名</td>
+</tr>
+<tr>
+<td align="center">-d</td>
+<td align="center">后台方式运行</td>
+</tr>
+<tr>
+<td align="center">-it</td>
+<td align="center">使用交互方式运行，进入容器查看内容</td>
+</tr>
+<tr>
+<td align="center">-p ip:主机端口:容器端口</td>
+<td align="center">指定容器端口</td>
+</tr>
+<tr>
+<td align="center">-p 主机端口:容器端口（常用）</td>
+<td align="center">指定容器端口</td>
+</tr>
+<tr>
+<td align="center">-p 容器端口</td>
+<td align="center">指定容器端口</td>
+</tr>
+<tr>
+<td align="center">-P</td>
+<td align="center">指定随机端口</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker run -it ubuntu /bin/bash
+root@33339890e94c:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@33339890e94c:/# cat /etc/os-release
+NAME=&quot;Ubuntu&quot;
+VERSION=&quot;20.04.2 LTS (Focal Fossa)&quot;
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME=&quot;Ubuntu 20.04.2 LTS&quot;
+VERSION_ID=&quot;20.04&quot;
+HOME_URL=&quot;https://www.ubuntu.com/&quot;
+SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;
+BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;
+PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+root@33339890e94c:/#</code></pre>
+<hr>
+<h3 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h3><blockquote>
+<p>退出<code>且停止容器</code></p>
+</blockquote>
+<pre><code class="bash">root@33339890e94c:/# exit
+exit
+PS C:\Users\P7XXTM1-G&gt;</code></pre>
+<blockquote>
+<p>若要退出容器，但<code>不想停止容器</code>，则通过<code>快捷键 Ctrl + P + Q</code> 即可。</p>
+</blockquote>
+<pre><code class="bash">root@cd9e271f0792:/#
+PS C:\Users\P7XXTM1-G&gt; docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS         PORTS     NAMES
+cd9e271f0792   ubuntu    &quot;/bin/bash&quot;   7 seconds ago   Up 6 seconds             serene_hopper
+PS C:\Users\P7XXTM1-G&gt;</code></pre>
+<hr>
+<h3 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h3><blockquote>
+<p>查看运行的容器。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>可选参数</strong></th>
+<th align="center"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-a</td>
+<td align="center">列出当前正在运行的容器与历史运行容器</td>
+</tr>
+<tr>
+<td align="center">-n=?</td>
+<td align="center">显示最近运行的容器，”?” 可指定输出条目，如：-n=1，则输出最近一条记录</td>
+</tr>
+<tr>
+<td align="center">-q</td>
+<td align="center">只显示容器编号</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\P7XXTM1-G&gt; docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS                          PORTS     NAMES
+33339890e94c   ubuntu    &quot;/bin/bash&quot;   5 minutes ago   Exited (0) About a minute ago             inspiring_zhukovsky
+PS C:\Users\P7XXTM1-G&gt;</code></pre>
+<hr>
+<h3 id="docker-rm-容器id"><a href="#docker-rm-容器id" class="headerlink" title="docker rm 容器id"></a>docker rm 容器id</h3><blockquote>
+<p>删除容器</p>
+</blockquote>
+<pre><code class="bash">docker rm 容器id # 删除指定容器，不能删除正在运行的容器，如果要强制删除则需要通过 rm -f 执行
+docker rm -f $(docker ps -aq) # 删除所有容器
+docker ps -aq|xargs docker rm # 删除所有容器（管道锁）</code></pre>
+<hr>
+<h3 id="容器的-启动-重启-停止-强制停止-命令"><a href="#容器的-启动-重启-停止-强制停止-命令" class="headerlink" title="容器的 启动/重启/停止/强制停止 命令"></a>容器的 启动/重启/停止/强制停止 命令</h3><pre><code class="bash">docker start 容器id # 启动容器
+docker restart 容器id # 重启容器
+docker stop 容器id # 停止当前正在运行的容器
+docker kill 容器id # 强制停止当前正在运行的容器</code></pre>
+<hr>
+<h2 id="Docker-其他常用命令"><a href="#Docker-其他常用命令" class="headerlink" title="Docker 其他常用命令"></a>Docker 其他常用命令</h2><h3 id="docker-run-d-镜像名"><a href="#docker-run-d-镜像名" class="headerlink" title="docker run -d 镜像名"></a>docker run -d 镜像名</h3><blockquote>
+<p>以后台启动方式启动容器。</p>
+</blockquote>
+<p>此时若后台启动的容器中<code>没有前台应用</code>，则 Docker 会停止该后台容器，则使用 docker ps 命令将不会后台运行容器。</p>
+<p>若需要容器在后台保持运行，则必须有一个前台进程。</p>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker run -d ubuntu
+e0f36dc3a166a6dd9c612d26b17e845a8a3a0a2c071f47b8fd9f8cf9ee78082a</code></pre>
+<hr>
+<h3 id="docker-logs"><a href="#docker-logs" class="headerlink" title="docker logs"></a>docker logs</h3><blockquote>
+<p>查看容器日志。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>可选参数</strong></th>
+<th align="center"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-f</td>
+<td align="center">打印日志</td>
+</tr>
+<tr>
+<td align="center">-t</td>
+<td align="center">以时间戳字符串输出</td>
+</tr>
+<tr>
+<td align="center">–tail</td>
+<td align="center">输出日志条数</td>
+</tr>
+</tbody></table>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker run -d ubuntu /bin/sh -c &quot;while true;do echo hello-from-ubunut;sleep 1;done&quot;
+2f090441e6e80fcf526e664973e968fbf8b33d1228ea4a91d38a02d4661edc3a
+PS C:\Users\P7XXTM1-G&gt; docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+2f090441e6e8   ubuntu    &quot;/bin/sh -c &#39;while t…&quot;   4 seconds ago   Up 2 seconds             gallant_elgamal
+PS C:\Users\P7XXTM1-G&gt; docker logs -f -t --tail 10 2f090441e6e8
+2021-03-18T05:13:02.218287300Z hello-from-ubunut
+2021-03-18T05:13:03.219282500Z hello-from-ubunut
+2021-03-18T05:13:04.220377900Z hello-from-ubunut
+2021-03-18T05:13:05.221435600Z hello-from-ubunut
+2021-03-18T05:13:06.223104800Z hello-from-ubunut
+2021-03-18T05:13:07.223687300Z hello-from-ubunut
+2021-03-18T05:13:08.224903600Z hello-from-ubunut
+2021-03-18T05:13:09.225778500Z hello-from-ubunut
+2021-03-18T05:13:10.226692700Z hello-from-ubunut
+2021-03-18T05:13:11.227667300Z hello-from-ubunut
+2021-03-18T05:13:12.228729200Z hello-from-ubunut
+2021-03-18T05:13:13.229784400Z hello-from-ubunut
+2021-03-18T05:13:14.230961900Z hello-from-ubunut
+2021-03-18T05:13:15.232517700Z hello-from-ubunut
+2021-03-18T05:13:16.233134900Z hello-from-ubunut
+2021-03-18T05:13:17.234228900Z hello-from-ubunut
+2021-03-18T05:13:18.235945200Z hello-from-ubunut
+2021-03-18T05:13:19.236571400Z hello-from-ubunut
+2021-03-18T05:13:20.238078900Z hello-from-ubunut
+PS C:\Users\P7XXTM1-G&gt;</code></pre>
+<hr>
+<h3 id="docker-top-容器id"><a href="#docker-top-容器id" class="headerlink" title="docker top 容器id"></a>docker top 容器id</h3><blockquote>
+<p>查看容器中的的进程信息。</p>
+</blockquote>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker run -d ubuntu /bin/sh -c &quot;while true;do echo hello-from-ubunut;sleep 1;done&quot;
+a7e9449469b287e1cfc7c2768fa66c19113135421659568ca4da14b9ac9bcdd3
+PS C:\Users\P7XXTM1-G&gt; docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+a7e9449469b2   ubuntu    &quot;/bin/sh -c &#39;while t…&quot;   8 seconds ago   Up 7 seconds             great_chaum
+PS C:\Users\P7XXTM1-G&gt; docker top a7e9449469b2
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                1720                1699                0                   05:59               ?                   00:00:00            /bin/sh -c while true;do echo hello-from-ubunut;sleep 1;done
+root                1777                1720                0                   06:00               ?                   00:00:00            sleep 1
+PS C:\Users\P7XXTM1-G&gt;</code></pre>
+<hr>
+<h3 id="docker-inspect-容器id"><a href="#docker-inspect-容器id" class="headerlink" title="docker inspect 容器id"></a>docker inspect 容器id</h3><blockquote>
+<p>查看容器信息。</p>
+</blockquote>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker run -d ubuntu
+1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80
+PS C:\Users\P7XXTM1-G&gt; docker ps -a
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS                      PORTS     NAMES
+1147368a1740   ubuntu    &quot;/bin/bash&quot;   18 seconds ago   Exited (0) 17 seconds ago             naughty_engelbart
+PS C:\Users\P7XXTM1-G&gt; docker inspect 1147368a1740
+[
+    {
+        &quot;Id&quot;: &quot;1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80&quot;,
+        &quot;Created&quot;: &quot;2021-03-18T06:04:28.0414634Z&quot;,
+        &quot;Path&quot;: &quot;/bin/bash&quot;,
+        &quot;Args&quot;: [],
+        &quot;State&quot;: {
+            &quot;Status&quot;: &quot;exited&quot;,
+            &quot;Running&quot;: false,
+            &quot;Paused&quot;: false,
+            &quot;Restarting&quot;: false,
+            &quot;OOMKilled&quot;: false,
+            &quot;Dead&quot;: false,
+            &quot;Pid&quot;: 0,
+            &quot;ExitCode&quot;: 0,
+            &quot;Error&quot;: &quot;&quot;,
+            &quot;StartedAt&quot;: &quot;2021-03-18T06:04:28.2739845Z&quot;,
+            &quot;FinishedAt&quot;: &quot;2021-03-18T06:04:28.2748083Z&quot;
+        },
+        &quot;Image&quot;: &quot;sha256:4dd97cefde62cf2d6bcfd8f2c0300a24fbcddbe0ebcd577cc8b420c29106869a&quot;,
+        &quot;ResolvConfPath&quot;: &quot;/var/lib/docker/containers/1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80/resolv.conf&quot;,
+        &quot;HostnamePath&quot;: &quot;/var/lib/docker/containers/1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80/hostname&quot;,
+        &quot;HostsPath&quot;: &quot;/var/lib/docker/containers/1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80/hosts&quot;,
+        &quot;LogPath&quot;: &quot;/var/lib/docker/containers/1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80/1147368a1740a8a9367f550447faa808bbf8fe3eb43a3fb5d890f88153ee2e80-json.log&quot;,
+        &quot;Name&quot;: &quot;/naughty_engelbart&quot;,
+        &quot;RestartCount&quot;: 0,
+        &quot;Driver&quot;: &quot;overlay2&quot;,
+        &quot;Platform&quot;: &quot;linux&quot;,
+        &quot;MountLabel&quot;: &quot;&quot;,
+        &quot;ProcessLabel&quot;: &quot;&quot;,
+        &quot;AppArmorProfile&quot;: &quot;&quot;,
+        &quot;ExecIDs&quot;: null,
+
+        ......
+    }
+]</code></pre>
+<hr>
+<h3 id="docker-exec-it-容器id-终端地址"><a href="#docker-exec-it-容器id-终端地址" class="headerlink" title="docker exec -it 容器id 终端地址"></a>docker exec -it 容器id 终端地址</h3><blockquote>
+<p>进入当前正在运行的容器，<code>开启新终端</code>。</p>
+</blockquote>
+<p>常用的终端地址：</p>
+<ul>
+<li>/bin/bash（常用）</li>
+<li>/bin/sh</li>
+</ul>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS         PORTS     NAMES
+4172c4f6f390   ubuntu    &quot;/bin/bash&quot;   7 seconds ago   Up 5 seconds             eloquent_bohr
+PS C:\Users\P7XXTM1-G&gt; docker exec -it 4172c4f6f390 /bin/bash
+root@4172c4f6f390:/# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 06:11 pts/0    00:00:00 /bin/bash
+root        10     0  0 06:12 pts/1    00:00:00 /bin/bash
+root        19    10  0 06:12 pts/1    00:00:00 ps -ef
+root@4172c4f6f390:/#</code></pre>
+<hr>
+<h3 id="docker-attach-容器id"><a href="#docker-attach-容器id" class="headerlink" title="docker attach 容器id"></a>docker attach 容器id</h3><blockquote>
+<p>进入当前正在运行的容器，但<code>不会开启新终端</code>，会继续以前终端的操作</p>
+</blockquote>
+<pre><code class="bash">PS C:\Users\P7XXTM1-G&gt; docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED              STATUS              PORTS     NAMES
+4172c4f6f390   ubuntu    &quot;/bin/bash&quot;   About a minute ago   Up About a minute             eloquent_bohr
+PS C:\Users\P7XXTM1-G&gt; docker attach 4172c4f6f390
+正在运行的终端指令......</code></pre>
+<hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
 <table>
@@ -422,7 +696,7 @@ docker rmi -f $(docker images -aq) # 删除所有镜像</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档"><span class="toc-number">2.1.</span> <span class="toc-text">官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-VM"><span class="toc-number">2.2.</span> <span class="toc-text">Docker vs VM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-To-Docker"><span class="toc-number">2.3.</span> <span class="toc-text">Welcome To Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">Docker 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-version"><span class="toc-number">3.1.</span> <span class="toc-text">docker version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-info"><span class="toc-number">3.2.</span> <span class="toc-text">docker info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-xx-–help"><span class="toc-number">3.3.</span> <span class="toc-text">docker xx –help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-镜像命令"><span class="toc-number">4.</span> <span class="toc-text">Docker 镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-images"><span class="toc-number">4.1.</span> <span class="toc-text">docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-search-镜像关键词"><span class="toc-number">4.2.</span> <span class="toc-text">docker search 镜像关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-镜像名-tag"><span class="toc-number">4.3.</span> <span class="toc-text">docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rmi-镜像"><span class="toc-number">4.4.</span> <span class="toc-text">docker rmi 镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-容器命令"><span class="toc-number">5.</span> <span class="toc-text">Docker 容器命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档"><span class="toc-number">2.1.</span> <span class="toc-text">官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-VM"><span class="toc-number">2.2.</span> <span class="toc-text">Docker vs VM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-To-Docker"><span class="toc-number">2.3.</span> <span class="toc-text">Welcome To Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">Docker 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-version"><span class="toc-number">3.1.</span> <span class="toc-text">docker version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-info"><span class="toc-number">3.2.</span> <span class="toc-text">docker info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-xx-–help"><span class="toc-number">3.3.</span> <span class="toc-text">docker xx –help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-镜像命令"><span class="toc-number">4.</span> <span class="toc-text">Docker 镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-images"><span class="toc-number">4.1.</span> <span class="toc-text">docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-search-镜像关键词"><span class="toc-number">4.2.</span> <span class="toc-text">docker search 镜像关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-镜像名-tag"><span class="toc-number">4.3.</span> <span class="toc-text">docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rmi-镜像"><span class="toc-number">4.4.</span> <span class="toc-text">docker rmi 镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-容器命令"><span class="toc-number">5.</span> <span class="toc-text">Docker 容器命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-可选参数-image"><span class="toc-number">5.1.</span> <span class="toc-text">docker run [可选参数] image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit"><span class="toc-number">5.2.</span> <span class="toc-text">exit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-ps"><span class="toc-number">5.3.</span> <span class="toc-text">docker ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rm-容器id"><span class="toc-number">5.4.</span> <span class="toc-text">docker rm 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器的-启动-重启-停止-强制停止-命令"><span class="toc-number">5.5.</span> <span class="toc-text">容器的 启动&#x2F;重启&#x2F;停止&#x2F;强制停止 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-其他常用命令"><span class="toc-number">6.</span> <span class="toc-text">Docker 其他常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-d-镜像名"><span class="toc-number">6.1.</span> <span class="toc-text">docker run -d 镜像名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-logs"><span class="toc-number">6.2.</span> <span class="toc-text">docker logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-top-容器id"><span class="toc-number">6.3.</span> <span class="toc-text">docker top 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-inspect-容器id"><span class="toc-number">6.4.</span> <span class="toc-text">docker inspect 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-exec-it-容器id-终端地址"><span class="toc-number">6.5.</span> <span class="toc-text">docker exec -it 容器id 终端地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-attach-容器id"><span class="toc-number">6.6.</span> <span class="toc-text">docker attach 容器id</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
