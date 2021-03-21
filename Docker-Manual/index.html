@@ -110,13 +110,13 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    21k
+                    22k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    38 mins.
+                    40 mins.
                 </span>
                     
                     
@@ -382,7 +382,7 @@ docker rmi -f $(docker images -aq) # 删除所有镜像</code></pre>
 <table>
 <thead>
 <tr>
-<th align="center"><strong>可选参数</strong></th>
+<th align="center"><strong>常用可选参数</strong></th>
 <th align="center"><strong>说明</strong></th>
 </tr>
 </thead>
@@ -454,7 +454,7 @@ PS C:\Users\P7XXTM1-G&gt;</code></pre>
 <table>
 <thead>
 <tr>
-<th align="center"><strong>可选参数</strong></th>
+<th align="center"><strong>常用可选参数</strong></th>
 <th align="center"><strong>说明</strong></th>
 </tr>
 </thead>
@@ -504,7 +504,7 @@ e0f36dc3a166a6dd9c612d26b17e845a8a3a0a2c071f47b8fd9f8cf9ee78082a</code></pre>
 <table>
 <thead>
 <tr>
-<th align="center"><strong>可选参数</strong></th>
+<th align="center"><strong>常用可选参数</strong></th>
 <th align="center"><strong>说明</strong></th>
 </tr>
 </thead>
@@ -675,6 +675,47 @@ ubuntu@DESKTOP-5IG459O:~$ cd /home/
 ubuntu@DESKTOP-5IG459O:/home$ ls
 test.file  ubuntu
 ubuntu@DESKTOP-5IG459O:/home$</code></pre>
+<hr>
+<h3 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h3><blockquote>
+<p>生成本地 Docker 自定义镜像。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>常用可选参数</strong></th>
+<th align="center"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-a</td>
+<td align="center">提交镜像作者</td>
+</tr>
+<tr>
+<td align="center">-m</td>
+<td align="center">提交镜像信息</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>这里我们制作一个带有 Vim 编辑器的 Ubuntu 镜像（ubuntu-vim），并通过 docker commit 命令制作一个本地镜像。</p>
+</blockquote>
+<blockquote>
+<p>当我们尝试对 Ubuntu 镜像添加软件或对一些系统配置进行修改时，我们就生成了一个属于自己的自定义镜像，通过使用自定义镜像，我们可以对日常工作时的项目进行客制化修改，并可以省去大部分需要因为配置开发环境与部署环境的高度重合的工作，<code>只需要对自定义镜像进行二次修改，即可满足需求再次上线。</code></p>
+</blockquote>
+<pre><code class="bash">docker commit -a &quot;Peter Chen&quot; -m &quot;Add Vim&quot; c79bc37440d2 ubuntu-vim
+sha256:8e9d1c74cd2404d7c006c5f7074b1f00b61f8c10a22044ab5b24da68c34a67ae
+ubuntu@DESKTOP-5IG459O:~$ docker images
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+ubuntu-vim               latest    8e9d1c74cd24   4 seconds ago   168MB
+ubuntu                   latest    4dd97cefde62   2 weeks ago     72.9MB
+mysql                    latest    c8562eaf9d81   2 months ago    546MB
+redis                    latest    621ceef7494a   2 months ago    104MB
+tomcat                   latest    040bdb29ab37   2 months ago    649MB
+nginx                    latest    f6d0b4767a6c   2 months ago    133MB
+portainer/portainer-ce   latest    980323c8eb3f   2 months ago    196MB
+centos                   latest    300e315adb2f   3 months ago    209MB
+kibana                   latest    a674d23325b0   2 years ago     388MB
+elasticsearch            latest    5acf0e8da90b   2 years ago     486MB
+ubuntu@DESKTOP-5IG459O:~$</code></pre>
 <hr>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="部署-Nginx"><a href="#部署-Nginx" class="headerlink" title="部署 Nginx"></a>部署 Nginx</h3><blockquote>
 <p><code>WSL2</code> 下通过 Docker 命令部署 <code>Nginx</code>，通过端口映射到主机上的 <code>80</code> 端口，并通过 <code>curl</code> 命令对该端口内容进行查看。<br><strong>Nginx 默认端口：80</strong></p>
@@ -888,7 +929,7 @@ ubuntu@DESKTOP-5IG459O:~$</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档"><span class="toc-number">2.1.</span> <span class="toc-text">官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-VM"><span class="toc-number">2.2.</span> <span class="toc-text">Docker vs VM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-To-Docker"><span class="toc-number">2.3.</span> <span class="toc-text">Welcome To Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">Docker 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-version"><span class="toc-number">3.1.</span> <span class="toc-text">docker version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-info"><span class="toc-number">3.2.</span> <span class="toc-text">docker info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-xx-–help"><span class="toc-number">3.3.</span> <span class="toc-text">docker xx –help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-镜像命令"><span class="toc-number">4.</span> <span class="toc-text">Docker 镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-images"><span class="toc-number">4.1.</span> <span class="toc-text">docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-search-镜像关键词"><span class="toc-number">4.2.</span> <span class="toc-text">docker search 镜像关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-镜像名-tag"><span class="toc-number">4.3.</span> <span class="toc-text">docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rmi-镜像"><span class="toc-number">4.4.</span> <span class="toc-text">docker rmi 镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-容器命令"><span class="toc-number">5.</span> <span class="toc-text">Docker 容器命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-可选参数-image"><span class="toc-number">5.1.</span> <span class="toc-text">docker run [可选参数] image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit"><span class="toc-number">5.2.</span> <span class="toc-text">exit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-ps"><span class="toc-number">5.3.</span> <span class="toc-text">docker ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rm-容器id"><span class="toc-number">5.4.</span> <span class="toc-text">docker rm 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器的-启动-重启-停止-强制停止-命令"><span class="toc-number">5.5.</span> <span class="toc-text">容器的 启动&#x2F;重启&#x2F;停止&#x2F;强制停止 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-其他常用命令"><span class="toc-number">6.</span> <span class="toc-text">Docker 其他常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-d-镜像名"><span class="toc-number">6.1.</span> <span class="toc-text">docker run -d 镜像名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-logs"><span class="toc-number">6.2.</span> <span class="toc-text">docker logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-stats"><span class="toc-number">6.3.</span> <span class="toc-text">docker stats</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-top-容器id"><span class="toc-number">6.4.</span> <span class="toc-text">docker top 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-inspect-容器id"><span class="toc-number">6.5.</span> <span class="toc-text">docker inspect 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-exec-it-容器id-终端地址"><span class="toc-number">6.6.</span> <span class="toc-text">docker exec -it 容器id 终端地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-attach-容器id"><span class="toc-number">6.7.</span> <span class="toc-text">docker attach 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-cp-容器id-容器目录-本地目录"><span class="toc-number">6.8.</span> <span class="toc-text">docker cp 容器id:&#x2F;容器目录 本地目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">7.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Nginx"><span class="toc-number">7.1.</span> <span class="toc-text">部署 Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Tomcat"><span class="toc-number">7.2.</span> <span class="toc-text">部署 Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Elasticsearch"><span class="toc-number">7.3.</span> <span class="toc-text">部署 Elasticsearch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化管理工具"><span class="toc-number">8.</span> <span class="toc-text">可视化管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Portiner"><span class="toc-number">8.1.</span> <span class="toc-text">Portiner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">9.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档"><span class="toc-number">2.1.</span> <span class="toc-text">官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-VM"><span class="toc-number">2.2.</span> <span class="toc-text">Docker vs VM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-To-Docker"><span class="toc-number">2.3.</span> <span class="toc-text">Welcome To Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">Docker 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-version"><span class="toc-number">3.1.</span> <span class="toc-text">docker version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-info"><span class="toc-number">3.2.</span> <span class="toc-text">docker info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-xx-–help"><span class="toc-number">3.3.</span> <span class="toc-text">docker xx –help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-镜像命令"><span class="toc-number">4.</span> <span class="toc-text">Docker 镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-images"><span class="toc-number">4.1.</span> <span class="toc-text">docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-search-镜像关键词"><span class="toc-number">4.2.</span> <span class="toc-text">docker search 镜像关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-镜像名-tag"><span class="toc-number">4.3.</span> <span class="toc-text">docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rmi-镜像"><span class="toc-number">4.4.</span> <span class="toc-text">docker rmi 镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-容器命令"><span class="toc-number">5.</span> <span class="toc-text">Docker 容器命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-可选参数-image"><span class="toc-number">5.1.</span> <span class="toc-text">docker run [可选参数] image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit"><span class="toc-number">5.2.</span> <span class="toc-text">exit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-ps"><span class="toc-number">5.3.</span> <span class="toc-text">docker ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rm-容器id"><span class="toc-number">5.4.</span> <span class="toc-text">docker rm 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器的-启动-重启-停止-强制停止-命令"><span class="toc-number">5.5.</span> <span class="toc-text">容器的 启动&#x2F;重启&#x2F;停止&#x2F;强制停止 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-其他常用命令"><span class="toc-number">6.</span> <span class="toc-text">Docker 其他常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-d-镜像名"><span class="toc-number">6.1.</span> <span class="toc-text">docker run -d 镜像名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-logs"><span class="toc-number">6.2.</span> <span class="toc-text">docker logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-stats"><span class="toc-number">6.3.</span> <span class="toc-text">docker stats</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-top-容器id"><span class="toc-number">6.4.</span> <span class="toc-text">docker top 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-inspect-容器id"><span class="toc-number">6.5.</span> <span class="toc-text">docker inspect 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-exec-it-容器id-终端地址"><span class="toc-number">6.6.</span> <span class="toc-text">docker exec -it 容器id 终端地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-attach-容器id"><span class="toc-number">6.7.</span> <span class="toc-text">docker attach 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-cp-容器id-容器目录-本地目录"><span class="toc-number">6.8.</span> <span class="toc-text">docker cp 容器id:&#x2F;容器目录 本地目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-commit"><span class="toc-number">6.9.</span> <span class="toc-text">docker commit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">7.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Nginx"><span class="toc-number">7.1.</span> <span class="toc-text">部署 Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Tomcat"><span class="toc-number">7.2.</span> <span class="toc-text">部署 Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Elasticsearch"><span class="toc-number">7.3.</span> <span class="toc-text">部署 Elasticsearch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化管理工具"><span class="toc-number">8.</span> <span class="toc-text">可视化管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Portiner"><span class="toc-number">8.1.</span> <span class="toc-text">Portiner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">9.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
