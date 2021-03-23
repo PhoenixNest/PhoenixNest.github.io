@@ -110,13 +110,13 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    22k
+                    27k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    40 mins.
+                    49 mins.
                 </span>
                     
                     
@@ -717,7 +717,7 @@ kibana                   latest    a674d23325b0   2 years ago     388MB
 elasticsearch            latest    5acf0e8da90b   2 years ago     486MB
 ubuntu@DESKTOP-5IG459O:~$</code></pre>
 <hr>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="部署-Nginx"><a href="#部署-Nginx" class="headerlink" title="部署 Nginx"></a>部署 Nginx</h3><blockquote>
+<h2 id="Docker-命令简单应用"><a href="#Docker-命令简单应用" class="headerlink" title="Docker 命令简单应用"></a>Docker 命令简单应用</h2><h3 id="部署-Nginx"><a href="#部署-Nginx" class="headerlink" title="部署 Nginx"></a>部署 Nginx</h3><blockquote>
 <p><code>WSL2</code> 下通过 Docker 命令部署 <code>Nginx</code>，通过端口映射到主机上的 <code>80</code> 端口，并通过 <code>curl</code> 命令对该端口内容进行查看。<br><strong>Nginx 默认端口：80</strong></p>
 </blockquote>
 <pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker run -d --name Nginx -p 80:80 nginx
@@ -844,7 +844,7 @@ ubuntu@DESKTOP-5IG459O:~$ docker status
 docker: &#39;status&#39; is not a docker command.
 See &#39;docker --help&#39;</code></pre>
 <blockquote>
-<p>ES 默认会占用大量内存，若想通过修改配置的方式对 ES 进行配置，可追加 -e [参数]。<br>此处我们将 ES 的内存限制为最小内存 64m，最大内存 1024m。</p>
+<p>ES 默认会占用大量内存，若想通过修改配置的方式对 ES 进行配置，可追加 -e [参数]，对其进行环境配置。<br>此处我们将 ES 的内存限制为最小内存 64m，最大内存 1024m。</p>
 </blockquote>
 <pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker run -d --name Elasticsearch -p 9200:9200 -p 9300:9300 -e &quot;-Xms=64m -Xmx=1024m&quot; elasticsearch:latest
 021abaaf2148248188c8add919576895dc9d61bca8834601d4947058616ce1ec
@@ -853,7 +853,7 @@ CONTAINER ID   NAME            CPU %     MEM USAGE / LIMIT    MEM %     NET I/O 
 021abaaf2148   Elasticsearch   0.17%     2.22GiB / 12.44GiB   17.84%    696B / 0B   0B / 0B     43</code></pre>
 <hr>
 <h2 id="可视化管理工具"><a href="#可视化管理工具" class="headerlink" title="可视化管理工具"></a>可视化管理工具</h2><h3 id="Portiner"><a href="#Portiner" class="headerlink" title="Portiner"></a>Portiner</h3><blockquote>
-<p>官方地址：<a href="https://www.portainer.io/" target="_blank" rel="noopener">Portiner</a><br>Portiner 默认端口：9000</p>
+<p>官方地址：<a href="https://www.portainer.io/" target="_blank" rel="noopener">Portiner</a><br><strong>Portiner 默认端口：9000</strong></p>
 </blockquote>
 <pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker run -d -p 9000:9000 --name=Portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 a60bf182bf76b2ce5971cb47da02c6be15d4132b37364bf63987e98079195d30
@@ -868,6 +868,159 @@ ubuntu@DESKTOP-5IG459O:~$</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_portainer_login.png" alt="Portainer 登录页"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_portainer_manage.png" alt="Portainer 管理配置页"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_portainer_home.png" alt="Portainer 主页"></p>
+<hr>
+<h2 id="容器数据卷"><a href="#容器数据卷" class="headerlink" title="容器数据卷"></a>容器数据卷</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><blockquote>
+<p>当我们想要通过 Docker 进行数据持久化存储的时候，若我们将数据全部存放于 Docker 容器中，则当我们删除容器时，容器中的数据也就被我们一并删除，也就是通俗意义上讲的“删库跑路”。<br>现实中为了防止此类事情发生，通常可以通过容器数据卷技术，将容器中的目录挂载到外部目录（这个外部目录通常是当前计算机上的物理地址）。</p>
+<blockquote>
+<p>即：双向绑定，容器的持久化和同步操作，即使 Docker 中各个容器间互相隔离，但容器间也是可以数据共享的。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="docker-run-it-v-主机目录-容器内目录"><a href="#docker-run-it-v-主机目录-容器内目录" class="headerlink" title="docker run -it -v 主机目录:容器内目录"></a>docker run -it -v 主机目录:容器内目录</h3><p>在这里我们尝试将本地 Ubuntu WSL2 虚拟机上的目录挂载到 Docker 中新建的 Ubuntu 容器上。</p>
+<blockquote>
+<p>本地挂载目录：/home/test，若本地无此目录，则 Docker 会帮助创建。<br>容器挂载目录：/home</p>
+</blockquote>
+<pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker run -it -v /home/test:/home ubuntu /bin/bash</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_data_share.png" alt="挂载后容器与外部的数据共享"></p>
+<blockquote>
+<p>通过 docker inspect，我们可以检查容器挂载信息。</p>
+</blockquote>
+<pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS         PORTS     NAMES
+562e4b3c9d92   ubuntu    &quot;/bin/bash&quot;   6 minutes ago   Up 6 minutes             nervous_darwin
+ubuntu@DESKTOP-5IG459O:~$ docker inspect 562e4b3c9d92
+[
+    {
+        &quot;Id&quot;: &quot;562e4b3c9d92cc41642ccaf6e4883ec328a9df205b0ea2d6c00e54fab253e42e&quot;,
+        &quot;Created&quot;: &quot;2021-03-23T01:33:55.8844317Z&quot;,
+        &quot;Path&quot;: &quot;/bin/bash&quot;,
+        &quot;Args&quot;: [],
+        &quot;State&quot;: {
+            &quot;Status&quot;: &quot;running&quot;,
+            &quot;Running&quot;: true,
+            &quot;Paused&quot;: false,
+            &quot;Restarting&quot;: false,
+            &quot;OOMKilled&quot;: false,
+            &quot;Dead&quot;: false,
+            &quot;Pid&quot;: 1277,
+            &quot;ExitCode&quot;: 0,
+            &quot;Error&quot;: &quot;&quot;,
+            &quot;StartedAt&quot;: &quot;2021-03-23T01:33:56.1845627Z&quot;,
+            &quot;FinishedAt&quot;: &quot;0001-01-01T00:00:00Z&quot;
+        },
+
+        ......
+
+        &quot;Mounts&quot;: [
+            {
+                &quot;Type&quot;: &quot;bind&quot;,
+                &quot;Source&quot;: &quot;/home/test&quot;, # 容器内的挂载目录
+                &quot;Destination&quot;: &quot;/home&quot;, # 容器外的挂载目录
+                &quot;Mode&quot;: &quot;&quot;,
+                &quot;RW&quot;: true,
+                &quot;Propagation&quot;: &quot;rprivate&quot;
+            }
+        ],
+
+        ......
+    }
+]
+ubuntu@DESKTOP-5IG459O:~$</code></pre>
+<hr>
+<h3 id="测试-MySQL-数据"><a href="#测试-MySQL-数据" class="headerlink" title="测试 MySQL 数据"></a>测试 MySQL 数据</h3><blockquote>
+<p>这里我们测试将容器中的 MySQL 配置文件挂载到外部，并将数据目录也挂载到外部，防止因为误删容器而导致的数据丢失。</p>
+</blockquote>
+<p>建立一个通过 3306 端口映射到本地，配置文件与数据文件目录挂载到本地，MySQL root 账户密码为 root，容器名为 testMySQL 的 MySQL 容器。</p>
+<blockquote>
+<p>本地挂载配置文件目录：/home/mysql/conf<br>容器配置文件目录：/etc/mysql/conf.d</p>
+</blockquote>
+<blockquote>
+<p>本地挂载数据目录：/home/mysql/data<br>容器数据目录：/var/lib/mysql</p>
+</blockquote>
+<pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker run -d -p 3306:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root --name testMySQL mysql:latest
+
+ubuntu@DESKTOP-5IG459O:~$ cd /home/
+ubuntu@DESKTOP-5IG459O:/home$ ls
+mysql  ubuntu
+ubuntu@DESKTOP-5IG459O:/home$ cd mysql/
+ubuntu@DESKTOP-5IG459O:/home/mysql$ ls
+conf  data
+ubuntu@DESKTOP-5IG459O:/home/mysql$ cd data/
+ubuntu@DESKTOP-5IG459O:/home/mysql/data$ ls
+&#39;#ib_16384_0.dblwr&#39;   auto.cnf        binlog.index   client-cert.pem   ib_logfile0   ibtmp1      performance_schema   server-cert.pem   undo_001
+&#39;#ib_16384_1.dblwr&#39;   binlog.000001   ca-key.pem     client-key.pem    ib_logfile1   mysql       private_key.pem      server-key.pem    undo_002
+&#39;#innodb_temp&#39;        binlog.000002   ca.pem         ib_buffer_pool    ibdata1       mysql.ibd   public_key.pem       sys
+
+# 这里我们通过 DataGrip，对映射出来的本地 3306 进行控制，并添加一个 test 表。
+ubuntu@DESKTOP-5IG459O:/home/mysql/data$ ls
+&#39;#ib_16384_0.dblwr&#39;   auto.cnf        binlog.index   client-cert.pem   ib_logfile0   ibtmp1      performance_schema   server-cert.pem   test
+&#39;#ib_16384_1.dblwr&#39;   binlog.000001   ca-key.pem     client-key.pem    ib_logfile1   mysql       private_key.pem      server-key.pem    undo_001
+&#39;#innodb_temp&#39;        binlog.000002   ca.pem         ib_buffer_pool    ibdata1       mysql.ibd   public_key.pem       sys               undo_002
+ubuntu@DESKTOP-5IG459O:/home/mysql/data$ docker run -d -it /bin/bash mysql</code></pre>
+<blockquote>
+<p>假设我们删除容器，挂载目录中的数据文件也不会丢失。</p>
+</blockquote>
+<pre><code class="bash">ubuntu@DESKTOP-5IG459O:/home/mysql$ docker stop testMySQL
+ubuntu@DESKTOP-5IG459O:/home/mysql$ docker rm testMySQL
+testMySQL
+ubuntu@DESKTOP-5IG459O:/home/mysql$ cd data/
+ubuntu@DESKTOP-5IG459O:/home/mysql/data$ ls
+&#39;#ib_16384_0.dblwr&#39;   auto.cnf        binlog.index   client-cert.pem   ib_logfile0   mysql                private_key.pem   server-key.pem   undo_002
+&#39;#ib_16384_1.dblwr&#39;   binlog.000001   ca-key.pem     client-key.pem    ib_logfile1   mysql.ibd            public_key.pem    sys
+&#39;#innodb_temp&#39;        binlog.000002   ca.pem         ib_buffer_pool    ibdata1       performance_schema   server-cert.pem   undo_001
+ubuntu@DESKTOP-5IG459O:/home/mysql/data$</code></pre>
+<hr>
+<blockquote>
+<p>PS：这里有一个<code>暂时未解决</code>的问题，即 Docker 的容器数据卷挂载会将本地目录覆盖容器内目录，即会隐藏容器内的文件。</p>
+</blockquote>
+<pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker exec -it testMySQL /bin/bash
+root@a0a84f3635e0:/# whereis mysql
+mysql: /usr/bin/mysql /usr/lib/mysql /etc/mysql
+root@a0a84f3635e0:/# cd /etc/mysql/
+root@a0a84f3635e0:/etc/mysql# ls
+conf.d  my.cnf  my.cnf.fallback
+root@a0a84f3635e0:/etc/mysql# cd conf.d/
+root@a0a84f3635e0:/etc/mysql/conf.d# ls
+root@a0a84f3635e0:/etc/mysql/conf.d#</code></pre>
+<hr>
+<h3 id="匿名挂载"><a href="#匿名挂载" class="headerlink" title="匿名挂载"></a>匿名挂载</h3><blockquote>
+<p>当我们尝试创建 Docker 容器卷时，若不指定容器卷的卷名直接挂载外部目录，就是匿名挂载。</p>
+</blockquote>
+<p>这里我们生成一个测试用的 Nginx 容器，并通过<code>匿名挂载方式</code>，挂载 Nginx 的配置文件目录。</p>
+<pre><code class="bash"> docker run -d -P --name AnonymousMountNginx -v /etc/nginx nginx
+1cbff8ab5b4c295384d1d0a508a6d828997cca6e992c5416fbc9c9668367c957
+ubuntu@DESKTOP-5IG459O:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                   NAMES
+1cbff8ab5b4c   nginx     &quot;/docker-entrypoint.…&quot;   2 seconds ago   Up 2 seconds   0.0.0.0:49153-&gt;80/tcp   AnonymousMountNginx</code></pre>
+<blockquote>
+<p>docker volume … 命令是 Docker 的容器卷管理命令。</p>
+</blockquote>
+<pre><code class="bash"># 通过 docker volume ls 命令可查看当前 Docker 中的容器卷
+ubuntu@DESKTOP-5IG459O:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     43145ccdd2df15993af6a2077e044a8089e003b5a4e564be8dad03162aa8816b
+
+# 通过 docker volume inspect [容器卷名]
+docker volume inspect 43145ccdd2df15993af6a2077e044a8089e003b5a4e564be8dad03162aa8816b
+[
+    {
+        &quot;CreatedAt&quot;: &quot;2021-03-23T06:39:05Z&quot;,
+        &quot;Driver&quot;: &quot;local&quot;,
+        &quot;Labels&quot;: null,
+        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/43145ccdd2df15993af6a2077e044a8089e003b5a4e564be8dad03162aa8816b/_data&quot;,
+        &quot;Name&quot;: &quot;43145ccdd2df15993af6a2077e044a8089e003b5a4e564be8dad03162aa8816b&quot;,
+        &quot;Options&quot;: null,
+        &quot;Scope&quot;: &quot;local&quot;
+    }
+]
+ubuntu@DESKTOP-5IG459O:~$</code></pre>
+<blockquote>
+<p>Windows10 WSL2 Ubuntu20.04中的镜像位置：<br>\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_volumes_folder_for_windows.png" alt="Windows 中的 Docker 容器数据卷位置"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_volumes_test.png" alt="通过 docker volume inspect 命令提供的目录，如果你的操作系统是 Linux，则可以直接访问挂载的命令目录，由于我的机器是 Windows，挂载目录较其他系统不一样"></p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://yeasy.gitbook.io/docker_practice/" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -929,7 +1082,7 @@ ubuntu@DESKTOP-5IG459O:~$</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档"><span class="toc-number">2.1.</span> <span class="toc-text">官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-VM"><span class="toc-number">2.2.</span> <span class="toc-text">Docker vs VM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-To-Docker"><span class="toc-number">2.3.</span> <span class="toc-text">Welcome To Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">Docker 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-version"><span class="toc-number">3.1.</span> <span class="toc-text">docker version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-info"><span class="toc-number">3.2.</span> <span class="toc-text">docker info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-xx-–help"><span class="toc-number">3.3.</span> <span class="toc-text">docker xx –help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-镜像命令"><span class="toc-number">4.</span> <span class="toc-text">Docker 镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-images"><span class="toc-number">4.1.</span> <span class="toc-text">docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-search-镜像关键词"><span class="toc-number">4.2.</span> <span class="toc-text">docker search 镜像关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-镜像名-tag"><span class="toc-number">4.3.</span> <span class="toc-text">docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rmi-镜像"><span class="toc-number">4.4.</span> <span class="toc-text">docker rmi 镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-容器命令"><span class="toc-number">5.</span> <span class="toc-text">Docker 容器命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-可选参数-image"><span class="toc-number">5.1.</span> <span class="toc-text">docker run [可选参数] image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit"><span class="toc-number">5.2.</span> <span class="toc-text">exit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-ps"><span class="toc-number">5.3.</span> <span class="toc-text">docker ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rm-容器id"><span class="toc-number">5.4.</span> <span class="toc-text">docker rm 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器的-启动-重启-停止-强制停止-命令"><span class="toc-number">5.5.</span> <span class="toc-text">容器的 启动&#x2F;重启&#x2F;停止&#x2F;强制停止 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-其他常用命令"><span class="toc-number">6.</span> <span class="toc-text">Docker 其他常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-d-镜像名"><span class="toc-number">6.1.</span> <span class="toc-text">docker run -d 镜像名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-logs"><span class="toc-number">6.2.</span> <span class="toc-text">docker logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-stats"><span class="toc-number">6.3.</span> <span class="toc-text">docker stats</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-top-容器id"><span class="toc-number">6.4.</span> <span class="toc-text">docker top 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-inspect-容器id"><span class="toc-number">6.5.</span> <span class="toc-text">docker inspect 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-exec-it-容器id-终端地址"><span class="toc-number">6.6.</span> <span class="toc-text">docker exec -it 容器id 终端地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-attach-容器id"><span class="toc-number">6.7.</span> <span class="toc-text">docker attach 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-cp-容器id-容器目录-本地目录"><span class="toc-number">6.8.</span> <span class="toc-text">docker cp 容器id:&#x2F;容器目录 本地目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-commit"><span class="toc-number">6.9.</span> <span class="toc-text">docker commit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">7.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Nginx"><span class="toc-number">7.1.</span> <span class="toc-text">部署 Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Tomcat"><span class="toc-number">7.2.</span> <span class="toc-text">部署 Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Elasticsearch"><span class="toc-number">7.3.</span> <span class="toc-text">部署 Elasticsearch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化管理工具"><span class="toc-number">8.</span> <span class="toc-text">可视化管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Portiner"><span class="toc-number">8.1.</span> <span class="toc-text">Portiner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">9.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">2.</span> <span class="toc-text">Hello World</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方文档"><span class="toc-number">2.1.</span> <span class="toc-text">官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-vs-VM"><span class="toc-number">2.2.</span> <span class="toc-text">Docker vs VM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Welcome-To-Docker"><span class="toc-number">2.3.</span> <span class="toc-text">Welcome To Docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">Docker 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-version"><span class="toc-number">3.1.</span> <span class="toc-text">docker version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-info"><span class="toc-number">3.2.</span> <span class="toc-text">docker info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-xx-–help"><span class="toc-number">3.3.</span> <span class="toc-text">docker xx –help</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-镜像命令"><span class="toc-number">4.</span> <span class="toc-text">Docker 镜像命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-images"><span class="toc-number">4.1.</span> <span class="toc-text">docker images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-search-镜像关键词"><span class="toc-number">4.2.</span> <span class="toc-text">docker search 镜像关键词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-pull-镜像名-tag"><span class="toc-number">4.3.</span> <span class="toc-text">docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rmi-镜像"><span class="toc-number">4.4.</span> <span class="toc-text">docker rmi 镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-容器命令"><span class="toc-number">5.</span> <span class="toc-text">Docker 容器命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-可选参数-image"><span class="toc-number">5.1.</span> <span class="toc-text">docker run [可选参数] image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit"><span class="toc-number">5.2.</span> <span class="toc-text">exit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-ps"><span class="toc-number">5.3.</span> <span class="toc-text">docker ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-rm-容器id"><span class="toc-number">5.4.</span> <span class="toc-text">docker rm 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器的-启动-重启-停止-强制停止-命令"><span class="toc-number">5.5.</span> <span class="toc-text">容器的 启动&#x2F;重启&#x2F;停止&#x2F;强制停止 命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-其他常用命令"><span class="toc-number">6.</span> <span class="toc-text">Docker 其他常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-d-镜像名"><span class="toc-number">6.1.</span> <span class="toc-text">docker run -d 镜像名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-logs"><span class="toc-number">6.2.</span> <span class="toc-text">docker logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-stats"><span class="toc-number">6.3.</span> <span class="toc-text">docker stats</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-top-容器id"><span class="toc-number">6.4.</span> <span class="toc-text">docker top 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-inspect-容器id"><span class="toc-number">6.5.</span> <span class="toc-text">docker inspect 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-exec-it-容器id-终端地址"><span class="toc-number">6.6.</span> <span class="toc-text">docker exec -it 容器id 终端地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-attach-容器id"><span class="toc-number">6.7.</span> <span class="toc-text">docker attach 容器id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-cp-容器id-容器目录-本地目录"><span class="toc-number">6.8.</span> <span class="toc-text">docker cp 容器id:&#x2F;容器目录 本地目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-commit"><span class="toc-number">6.9.</span> <span class="toc-text">docker commit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-命令简单应用"><span class="toc-number">7.</span> <span class="toc-text">Docker 命令简单应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Nginx"><span class="toc-number">7.1.</span> <span class="toc-text">部署 Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Tomcat"><span class="toc-number">7.2.</span> <span class="toc-text">部署 Tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-Elasticsearch"><span class="toc-number">7.3.</span> <span class="toc-text">部署 Elasticsearch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化管理工具"><span class="toc-number">8.</span> <span class="toc-text">可视化管理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Portiner"><span class="toc-number">8.1.</span> <span class="toc-text">Portiner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器数据卷"><span class="toc-number">9.</span> <span class="toc-text">容器数据卷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">9.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run-it-v-主机目录-容器内目录"><span class="toc-number">9.2.</span> <span class="toc-text">docker run -it -v 主机目录:容器内目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试-MySQL-数据"><span class="toc-number">9.3.</span> <span class="toc-text">测试 MySQL 数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名挂载"><span class="toc-number">9.4.</span> <span class="toc-text">匿名挂载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">11.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
