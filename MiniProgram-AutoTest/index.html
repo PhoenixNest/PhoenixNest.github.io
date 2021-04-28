@@ -50,7 +50,7 @@
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body class="loading">
@@ -110,7 +110,7 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.9k
+                    3k
                 </span>
                     
                     
@@ -160,9 +160,9 @@
 <hr>
 <p>在进行小程序自动化测试前，你需要准备👇：</p>
 <ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> - v8.0及以上</li>
-<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">微信开发者工具</a> - v1.02.1907232及以上</li>
-<li><a href="https://github.com/wechat-miniprogram/miniprogram-demo" target="_blank" rel="noopener">微信官方小程序Demo</a> - 待测试的项目Demo</li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> - v8.0及以上</li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html">微信开发者工具</a> - v1.02.1907232及以上</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wechat-miniprogram/miniprogram-demo">微信官方小程序Demo</a> - 待测试的项目Demo</li>
 </ul>
 <hr>
 <h2 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h2><h3 id="Step1-项目初始化"><a href="#Step1-项目初始化" class="headerlink" title="Step1: 项目初始化"></a>Step1: 项目初始化</h3><pre><code class="bash">cd miniprogram-demo
@@ -171,20 +171,29 @@ npm i
 
 cd miniprogram
 
-npm i</code></pre>
+npm i
+</code></pre>
 <h3 id="Step2-引入自动化测试插件与框架"><a href="#Step2-引入自动化测试插件与框架" class="headerlink" title="Step2: 引入自动化测试插件与框架"></a>Step2: 引入自动化测试插件与框架</h3><p>完成上述步骤后，安装miniprogram-automator，这是一款由<code>微信官方</code>推出的小程序自动化测试框架。</p>
-<pre><code class="bash">npm i miniprogram-automator --save-dev</code></pre>
+<pre><code class="bash">npm i miniprogram-automator --save-dev
+</code></pre>
 <p>引入jset测试框架</p>
-<pre><code class="bash">npm i jest</code></pre>
+<pre><code class="bash">npm i jest
+</code></pre>
 <p><strong>PS: 在下载完jest后，还需要前往package.json配置jest。</strong></p>
-<pre><code class="JavaScript">&quot;scripts&quot;: {
+<pre><code class="JavaScript">&quot;scripts&quot;: &#123;
     &quot;test&quot;: &quot;jest&quot;
-  }</code></pre>
+  &#125;
+</code></pre>
 <p>添加完上述代码后，在进行测试时系统会<code>自动找到</code>包括.test.js结尾的测试文件并运行。</p>
 <h3 id="Step3-开启自动化测试端口"><a href="#Step3-开启自动化测试端口" class="headerlink" title="Step3: 开启自动化测试端口"></a>Step3: 开启自动化测试端口</h3><p><strong>PS: (该步骤可省略，当第5步出现问题时，可先开启端口再执行第5步命令)</strong></p>
-<p>1) 打开微信开发者工具，前往设置 -&gt; 通用设置 -&gt; 安全 -&gt; 开启服务端口</p>
-<p>2) 前往你的微信开发者工具安装目录，例：D:\微信开发者工具，开启自动化测试端口</p>
-<pre><code class="bash">.\cli.bat --auto 你的项目地址 --auto-port 9420</code></pre>
+<ol>
+<li><p>打开微信开发者工具，前往设置 -&gt; 通用设置 -&gt; 安全 -&gt; 开启服务端口</p>
+</li>
+<li><p>前往你的微信开发者工具安装目录，例：D:\微信开发者工具，开启自动化测试端口</p>
+</li>
+</ol>
+<pre><code class="bash">.\cli.bat --auto 你的项目地址 --auto-port 9420
+</code></pre>
 <p>当出现以下信息时，表示端口启用成功，并会同时开启/重启微信开发者工具。</p>
 <pre><code class="bash">PS D:\微信web开发者工具&gt; .\cli.bat --auto C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram --auto-port 9420
 √ IDE server has started, listening on http://127.0.0.1:33553
@@ -192,36 +201,38 @@ npm i</code></pre>
 
  cli auto --project C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram --auto-port 9420
 
-√ Open project with automation enabled success C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram</code></pre>
+√ Open project with automation enabled success C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram
+</code></pre>
 <hr>
 <h3 id="Step4-编写测试脚本"><a href="#Step4-编写测试脚本" class="headerlink" title="Step4: 编写测试脚本"></a>Step4: 编写测试脚本</h3><p>开启完测试端口后，新建一个miniTest文件夹用于放置测试文件，创建index.test.js文件，开始编写测试脚本。</p>
-<p>此处使用官方的<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/demo.html" target="_blank" rel="noopener">测试脚本案例👇</a></p>
+<p>此处使用官方的<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/demo.html">测试脚本案例👇</a></p>
 <pre><code class="JavaScript">const automator = require(&#39;miniprogram-automator&#39;)
 
-describe(&#39;index&#39;, () =&gt; {
+describe(&#39;index&#39;, () =&gt; &#123;
   let miniProgram
   let page
 
-  beforeAll(async () =&gt; {
-    miniProgram = await automator.launch({
+  beforeAll(async () =&gt; &#123;
+    miniProgram = await automator.launch(&#123;
       cliPath:&#39;D://微信web开发者工具//cli.bat&#39;,// cli.bat文件一般在微信开发者工具目录下，MacOS下一般无需配置cliPath
       projectPath: &#39;./&#39; // 默认当前项目地址即可
-    })
+    &#125;)
     page = await miniProgram.reLaunch(&#39;/page/component/index&#39;) // 测试页面
     await page.waitFor(500)
-  }, 30000)
+  &#125;, 30000)
 
   // 测试脚本
-  it(&#39;desc&#39;, async () =&gt; {
+  it(&#39;desc&#39;, async () =&gt; &#123;
     const desc = await page.$(&#39;.index-desc&#39;)
     expect(desc.tagName).toBe(&#39;view&#39;)
     expect(await desc.text()).toContain(&#39;以下将展示小程序官方组件能力&#39;)
-  })
+  &#125;)
 
-  afterAll(async () =&gt; {
+  afterAll(async () =&gt; &#123;
     await miniProgram.close()
-  })
-})</code></pre>
+  &#125;)
+&#125;)
+</code></pre>
 <h3 id="Step5-开始自动化测试"><a href="#Step5-开始自动化测试" class="headerlink" title="Step5: 开始自动化测试"></a>Step5: 开始自动化测试</h3><p>编写完测试脚本后，在终端输入npm run test，即可进行自动化测试，期间将会<code>打开/重启</code>微信开发者工具。</p>
 <pre><code class="bash">PS C:\Users\P7XXTM1-G\Desktop\miniprogram-demo\miniprogram&gt; npm run test
 
@@ -236,12 +247,13 @@ Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        22.683 s, estimated 27 s
-Ran all test suites.</code></pre>
+Ran all test suites.
+</code></pre>
 <p>当出现上述信息时，表示自动化测试已通过。</p>
 <hr>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/automator.html" target="_blank" rel="noopener">Automator</a>模块提供了<code>启动及连接开发者工具</code>的方法。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/miniprogram.html" target="_blank" rel="noopener">MiniProgram</a>模块提供了<code>控制小程序</code>的方法。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/page.html" target="_blank" rel="noopener">Page</a>模块提供了<code>控制小程序页面</code>的方法。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/element.html" target="_blank" rel="noopener">Element</a>模块提供了<code>控制小程序页面元素</code>的方法。</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/automator.html">Automator</a>模块提供了<code>启动及连接开发者工具</code>的方法。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/miniprogram.html">MiniProgram</a>模块提供了<code>控制小程序</code>的方法。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/page.html">Page</a>模块提供了<code>控制小程序页面</code>的方法。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/element.html">Element</a>模块提供了<code>控制小程序页面元素</code>的方法。</p>
 <hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/" target="_blank" rel="noopener">微信小程序官方自动化测试开发文档</a><br><a href="https://blog.csdn.net/weixin_43827779/article/details/106164261" target="_blank" rel="noopener">小程序自动化测试快速开始</a><br><a href="https://blog.csdn.net/weixin_43827779/article/details/106180757" target="_blank" rel="noopener">小程序自动化测试+jest</a><br><a href="https://blog.csdn.net/qq_40816649/article/details/102463350" target="_blank" rel="noopener">miniprogram-automator微信小程序自动化工具</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/auto/">微信小程序官方自动化测试开发文档</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43827779/article/details/106164261">小程序自动化测试快速开始</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43827779/article/details/106180757">小程序自动化测试+jest</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40816649/article/details/102463350">miniprogram-automator微信小程序自动化工具</a></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -303,7 +315,7 @@ Ran all test suites.</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Started"><span class="toc-number">2.</span> <span class="toc-text">Get Started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-项目初始化"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-引入自动化测试插件与框架"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 引入自动化测试插件与框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-开启自动化测试端口"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 开启自动化测试端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-编写测试脚本"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 编写测试脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-开始自动化测试"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 开始自动化测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Started"><span class="toc-number">2.</span> <span class="toc-text">Get Started</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E5%BC%95%E5%85%A5%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%8F%92%E4%BB%B6%E4%B8%8E%E6%A1%86%E6%9E%B6"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 引入自动化测试插件与框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 开启自动化测试端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 编写测试脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-%E5%BC%80%E5%A7%8B%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 开始自动化测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API"><span class="toc-number">3.</span> <span class="toc-text">API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">5.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

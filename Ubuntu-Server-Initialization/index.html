@@ -50,7 +50,7 @@ Ubuntu是一个以桌面应用为主的Linux操作系统，其名称,">
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body class="loading">
@@ -160,7 +160,7 @@ Ubuntu是一个以桌面应用为主的Linux操作系统，其名称,">
 <hr>
 <p>在对服务器进行配置与操作前，你需要准备👇：</p>
 <ul>
-<li>下载<a href="http://releases.ubuntu.com/20.04/" target="_blank" rel="noopener">Ubuntu Server 20.04LTS</a>镜像并将其<a href="https://rufus.ie/zh_CN.html" target="_blank" rel="noopener">刷入U盘</a></li>
+<li>下载<a target="_blank" rel="noopener" href="http://releases.ubuntu.com/20.04/">Ubuntu Server 20.04LTS</a>镜像并将其<a target="_blank" rel="noopener" href="https://rufus.ie/zh_CN.html">刷入U盘</a></li>
 <li><code>(建议)</code>在<code>有网络</code>连接的情况下安装Ubuntu Server 20.04LTS</li>
 </ul>
 <hr>
@@ -180,7 +180,7 @@ Ubuntu是一个以桌面应用为主的Linux操作系统，其名称,">
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/install_4.png">
 
 <hr>
-<h3 id="Step5-镜像源配置"><a href="#Step5-镜像源配置" class="headerlink" title="Step5: 镜像源配置"></a>Step5: 镜像源配置</h3><p><code>Tips:</code> Ubuntu Server软件下载镜像源可以在安装时进行修改，本篇建议修改为<a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">清华大学开源软件镜像</a>：<a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a></p>
+<h3 id="Step5-镜像源配置"><a href="#Step5-镜像源配置" class="headerlink" title="Step5: 镜像源配置"></a>Step5: 镜像源配置</h3><p><code>Tips:</code> Ubuntu Server软件下载镜像源可以在安装时进行修改，本篇建议修改为<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">清华大学开源软件镜像</a>：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a></p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/install_5.png">
 
 <hr>
@@ -188,7 +188,7 @@ Ubuntu是一个以桌面应用为主的Linux操作系统，其名称,">
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/install_6.png">
 
 <hr>
-<h3 id="Step7-分区配置"><a href="#Step7-分区配置" class="headerlink" title="Step7: 分区配置"></a>Step7: 分区配置</h3><p><code>Tips:</code> Linux对于分区较为敏感，类如：/usr /bin /home /efi等等分区都有及其重要的作用，使用时稍有不慎对系统分区进行错误操作将造成毁灭性的严重后果，此处暂不展开分析系统分区的规则与建议，有兴趣的读者可自行前往<a href="https://www.linux.org/" target="_blank" rel="noopener">Linux官方网站</a>学习。</p>
+<h3 id="Step7-分区配置"><a href="#Step7-分区配置" class="headerlink" title="Step7: 分区配置"></a>Step7: 分区配置</h3><p><code>Tips:</code> Linux对于分区较为敏感，类如：/usr /bin /home /efi等等分区都有及其重要的作用，使用时稍有不慎对系统分区进行错误操作将造成毁灭性的严重后果，此处暂不展开分析系统分区的规则与建议，有兴趣的读者可自行前往<a target="_blank" rel="noopener" href="https://www.linux.org/">Linux官方网站</a>学习。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/install_7.png">
 
 <hr>
@@ -214,12 +214,15 @@ sudo apt upgrade
 sudo apt install openssh-server
 
 # 安装net-tools工具
-sudo apt install net-tools</code></pre>
+sudo apt install net-tools
+</code></pre>
 <hr>
-<h3 id="Step2-查看本机ip"><a href="#Step2-查看本机ip" class="headerlink" title="Step2: 查看本机ip"></a>Step2: 查看本机ip</h3><pre><code class="bash">sudo ifconfig</code></pre>
+<h3 id="Step2-查看本机ip"><a href="#Step2-查看本机ip" class="headerlink" title="Step2: 查看本机ip"></a>Step2: 查看本机ip</h3><pre><code class="bash">sudo ifconfig
+</code></pre>
 <hr>
 <h3 id="Step3-修改远程访问权限"><a href="#Step3-修改远程访问权限" class="headerlink" title="Step3: 修改远程访问权限"></a>Step3: 修改远程访问权限</h3><pre><code class="bash"># 修改该文件中PermitRootLogin的值为yes
-vim /etc/ssh/sshd_config</code></pre>
+vim /etc/ssh/sshd_config
+</code></pre>
 <hr>
 <h3 id="Step4-使用指令查看ip"><a href="#Step4-使用指令查看ip" class="headerlink" title="Step4: 使用指令查看ip"></a>Step4: 使用指令查看ip</h3><pre><code class="bash">sudo ifconfig
 
@@ -240,7 +243,8 @@ lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
         RX packets 190  bytes 16652 (16.6 KB)
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 190  bytes 16652 (16.6 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
 <hr>
 <h3 id="Step5-使用远程链接工具链接"><a href="#Step5-使用远程链接工具链接" class="headerlink" title="Step5: 使用远程链接工具链接"></a>Step5: 使用远程链接工具链接</h3><p><code>Tips:</code> 本章节选用<code>XShell</code>进行远程连接。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/UbuntuServer/ubuntu_ssh.png">
@@ -280,7 +284,8 @@ sudo getconf PAGESIZE
 sudo reboot -h now
 
 # Shut down the computer immediately
-sudo shutdown -h now</code></pre>
+sudo shutdown -h now
+</code></pre>
 <hr>
 <h2 id="（四）-通过”dd”关键字对硬盘进行读写测试"><a href="#（四）-通过”dd”关键字对硬盘进行读写测试" class="headerlink" title="（四）. 通过”dd”关键字对硬盘进行读写测试"></a>（四）. 通过”dd”关键字对硬盘进行读写测试</h2><pre><code class="bash"># R/W Test
 # The server&#39;s write file size is usually 4k and 8K, here the disk will be written test from 4K, 8K, 64K, 1M order, and after the memory cache is cleared, the 1M file on the disk will be read and deleted.
@@ -301,9 +306,10 @@ sudo dd if=/dev/zero of=./largefile bs=1M count=1024
 sudo sh -c &quot;sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches&quot;
 
 # Check Read Speed
-sudo dd if=./largefile of=./null bs=8k</code></pre>
+sudo dd if=./largefile of=./null bs=8k
+</code></pre>
 <hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://ubuntu.com/download/server" target="_blank" rel="noopener">Download Ubuntu Server</a><br><a href="https://ubuntu.com/tutorials/install-ubuntu-server#1-overview" target="_blank" rel="noopener">Install Ubuntu Server</a><br><a href="https://www.tecmint.com/install-ubuntu-20-04-server/" target="_blank" rel="noopener">How to Install Ubuntu 20.04 Server</a><br><a href="https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/#:~:text=%20Perform%20the%20following%20steps%20as%20root%20or,verify%20that%20SSH%20is%20running%20by...%20More%20" target="_blank" rel="noopener">How to Enable SSH on Ubuntu 20.04</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://ubuntu.com/download/server">Download Ubuntu Server</a><br><a target="_blank" rel="noopener" href="https://ubuntu.com/tutorials/install-ubuntu-server#1-overview">Install Ubuntu Server</a><br><a target="_blank" rel="noopener" href="https://www.tecmint.com/install-ubuntu-20-04-server/">How to Install Ubuntu 20.04 Server</a><br><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/#:~:text=%20Perform%20the%20following%20steps%20as%20root%20or,verify%20that%20SSH%20is%20running%20by...%20More%20">How to Enable SSH on Ubuntu 20.04</a></p>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -365,7 +371,7 @@ sudo dd if=./largefile of=./null bs=8k</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-安装Ubuntu-Server"><span class="toc-number">2.</span> <span class="toc-text">（一）. 安装Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-选择语言"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 选择语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-选择键盘布局"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 选择键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-网络设置"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 网络设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-代理设置"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-镜像源配置"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 镜像源配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-引导空间配置"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 引导空间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-分区配置"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 分区配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-Ubuntu-Server账号配置"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: Ubuntu Server账号配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-SSH设置"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: SSH设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-等待Ubuntu-Server安装结束"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 等待Ubuntu Server安装结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-登录系统"><span class="toc-number">2.11.</span> <span class="toc-text">End: 登录系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-远程连接Ubuntu-Server"><span class="toc-number">3.</span> <span class="toc-text">（二）. 远程连接Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-安装net-tools用以查看ip"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 安装net-tools用以查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-查看本机ip"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 查看本机ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-修改远程访问权限"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 修改远程访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-使用指令查看ip"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 使用指令查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-使用远程链接工具链接"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 使用远程链接工具链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）-Server常用命令"><span class="toc-number">4.</span> <span class="toc-text">（三）. Server常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）-通过”dd”关键字对硬盘进行读写测试"><span class="toc-number">5.</span> <span class="toc-text">（四）. 通过”dd”关键字对硬盘进行读写测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85Ubuntu-Server"><span class="toc-number">2.</span> <span class="toc-text">（一）. 安装Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 选择语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E9%80%89%E6%8B%A9%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 选择键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 网络设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 镜像源配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-%E5%BC%95%E5%AF%BC%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 引导空间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-%E5%88%86%E5%8C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 分区配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-Ubuntu-Server%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: Ubuntu Server账号配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-SSH%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: SSH设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-%E7%AD%89%E5%BE%85Ubuntu-Server%E5%AE%89%E8%A3%85%E7%BB%93%E6%9D%9F"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 等待Ubuntu Server安装结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-%E7%99%BB%E5%BD%95%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.11.</span> <span class="toc-text">End: 登录系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Ubuntu-Server"><span class="toc-number">3.</span> <span class="toc-text">（二）. 远程连接Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-%E5%AE%89%E8%A3%85net-tools%E7%94%A8%E4%BB%A5%E6%9F%A5%E7%9C%8Bip"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 安装net-tools用以查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 查看本机ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 修改远程访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9F%A5%E7%9C%8Bip"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 使用指令查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-%E4%BD%BF%E7%94%A8%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8E%A5"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 使用远程链接工具链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89-Server%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">（三）. Server常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89-%E9%80%9A%E8%BF%87%E2%80%9Ddd%E2%80%9D%E5%85%B3%E9%94%AE%E5%AD%97%E5%AF%B9%E7%A1%AC%E7%9B%98%E8%BF%9B%E8%A1%8C%E8%AF%BB%E5%86%99%E6%B5%8B%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">（四）. 通过”dd”关键字对硬盘进行读写测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

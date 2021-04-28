@@ -50,7 +50,7 @@ IPv4 的问题IPv6 的必要性您已经知道IPv4的地址用完了,">
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body class="loading">
@@ -152,7 +152,7 @@ IPv4 的问题IPv6 的必要性您已经知道IPv4的地址用完了,">
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#IPv6%E7%BC%96%E5%9D%80">IPv6 编址</a>部分的详细介绍。<br>所用教学平台：<a href=""https://cn.netacad.com/"">Cisco Networking Academy</a></p>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/#IPv6%E7%BC%96%E5%9D%80">IPv6 编址</a>部分的详细介绍。<br>所用教学平台：<a href="%22https://cn.netacad.com/%22">Cisco Networking Academy</a></p>
 </blockquote>
 <hr>
 <h2 id="IPv4-的问题"><a href="#IPv4-的问题" class="headerlink" title="IPv4 的问题"></a>IPv4 的问题</h2><h3 id="IPv6-的必要性"><a href="#IPv6-的必要性" class="headerlink" title="IPv6 的必要性"></a>IPv6 的必要性</h3><p>您已经知道IPv4的地址用完了。这就是为什么您需要了解 IPv6 的原因。</p>
@@ -211,7 +211,8 @@ fe80 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0001
 fe80 : 0000 : 0000 : 0000 : c012 : 9aff : fe9a: 19ac 
 fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef 
 0000 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0001 
-0000 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0000 </code></pre>
+0000 : 0000 : 0000 : 0000 : 0000 : 0000 : 0000: 0000 
+</code></pre>
 <hr>
 <h3 id="规则-1-省略前导-0"><a href="#规则-1-省略前导-0" class="headerlink" title="规则 1 - 省略前导 0"></a>规则 1 - 省略前导 0</h3><p>第一条有助于缩短 IPv6 地址记法的规则是省略十六进制数中的所有前导 0（零）。以下是省略前导零的四个方法示例：</p>
 <ul>
@@ -573,7 +574,8 @@ R1(config-if)# no shutdown
 R1(config-if)# exit
 R1(config)# interface serial 0/1/0
 R1(config-if)# ipv6 address 2001:db8:acad:3::1/64
-R1(config-if)# no shutdown</code></pre>
+R1(config-if)# no shutdown
+</code></pre>
 <hr>
 <h3 id="Windows-主机上的静态-GUA-配置"><a href="#Windows-主机上的静态-GUA-配置" class="headerlink" title="Windows 主机上的静态 GUA 配置"></a>Windows 主机上的静态 GUA 配置</h3><p>在主机上手动配置 IPv6 地址与配置 IPv4 地址相似。</p>
 <p>如图中所示，为 PC1 配置的默认网关地址为2001:DB8:ACAD:1::1。该地址是同一网络中 R1 千兆以太网接口的GUA。或者，也可以配置默认网关地址以与千兆以太网接口的LLA相匹配。使用路由器的LLA作为默认网关地址被认为是最佳实践。任一配置都可以。</p>
@@ -602,7 +604,8 @@ R1(config-if)# ipv6 address fe80::2:1 link-local
 R1(config-if)# exit
 R1(config)# interface serial 0/1/0
 R1(config-if)# ipv6 address fe80::3:1 link-local
-R1(config-if)# exit</code></pre>
+R1(config-if)# exit
+</code></pre>
 <p>静态配置的LLA用于使它们更易于识别为属于路由器R1。在示例中，路由器 R1 的所有接口都配置了以 fe80::1:n 开头的 LLA 以及唯一的最右侧数字 “n”。“1” 表示路由器 R1。</p>
 <p>遵循与路由器 R1 相同的语法，如果拓扑包含路由器 R2，那么它的三个接口将配置LLA为 fe80::2:1、fe80::2:2和fe80::2:3。</p>
 <p>注意: 只要每个链路上的LLA是唯一的，就可以在每个链路上配置完全相同的LLA。这是因为LLA仅在该链路上具有唯一性。但是，常见的实践是在路由器的每个接口上创建一个不同的 LLA，以便轻松识别路由器和特定接口。</p>
@@ -698,7 +701,8 @@ Connection-specific DNS Suffix . :
 IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:fc99:47ff:fe75:cee0
 Link-local IPv6 Address . . . . . : fe80::fc99:47ff:fe75:cee0
 Default Gateway . . . . . . . . . : fe80::1
-C:\ &gt;</code></pre>
+C:\ &gt;
+</code></pre>
 <hr>
 <h3 id="随机生成的接口-ID"><a href="#随机生成的接口-ID" class="headerlink" title="随机生成的接口 ID"></a>随机生成的接口 ID</h3><p>根据操作系统，设备可以使用随机生成的接口 ID，而不使用 MAC 地址和 EUI-64 流程。从 Windows Vista 开始，Windows 使用随机生成的接口 ID，而不是 EUI-64 创建的接口 ID。Windows XP 和之前的 Windows 操作系统均使用 EUI-64。</p>
 <p>如图所示，接口 ID 创建后（无论是使用 EUI-64 流程还是通过随机生成），它都可以在 RA 消息中结合 IPv6 前缀来创建GUA。</p>
@@ -711,7 +715,8 @@ Ethernet adapter Local Area Connection:
    IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:50a5:8a35:a5bb:66e1
    Link-local IPv6 Address . . . . . : fe80::50a5:8a35:a5bb:66e1
    Default Gateway . . . . . . . . . : fe80::1
-C:\&gt;</code></pre>
+C:\&gt;
+</code></pre>
 <p>注意: 为确保任何 IPv6 单播地址的唯一性，客户端可以使用重复地址检测 (DAD) 流程。这与 ARP 请求其地址的流程相似。如该请求没有响应，则地址是唯一的。</p>
 <hr>
 <h2 id="IPv6-LLA的动态编址"><a href="#IPv6-LLA的动态编址" class="headerlink" title="IPv6 LLA的动态编址"></a>IPv6 LLA的动态编址</h2><h3 id="动态-LLA"><a href="#动态-LLA" class="headerlink" title="动态 LLA"></a>动态 LLA</h3><p>所有 IPv6 设备都必须有 IPv6 LLA。与 IPv6 GUA一样，您也可以动态创建 LLA。无论您如何创建LLA(和GUA)，重要的是要验证所有IPv6地址配置。本主题介绍动态生成的 LLA和 IPv6 配置验证。</p>
@@ -730,7 +735,8 @@ Connection-specific DNS Suffix . :
 IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:fc99:47ff:fe75:cee0
 Link-local IPv6 Address . . . . . : fe80::fc99:47ff:fe75:cee0
 Default Gateway . . . . . . . . . : fe80::1
-C:\&gt;</code></pre>
+C:\&gt;
+</code></pre>
 <blockquote>
 <p>随机生成的 64 位接口 ID</p>
 </blockquote>
@@ -741,7 +747,8 @@ Ethernet adapter Local Area Connection:
    IPv6 Address. . . . . . . . . . . : 2001:db8:acad:1:50a5:8a35:a5bb:66e1
    Link-local IPv6 Address . . . . . : fe80::50a5:8a35:a5bb:66e1
    Default Gateway . . . . . . . . . : fe80::1
-C:\&gt;</code></pre>
+C:\&gt;
+</code></pre>
 <hr>
 <h3 id="思科路由器上的动态LLA"><a href="#思科路由器上的动态LLA" class="headerlink" title="思科路由器上的动态LLA"></a>思科路由器上的动态LLA</h3><p>当为接口分配GUA时，思科路由器会自动创建 IPv6 LLA。默认情况下，思科 IOS 路由器使用 EUI-64 为 IPv6 接口上的所有LLA生成接口 ID。对于串行接口，路由器会使用以太网接口的 MAC 地址。回想一下，LLA在该链路或网络上必须具有唯一性。但是，使用动态分配的LLA的缺点在于其接口 ID 较长，因此很难识别并记住分配的地址。示例显示了路由器 R1 千兆以太网0/0/0 接口的 MAC 地址。该地址用于在同一接口上动态创建LLA，也用于串行0/1/0接口。</p>
 <p>为了更容易在路由器上识别和记忆这些地址，通常要在路由器上静态配置 IPv6 LLA。</p>
@@ -762,7 +769,8 @@ Serial0/1/0            [up/up]
     2001:DB8:ACAD:3::1
 Serial0/1/1            [down/down]
     unassigned
-R1#</code></pre>
+R1#
+</code></pre>
 <hr>
 <h3 id="验证-IPv6-地址配置"><a href="#验证-IPv6-地址配置" class="headerlink" title="验证 IPv6 地址配置"></a>验证 IPv6 地址配置</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_25.png" alt="示例拓扑"></p>
 <blockquote>
@@ -785,7 +793,8 @@ FE80::1:3
 2001:DB8:ACAD:3::1
 Serial0/1/1 [down/down]
 unassigned
-R1#</code></pre>
+R1#
+</code></pre>
 <blockquote>
 <p>show ipv6 route</p>
 </blockquote>
@@ -813,7 +822,8 @@ L 2001:DB8:ACAD:3::1/128 [0/0]
 via Serial0/1/0, receive
 L FF00::/8 [0/0]
 via Null0, receive
-R1#</code></pre>
+R1#
+</code></pre>
 <blockquote>
 <p>ping</p>
 </blockquote>
@@ -825,7 +835,8 @@ Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 2001:DB8:ACAD:1::10, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
-R1#</code></pre>
+R1#
+</code></pre>
 <hr>
 <h2 id="IPv6-组播地址"><a href="#IPv6-组播地址" class="headerlink" title="IPv6 组播地址"></a>IPv6 组播地址</h2><h3 id="分配的-IPv6-组播地址"><a href="#分配的-IPv6-组播地址" class="headerlink" title="分配的 IPv6 组播地址"></a>分配的 IPv6 组播地址</h3><p>IPv6 组播地址类似于 IPv4 组播地址。回想一下，组播地址用于发送单个数据包到一个或多个目标（组播组）。IPv6 组播地址的前缀为ff00::/8。</p>
 <blockquote>
@@ -904,7 +915,8 @@ R1(config-if)# no shutdown
 R1(config-if)# exit
 R1(config)# interface serial 0/1/0
 R1(config-if)# ipv6 address 2001:db8:acad:3::1/64
-R1(config-if)# no shutdown</code></pre>
+R1(config-if)# no shutdown
+</code></pre>
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li>IPv4 的问题</li>
@@ -1022,7 +1034,7 @@ R1(config-if)# no shutdown</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv4-的问题"><span class="toc-number">2.</span> <span class="toc-text">IPv4 的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-的必要性"><span class="toc-number">2.1.</span> <span class="toc-text">IPv6 的必要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-和-IPv6-共存"><span class="toc-number">2.2.</span> <span class="toc-text">IPv4 和 IPv6 共存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-地址表示方法"><span class="toc-number">3.</span> <span class="toc-text">IPv6 地址表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-编址格式"><span class="toc-number">3.1.</span> <span class="toc-text">IPv6 编址格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规则-1-省略前导-0"><span class="toc-number">3.2.</span> <span class="toc-text">规则 1 - 省略前导 0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#规则-2-双冒号"><span class="toc-number">3.3.</span> <span class="toc-text">规则 2 - 双冒号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-地址类型"><span class="toc-number">4.</span> <span class="toc-text">IPv6 地址类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单播，组播，任播"><span class="toc-number">4.1.</span> <span class="toc-text">单播，组播，任播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-前缀长度"><span class="toc-number">4.2.</span> <span class="toc-text">IPv6 前缀长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-单播地址的类型"><span class="toc-number">4.3.</span> <span class="toc-text">IPv6 单播地址的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于唯一本地地址的注意事项"><span class="toc-number">4.4.</span> <span class="toc-text">关于唯一本地地址的注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-GUA"><span class="toc-number">4.5.</span> <span class="toc-text">IPv6 GUA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-GUA-结构"><span class="toc-number">4.6.</span> <span class="toc-text">IPv6 GUA 结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-LLA"><span class="toc-number">4.7.</span> <span class="toc-text">IPv6 LLA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUA-和-LLA-静态配置"><span class="toc-number">5.</span> <span class="toc-text">GUA 和 LLA 静态配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器上的静态-GUA-配置"><span class="toc-number">5.1.</span> <span class="toc-text">路由器上的静态 GUA 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows-主机上的静态-GUA-配置"><span class="toc-number">5.2.</span> <span class="toc-text">Windows 主机上的静态 GUA 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链路本地单播地址的静态配置"><span class="toc-number">5.3.</span> <span class="toc-text">链路本地单播地址的静态配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-GUA的动态编址"><span class="toc-number">6.</span> <span class="toc-text">IPv6 GUA的动态编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RS-and-RA-消息"><span class="toc-number">6.1.</span> <span class="toc-text">RS and RA 消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-1：SLAAC"><span class="toc-number">6.2.</span> <span class="toc-text">方法 1：SLAAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-2：SLAAC-和无状态-DHCPv6"><span class="toc-number">6.3.</span> <span class="toc-text">方法 2：SLAAC 和无状态 DHCPv6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法-3：有状态的DHCPv6"><span class="toc-number">6.4.</span> <span class="toc-text">方法 3：有状态的DHCPv6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EUI-64-流程和随机生成"><span class="toc-number">6.5.</span> <span class="toc-text">EUI-64 流程和随机生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EUI-64-流程"><span class="toc-number">6.6.</span> <span class="toc-text">EUI-64 流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机生成的接口-ID"><span class="toc-number">6.7.</span> <span class="toc-text">随机生成的接口 ID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-LLA的动态编址"><span class="toc-number">7.</span> <span class="toc-text">IPv6 LLA的动态编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态-LLA"><span class="toc-number">7.1.</span> <span class="toc-text">动态 LLA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows上的动态LLA"><span class="toc-number">7.2.</span> <span class="toc-text">Windows上的动态LLA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思科路由器上的动态LLA"><span class="toc-number">7.3.</span> <span class="toc-text">思科路由器上的动态LLA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证-IPv6-地址配置"><span class="toc-number">7.4.</span> <span class="toc-text">验证 IPv6 地址配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-组播地址"><span class="toc-number">8.</span> <span class="toc-text">IPv6 组播地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分配的-IPv6-组播地址"><span class="toc-number">8.1.</span> <span class="toc-text">分配的 IPv6 组播地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#知名-IPv6-组播地址"><span class="toc-number">8.2.</span> <span class="toc-text">知名 IPv6 组播地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求节点-IPv6-组播地址"><span class="toc-number">8.3.</span> <span class="toc-text">请求节点 IPv6 组播地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-网络的子网"><span class="toc-number">9.</span> <span class="toc-text">IPv6 网络的子网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用子网-ID-划分子网"><span class="toc-number">9.1.</span> <span class="toc-text">使用子网 ID 划分子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-子网划分示例"><span class="toc-number">9.2.</span> <span class="toc-text">IPv6 子网划分示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-子网分配"><span class="toc-number">9.3.</span> <span class="toc-text">IPv6 子网分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置了-IPv6-子网的路由器"><span class="toc-number">9.4.</span> <span class="toc-text">配置了 IPv6 子网的路由器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">11.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv4-%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">IPv4 的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">IPv6 的必要性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv4-%E5%92%8C-IPv6-%E5%85%B1%E5%AD%98"><span class="toc-number">2.2.</span> <span class="toc-text">IPv4 和 IPv6 共存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-%E5%9C%B0%E5%9D%80%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">IPv6 地址表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E7%BC%96%E5%9D%80%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">IPv6 编址格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E5%88%99-1-%E7%9C%81%E7%95%A5%E5%89%8D%E5%AF%BC-0"><span class="toc-number">3.2.</span> <span class="toc-text">规则 1 - 省略前导 0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E5%88%99-2-%E5%8F%8C%E5%86%92%E5%8F%B7"><span class="toc-number">3.3.</span> <span class="toc-text">规则 2 - 双冒号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-%E5%9C%B0%E5%9D%80%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">IPv6 地址类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%92%AD%EF%BC%8C%E7%BB%84%E6%92%AD%EF%BC%8C%E4%BB%BB%E6%92%AD"><span class="toc-number">4.1.</span> <span class="toc-text">单播，组播，任播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E5%89%8D%E7%BC%80%E9%95%BF%E5%BA%A6"><span class="toc-number">4.2.</span> <span class="toc-text">IPv6 前缀长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E5%8D%95%E6%92%AD%E5%9C%B0%E5%9D%80%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text">IPv6 单播地址的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%94%AF%E4%B8%80%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.4.</span> <span class="toc-text">关于唯一本地地址的注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-GUA"><span class="toc-number">4.5.</span> <span class="toc-text">IPv6 GUA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-GUA-%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">IPv6 GUA 结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-LLA"><span class="toc-number">4.7.</span> <span class="toc-text">IPv6 LLA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUA-%E5%92%8C-LLA-%E9%9D%99%E6%80%81%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">GUA 和 LLA 静态配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%8A%E7%9A%84%E9%9D%99%E6%80%81-GUA-%E9%85%8D%E7%BD%AE"><span class="toc-number">5.1.</span> <span class="toc-text">路由器上的静态 GUA 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows-%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%9A%84%E9%9D%99%E6%80%81-GUA-%E9%85%8D%E7%BD%AE"><span class="toc-number">5.2.</span> <span class="toc-text">Windows 主机上的静态 GUA 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E6%9C%AC%E5%9C%B0%E5%8D%95%E6%92%AD%E5%9C%B0%E5%9D%80%E7%9A%84%E9%9D%99%E6%80%81%E9%85%8D%E7%BD%AE"><span class="toc-number">5.3.</span> <span class="toc-text">链路本地单播地址的静态配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-GUA%E7%9A%84%E5%8A%A8%E6%80%81%E7%BC%96%E5%9D%80"><span class="toc-number">6.</span> <span class="toc-text">IPv6 GUA的动态编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RS-and-RA-%E6%B6%88%E6%81%AF"><span class="toc-number">6.1.</span> <span class="toc-text">RS and RA 消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9ASLAAC"><span class="toc-number">6.2.</span> <span class="toc-text">方法 1：SLAAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2%EF%BC%9ASLAAC-%E5%92%8C%E6%97%A0%E7%8A%B6%E6%80%81-DHCPv6"><span class="toc-number">6.3.</span> <span class="toc-text">方法 2：SLAAC 和无状态 DHCPv6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-3%EF%BC%9A%E6%9C%89%E7%8A%B6%E6%80%81%E7%9A%84DHCPv6"><span class="toc-number">6.4.</span> <span class="toc-text">方法 3：有状态的DHCPv6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EUI-64-%E6%B5%81%E7%A8%8B%E5%92%8C%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90"><span class="toc-number">6.5.</span> <span class="toc-text">EUI-64 流程和随机生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EUI-64-%E6%B5%81%E7%A8%8B"><span class="toc-number">6.6.</span> <span class="toc-text">EUI-64 流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E7%9A%84%E6%8E%A5%E5%8F%A3-ID"><span class="toc-number">6.7.</span> <span class="toc-text">随机生成的接口 ID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-LLA%E7%9A%84%E5%8A%A8%E6%80%81%E7%BC%96%E5%9D%80"><span class="toc-number">7.</span> <span class="toc-text">IPv6 LLA的动态编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81-LLA"><span class="toc-number">7.1.</span> <span class="toc-text">动态 LLA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E4%B8%8A%E7%9A%84%E5%8A%A8%E6%80%81LLA"><span class="toc-number">7.2.</span> <span class="toc-text">Windows上的动态LLA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E7%A7%91%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%8A%E7%9A%84%E5%8A%A8%E6%80%81LLA"><span class="toc-number">7.3.</span> <span class="toc-text">思科路由器上的动态LLA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81-IPv6-%E5%9C%B0%E5%9D%80%E9%85%8D%E7%BD%AE"><span class="toc-number">7.4.</span> <span class="toc-text">验证 IPv6 地址配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-%E7%BB%84%E6%92%AD%E5%9C%B0%E5%9D%80"><span class="toc-number">8.</span> <span class="toc-text">IPv6 组播地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%85%8D%E7%9A%84-IPv6-%E7%BB%84%E6%92%AD%E5%9C%B0%E5%9D%80"><span class="toc-number">8.1.</span> <span class="toc-text">分配的 IPv6 组播地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E5%90%8D-IPv6-%E7%BB%84%E6%92%AD%E5%9C%B0%E5%9D%80"><span class="toc-number">8.2.</span> <span class="toc-text">知名 IPv6 组播地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%8A%82%E7%82%B9-IPv6-%E7%BB%84%E6%92%AD%E5%9C%B0%E5%9D%80"><span class="toc-number">8.3.</span> <span class="toc-text">请求节点 IPv6 组播地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%90%E7%BD%91"><span class="toc-number">9.</span> <span class="toc-text">IPv6 网络的子网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%90%E7%BD%91-ID-%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91"><span class="toc-number">9.1.</span> <span class="toc-text">使用子网 ID 划分子网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E7%A4%BA%E4%BE%8B"><span class="toc-number">9.2.</span> <span class="toc-text">IPv6 子网划分示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E5%AD%90%E7%BD%91%E5%88%86%E9%85%8D"><span class="toc-number">9.3.</span> <span class="toc-text">IPv6 子网分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BA%86-IPv6-%E5%AD%90%E7%BD%91%E7%9A%84%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="toc-number">9.4.</span> <span class="toc-text">配置了 IPv6 子网的路由器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">11.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

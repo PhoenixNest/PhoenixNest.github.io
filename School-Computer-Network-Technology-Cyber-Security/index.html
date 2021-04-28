@@ -50,7 +50,7 @@
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body class="loading">
@@ -152,7 +152,7 @@
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="hhttps://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80">网络安全基础知识</a>部分的详细介绍。<br>所用教学平台：<a href=""https://cn.netacad.com/"">Cisco Networking Academy</a></p>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="hhttps://phoenixnest.github.io/Notes-Computer-Network-Technology/#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80">网络安全基础知识</a>部分的详细介绍。<br>所用教学平台：<a href="%22https://cn.netacad.com/%22">Cisco Networking Academy</a></p>
 </blockquote>
 <hr>
 <h2 id="安全威胁和漏洞"><a href="#安全威胁和漏洞" class="headerlink" title="安全威胁和漏洞"></a>安全威胁和漏洞</h2><h3 id="威胁类型"><a href="#威胁类型" class="headerlink" title="威胁类型"></a>威胁类型</h3><p>有线和无线计算机网络是人们日常活动中不可或缺的一部分。个人和组织都同样依赖其计算机和网络。不速之客的入侵可能导致代价高昂的网络中断和工作成果的丢失。针对网络的攻击有时具有相当的破坏性，可能造成重要信息或资产的损坏或失窃，导致时间上和金钱上的损失。</p>
@@ -383,7 +383,8 @@
                 --- AutoSecure Configuration ---
 *** AutoSecure configuration enhances the security of
 the router but it will not make router absolutely secure
-from all security attacks ***</code></pre>
+from all security attacks ***
+</code></pre>
 <p>此外，还有以下适用于大部分操作系统的一些简单步骤：</p>
 <ul>
 <li>立即更换默认用户名和密码。</li>
@@ -480,7 +481,8 @@ line vty 0 4
  exec-timeout 5 30
  login
  transport input ssh
-R1#</code></pre>
+R1#
+</code></pre>
 <hr>
 <h3 id="启用-SSH"><a href="#启用-SSH" class="headerlink" title="启用 SSH"></a>启用 SSH</h3><p>Telnet简化了远程设备访问，但并不安全。Telnet 数据包中包含的数据以未加密形式传输。因此，强烈建议在设备上启用安全外壳 (SSH) 以进行安全远程访问。</p>
 <p>可以通过下列六个步骤来配置思科设备以支持 SSH。</p>
@@ -507,7 +509,8 @@ R1(config)# line vty 0 4
 R1(config-line)# login local
 R1(config-line)# transport input ssh
 R1(config-line)# exit
-R1(config)#</code></pre>
+R1(config)#
+</code></pre>
 <hr>
 <h3 id="禁用未使用的服务"><a href="#禁用未使用的服务" class="headerlink" title="禁用未使用的服务"></a>禁用未使用的服务</h3><p>思科路由器和交换机启动时会有一列活动服务，这些活动在您的网络中可能需要或不需要。禁用任何未使用的服务以保留系统资源，如CPU周期和RAM，并防止威胁发起者利用这些服务。默认打开的服务类型将根据IOS版本而有所不同。例如，IOS-XE 通常只打开 HTTPS 和 DHCP 端口。您可以使用 show ip ports all 命令来验证这一点，如示例所示。</p>
 <pre><code class="CISCO">Router# show ip ports all
@@ -516,7 +519,8 @@ TCB       Local Address               Foreign Address             (state)
 tcp   :::443                     :::*                        LISTEN      309/[IOS]HTTP CORE
 tcp   *:443                      *:*                         LISTEN      309/[IOS]HTTP CORE
 udp   *:67                        0.0.0.0:0                               387/[IOS]DHCPD Receive
-Router#</code></pre>
+Router#
+</code></pre>
 <p>IOS-XE 之前的 IOS 版本使用 show control-plane host open-ports 命令。我们提到此命令，因为您可能会在旧设备上看到它。输出是相似的。但是，请注意，这个较旧的路由器有不安全的 HTTP 服务器和 Telnet 正在运行。这两种服务都应该被禁用。如示例所示，使用 no ip http server 全局配置命令禁用 HTTP。通过在行配置命令transport input ssh中指定仅 SSH 来禁用 Telnet 。</p>
 <pre><code class="CISCO">Router# show control-plane host open-ports 
 Active internet connections (servers and established)
@@ -527,7 +531,8 @@ Prot        Local Address      Foreign Address                  Service    State
 Router# configure terminal
 Router(config)# no ip http server
 Router(config)# line vty 0 15
-Router(config-line)# transport input ssh</code></pre>
+Router(config-line)# transport input ssh
+</code></pre>
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li>安全威胁和漏洞</li>
@@ -614,7 +619,7 @@ Router(config-line)# transport input ssh</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全威胁和漏洞"><span class="toc-number">2.</span> <span class="toc-text">安全威胁和漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#威胁类型"><span class="toc-number">2.1.</span> <span class="toc-text">威胁类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漏洞分类"><span class="toc-number">2.2.</span> <span class="toc-text">漏洞分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理安全"><span class="toc-number">2.3.</span> <span class="toc-text">物理安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络攻击"><span class="toc-number">3.</span> <span class="toc-text">网络攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#恶意软件的类型"><span class="toc-number">3.1.</span> <span class="toc-text">恶意软件的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侦察攻击"><span class="toc-number">3.2.</span> <span class="toc-text">侦察攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问攻击"><span class="toc-number">3.3.</span> <span class="toc-text">访问攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拒绝服务攻击"><span class="toc-number">3.4.</span> <span class="toc-text">拒绝服务攻击</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络攻击缓解"><span class="toc-number">4.</span> <span class="toc-text">网络攻击缓解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#纵深防御方法"><span class="toc-number">4.1.</span> <span class="toc-text">纵深防御方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保留备份"><span class="toc-number">4.2.</span> <span class="toc-text">保留备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#升级、更新和补丁"><span class="toc-number">4.3.</span> <span class="toc-text">升级、更新和补丁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#认证、授权和记账"><span class="toc-number">4.4.</span> <span class="toc-text">认证、授权和记账</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙"><span class="toc-number">4.5.</span> <span class="toc-text">防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#防火墙的类型"><span class="toc-number">4.6.</span> <span class="toc-text">防火墙的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#终端安全"><span class="toc-number">4.7.</span> <span class="toc-text">终端安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设备安全"><span class="toc-number">5.</span> <span class="toc-text">设备安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密码"><span class="toc-number">5.1.</span> <span class="toc-text">密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他密码安全性"><span class="toc-number">5.2.</span> <span class="toc-text">其他密码安全性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启用-SSH"><span class="toc-number">5.3.</span> <span class="toc-text">启用 SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁用未使用的服务"><span class="toc-number">5.4.</span> <span class="toc-text">禁用未使用的服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E5%A8%81%E8%83%81%E5%92%8C%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.</span> <span class="toc-text">安全威胁和漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A8%81%E8%83%81%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">威胁类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E7%B1%BB"><span class="toc-number">2.2.</span> <span class="toc-text">漏洞分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%AE%89%E5%85%A8"><span class="toc-number">2.3.</span> <span class="toc-text">物理安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB"><span class="toc-number">3.</span> <span class="toc-text">网络攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">恶意软件的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%A6%E5%AF%9F%E6%94%BB%E5%87%BB"><span class="toc-number">3.2.</span> <span class="toc-text">侦察攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%94%BB%E5%87%BB"><span class="toc-number">3.3.</span> <span class="toc-text">访问攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB"><span class="toc-number">3.4.</span> <span class="toc-text">拒绝服务攻击</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E7%BC%93%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">网络攻击缓解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%B5%E6%B7%B1%E9%98%B2%E5%BE%A1%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">纵深防御方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%A4%87%E4%BB%BD"><span class="toc-number">4.2.</span> <span class="toc-text">保留备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E3%80%81%E6%9B%B4%E6%96%B0%E5%92%8C%E8%A1%A5%E4%B8%81"><span class="toc-number">4.3.</span> <span class="toc-text">升级、更新和补丁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A4%E8%AF%81%E3%80%81%E6%8E%88%E6%9D%83%E5%92%8C%E8%AE%B0%E8%B4%A6"><span class="toc-number">4.4.</span> <span class="toc-text">认证、授权和记账</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">4.5.</span> <span class="toc-text">防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.6.</span> <span class="toc-text">防火墙的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E5%AE%89%E5%85%A8"><span class="toc-number">4.7.</span> <span class="toc-text">终端安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E5%AE%89%E5%85%A8"><span class="toc-number">5.</span> <span class="toc-text">设备安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E7%A0%81"><span class="toc-number">5.1.</span> <span class="toc-text">密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%AF%86%E7%A0%81%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-number">5.2.</span> <span class="toc-text">其他密码安全性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-SSH"><span class="toc-number">5.3.</span> <span class="toc-text">启用 SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%81%E7%94%A8%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-number">5.4.</span> <span class="toc-text">禁用未使用的服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">7.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

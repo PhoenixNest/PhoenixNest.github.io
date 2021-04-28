@@ -50,7 +50,7 @@ Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以�
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body class="loading">
@@ -162,11 +162,13 @@ Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以�
 <p>配置 Github 用户名与邮箱。</p>
 </blockquote>
 <pre><code class="bash">git config --global user.name &quot;你的 Github 用户名&quot;
-git config --global user.email &quot;你的 Github 邮箱&quot;</code></pre>
+git config --global user.email &quot;你的 Github 邮箱&quot;
+</code></pre>
 <blockquote>
 <p>检查 git 配置</p>
 </blockquote>
-<pre><code class="bash">git config --list</code></pre>
+<pre><code class="bash">git config --list
+</code></pre>
 <blockquote>
 <p>配置远端 SSH 公钥。</p>
 </blockquote>
@@ -177,7 +179,8 @@ cd ~/.ssh
 ssh-keygen -t rsa -C &quot;你的 Github 邮箱&quot;
 
 # 查看公钥文件
-cat id_rsa.pub</code></pre>
+cat id_rsa.pub
+</code></pre>
 <blockquote>
 <p>上传密钥</p>
 </blockquote>
@@ -191,22 +194,25 @@ cat id_rsa.pub</code></pre>
 <blockquote>
 <p>测试远端链接是否成功</p>
 </blockquote>
-<pre><code class="bash">ssh git@github.com</code></pre>
+<pre><code class="bash">ssh git@github.com
+</code></pre>
 <hr>
 <h2 id="Github-访问加速"><a href="#Github-访问加速" class="headerlink" title="Github 访问加速"></a>Github 访问加速</h2><blockquote>
 <p>对于<code>Windows系统</code>，在日常使用过程中经常会出现访问速度慢的情况，此处将介绍通过修改 host 文件对 Github 进行加速的笔记。</p>
 <p><code>Windows 环境</code>下的host文件位于：<strong>C:\Windows\System32\drivers\etc</strong>下<br>修改时需要管理员权限</p>
 </blockquote>
-<p>在尾部追加以下ip，有关 Github 的 IP 信息可到<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">ipaddress</a>上查询并<code>修改为自己所查询到的准确地址</code>。</p>
+<p>在尾部追加以下ip，有关 Github 的 IP 信息可到<a target="_blank" rel="noopener" href="https://www.ipaddress.com/">ipaddress</a>上查询并<code>修改为自己所查询到的准确地址</code>。</p>
 <p>如：</p>
 <pre><code class="text">140.82.112.3    github.com
 199.232.69.194  github.global.ssl.fastly.net
 199.232.96.133  avatars.githubusercontent.com
 199.232.96.133  raw.githubusercontent.com
 199.232.96.133  user-images.githubusercontent.com
-199.232.96.133  camo.githubusercontent.com</code></pre>
+199.232.96.133  camo.githubusercontent.com
+</code></pre>
 <pre><code class="bash"># 刷新 DNS 缓存
-ipconfig /flushdns</code></pre>
+ipconfig /flushdns
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/ipaddress.png" alt="ipaddress"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Git/hosts.png" alt="修改后的 host 文件"></p>
 <hr>
@@ -270,7 +276,7 @@ ipconfig /flushdns</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-配置"><span class="toc-number">2.</span> <span class="toc-text">Git 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-访问加速"><span class="toc-number">3.</span> <span class="toc-text">Github 访问加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">Git 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-%E8%AE%BF%E9%97%AE%E5%8A%A0%E9%80%9F"><span class="toc-number">3.</span> <span class="toc-text">Github 访问加速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">4.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 

@@ -50,7 +50,7 @@
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body class="loading">
@@ -110,7 +110,7 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    41k
+                    42k
                 </span>
                     
                     
@@ -152,7 +152,7 @@
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇整理了我学习<code>计算机网络原理</code>时的一些笔记。<br>所用教学平台：<a href=""https://cn.netacad.com/"">Cisco Networking Academy</a></p>
+<p>本篇整理了我学习<code>计算机网络原理</code>时的一些笔记。<br>所用教学平台：<a href="%22https://cn.netacad.com/%22">Cisco Networking Academy</a></p>
 </blockquote>
 <hr>
 <h2 id="当今网络"><a href="#当今网络" class="headerlink" title="当今网络"></a>当今网络</h2><h3 id="网络影响着我们的生活"><a href="#网络影响着我们的生活" class="headerlink" title="网络影响着我们的生活"></a>网络影响着我们的生活</h3><p>当今世界有了网络，人与人的联系达到空前状态。当人们想到某个创意时，可以即时与其他人沟通，使创意变为现实。用来交流思想和信息的网上社区的形成可能会提高全球的生产力。云的创建让我们可以存储文档和图片，并随时随地访问它们。</p>
@@ -637,10 +637,10 @@
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/2_5_2.png" alt="参与互联网开发和支持的标准组织"></p>
 <hr>
 <h3 id="电子和通信标准组织"><a href="#电子和通信标准组织" class="headerlink" title="电子和通信标准组织"></a>电子和通信标准组织</h3><ul>
-<li><strong>电气电子工程师协会（**</strong>IEEE**，读作“I-triple-E”）– 是为致力于推动诸多行业领域的技术创新和标准创建的工程师设立的组织，涉及的领域包括电力与能源、医疗保健、电信和网络。重要的IEEE网络标准包括802.3以太网和802.11无线局域网标准。可在互联网上搜索其他IEEE网络标准。</li>
-<li><strong>美国电子工业协会（**</strong>EIA**）- 该组织因其在用于安装网络设备的电线、连接器和19英寸机架方面的标准而知名。</li>
-<li><strong>电信工业协会（**</strong>TIA**） - 该组织负责开发各种领域的通信标准，包括无线电设备、手机信号塔、IP 语音（VoIP）设备和卫星通信等。</li>
-<li><strong>国际电信联盟电信标准局（**</strong>ITU-T**）- 是最大最早的通信标准组织之一。ITU-T定义视频压缩、Internet协议电视（IPTV）和宽带通信的标准，例如数字用户线路（DSL）。</li>
+<li><strong>电气电子工程师协会（****IEEE</strong>，读作“I-triple-E”）– 是为致力于推动诸多行业领域的技术创新和标准创建的工程师设立的组织，涉及的领域包括电力与能源、医疗保健、电信和网络。重要的IEEE网络标准包括802.3以太网和802.11无线局域网标准。可在互联网上搜索其他IEEE网络标准。</li>
+<li><strong>美国电子工业协会（****EIA</strong>）- 该组织因其在用于安装网络设备的电线、连接器和19英寸机架方面的标准而知名。</li>
+<li><strong>电信工业协会（****TIA</strong>） - 该组织负责开发各种领域的通信标准，包括无线电设备、手机信号塔、IP 语音（VoIP）设备和卫星通信等。</li>
+<li><strong>国际电信联盟电信标准局（****ITU-T</strong>）- 是最大最早的通信标准组织之一。ITU-T定义视频压缩、Internet协议电视（IPTV）和宽带通信的标准，例如数字用户线路（DSL）。</li>
 </ul>
 <hr>
 <h3 id="参考模型"><a href="#参考模型" class="headerlink" title="参考模型"></a>参考模型</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/2_6.png" alt="开放式系统互联(OSI)参考模型 TCP/IP 参考模型"></p>
@@ -653,42 +653,50 @@
 <tr>
 <th align="center">Num.</th>
 <th align="center">Layer.</th>
+<th align="center">数据单元</th>
 <th align="left">描述</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">7</td>
 <td align="center">应用层</td>
+<td align="center">APDU</td>
 <td align="left">应用层包含用于进程间通信的协议。</td>
 </tr>
 <tr>
 <td align="center">6</td>
 <td align="center">表示层</td>
+<td align="center">PPDU</td>
 <td align="left">表示层用常用方式表示数据在应用层服务之间的传输。</td>
 </tr>
 <tr>
 <td align="center">5</td>
 <td align="center">会话层</td>
+<td align="center">SPDU</td>
 <td align="left">会话层向表示层提供服务，组织对话并管理数据交换。</td>
 </tr>
 <tr>
 <td align="center">4</td>
 <td align="center">传输层</td>
+<td align="center">TPDU</td>
 <td align="left">传输层定义服务以对数据进行分段，传输和重组，以进行终端设备之间的单独通信。</td>
 </tr>
 <tr>
 <td align="center">3</td>
 <td align="center">网络层</td>
+<td align="center">报文</td>
 <td align="left">网络层为所标识的终端设备之间通过网络交换独立的数据的片段提供服务。</td>
 </tr>
 <tr>
 <td align="center">2</td>
 <td align="center">数据链路层</td>
+<td align="center">帧</td>
 <td align="left">数据链路层协议描述了设备之间通过公共介质交换数据帧的方法。</td>
 </tr>
 <tr>
 <td align="center">1</td>
 <td align="center">物理层</td>
+<td align="center">比特</td>
 <td align="left">物理层协议描述了机械的、电气的、功能的和程序化的方法，以激活，维护和解除物理连接， 实现与网络设备之间的位设备。</td>
 </tr>
 </tbody></table>
@@ -737,17 +745,17 @@
 <p>消息分段 -&gt; 排序 -&gt; 封装 -&gt; 解封</p>
 </blockquote>
 <ul>
-<li><p><strong><code>消息分段</code></strong>主要有两个优点：</p>
+<li><p>**<code>消息分段</code>**主要有两个优点：</p>
 <ul>
 <li>通过从源设备向目的地<code>发送</code>一个个<code>小片段</code>，就可以在网络上交替发送许多不同会话。这称为<code>“多路复用”</code>。</li>
 <li>分段可以<code>增强网络通信的效率</code>。如果有部分消息未能传送到目的，则<code>只需重新传输丢失的部分</code>。</li>
 </ul>
 </li>
-<li><p>TCP负责对单独的数据段进行 <strong><code>排序</code></strong>。一段数据在任意协议层的表示形式称为协议数据单元（PDU）。</p>
+<li><p>TCP负责对单独的数据段进行 **<code>排序</code>**。一段数据在任意协议层的表示形式称为协议数据单元（PDU）。</p>
 </li>
-<li><p>在 <strong><code>封装</code></strong>过程中，后续的每一层都根据使用的协议封装其从上一层接收的PDU。在网络中发送消息时，封装过程自上而下工作。</p>
+<li><p>在 **<code>封装</code>**过程中，后续的每一层都根据使用的协议封装其从上一层接收的PDU。在网络中发送消息时，封装过程自上而下工作。</p>
 </li>
-<li><p>接收主机上的过程称为“解封”。<strong><code>解封</code></strong>是接收设备用来删除一个或多个协议报头的过程。数据在朝着最终用户应用程序沿协议栈向上移动的过程中被解封。</p>
+<li><p>接收主机上的过程称为“解封”。**<code>解封</code>**是接收设备用来删除一个或多个协议报头的过程。数据在朝着最终用户应用程序沿协议栈向上移动的过程中被解封。</p>
 </li>
 </ul>
 <hr>
@@ -786,7 +794,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/2_10.png" alt="同一网络"></p>
 <hr>
 <h3 id="数据链路层（第2层）地址的作用：相同的-IP-网络（局域网）"><a href="#数据链路层（第2层）地址的作用：相同的-IP-网络（局域网）" class="headerlink" title="数据链路层（第2层）地址的作用：相同的 IP 网络（局域网）"></a>数据链路层（第2层）地址的作用：相同的 IP 网络（局域网）</h3><blockquote>
-<p>当IP数据包的发送方和接收方处于 <strong><code>同一网络</code></strong>中时，数据链路层帧将直接将其发送到接收设备。在以太网中，数据链路层地址称为以太网介质访问控制（MAC）地址。</p>
+<p>当IP数据包的发送方和接收方处于 **<code>同一网络</code>**中时，数据链路层帧将直接将其发送到接收设备。在以太网中，数据链路层地址称为以太网介质访问控制（MAC）地址。</p>
 </blockquote>
 <p><code>MAC 地址</code>是以太网网卡的物理内嵌地址。</p>
 <ul>
@@ -796,7 +804,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/2_11.png" alt="同一网络"></p>
 <hr>
 <h3 id="网络层地址的作用"><a href="#网络层地址的作用" class="headerlink" title="网络层地址的作用"></a>网络层地址的作用</h3><blockquote>
-<p>当数据包的发送方与接收方位于 <strong><code>不同网络</code></strong>时，源 IP 地址和目的 IP 地址将代表位于不同网络的主机。这将由目的主机 IP 地址的网络部分来表明。</p>
+<p>当数据包的发送方与接收方位于 **<code>不同网络</code>**时，源 IP 地址和目的 IP 地址将代表位于不同网络的主机。这将由目的主机 IP 地址的网络部分来表明。</p>
 </blockquote>
 <ul>
 <li><strong>源IPv4地址</strong> – 发送设备的IPv4地址，即客户端计算机PC1：192.168.1.110。</li>
@@ -961,7 +969,7 @@
 </thead>
 <tbody><tr>
 <td align="left"><strong>前导码和帧首定界符字段</strong></td>
-<td align="left"><code>前导码</code>（<strong>7 字节</strong>）和<code>帧首定界符</code>（SFD），也称为 <code>帧首</code>（<strong>1 字节</strong>），该字段<code>用于发送设备与接收设备之间的同步</code>。帧开头的<strong>8 个字节</strong> 用于引起接收节点的注意。<strong><code>基本上，前几个字节的作用是告诉接收方准备接收新帧。</code></strong></td>
+<td align="left"><code>前导码</code>（<strong>7 字节</strong>）和<code>帧首定界符</code>（SFD），也称为 <code>帧首</code>（<strong>1 字节</strong>），该字段<code>用于发送设备与接收设备之间的同步</code>。帧开头的<strong>8 个字节</strong> 用于引起接收节点的注意。**<code>基本上，前几个字节的作用是告诉接收方准备接收新帧。</code>**</td>
 </tr>
 <tr>
 <td align="left"><strong>目的 MAC 地址字段</strong></td>
@@ -977,11 +985,11 @@
 </tr>
 <tr>
 <td align="left"><strong>数据字段</strong></td>
-<td align="left">该字段（<strong>46-1500 字节</strong>）包含来自较高层的封装数据，<code>一般是第3层PDU或更常见的IPv4 数据包</code>。<strong><code>所有帧至少必须有 64 个字节。如果封装的是小数据包， 则使用填充位将帧 增大到最小值</code></strong>。</td>
+<td align="left">该字段（<strong>46-1500 字节</strong>）包含来自较高层的封装数据，<code>一般是第3层PDU或更常见的IPv4 数据包</code>。**<code>所有帧至少必须有 64 个字节。如果封装的是小数据包， 则使用填充位将帧 增大到最小值</code>**。</td>
 </tr>
 <tr>
 <td align="left"><strong>帧校验序列字段</strong></td>
-<td align="left">“帧校验序列 (FCS)”字段（<strong>4 个字节</strong>）用于检测帧中 的错误。它使用循环冗余校验（CRC）。<code>发送设备</code>在帧的 FCS 字段中包含 CRC 的结果。<code>接收设备</code>接收帧并生成 CRC 以查找 错误。<strong><code>如果计算匹配，就不会发生错误</code></strong>。 <strong><code>计算不匹配则表明数据已经改变。因此， 帧会被丢弃</code></strong>。数据的变化可能是由于代表比特位的电信号受到干扰所致。</td>
+<td align="left">“帧校验序列 (FCS)”字段（<strong>4 个字节</strong>）用于检测帧中 的错误。它使用循环冗余校验（CRC）。<code>发送设备</code>在帧的 FCS 字段中包含 CRC 的结果。<code>接收设备</code>接收帧并生成 CRC 以查找 错误。**<code>如果计算匹配，就不会发生错误</code>**。 **<code>计算不匹配则表明数据已经改变。因此， 帧会被丢弃</code>**。数据的变化可能是由于代表比特位的电信号受到干扰所致。</td>
 </tr>
 </tbody></table>
 <hr>
@@ -1368,7 +1376,8 @@ Protocol  Address          Age (min)  Hardware Addr   Type   Interface
 Internet  192.168.10.1            -   a0e0.af0d.e140  ARPA   GigabitEthernet0/0/0
 Internet  209.165.200.225         -   a0e0.af0d.e141  ARPA   GigabitEthernet0/0/1
 Internet  209.165.200.226         1   a03d.6fe1.9d91  ARPA   GigabitEthernet0/0/1
-R1#</code></pre>
+R1#
+</code></pre>
 <blockquote>
 <p>在 <code>Windows 10</code> PC 上，<strong>arp –a</strong>命令用于显示 ARP 表。</p>
 </blockquote>
@@ -1387,7 +1396,8 @@ Interface: 192.168.1.124 --- 0x10
   224.0.0.251           01-00-5e-00-00-fb     static
   239.255.255.250       01-00-5e-7f-ff-fa     static
   255.255.255.255       ff-ff-ff-ff-ff-ff     static
-C:\Users\PC&gt;</code></pre>
+C:\Users\PC&gt;
+</code></pre>
 <hr>
 <h3 id="ARP-问题-ARP广播和ARP-欺骗"><a href="#ARP-问题-ARP广播和ARP-欺骗" class="headerlink" title="ARP 问题 - ARP广播和ARP 欺骗"></a>ARP 问题 - ARP广播和ARP 欺骗</h3><p><code>作为广播帧，本地网络上的每台设备都会收到并处理 ARP 请求</code>。在一般的商业网络中，这些广播对网络性能的影响可能微不足道。但是，如图所示，<code>如果大量设备都已启动，并且同时开始使用网络服务，网络性能可能会有短时间的下降</code>。<strong>在设备发出初始 ARP 广播并获取必要的 MAC 地址之后，网络受到的影响将会降至最小</strong>。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/7_10_1.png">
@@ -1467,38 +1477,45 @@ C:\Users\PC&gt;</code></pre>
 <ul>
 <li>配置设备名称。</li>
 </ul>
-<pre><code class="CISCO">Router(config)# hostname hostname</code></pre>
+<pre><code class="CISCO">Router(config)# hostname hostname
+</code></pre>
 <ul>
 <li>保护特权模式。</li>
 </ul>
-<pre><code class="CISCO">Router(config)# enable secret password</code></pre>
+<pre><code class="CISCO">Router(config)# enable secret password
+</code></pre>
 <ul>
 <li>保护用户模式</li>
 </ul>
 <pre><code class="CISCO">Router(config)# line console 0
 Router(config-line)# password password
-Router(config-line)# login</code></pre>
+Router(config-line)# login
+</code></pre>
 <ul>
 <li>保护远程 Telnet / SSH 访问</li>
 </ul>
 <pre><code class="CISCO">Router(config-line)# line vty 0 4
 Router(config-line)# password password
 Router(config-line)# login
-Router(config-line)# transport input {ssh | telnet}</code></pre>
+Router(config-line)# transport input &#123;ssh | telnet&#125;
+</code></pre>
 <ul>
 <li>保护配置文件中的所有密码。</li>
 </ul>
 <pre><code class="CISCO">Router(config-line)# exit
-Router(config)# service password-encryption</code></pre>
+Router(config)# service password-encryption
+</code></pre>
 <ul>
 <li>提供法律通知。</li>
 </ul>
-<pre><code class="CISCO">Router(config)# banner motd delimiter message delimiter</code></pre>
+<pre><code class="CISCO">Router(config)# banner motd delimiter message delimiter
+</code></pre>
 <ul>
 <li>保存配置。</li>
 </ul>
 <pre><code class="CISCO">Router(config)# end
-Router# copy running-config startup-config</code></pre>
+Router# copy running-config startup-config
+</code></pre>
 <h3 id="路由器基本配置示例"><a href="#路由器基本配置示例" class="headerlink" title="路由器基本配置示例"></a>路由器基本配置示例</h3><p>在此示例中，拓扑图中的路由器 R1 将使用初始设置进行配置。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/8_1.png">
 
@@ -1508,7 +1525,8 @@ Router# configure terminal
 Enter configuration commands, one per line.
 End with CNTL/Z.
 Router(config)# hostname R1 
-R1(config)#</code></pre>
+R1(config)#
+</code></pre>
 <p>注意: 注意路由器提示符现在如何显示路由器主机名。</p>
 <p>所有路由器访问都应得到保护。特权 EXEC 模式为用户提供对设备及其配置的完全访问权限。因此，它是要去保护的最重要的模式。</p>
 <p>以下命令保护特权 EXEC 模式和用户 EXEC 模式，启用 Telnet 和 SSH 远程访问，并加密所有明文（即用户 EXEC 和 VTY 线路）密码。</p>
@@ -1526,7 +1544,8 @@ R1(config-line)# transport input ssh telnet
 R1(config-line)# exit 
 R1(config)#
 R1(config)# service password-encryption 
-R1(config)#</code></pre>
+R1(config)#
+</code></pre>
 <p>法律通知警告用户只能由允许用户访问该设备。法律通知配置如下。</p>
 <pre><code class="CISCO">R1(config)# banner motd #
 Enter TEXT message. End with a new line and the #
@@ -1534,13 +1553,15 @@ Enter TEXT message. End with a new line and the #
 WARNING: Unauthorized access is prohibited!
 ***********************************************
 #
-R1(config)#</code></pre>
+R1(config)#
+</code></pre>
 <p>如果前面的命令已配置，路由器意外断电，则所有已配置的命令都将丢失。因此，在实施变更时保存配置非常重要。以下命令将配置保存到 NVRAM。</p>
 <pre><code class="CISCO">R1# copy running-config startup-config
 Destination filename [startup-config]? 
 Building configuration...
 [OK]
-R1#</code></pre>
+R1#
+</code></pre>
 <hr>
 <h3 id="配置路由器接口"><a href="#配置路由器接口" class="headerlink" title="配置路由器接口"></a>配置路由器接口</h3><p>此时，您的路由器已经有了基本配置。下一步将配置它们的接口。这是因为在配置接口之前，终端设备无法访问路由器。思科路由器上有许多不同类型的接口。例如，思科 ISR 4321 路由器配备了两个千兆以太网接口：</p>
 <ul>
@@ -1552,7 +1573,8 @@ R1#</code></pre>
 Router(config-if)# description description-text
 Router(config-if)# ip address ipv4-address subnet-mask
 Router(config-if)# ipv6 address ipv6-address/prefix-length
-Router(config-if)# no shutdown</code></pre>
+Router(config-if)# no shutdown
+</code></pre>
 <p>注意: 当路由器接口启用时，应显示确认已启用链接的信息。</p>
 <p>虽然不需要 description 命令来启用接口，但使用它是一个很好的习惯。通过提供有关所连接的网络类型的信息，可以帮助解决生产网络上的故障。例如，如果接口连接到ISP或服务供应商，则使用description命令输入“第三方连接和联系信息”将会有帮助。</p>
 <p>注意: 说明文字最长不能超过 240 个字符。</p>
@@ -1589,7 +1611,8 @@ R1(config)#
 *Aug  1 01:46:29.170: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/1, changed state to down
 *Aug  1 01:46:32.171: %LINK-3-UPDOWN: Interface GigabitEthernet0/0/1, changed state to up
 *Aug  1 01:46:33.171: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to up
-R1(config)#</code></pre>
+R1(config)#
+</code></pre>
 <p>注意: 注意那些通知我们G0/0/0 和 G0/0/1已启用了的信息。</p>
 <hr>
 <h3 id="检验接口配置"><a href="#检验接口配置" class="headerlink" title="检验接口配置"></a>检验接口配置</h3><p>有多条命令可用于检验接口配置。其中最有用的是 show ip interface brief 和 show ipv6 interface brief 命令，如示例所示。</p>
@@ -1607,7 +1630,8 @@ FE80::201:C9FF:FE89:4502
 2001:DB8:FEED:224::1
 Vlan1 [administratively down/down]
 unassigned 
-R1#</code></pre>
+R1#
+</code></pre>
 <hr>
 <h3 id="配置验证命令"><a href="#配置验证命令" class="headerlink" title="配置验证命令"></a>配置验证命令</h3><p>此表总结了用于验证接口配置的更常用 show 命令。</p>
 <table>
@@ -1692,11 +1716,11 @@ R1#</code></pre>
 <h2 id="IPv4编址"><a href="#IPv4编址" class="headerlink" title="IPv4编址"></a><a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology-IPv4/">IPv4编址</a></h2><hr>
 <h2 id="IPv6编址"><a href="#IPv6编址" class="headerlink" title="IPv6编址"></a><a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology-IPv6/">IPv6编址</a></h2><hr>
 <h2 id="ICMP-消息"><a href="#ICMP-消息" class="headerlink" title="ICMP 消息"></a>ICMP 消息</h2><h3 id="主机可接通性"><a href="#主机可接通性" class="headerlink" title="主机可接通性"></a>主机可接通性</h3><p>ICMP Echo消息可用于测试 IP 网络上主机的可达性。本地主机向一台主机发送 ICMP Echo请求。如果主机可用，目的主机会回应以Echo应答。<code>使用 ICMP Echo消息是ping实用程序的基础</code>。</p>
-<p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_1.png" target="_blank" rel="noopener">H1 向 H2 发送 Echo 请求，询问 H2 是否可达</a></p>
-<p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_2.png" target="_blank" rel="noopener">Echo 请求消息转发</a></p>
-<p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_3.png" target="_blank" rel="noopener">H2 接收到 H1 发送的 Echo 请求，并发送 Echo 应答消息</a></p>
-<p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_4.png" target="_blank" rel="noopener">Echo 应答消息转发</a></p>
-<p><a href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_5.png" target="_blank" rel="noopener">H1 收到 H2 的 Echo 应答</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_1.png">H1 向 H2 发送 Echo 请求，询问 H2 是否可达</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_2.png">Echo 请求消息转发</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_3.png">H2 接收到 H1 发送的 Echo 请求，并发送 Echo 应答消息</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_4.png">Echo 应答消息转发</a></p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_5.png">H1 收到 H2 的 Echo 应答</a></p>
 <hr>
 <h3 id="目的地或服务不可达"><a href="#目的地或服务不可达" class="headerlink" title="目的地或服务不可达"></a>目的地或服务不可达</h3><p>当主机或网关收到无法传送的数据包时，它会使用 ICMP 目的地不可达消息通知源主机，目的地或服务无法到达。消息包括指示数据包为何无法传送的代码。</p>
 <blockquote>
@@ -1945,7 +1969,7 @@ R1#</code></pre>
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#当今网络"><span class="toc-number">2.</span> <span class="toc-text">当今网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络影响着我们的生活"><span class="toc-number">2.1.</span> <span class="toc-text">网络影响着我们的生活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络组件"><span class="toc-number">2.2.</span> <span class="toc-text">网络组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络表示方式和网络拓扑"><span class="toc-number">2.3.</span> <span class="toc-text">网络表示方式和网络拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见网络类型"><span class="toc-number">2.4.</span> <span class="toc-text">常见网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Internet-连接"><span class="toc-number">2.5.</span> <span class="toc-text">Internet 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可靠网络"><span class="toc-number">2.6.</span> <span class="toc-text">可靠网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络趋势"><span class="toc-number">2.7.</span> <span class="toc-text">网络趋势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络安全"><span class="toc-number">2.8.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全解决方案"><span class="toc-number">2.9.</span> <span class="toc-text">安全解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.10.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议和模型"><span class="toc-number">3.</span> <span class="toc-text">协议和模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#规则"><span class="toc-number">3.1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议"><span class="toc-number">3.2.</span> <span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议功能"><span class="toc-number">3.3.</span> <span class="toc-text">协议功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议簇"><span class="toc-number">3.4.</span> <span class="toc-text">协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-协议示例"><span class="toc-number">3.5.</span> <span class="toc-text">TCP&#x2F;IP 协议示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-协议簇"><span class="toc-number">3.6.</span> <span class="toc-text">TCP&#x2F;IP 协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用层"><span class="toc-number">3.7.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传输层"><span class="toc-number">3.8.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互联网层"><span class="toc-number">3.9.</span> <span class="toc-text">互联网层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络接入层"><span class="toc-number">3.10.</span> <span class="toc-text">网络接入层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开放标准"><span class="toc-number">3.11.</span> <span class="toc-text">开放标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互联网标准组织"><span class="toc-number">3.12.</span> <span class="toc-text">互联网标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子和通信标准组织"><span class="toc-number">3.13.</span> <span class="toc-text">电子和通信标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考模型"><span class="toc-number">3.14.</span> <span class="toc-text">参考模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI-模型与-TCP-IP-模型的比较"><span class="toc-number">3.15.</span> <span class="toc-text">OSI 模型与 TCP&#x2F;IP 模型的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据封装"><span class="toc-number">3.16.</span> <span class="toc-text">数据封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据访问"><span class="toc-number">3.17.</span> <span class="toc-text">数据访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层（第3层）逻辑地址"><span class="toc-number">3.18.</span> <span class="toc-text">网络层（第3层）逻辑地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同一网络（局域网）中的设备"><span class="toc-number">3.19.</span> <span class="toc-text">同一网络（局域网）中的设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）地址的作用：相同的-IP-网络（局域网）"><span class="toc-number">3.20.</span> <span class="toc-text">数据链路层（第2层）地址的作用：相同的 IP 网络（局域网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层地址的作用"><span class="toc-number">3.21.</span> <span class="toc-text">网络层地址的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层地址的作用：不同的IP网络"><span class="toc-number">3.22.</span> <span class="toc-text">数据链路层地址的作用：不同的IP网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层（第2层）地址"><span class="toc-number">3.23.</span> <span class="toc-text">数据链路层（第2层）地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-1"><span class="toc-number">3.24.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理层（第-1-层）"><span class="toc-number">4.</span> <span class="toc-text">物理层（第 1 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路层（第-2-层）"><span class="toc-number">5.</span> <span class="toc-text">数据链路层（第 2 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以太网交换"><span class="toc-number">6.</span> <span class="toc-text">以太网交换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网封装"><span class="toc-number">6.1.</span> <span class="toc-text">以太网封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路子层"><span class="toc-number">6.2.</span> <span class="toc-text">数据链路子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-子层"><span class="toc-number">6.3.</span> <span class="toc-text">MAC 子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网帧字段"><span class="toc-number">6.4.</span> <span class="toc-text">以太网帧字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-地址和十六进制"><span class="toc-number">6.5.</span> <span class="toc-text">MAC 地址和十六进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网-MAC-地址"><span class="toc-number">6.6.</span> <span class="toc-text">以太网 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#帧处理"><span class="toc-number">6.7.</span> <span class="toc-text">帧处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单播-MAC-地址"><span class="toc-number">6.8.</span> <span class="toc-text">单播 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广播-MAC-地址"><span class="toc-number">6.9.</span> <span class="toc-text">广播 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组播-MAC-地址"><span class="toc-number">6.10.</span> <span class="toc-text">组播 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-地址表-交换机"><span class="toc-number">6.11.</span> <span class="toc-text">MAC 地址表 - 交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换机学习和转发"><span class="toc-number">6.12.</span> <span class="toc-text">交换机学习和转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤帧"><span class="toc-number">6.13.</span> <span class="toc-text">过滤帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相连交换机上的-MAC-地址表"><span class="toc-number">6.14.</span> <span class="toc-text">相连交换机上的 MAC 地址表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将帧发送到默认网关"><span class="toc-number">6.15.</span> <span class="toc-text">将帧发送到默认网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思科交换机上的帧转发方法"><span class="toc-number">6.16.</span> <span class="toc-text">思科交换机上的帧转发方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直通交换"><span class="toc-number">6.17.</span> <span class="toc-text">直通交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换机上的内存缓冲"><span class="toc-number">6.18.</span> <span class="toc-text">交换机上的内存缓冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双工和速率设置"><span class="toc-number">6.19.</span> <span class="toc-text">双工和速率设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-MDIX"><span class="toc-number">6.20.</span> <span class="toc-text">Auto-MDIX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-2"><span class="toc-number">6.21.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络层（第-3-层）"><span class="toc-number">7.</span> <span class="toc-text">网络层（第 3 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地址解析"><span class="toc-number">8.</span> <span class="toc-text">地址解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同一网络中的目的地"><span class="toc-number">8.1.</span> <span class="toc-text">同一网络中的目的地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程网络中的目的地"><span class="toc-number">8.2.</span> <span class="toc-text">远程网络中的目的地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP概述"><span class="toc-number">8.3.</span> <span class="toc-text">ARP概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-功能"><span class="toc-number">8.4.</span> <span class="toc-text">ARP 功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-请求"><span class="toc-number">8.5.</span> <span class="toc-text">ARP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-操作-ARP-应答"><span class="toc-number">8.6.</span> <span class="toc-text">ARP 操作 - ARP 应答</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-在远程通信中的作用"><span class="toc-number">8.7.</span> <span class="toc-text">ARP 在远程通信中的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从-ARP-表中删除条目"><span class="toc-number">8.8.</span> <span class="toc-text">从 ARP 表中删除条目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络设备上的-ARP-表"><span class="toc-number">8.9.</span> <span class="toc-text">网络设备上的 ARP 表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-问题-ARP广播和ARP-欺骗"><span class="toc-number">8.10.</span> <span class="toc-text">ARP 问题 - ARP广播和ARP 欺骗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-邻居发现"><span class="toc-number">8.11.</span> <span class="toc-text">IPv6 邻居发现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-邻居发现消息"><span class="toc-number">8.12.</span> <span class="toc-text">IPv6 邻居发现消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-邻居发现-地址解析"><span class="toc-number">8.13.</span> <span class="toc-text">IPv6 邻居发现 - 地址解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-3"><span class="toc-number">8.14.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISCO路由器基本配置"><span class="toc-number">9.</span> <span class="toc-text">CISCO路由器基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本路由器配置步骤"><span class="toc-number">9.1.</span> <span class="toc-text">基本路由器配置步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由器基本配置示例"><span class="toc-number">9.2.</span> <span class="toc-text">路由器基本配置示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置路由器接口"><span class="toc-number">9.3.</span> <span class="toc-text">配置路由器接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置路由器接口示例"><span class="toc-number">9.4.</span> <span class="toc-text">配置路由器接口示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检验接口配置"><span class="toc-number">9.5.</span> <span class="toc-text">检验接口配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置验证命令"><span class="toc-number">9.6.</span> <span class="toc-text">配置验证命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置默认网关-主机的默认网关"><span class="toc-number">9.7.</span> <span class="toc-text">配置默认网关 - 主机的默认网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置默认网关-交换机的默认网关"><span class="toc-number">9.8.</span> <span class="toc-text">配置默认网关 - 交换机的默认网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-4"><span class="toc-number">9.9.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv4编址"><span class="toc-number">10.</span> <span class="toc-text">IPv4编址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6编址"><span class="toc-number">11.</span> <span class="toc-text">IPv6编址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-消息"><span class="toc-number">12.</span> <span class="toc-text">ICMP 消息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主机可接通性"><span class="toc-number">12.1.</span> <span class="toc-text">主机可接通性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目的地或服务不可达"><span class="toc-number">12.2.</span> <span class="toc-text">目的地或服务不可达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超时"><span class="toc-number">12.3.</span> <span class="toc-text">超时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMPv6-消息"><span class="toc-number">12.4.</span> <span class="toc-text">ICMPv6 消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping-测试连接性"><span class="toc-number">12.5.</span> <span class="toc-text">Ping 测试连接性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对环回执行-ping-命令"><span class="toc-number">12.6.</span> <span class="toc-text">对环回执行 ping 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向默认网关发出-ping-命令"><span class="toc-number">12.7.</span> <span class="toc-text">向默认网关发出 ping 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping-远程主机"><span class="toc-number">12.8.</span> <span class="toc-text">Ping 远程主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Traceroute-测试路径"><span class="toc-number">12.9.</span> <span class="toc-text">Traceroute - 测试路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-5"><span class="toc-number">12.10.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传输层（第-4-层）"><span class="toc-number">13.</span> <span class="toc-text">传输层（第 4 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#会话层（第-5-层）"><span class="toc-number">14.</span> <span class="toc-text">会话层（第 5 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表示层（第-6-层）"><span class="toc-number">15.</span> <span class="toc-text">表示层（第 6 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用层（第-7-层）"><span class="toc-number">16.</span> <span class="toc-text">应用层（第 7 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络安全基础"><span class="toc-number">17.</span> <span class="toc-text">网络安全基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-☕️"><span class="toc-number">18.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E4%BB%8A%E7%BD%91%E7%BB%9C"><span class="toc-number">2.</span> <span class="toc-text">当今网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BD%B1%E5%93%8D%E7%9D%80%E6%88%91%E4%BB%AC%E7%9A%84%E7%94%9F%E6%B4%BB"><span class="toc-number">2.1.</span> <span class="toc-text">网络影响着我们的生活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%84%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">网络组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F%E5%92%8C%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-number">2.3.</span> <span class="toc-text">网络表示方式和网络拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">常见网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Internet-%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.5.</span> <span class="toc-text">Internet 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E7%BD%91%E7%BB%9C"><span class="toc-number">2.6.</span> <span class="toc-text">可靠网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%B6%8B%E5%8A%BF"><span class="toc-number">2.7.</span> <span class="toc-text">网络趋势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="toc-number">2.8.</span> <span class="toc-text">网络安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.9.</span> <span class="toc-text">安全解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.10.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">协议和模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E5%8A%9F%E8%83%BD"><span class="toc-number">3.3.</span> <span class="toc-text">协议功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E7%B0%87"><span class="toc-number">3.4.</span> <span class="toc-text">协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-%E5%8D%8F%E8%AE%AE%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.5.</span> <span class="toc-text">TCP&#x2F;IP 协议示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP-%E5%8D%8F%E8%AE%AE%E7%B0%87"><span class="toc-number">3.6.</span> <span class="toc-text">TCP&#x2F;IP 协议簇</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">3.7.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">3.8.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%B1%82"><span class="toc-number">3.9.</span> <span class="toc-text">互联网层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5%E5%B1%82"><span class="toc-number">3.10.</span> <span class="toc-text">网络接入层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E6%A0%87%E5%87%86"><span class="toc-number">3.11.</span> <span class="toc-text">开放标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E6%A0%87%E5%87%86%E7%BB%84%E7%BB%87"><span class="toc-number">3.12.</span> <span class="toc-text">互联网标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%92%8C%E9%80%9A%E4%BF%A1%E6%A0%87%E5%87%86%E7%BB%84%E7%BB%87"><span class="toc-number">3.13.</span> <span class="toc-text">电子和通信标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.14.</span> <span class="toc-text">参考模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI-%E6%A8%A1%E5%9E%8B%E4%B8%8E-TCP-IP-%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">3.15.</span> <span class="toc-text">OSI 模型与 TCP&#x2F;IP 模型的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85"><span class="toc-number">3.16.</span> <span class="toc-text">数据封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE"><span class="toc-number">3.17.</span> <span class="toc-text">数据访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%EF%BC%88%E7%AC%AC3%E5%B1%82%EF%BC%89%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80"><span class="toc-number">3.18.</span> <span class="toc-text">网络层（第3层）逻辑地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%80%E7%BD%91%E7%BB%9C%EF%BC%88%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%89%E4%B8%AD%E7%9A%84%E8%AE%BE%E5%A4%87"><span class="toc-number">3.19.</span> <span class="toc-text">同一网络（局域网）中的设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%88%E7%AC%AC2%E5%B1%82%EF%BC%89%E5%9C%B0%E5%9D%80%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9A%E7%9B%B8%E5%90%8C%E7%9A%84-IP-%E7%BD%91%E7%BB%9C%EF%BC%88%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%89"><span class="toc-number">3.20.</span> <span class="toc-text">数据链路层（第2层）地址的作用：相同的 IP 网络（局域网）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E5%9C%B0%E5%9D%80%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">3.21.</span> <span class="toc-text">网络层地址的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E5%9C%B0%E5%9D%80%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9A%E4%B8%8D%E5%90%8C%E7%9A%84IP%E7%BD%91%E7%BB%9C"><span class="toc-number">3.22.</span> <span class="toc-text">数据链路层地址的作用：不同的IP网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%88%E7%AC%AC2%E5%B1%82%EF%BC%89%E5%9C%B0%E5%9D%80"><span class="toc-number">3.23.</span> <span class="toc-text">数据链路层（第2层）地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">3.24.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%EF%BC%88%E7%AC%AC-1-%E5%B1%82%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">物理层（第 1 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%EF%BC%88%E7%AC%AC-2-%E5%B1%82%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">数据链路层（第 2 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2"><span class="toc-number">6.</span> <span class="toc-text">以太网交换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B0%81%E8%A3%85"><span class="toc-number">6.1.</span> <span class="toc-text">以太网封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%AD%90%E5%B1%82"><span class="toc-number">6.2.</span> <span class="toc-text">数据链路子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-%E5%AD%90%E5%B1%82"><span class="toc-number">6.3.</span> <span class="toc-text">MAC 子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E5%AD%97%E6%AE%B5"><span class="toc-number">6.4.</span> <span class="toc-text">以太网帧字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-%E5%9C%B0%E5%9D%80%E5%92%8C%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6"><span class="toc-number">6.5.</span> <span class="toc-text">MAC 地址和十六进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">6.6.</span> <span class="toc-text">以太网 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A7%E5%A4%84%E7%90%86"><span class="toc-number">6.7.</span> <span class="toc-text">帧处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%92%AD-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">6.8.</span> <span class="toc-text">单播 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">6.9.</span> <span class="toc-text">广播 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%92%AD-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">6.10.</span> <span class="toc-text">组播 MAC 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC-%E5%9C%B0%E5%9D%80%E8%A1%A8-%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">6.11.</span> <span class="toc-text">MAC 地址表 - 交换机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%BD%AC%E5%8F%91"><span class="toc-number">6.12.</span> <span class="toc-text">交换机学习和转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%B8%A7"><span class="toc-number">6.13.</span> <span class="toc-text">过滤帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E8%BF%9E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8A%E7%9A%84-MAC-%E5%9C%B0%E5%9D%80%E8%A1%A8"><span class="toc-number">6.14.</span> <span class="toc-text">相连交换机上的 MAC 地址表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%B8%A7%E5%8F%91%E9%80%81%E5%88%B0%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3"><span class="toc-number">6.15.</span> <span class="toc-text">将帧发送到默认网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E7%A7%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8A%E7%9A%84%E5%B8%A7%E8%BD%AC%E5%8F%91%E6%96%B9%E6%B3%95"><span class="toc-number">6.16.</span> <span class="toc-text">思科交换机上的帧转发方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E9%80%9A%E4%BA%A4%E6%8D%A2"><span class="toc-number">6.17.</span> <span class="toc-text">直通交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E4%B8%8A%E7%9A%84%E5%86%85%E5%AD%98%E7%BC%93%E5%86%B2"><span class="toc-number">6.18.</span> <span class="toc-text">交换机上的内存缓冲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%B7%A5%E5%92%8C%E9%80%9F%E7%8E%87%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.19.</span> <span class="toc-text">双工和速率设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-MDIX"><span class="toc-number">6.20.</span> <span class="toc-text">Auto-MDIX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">6.21.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%EF%BC%88%E7%AC%AC-3-%E5%B1%82%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">网络层（第 3 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90"><span class="toc-number">8.</span> <span class="toc-text">地址解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%80%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E7%9B%AE%E7%9A%84%E5%9C%B0"><span class="toc-number">8.1.</span> <span class="toc-text">同一网络中的目的地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E7%9B%AE%E7%9A%84%E5%9C%B0"><span class="toc-number">8.2.</span> <span class="toc-text">远程网络中的目的地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP%E6%A6%82%E8%BF%B0"><span class="toc-number">8.3.</span> <span class="toc-text">ARP概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-%E5%8A%9F%E8%83%BD"><span class="toc-number">8.4.</span> <span class="toc-text">ARP 功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-%E8%AF%B7%E6%B1%82"><span class="toc-number">8.5.</span> <span class="toc-text">ARP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-%E6%93%8D%E4%BD%9C-ARP-%E5%BA%94%E7%AD%94"><span class="toc-number">8.6.</span> <span class="toc-text">ARP 操作 - ARP 应答</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-%E5%9C%A8%E8%BF%9C%E7%A8%8B%E9%80%9A%E4%BF%A1%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">8.7.</span> <span class="toc-text">ARP 在远程通信中的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E-ARP-%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E6%9D%A1%E7%9B%AE"><span class="toc-number">8.8.</span> <span class="toc-text">从 ARP 表中删除条目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84-ARP-%E8%A1%A8"><span class="toc-number">8.9.</span> <span class="toc-text">网络设备上的 ARP 表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP-%E9%97%AE%E9%A2%98-ARP%E5%B9%BF%E6%92%AD%E5%92%8CARP-%E6%AC%BA%E9%AA%97"><span class="toc-number">8.10.</span> <span class="toc-text">ARP 问题 - ARP广播和ARP 欺骗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E9%82%BB%E5%B1%85%E5%8F%91%E7%8E%B0"><span class="toc-number">8.11.</span> <span class="toc-text">IPv6 邻居发现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E9%82%BB%E5%B1%85%E5%8F%91%E7%8E%B0%E6%B6%88%E6%81%AF"><span class="toc-number">8.12.</span> <span class="toc-text">IPv6 邻居发现消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IPv6-%E9%82%BB%E5%B1%85%E5%8F%91%E7%8E%B0-%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90"><span class="toc-number">8.13.</span> <span class="toc-text">IPv6 邻居发现 - 地址解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">8.14.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISCO%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">9.</span> <span class="toc-text">CISCO路由器基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">9.1.</span> <span class="toc-text">基本路由器配置步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="toc-number">9.2.</span> <span class="toc-text">路由器基本配置示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">9.3.</span> <span class="toc-text">配置路由器接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8E%A5%E5%8F%A3%E7%A4%BA%E4%BE%8B"><span class="toc-number">9.4.</span> <span class="toc-text">配置路由器接口示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE"><span class="toc-number">9.5.</span> <span class="toc-text">检验接口配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%AA%8C%E8%AF%81%E5%91%BD%E4%BB%A4"><span class="toc-number">9.6.</span> <span class="toc-text">配置验证命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3-%E4%B8%BB%E6%9C%BA%E7%9A%84%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3"><span class="toc-number">9.7.</span> <span class="toc-text">配置默认网关 - 主机的默认网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3-%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3"><span class="toc-number">9.8.</span> <span class="toc-text">配置默认网关 - 交换机的默认网关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-4"><span class="toc-number">9.9.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv4%E7%BC%96%E5%9D%80"><span class="toc-number">10.</span> <span class="toc-text">IPv4编址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6%E7%BC%96%E5%9D%80"><span class="toc-number">11.</span> <span class="toc-text">IPv6编址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ICMP-%E6%B6%88%E6%81%AF"><span class="toc-number">12.</span> <span class="toc-text">ICMP 消息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%8F%AF%E6%8E%A5%E9%80%9A%E6%80%A7"><span class="toc-number">12.1.</span> <span class="toc-text">主机可接通性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84%E5%9C%B0%E6%88%96%E6%9C%8D%E5%8A%A1%E4%B8%8D%E5%8F%AF%E8%BE%BE"><span class="toc-number">12.2.</span> <span class="toc-text">目的地或服务不可达</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E6%97%B6"><span class="toc-number">12.3.</span> <span class="toc-text">超时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICMPv6-%E6%B6%88%E6%81%AF"><span class="toc-number">12.4.</span> <span class="toc-text">ICMPv6 消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping-%E6%B5%8B%E8%AF%95%E8%BF%9E%E6%8E%A5%E6%80%A7"><span class="toc-number">12.5.</span> <span class="toc-text">Ping 测试连接性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%8E%AF%E5%9B%9E%E6%89%A7%E8%A1%8C-ping-%E5%91%BD%E4%BB%A4"><span class="toc-number">12.6.</span> <span class="toc-text">对环回执行 ping 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3%E5%8F%91%E5%87%BA-ping-%E5%91%BD%E4%BB%A4"><span class="toc-number">12.7.</span> <span class="toc-text">向默认网关发出 ping 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ping-%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA"><span class="toc-number">12.8.</span> <span class="toc-text">Ping 远程主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Traceroute-%E6%B5%8B%E8%AF%95%E8%B7%AF%E5%BE%84"><span class="toc-number">12.9.</span> <span class="toc-text">Traceroute - 测试路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-5"><span class="toc-number">12.10.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%88%E7%AC%AC-4-%E5%B1%82%EF%BC%89"><span class="toc-number">13.</span> <span class="toc-text">传输层（第 4 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%B1%82%EF%BC%88%E7%AC%AC-5-%E5%B1%82%EF%BC%89"><span class="toc-number">14.</span> <span class="toc-text">会话层（第 5 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%A4%BA%E5%B1%82%EF%BC%88%E7%AC%AC-6-%E5%B1%82%EF%BC%89"><span class="toc-number">15.</span> <span class="toc-text">表示层（第 6 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%88%E7%AC%AC-7-%E5%B1%82%EF%BC%89"><span class="toc-number">16.</span> <span class="toc-text">应用层（第 7 层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80"><span class="toc-number">17.</span> <span class="toc-text">网络安全基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">18.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
