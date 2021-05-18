@@ -1716,11 +1716,11 @@ R1#
 <h2 id="IPv4编址"><a href="#IPv4编址" class="headerlink" title="IPv4编址"></a><a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology-IPv4/">IPv4编址</a></h2><hr>
 <h2 id="IPv6编址"><a href="#IPv6编址" class="headerlink" title="IPv6编址"></a><a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology-IPv6/">IPv6编址</a></h2><hr>
 <h2 id="ICMP-消息"><a href="#ICMP-消息" class="headerlink" title="ICMP 消息"></a>ICMP 消息</h2><h3 id="主机可接通性"><a href="#主机可接通性" class="headerlink" title="主机可接通性"></a>主机可接通性</h3><p>ICMP Echo消息可用于测试 IP 网络上主机的可达性。本地主机向一台主机发送 ICMP Echo请求。如果主机可用，目的主机会回应以Echo应答。<code>使用 ICMP Echo消息是ping实用程序的基础</code>。</p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_1.png">H1 向 H2 发送 Echo 请求，询问 H2 是否可达</a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_2.png">Echo 请求消息转发</a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_3.png">H2 接收到 H1 发送的 Echo 请求，并发送 Echo 应答消息</a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_4.png">Echo 应答消息转发</a></p>
-<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_5.png">H1 收到 H2 的 Echo 应答</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_1.png" alt="H1 向 H2 发送 Echo 请求，询问 H2 是否可达"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_2.png" alt="Echo 请求消息转发"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_3.png" alt="H2 接收到 H1 发送的 Echo 请求，并发送 Echo 应答消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_4.png" alt="Echo 应答消息转发"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/11_1_5.png" alt="H1 收到 H2 的 Echo 应答"></p>
 <hr>
 <h3 id="目的地或服务不可达"><a href="#目的地或服务不可达" class="headerlink" title="目的地或服务不可达"></a>目的地或服务不可达</h3><p>当主机或网关收到无法传送的数据包时，它会使用 ICMP 目的地不可达消息通知源主机，目的地或服务无法到达。消息包括指示数据包为何无法传送的代码。</p>
 <blockquote>
