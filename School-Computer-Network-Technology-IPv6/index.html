@@ -952,8 +952,12 @@ R1(config-if)# no shutdown
 <li>IPv6 LLA的动态编址</li>
 </ul>
 <blockquote>
-<p>所有 IPv6 设备都必须有 IPv6 LLA。LLA 可以手动配置或动态创建。操作系统，如Windows，通常会对SLAAC创建的GUA和动态分配的LLA使用相同的方法。当为接口分配GUA时，思科路由器会自动创建 IPv6 LLA。默认情况下，思科 IOS 路由器使用 EUI-64 为 IPv6 接口上的所有LLA生成接口 ID。对于串行接口，路由器会使用以太网接口的 MAC 地址。为了更容易在路由器上识别和记忆这些地址，通常要在路由器上静态配置 IPv6 LLA。要验证 IPv6 地址配置，请使用以下三个命令： show ipv6 interface brief<strong>show ipv6 route、和 ping</strong>。</p>
+<p>所有 IPv6 设备都必须有 IPv6 LLA。LLA 可以手动配置或动态创建。操作系统，如Windows，通常会对SLAAC创建的GUA和动态分配的LLA使用相同的方法。当为接口分配GUA时，思科路由器会自动创建 IPv6 LLA。默认情况下，思科 IOS 路由器使用 EUI-64 为 IPv6 接口上的所有LLA生成接口 ID。对于串行接口，路由器会使用以太网接口的 MAC 地址。为了更容易在路由器上识别和记忆这些地址，通常要在路由器上静态配置 IPv6 LLA。要验证 IPv6 地址配置，请使用以下三个命令：</p>
 </blockquote>
+<pre><code class="bash">show ipv6 interface brief
+show ipv6 route
+ping
+</code></pre>
 <ul>
 <li>IPv6 组播地址</li>
 </ul>
