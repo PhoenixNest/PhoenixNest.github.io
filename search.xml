@@ -29,6 +29,33 @@
     
     
     <entry>
+      <title>Flutter • Initialization</title>
+      <link href="Flutter-Setup/"/>
+      <url>Flutter-Setup/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote><p>本篇将介绍我在学习有关<code>Flutter</code>时的一些笔记分享。</p></blockquote><blockquote><p>Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。 Flutter可以与现有的代码一起工作。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。</p></blockquote><blockquote><p><strong>为什么</strong>使用 Flutter ：</p><ul><li><p>快速开发 - 毫秒级的热重载，修改后，您的应用界面会立即更新。使用丰富的、完全可定制的widget在几分钟内构建原生界面。</p></li><li><p>富有表现力和灵活的UI - 快速发布聚焦于原生体验的功能。分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</p></li><li><p>富有表现力和灵活的UI - Flutter包含了许多核心的widget，如滚动、导航、图标和字体等，这些都可以在iOS和Android上达到原生应用一样的性能。</p></li></ul></blockquote><hr><h2 id="获取-Flutter-SDK"><a href="#获取-Flutter-SDK" class="headerlink" title="获取 Flutter SDK"></a>获取 Flutter SDK</h2><p><a href="https://flutter.dev/docs/get-started/install">Get the Flutter SDK</a></p><blockquote><p>下载完成后解压到任意位置。</p></blockquote><hr><h2 id="安装-Android-Studio"><a href="#安装-Android-Studio" class="headerlink" title="安装 Android Studio"></a>安装 Android Studio</h2><p><a href="https://developer.android.google.cn/studio?hl=zh-cn">Download Android Studio and SDK tools  |  Android Developers</a></p><p><code>Android Studio</code> 将用于下载 <code>Android SDK</code> 与 <code>Flutter</code> &amp;&amp; <code>Dart</code> 两个插件。</p><blockquote><p>插件的下载在 Android Studio 的 Setting - Plugins中，搜索 Flutter 并点击 Install，期间会提示捆绑下载 Dart 插件，两个都下载即可。</p></blockquote><hr><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><blockquote><p>将刚才解压的 flutter 文件路径添加到系统变量的 Path 变量中。</p></blockquote><ul><li>例：D:\flutter\bin</li></ul><hr><h3 id="配置-Flutter-环境变量"><a href="#配置-Flutter-环境变量" class="headerlink" title="配置 Flutter 环境变量"></a>配置 Flutter 环境变量</h3><blockquote><p>在系统变量中新建两个值。</p></blockquote><ul><li><p>PUB_HOSTED_URL = <a href="https://pub.flutter-io.cn/">https://pub.flutter-io.cn</a></p></li><li><p>FLUTTER_STORAGE_BASE_URL = <a href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn</a></p></li></ul><hr><h3 id="配置-Android-SDK-环境变量"><a href="#配置-Android-SDK-环境变量" class="headerlink" title="配置 Android SDK 环境变量"></a>配置 Android SDK 环境变量</h3><blockquote><p>SDK 下载完毕后，在系统变量中新建 ANDROID_HOME 变量，将 SDK 的地址填入即可。</p></blockquote><ul><li>ANDROID_HOME = D:\Android\Android SDK</li></ul><hr><h3 id="配置-Android-toolchain"><a href="#配置-Android-toolchain" class="headerlink" title="配置 Android toolchain"></a>配置 Android toolchain</h3><p><code>Android toolchain</code> 将用于<code>证书许可</code>。</p><p>将 Android SDK 配置到环境变量中后，终端执行：</p><pre><code class="bash">flutter doctor --android-licenses</code></pre><p>根据提示，输入 y ，直到全部许可都得到授权。</p><hr><h3 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h3><p>所有配置完成后，终端执行</p><pre><code class="bash">flutter doctor</code></pre><p>最终结果如下，</p><pre><code class="bash">Doctor summary (to see all details, run flutter doctor -v):[✓] Flutter (Channel beta, 2.2.0-10.3.pre, on Microsoft Windows [Version 10.0.19043.1023], locale zh-CN)[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)[✓] Android Studio (version 4.2.1)[✓] IntelliJ IDEA Ultimate Edition (version 2021.1)[✓] Connected device (2 available)! No issues found!</code></pre><hr><h2 id="Apple-macOS"><a href="#Apple-macOS" class="headerlink" title="Apple macOS"></a>Apple macOS</h2><h3 id="通过终端编辑配置文件"><a href="#通过终端编辑配置文件" class="headerlink" title="通过终端编辑配置文件"></a>通过终端编辑配置文件</h3><blockquote><p>这里使用 vim 进行编辑。</p></blockquote><pre><code class="bash">vim ~/.bash_profile</code></pre><hr><h3 id="配置-Flutter-环境变量-1"><a href="#配置-Flutter-环境变量-1" class="headerlink" title="配置 Flutter 环境变量"></a>配置 Flutter 环境变量</h3><pre><code class="bash">export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn# 这里的 hackintosh 改为你的 macOS 用户名export PATH=/Users/hackintosh/flutter/bin:$PATH</code></pre><hr><h3 id="配置-Android-SDK-环境变量-1"><a href="#配置-Android-SDK-环境变量-1" class="headerlink" title="配置 Android SDK 环境变量"></a>配置 Android SDK 环境变量</h3><pre><code class="bash"># 这里的 hackintosh 改为你的 macOS 用户名export ANDROID_HOME=&quot;/Users/hackintosh/Library/Android/sdk&quot;export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/toolsexport PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools</code></pre><blockquote><p>保存上述配置</p></blockquote><pre><code class="bash">source ~/.bash_profile</code></pre><hr><h3 id="配置-Android-toolchain-1"><a href="#配置-Android-toolchain-1" class="headerlink" title="配置 Android toolchain"></a>配置 Android toolchain</h3><p><code>Android toolchain</code> 将用于<code>证书许可</code>。</p><p>将 Android SDK 配置到环境变量中后，终端执行：</p><pre><code class="bash">flutter doctor --android-licenses</code></pre><p>根据提示，输入 y ，直到全部许可都得到授权。</p><hr><h3 id="flutter-doctor-1"><a href="#flutter-doctor-1" class="headerlink" title="flutter doctor"></a>flutter doctor</h3><p>所有配置完成后，终端执行</p><pre><code class="bash">flutter doctor</code></pre><p>最终结果如下，</p><pre><code class="bash">hackintosh ~ $ flutter doctorDoctor summary (to see all details, run flutter doctor -v):[✓] Flutter (Channel beta, 2.2.0, on Mac OS X 10.13.6 17G14042 darwin-x64, locale zh-Hans-CN)[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)[!] Xcode - develop for iOS and macOS    ✗ Xcode installation is incomplete; a full installation is necessary for iOS development.      Download at: https://developer.apple.com/xcode/download/      Or install Xcode via the App Store.      Once installed, run:        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer        sudo xcodebuild -runFirstLaunch[✓] Chrome - develop for the web[✓] Android Studio (version 4.2)[✓] IntelliJ IDEA Ultimate Edition (version 2021.1.1)[✓] VS Code (version 1.56.2)[!] Proxy Configuration    ! NO_PROXY is not set[✓] Connected device (1 available)! Doctor found issues in 2 categories.hackintosh ~ $ </code></pre><blockquote><p>由于我的机器是黑苹果，且止步于 macOS 10.13.6，无法向上升级（10.14以上不支持 Nvidia 显卡），无法下载 Xcode<br>有能力的读者可以购买白果，或者自行组一台 AMD 的黑苹果，即可解决 Xcode 的系统版本限制问题。</p></blockquote><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flutter </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Flutter </tag>
+            
+            <tag> Cross Platform </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker</title>
       <link href="Docker-Manual/"/>
       <url>Docker-Manual/</url>
@@ -531,31 +558,6 @@
     
     
     <entry>
-      <title>IDS • Snort</title>
-      <link href="IDS-Snort/"/>
-      <url>IDS-Snort/</url>
-      
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p></blockquote><blockquote><p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p></blockquote><hr><h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flexsudo apt-get install snort</code></pre><h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre><h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre><h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogssudo snort -d -l snortLogs</code></pre><p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p><pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre><h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://www.snort.org/">Snort Official</a></p></li><li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p></li><li><p><a href="https://www.wireshark.org/">WireShark</a></p></li></ul><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> IDS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> IDS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux Command Manual</title>
       <link href="Linux-Command-Manual/"/>
       <url>Linux-Command-Manual/</url>
@@ -573,6 +575,31 @@
         <tags>
             
             <tag> Terminal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IDS • Snort</title>
+      <link href="IDS-Snort/"/>
+      <url>IDS-Snort/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p></blockquote><blockquote><p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p></blockquote><hr><h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flexsudo apt-get install snort</code></pre><h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre><h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre><h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogssudo snort -d -l snortLogs</code></pre><p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p><pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre><h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://www.snort.org/">Snort Official</a></p></li><li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p></li><li><p><a href="https://www.wireshark.org/">WireShark</a></p></li></ul><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDS </tag>
             
         </tags>
       
