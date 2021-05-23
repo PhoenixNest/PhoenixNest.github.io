@@ -162,10 +162,14 @@
 <h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_1.png" alt="网络层"></p>
 <p>为了实现跨网络边界的端到端通信，<code>网络层协议执行四个基本操作</code>:</p>
 <ul>
-<li><strong>终端设备编址</strong> - 必须为终端设备配置唯一的 IP 地址，以便在网络上进行识别。</li>
-<li><strong>封装</strong> - 网络层将来自传输层的<strong>协议数据单元 (PDU)</strong> 封装到数据包中。封装过程中会添加 IP 报头信息，例如来源（发送）和目的（接收）主机的 IP 地址。封装过程由 IP 数据包的源主机执行。</li>
-<li><strong>路由</strong> - 网络层提供服务，将数据包转发至另一网络上的目的主机。要传送到其他网络，数据包必须经过路由器的处理。路由器的作用是为数据包选择最佳路径，并将其转发至目的主机，该过程称为路由。数据包可能需要经过很多路由器才能到达目的主机。数据包在到达目的主机的过程中经过的每个路由器均称作一跳。</li>
-<li><strong>解封</strong> - 当数据包到达目的主机的网络层时，主机会检查数据包的 IP 报头。如果在报头中的目的 IP 地址与其自身的 IP 地址匹配，IP 报头将被会从数据包中删除。网络层解封数据包后，后继的第 4 层 PDU 会向上传递到传输层的相应服务。解封过程由 IP 数据包的目的主机执行。</li>
+<li><p><strong>终端设备编址</strong> - 必须为终端设备配置唯一的 IP 地址，以便在网络上进行识别。</p>
+</li>
+<li><p><strong>封装</strong> - 网络层将来自传输层的<strong>协议数据单元 (PDU)</strong> 封装到数据包中。封装过程中会添加 IP 报头信息，例如来源（发送）和目的（接收）主机的 IP 地址。封装过程由 IP 数据包的源主机执行。</p>
+</li>
+<li><p><strong>路由</strong> - 网络层提供服务，将数据包转发至另一网络上的目的主机。要传送到其他网络，数据包必须经过路由器的处理。路由器的作用是为数据包选择最佳路径，并将其转发至目的主机，该过程称为路由。数据包可能需要经过很多路由器才能到达目的主机。数据包在到达目的主机的过程中经过的每个路由器均称作一跳。</p>
+</li>
+<li><p><strong>解封</strong> - 当数据包到达目的主机的网络层时，主机会检查数据包的 IP 报头。如果在报头中的目的 IP 地址与其自身的 IP 地址匹配，IP 报头将被会从数据包中删除。网络层解封数据包后，后继的第 4 层 PDU 会向上传递到传输层的相应服务。解封过程由 IP 数据包的目的主机执行。</p>
+</li>
 </ul>
 <blockquote>
 <p>传输层（OSI 第 4 层）负责管理每台主机上的运行进程之间的数据传输，而网络层通信协议（即，IPv4和IPv6）则指定从一台主机向另一台主机传送数据时使用的数据包结构和处理过程。网络层工作时无需考虑每个数据包中所携带的数据，这使其能够为多台主机之间的多种类型的通信传送数据包。</p>
@@ -186,9 +190,12 @@
 </blockquote>
 <p>这些是IP的基本特征：</p>
 <ul>
-<li><strong>无连接</strong> - 发送数据包前不与目的地建立连接。</li>
-<li><strong>尽力而为</strong> - IP本质上是不可靠的，因为不保证数据包交付。</li>
-<li><strong>介质无关性</strong> - 其工作与传输数据的介质（即铜缆、光纤或无线）无关。</li>
+<li><p><strong>无连接</strong> - 发送数据包前不与目的地建立连接。</p>
+</li>
+<li><p><strong>尽力而为</strong> - IP本质上是不可靠的，因为不保证数据包交付。</p>
+</li>
+<li><p><strong>介质无关性</strong> - 其工作与传输数据的介质（即铜缆、光纤或无线）无关。</p>
+</li>
 </ul>
 <hr>
 <h3 id="无连接"><a href="#无连接" class="headerlink" title="无连接"></a>无连接</h3><blockquote>
@@ -252,9 +259,12 @@
 <p>IPv6 的功能提升包括以下：</p>
 </blockquote>
 <ul>
-<li><strong>更大的地址空间</strong> - IPv6 地址基于 128 位分层编址，而 IPv4 采用的是 32 位。</li>
-<li><strong>改进数据包处理过程</strong> - IPv6 报头简化为更少的字段。</li>
-<li><strong>消除了对 NAT 的需求</strong> - 有了数额如此巨大的公有 IPv6 地址，私有 IPv4 地址和公有 IPv4 地址之间不再需要 NAT。这可避免需要端到端连接的应用程序遇到某些由 NAT 引起的故障。</li>
+<li><p><strong>更大的地址空间</strong> - IPv6 地址基于 128 位分层编址，而 IPv4 采用的是 32 位。</p>
+</li>
+<li><p><strong>改进数据包处理过程</strong> - IPv6 报头简化为更少的字段。</p>
+</li>
+<li><p><strong>消除了对 NAT 的需求</strong> - 有了数额如此巨大的公有 IPv6 地址，私有 IPv4 地址和公有 IPv4 地址之间不再需要 NAT。这可避免需要端到端连接的应用程序遇到某些由 NAT 引起的故障。</p>
+</li>
 </ul>
 <p>32 位的 IPv4 地址空间提供大约 4,294,967,296 个地址。IPv6 地址空间提供 340,282,366,920,938,463,463,374,607,431,768,211,456 个或 340 涧（10 的 36 次方）个地址。这大致相当于地球上的每一粒沙子。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_9.png" alt="IPv4 和 IPv6 地址空间的可视比较"></p>
@@ -284,17 +294,22 @@
 </blockquote>
 <p><strong>网络层的另一个作用是在主机之间转发数据包</strong>。主机可以将数据包发送至如下：</p>
 <ul>
-<li><strong>主机自己</strong> - 主机可以通过向特定的地址发送数据包来向自己发起ping测试，这个特定的地址是：IPv4地址127.0.0.1，或者IPv6地址 ::1，它被称为环回接口。对环回接口执行 ping 操作可以测试主机上的 TCP/IP 协议堆栈。</li>
-<li><strong>本地主机</strong> - 目的主机与发送主机位于同一本地网络。源和目的主机共享同一个网络地址。</li>
-<li><strong>远程主机</strong> - 这是位于远程网络上的目的主机。源和目的主机不共享同一个网络地址。</li>
+<li><p><strong>主机自己</strong> - 主机可以通过向特定的地址发送数据包来向自己发起ping测试，这个特定的地址是：IPv4地址127.0.0.1，或者IPv6地址 ::1，它被称为环回接口。对环回接口执行 ping 操作可以测试主机上的 TCP/IP 协议堆栈。</p>
+</li>
+<li><p><strong>本地主机</strong> - 目的主机与发送主机位于同一本地网络。源和目的主机共享同一个网络地址。</p>
+</li>
+<li><p><strong>远程主机</strong> - 这是位于远程网络上的目的主机。源和目的主机不共享同一个网络地址。</p>
+</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_12.png" alt=" PC1 连接到同一网络上的本地主机和位于另一网络上的远程主机"></p>
 <blockquote>
 <p><code>数据包是要发送到本地主机还是远程主机是由源端设备决定的</code>。<strong>源端设备确定目的 IP 地址是否与源设备本身所在的网络相同。确定方法因 IP 版本不同而异</strong>：</p>
 </blockquote>
 <ul>
-<li><strong>在 IPv4 中</strong> -源设备使用自己的子网掩码以及自己的 IPv4 地址和目的 IPv4 地址来进行此判断。</li>
-<li><strong>在 IPv6 中</strong> -本地路由器将本地网络地址（前缀）通告给网络上的所有设备。</li>
+<li><p><strong>在 IPv4 中</strong> -源设备使用自己的子网掩码以及自己的 IPv4 地址和目的 IPv4 地址来进行此判断。</p>
+</li>
+<li><p><strong>在 IPv6 中</strong> -本地路由器将本地网络地址（前缀）通告给网络上的所有设备。</p>
+</li>
 </ul>
 <p>在家庭或企业网络中，您可能有若干通过中间设备（<strong>LAN 交换机</strong>和/或<strong>无线接入点（WAP）</strong>等）互联的有线和无线设备。这种中间设备在本地网络上的本地主机之间提供互联服务。本地主机可以互相访问和共享信息，无需任何附加设备。如果主机要将数据包发送到与本主机在同一 IP 网络中的设备，则数据包仅是被转发出主机接口，然后经过中间设备即可直接到达目的设备。</p>
 <p>当然，在大多数情况下我们希望我们的设备不仅仅能够连接本地网段，还能连接其他家庭、企业和互联网。位于本地网段外的设备称为远程主机。<code>如果源设备发送数据包到远程目的设备，则需要借助路由器和路由。路由是确定到达目的地之最佳路径的过程。连接到本地网段的路由器称为默认网关</code>。</p>
@@ -304,9 +319,12 @@
 </blockquote>
 <p>在网络上，<code>默认网关通常是</code>具有以下功能的<code>路由器</code>：</p>
 <ul>
-<li>它拥有与本地网络其他主机位于相同地址范围的本地 IP 地址。</li>
-<li>它可以接受数据到本地网络，并将数据转发出本地网络。</li>
-<li>它向其他网络路由流量。</li>
+<li><p>它拥有与本地网络其他主机位于相同地址范围的本地 IP 地址。</p>
+</li>
+<li><p>它可以接受数据到本地网络，并将数据转发出本地网络。</p>
+</li>
+<li><p>它向其他网络路由流量。</p>
+</li>
 </ul>
 <blockquote>
 <p>需要使用默认网关来发送本地网络之外的流量。如果没有默认网关、未配置默认网关地址或默认网关关闭，则无法将流量转发到本地网络之外。</p>
@@ -339,9 +357,12 @@ Network Destination Netmask Gateway Interface Metric
 </code></pre>
 <p>输入<strong>netstat -r</strong>命令或等效的<strong>route print</strong>命令，显示有关当前 TCP/IP 网络连接的三个部分：</p>
 <ul>
-<li><strong>接口列表</strong> - 列出主机上的介质访问控制（MAC）地址和每个网络接口的已分配接口编号，包括以太网、Wi-Fi 和蓝牙适配器。</li>
-<li><strong>IPv4 路由表</strong> - 列出所有已知的 IPv4 路由，包括直接连接、本地网络和本地默认路由。</li>
-<li><strong>IPv6 路由表</strong> - 列出所有已知的 IPv6 路由，包括直接连接、本地网络和本地默认路由。</li>
+<li><p><strong>接口列表</strong> - 列出主机上的介质访问控制（MAC）地址和每个网络接口的已分配接口编号，包括以太网、Wi-Fi 和蓝牙适配器。</p>
+</li>
+<li><p><strong>IPv4 路由表</strong> - 列出所有已知的 IPv4 路由，包括直接连接、本地网络和本地默认路由。</p>
+</li>
+<li><p><strong>IPv6 路由表</strong> - 列出所有已知的 IPv6 路由，包括直接连接、本地网络和本地默认路由。</p>
+</li>
 </ul>
 <hr>
 <h2 id="路由简介"><a href="#路由简介" class="headerlink" title="路由简介"></a>路由简介</h2><h3 id="路由器数据包转发决策"><a href="#路由器数据包转发决策" class="headerlink" title="路由器数据包转发决策"></a>路由器数据包转发决策</h3><blockquote>
@@ -381,17 +402,22 @@ Network Destination Netmask Gateway Interface Metric
 <h3 id="IP-路由器路由表"><a href="#IP-路由器路由表" class="headerlink" title="IP 路由器路由表"></a>IP 路由器路由表</h3><p><code>路由器的路由表包含所有可能的已知目的地网络的路由条目列表。</code></p>
 <p>路由表存储三种类型的路由条目：</p>
 <ul>
-<li><strong>直连网络</strong> - 这些网络路由条目是活动的路由器接口。当接口配置了 IP 地址并激活时，路由器会添加直连路由。每个路由器接口均连接到一个不同的网段。在图中，R1 IPv4路由表中的直连网络为192.168.10.0/24和209.165.200.224/30。</li>
-<li><strong>远程网络</strong> - 这些网络路由条目连接到其他路由器。路由器通过由管理员明确配置或使用动态路由协议交换路由信息来学习远程网络。在图中，R1 IPv4路由表中的远程网络为10.1.1 /24。</li>
-<li><strong>默认路由</strong> - 像主机一样，大多数路由器还包含默认路由条目，即默认网关。当IP路由表中没有更好(更长)的匹配时，将使用默认路由。在图中，R1 IPv4路由表很可能包含一个将所有数据包转发到路由器R2的默认路由。</li>
+<li><p><strong>直连网络</strong> - 这些网络路由条目是活动的路由器接口。当接口配置了 IP 地址并激活时，路由器会添加直连路由。每个路由器接口均连接到一个不同的网段。在图中，R1 IPv4路由表中的直连网络为192.168.10.0/24和209.165.200.224/30。</p>
+</li>
+<li><p><strong>远程网络</strong> - 这些网络路由条目连接到其他路由器。路由器通过由管理员明确配置或使用动态路由协议交换路由信息来学习远程网络。在图中，R1 IPv4路由表中的远程网络为10.1.1 /24。</p>
+</li>
+<li><p><strong>默认路由</strong> - 像主机一样，大多数路由器还包含默认路由条目，即默认网关。当IP路由表中没有更好(更长)的匹配时，将使用默认路由。在图中，R1 IPv4路由表很可能包含一个将所有数据包转发到路由器R2的默认路由。</p>
+</li>
 </ul>
 <p>该图用于确定路由器 R1 的直连和远程网络。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_16.png">
 
 <p>路由器可通过两种方式获知远程网络：</p>
 <ul>
-<li><strong>手动</strong> - 使用静态路由将远程网络手动输入到路由表中。</li>
-<li><strong>动态</strong> - 使用动态路由协议自动学习远程路由。</li>
+<li><p><strong>手动</strong> - 使用静态路由将远程网络手动输入到路由表中。</p>
+</li>
+<li><p><strong>动态</strong> - 使用动态路由协议自动学习远程路由。</p>
+</li>
 </ul>
 <hr>
 <h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><blockquote>
@@ -406,10 +432,14 @@ Network Destination Netmask Gateway Interface Metric
 
 <p>静态路由具有以下特征：</p>
 <ul>
-<li><code>必须手动配置静态路由</code>。</li>
-<li>如果拓扑发生变化，且静态路由不再可用，则管理员需要重新配置静态路由。</li>
-<li>静态路由适用于小型网络且当冗余链路很少或没有冗余链路的情况。</li>
-<li>静态路由通常与动态路由协议一起用于配置默认路由。</li>
+<li><p><code>必须手动配置静态路由</code>。</p>
+</li>
+<li><p>如果拓扑发生变化，且静态路由不再可用，则管理员需要重新配置静态路由。</p>
+</li>
+<li><p>静态路由适用于小型网络且当冗余链路很少或没有冗余链路的情况。</p>
+</li>
+<li><p>静态路由通常与动态路由协议一起用于配置默认路由。</p>
+</li>
 </ul>
 <hr>
 <h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><blockquote>
@@ -420,10 +450,14 @@ Network Destination Netmask Gateway Interface Metric
 
 <p><code>基本配置只需要网络管理员在动态路由协议中启用直连网络</code>。动态路由协议将自动执行如下操作：</p>
 <ul>
-<li>发现远程网络</li>
-<li>维护最新路由信息</li>
-<li>选择通往目的网络的最佳路径</li>
-<li>当前路径无法再使用时尝试找出新的最佳路径</li>
+<li><p>发现远程网络。</p>
+</li>
+<li><p>维护最新路由信息。</p>
+</li>
+<li><p>选择通往目的网络的最佳路径。</p>
+</li>
+<li><p>当前路径无法再使用时尝试找出新的最佳路径。</p>
+</li>
 </ul>
 <p><strong>当使用静态路由手动配置路由器或使用动态路由协议动态学习远程网络时，远程网络地址和下一跳地址将被输入到IP路由表中</strong>。如图所示，如果网络拓扑发生变化，路由器将自动调整并尝试找到新的最佳路径。</p>
 <img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_18_2.png">
@@ -459,11 +493,16 @@ R1#
 </code></pre>
 <p>特权 <strong>EXEC</strong> 模式命令 <strong>show ip route</strong> 用于查看<code>思科 IOS 路由器</code>上的 IPv4 路由表。该示例显示了路由器 R1 的 IPv4 路由表。每个路由表条目的开头都有一个代码，用于标识路由的类型或路由的学习方式。常见路由源（代码）包括以下内容：</p>
 <ul>
-<li><strong>L</strong> - 直连的本地接口 IP 地址</li>
-<li><strong>C</strong> - 直连网络</li>
-<li><strong>S</strong> - 静态路由由管理员手动配置</li>
-<li><strong>O</strong> - OSPF</li>
-<li><strong>D</strong> - EIGRP</li>
+<li><p><strong>L</strong> - 直连的本地接口 IP 地址</p>
+</li>
+<li><p><strong>C</strong> - 直连网络</p>
+</li>
+<li><p><strong>S</strong> - 静态路由由管理员手动配置</p>
+</li>
+<li><p><strong>O</strong> - OSPF</p>
+</li>
+<li><p><strong>D</strong> - EIGRP</p>
+</li>
 </ul>
 <p>路由表显示 R1 的所有已知 IPv4 目的地路由。</p>
 <blockquote>

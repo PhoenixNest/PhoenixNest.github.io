@@ -162,12 +162,18 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 <p>OSI模型的数据链路层（第2层）为物理网络准备网络数据。数据链路层负责网络接口卡（NIC）到网络接口卡的通信。数据链路层执行以下操作：</p>
 </blockquote>
 <ul>
-<li>允许上层访问介质。上层协议完全不知道用于转发数据的介质类型。</li>
-<li>接受数据，通常是第 3 层数据包（即 IPv4 或 IPv6），并将它们封装到第 2 层帧中。</li>
-<li>控制数据在介质上的放置和接收方式，</li>
-<li>通过网络介质在终端之间交换帧。</li>
-<li>接收封装的数据，通常是第 3 层数据包，并将它们定向到适当的上层协议。</li>
-<li>执行错误检测并拒绝任何损坏的帧。</li>
+<li><p>允许上层访问介质。上层协议完全不知道用于转发数据的介质类型。</p>
+</li>
+<li><p>接受数据，通常是第 3 层数据包（即 IPv4 或 IPv6），并将它们封装到第 2 层帧中。</p>
+</li>
+<li><p>控制数据在介质上的放置和接收方式，</p>
+</li>
+<li><p>通过网络介质在终端之间交换帧。</p>
+</li>
+<li><p>接收封装的数据，通常是第 3 层数据包，并将它们定向到适当的上层协议。</p>
+</li>
+<li><p>执行错误检测并拒绝任何损坏的帧。</p>
+</li>
 </ul>
 <hr>
 <p>在计算机网络中，<code>节点是可以沿通信路径接收、创建、存储或转发数据的设备</code>。节点可以是笔记本电脑或移动电话等终端设备，也可以是中间设备如以太网交换机。</p>
@@ -191,9 +197,12 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 <p>MAC 子层控制网卡和负责在有线或无线LAN/MAN介质上发送和接收数据的其他硬件。</p>
 <p>MAC 子层提供数据封装：</p>
 <ul>
-<li><strong>帧定界</strong> - 在成帧过程中提供重要的定界符，用来标识帧中的字段。这些定界符位可以在发送节点与接收节点之间提供同步。</li>
-<li><strong>编址</strong> - 提供源和目的编址，用于在同一共享介质上的设备之间传输第 2 层帧。</li>
-<li><strong>错误检测</strong> - 包含一个帧尾，用于检测传输错误。</li>
+<li><p><strong>帧定界</strong> - 在成帧过程中提供重要的定界符，用来标识帧中的字段。这些定界符位可以在发送节点与接收节点之间提供同步。</p>
+</li>
+<li><p><strong>编址</strong> - 提供源和目的编址，用于在同一共享介质上的设备之间传输第 2 层帧。</p>
+</li>
+<li><p><strong>错误检测</strong> - 包含一个帧尾，用于检测传输错误。</p>
+</li>
 </ul>
 <p>MAC 子层还提供介质访问控制，允许多个设备通过共享（半双工）介质进行通信。全双工通信不需要访问控制。</p>
 <hr>
@@ -218,10 +227,14 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 </blockquote>
 <p>定义适用于网络接入层（即，OSI的物理和数据链路层）的开放标准和协议的工程组织包括：</p>
 <ul>
-<li><strong>电气电子工程师协会 (IEEE)</strong></li>
-<li><strong>国际电信联盟 (ITU)</strong></li>
-<li><strong>国际标准化组织 (ISO)</strong></li>
-<li><strong>美国国家标准学会 (ANSI)</strong></li>
+<li><p><strong>电气电子工程师协会 (IEEE)</strong></p>
+</li>
+<li><p><strong>国际电信联盟 (ITU)</strong></p>
+</li>
+<li><p><strong>国际标准化组织 (ISO)</strong></p>
+</li>
+<li><p><strong>美国国家标准学会 (ANSI)</strong></p>
+</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_3.png" alt="工程组织徽标"></p>
 <hr>
@@ -316,11 +329,14 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 <p>注意: <strong>如今，以太网网络以全双工方式运行，不需要访问方法。</strong></p>
 </blockquote>
 <hr>
-<h3 id="基于竞争的访问-CSMA-CD"><a href="#基于竞争的访问-CSMA-CD" class="headerlink" title="基于竞争的访问 - CSMA/CD"></a>基于竞争的访问 - CSMA/<code>CD</code></h3><p>基于竞争的访问网络示例如下：</p>
+<h3 id="基于竞争的访问-CSMA-CD"><a href="#基于竞争的访问-CSMA-CD" class="headerlink" title="基于竞争的访问 - CSMA/CD"></a>基于竞争的访问 - CSMA/CD</h3><p>基于竞争的访问网络示例如下：</p>
 <ul>
-<li>无线局域网（使用 CSMA/CA）</li>
-<li>传统总线拓扑以太网局域网（使用 CSMA/CD）</li>
-<li>使用集线器的传统以太网局域网（使用 CSMA/CD）</li>
+<li><p>无线局域网（使用 CSMA/CA）</p>
+</li>
+<li><p>传统总线拓扑以太网局域网（使用 CSMA/CD）</p>
+</li>
+<li><p>使用集线器的传统以太网局域网（使用 CSMA/CD）</p>
+</li>
 </ul>
 <p>这些网络在<code>半双工模式</code>下运行，意味着<code>一台设备一次只能发送或接收</code>。这<code>需要有一个进程来管理设备何时可以发送以及当多台设备同时发送时会发生什么情况</code>。</p>
 <p>如果两台设备<code>同时传输</code>，则会发生<code>冲突</code>。<strong>对于传统以太网局域网，两台设备将会检测到网络上的冲突。这就是 CSMA/<code>CD</code> 的冲突检测（<code>CD</code>）部分。</strong>网卡通过比较传输的数据与接收的数据，或通过识别介质中的信号振幅是否高于正常状况来实现。<code>两台设备发送的数据会损坏且需重新发送</code>。</p>
@@ -332,7 +348,7 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_2.png" alt="集线器接收帧"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/4_10_3.png" alt="集线器发送帧"></p>
 <hr>
-<h3 id="基于竞争的访问-CSMA-CA"><a href="#基于竞争的访问-CSMA-CA" class="headerlink" title="基于竞争的访问 - CSMA/CA"></a>基于竞争的访问 - CSMA/<code>CA</code></h3><p><strong>IEEE 802.11 WLAN</strong> 所使用的另一种 CSMA 形式为载波侦听多路访问/冲突避免 (CSMA/<code>CA</code>)。</p>
+<h3 id="基于竞争的访问-CSMA-CA"><a href="#基于竞争的访问-CSMA-CA" class="headerlink" title="基于竞争的访问 - CSMA/CA"></a>基于竞争的访问 - CSMA/CA</h3><p><strong>IEEE 802.11 WLAN</strong> 所使用的另一种 CSMA 形式为载波侦听多路访问/冲突避免 (CSMA/<code>CA</code>)。</p>
 <p>CMSA/<code>CA</code> 采用一种与 CSMA/CD 类似的方法来检测介质是否空闲。CMSA/<code>CA</code> 采用其他技术。在无线环境中，设备可能无法检测到冲突。<strong>CMSA/<code>CA</code> 不会检测冲突</strong>，但会通过在传输之前等待来尝试避免冲突。每台设备发送时都会包含传输所需的持续时间。所有其他无线设备都会收到此信息，知道介质将有多长时间不可用。</p>
 <blockquote>
 <p>在图中，如果主机 A 从接入点接收到一个无线帧，那么主机 B 和 C 也会看到该帧以及介质有多久不可用。</p>
@@ -388,11 +404,16 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 </blockquote>
 <p>WAN 传统上在各种类型的点对点、中心辐射和全网状拓扑中使用其他类型的协议。多年来，一些<code>常见的广域网协议</code>包括：</p>
 <ul>
-<li><strong>点对点协议 (PPP)</strong></li>
-<li><strong>高级数据链路控制 (HDLC)</strong></li>
-<li><strong>帧中继</strong></li>
-<li><strong>异步传输模式 (ATM)</strong></li>
-<li><strong>X.25</strong></li>
+<li><p><strong>点对点协议 (PPP)</strong></p>
+</li>
+<li><p><strong>高级数据链路控制 (HDLC)</strong></p>
+</li>
+<li><p><strong>帧中继</strong></p>
+</li>
+<li><p><strong>异步传输模式 (ATM)</strong></p>
+</li>
+<li><p><strong>X.25</strong></p>
+</li>
 </ul>
 <blockquote>
 <p>这些第2层协议现在正在被以太网在广域网中取代。</p>
@@ -405,11 +426,16 @@ OSI模型的数据链路层（第2层）为物理网络准备网,">
 <p><code>带宽差异常会导致 LAN 和 WAN 使用不同的协议</code>。</p>
 <p>数据链路层协议包括：</p>
 <ul>
-<li><strong>以太网</strong></li>
-<li><strong>802.11 无线</strong></li>
-<li><strong>点对点协议 (PPP)</strong></li>
-<li><strong>高级数据链路控制 (HDLC)</strong></li>
-<li><strong>帧中继</strong></li>
+<li><p><strong>以太网</strong></p>
+</li>
+<li><p><strong>802.11 无线</strong></p>
+</li>
+<li><p><strong>点对点协议 (PPP)</strong></p>
+</li>
+<li><p><strong>高级数据链路控制 (HDLC)</strong></p>
+</li>
+<li><p><strong>帧中继</strong></p>
+</li>
 </ul>
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
