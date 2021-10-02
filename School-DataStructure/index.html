@@ -110,13 +110,13 @@ Program = Data Structure + Alg,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    15k
+                    21k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    27 mins.
+                    39 mins.
                 </span>
                     
                     
@@ -430,7 +430,7 @@ for (int j = 1; j &lt;= n; j *= 2)
 &#125; ADT 抽象数据类型名
 </code></pre>
 <hr>
-<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><blockquote>
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h3><blockquote>
 <p>线性表(List)，作为<code>最简单</code>、<code>最基本</code>，也是<code>最常用</code>的一种<code>线性结构</code>。线性表是<code>n个</code>数据<code>元素的有限序列</code>。元素可以是<code>各种各样</code>的，但<code>必须有相同性质</code>，属于<code>同一种</code>数据对象。</p>
 </blockquote>
 <p>例，XX学校设有n个学院，可用<code>线性表表示</code>如下：</p>
@@ -527,7 +527,7 @@ public:
 </code></pre>
 <hr>
 <h3 id="线性表的【顺序】表示"><a href="#线性表的【顺序】表示" class="headerlink" title="线性表的【顺序】表示"></a>线性表的【顺序】表示</h3><blockquote>
-<p>线性表在计算机内部有多种表示方法，最简单最<code>常用</code>的<code>方法</code>即用<code>顺序表示</code>。即在内存中用<code>地址连续</code>的一块<code>有限</code>的<code>表空间</code>，<code>存储</code>线性表的<code>各种元素</code>，这种形式存储的线性表称为<code>顺序表</code>。</p>
+<p>线性表 (List) 在计算机内部有多种表示方法，最简单最<code>常用</code>的<code>方法</code>即用<code>顺序表示</code>。即在内存中用<code>地址连续</code>的一块<code>有限</code>的<code>表空间</code>，<code>存储</code>线性表的<code>各种元素</code>，这种形式存储的线性表称为<code>顺序表</code>。</p>
 <p>顺序表用<code>物理</code>上的<code>相邻</code>(即内存中的<code>地址</code>是<code>连续</code>的，如：同一批产品的生产序号)<code>实现</code>元素之间的<code>逻辑相邻</code>关系。</p>
 </blockquote>
 <p>假定顺序表中的<code>每个元素占k个存储单元</code>(如：一个元素占8个存储单元)，若知道<code>第一个元素</code>的地址(如：1000，即基地址)为<code>Loc(a0)</code>，则<code>位序为i的元素的地址</code>为：</p>
@@ -1113,51 +1113,62 @@ int linkList&lt;T&gt;::prior(const T &amp;value) const
         return count;
 &#125;
 </code></pre>
-<hr>
-<h3 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h3><p><code>单链表</code>中只有一个指向后继的指针，使得单链表只能从头结点依次顺序地向后遍历。<code>要访问某个结点的前驱结点（插入、删除操作时），只能从头开始遍历</code>，访问后继结点的时间复杂度为：O(1)，访问前驱结点的时间复杂度为：O(n)。</p>
-<p>为了克服单链表的上述缺点，引入了双链表，<code>双链表结点中有两个指针prior和next，分别指向其前驱和后继结点</code>。</p>
-<pre><code class="C">// 定义双链表结点类型
-typedef struct DNode&#123;
+<!-- ---
+
+### 双链表
+
+`单链表`中只有一个指向后继的指针，使得单链表只能从头结点依次顺序地向后遍历。`要访问某个结点的前驱结点（插入、删除操作时），只能从头开始遍历`，访问后继结点的时间复杂度为：O(1)，访问前驱结点的时间复杂度为：O(n)。
+
+为了克服单链表的上述缺点，引入了双链表，`双链表结点中有两个指针prior和next，分别指向其前驱和后继结点`。
+
+```C
+// 定义双链表结点类型
+typedef struct DNode{
     ElemType data;              // 数据域
     struct DNode *prior,*next;  // 前驱和后继指针
-&#125;DNode, *DLinkList
-</code></pre>
-<hr>
-<h3 id="双链表的运算"><a href="#双链表的运算" class="headerlink" title="双链表的运算"></a>双链表的运算</h3><ul>
-<li>插入</li>
-</ul>
-<p>原：(p)-&gt;(c)</p>
-<p>后：(p)-&gt;(s)-&gt;(c)</p>
-<blockquote>
-<p>算法思想：</p>
-<ol>
-<li>先将待插入结点挂链</li>
-<li>解除插入元素前驱与后继关联（断链），并将其指向新结点。</li>
-</ol>
-</blockquote>
-<pre><code class="C">// 将结点 *s 插入到 结点 *p 之后
-s-&gt;next = p-&gt;next;
-p-&gt;next-&gt;prior = s;
-s-&gt;prior = p;
-p-&gt;next =s;
-</code></pre>
-<hr>
-<ul>
-<li>删除</li>
-</ul>
-<p>原：(p)-&gt;(q)-&gt;(c)</p>
-<p>后：(p)-&gt;(c)</p>
-<blockquote>
-<p>算法思想：</p>
-<ol>
-<li>将待删除结点q的后继指针赋值给前驱结点p中的后继指针</li>
-<li>修改待删除结点的后继结点c中的前驱指针，使其指向前一结点p</li>
-</ol>
-</blockquote>
-<pre><code class="C">p-&gt;next = q-&gt;next;
-q-&gt;next-&gt;prior = p;
+}DNode, *DLinkList
+```
+
+---
+
+### 双链表的运算
+
++ 插入
+
+原：(p)->(c)
+
+后：(p)->(s)->(c)
+
+> 算法思想：
+> 1. 先将待插入结点挂链
+> 2. 解除插入元素前驱与后继关联（断链），并将其指向新结点。
+
+```C
+// 将结点 *s 插入到 结点 *p 之后
+s->next = p->next;
+p->next->prior = s;
+s->prior = p;
+p->next =s;
+```
+
+---
+
++ 删除
+
+原：(p)->(q)->(c)
+
+后：(p)->(c)
+
+> 算法思想：
+> 1. 将待删除结点q的后继指针赋值给前驱结点p中的后继指针
+> 2. 修改待删除结点的后继结点c中的前驱指针，使其指向前一结点p
+
+```C
+p->next = q->next;
+q->next->prior = p;
 free(q);
-</code></pre>
+``` -->
+
 <hr>
 <h3 id="顺序表、链表的比较"><a href="#顺序表、链表的比较" class="headerlink" title="顺序表、链表的比较"></a>顺序表、链表的比较</h3><table>
 <thead>
@@ -1207,6 +1218,566 @@ free(q);
 <td>基于指针，适合动态性较强（插入删除操作频繁）的线性表</td>
 </tr>
 </tbody></table>
+<hr>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="基本定义-1"><a href="#基本定义-1" class="headerlink" title="基本定义"></a>基本定义</h3><blockquote>
+<p>栈 (Stack) 是只允许在一端进行插入或删除操作的<code>线性表</code>。</p>
+<p>首先栈是一种线性表，但限定这种线性表只能在某一端进行插入和删除操作。</p>
+<p>栈的规律类似手枪的弹夹，羽毛球桶。</p>
+</blockquote>
+<p>栈顶：指线性表允许进行插入删除的一端</p>
+<p>栈底：固定的，不允许进行插入删除的另一端</p>
+<p>栈规则：<code>后进先出</code></p>
+<hr>
+<h3 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的<code>抽象数据类型</code></h3><pre><code class="C++">template &lt;class T&gt;
+class Stack
+&#123;
+public:
+    virtual bool empty() const = 0;        //* 判栈空
+    virtual int size() const = 0;          //* 返回栈大小
+    virtual void push(const T &amp;value) = 0; //* 进栈
+    virtual T pop() = 0;                   //* 出栈
+    virtual T getTop() const = 0;          //* 返回栈顶元素
+    virtual void clear() = 0;              //* 清空栈
+    virtual ~Stack()&#123;&#125;;
+&#125;;
+</code></pre>
+<hr>
+<h3 id="自定义的异常处理类-1"><a href="#自定义的异常处理类-1" class="headerlink" title="自定义的异常处理类"></a>自定义的异常处理类</h3><pre><code class="C++">
+class outOfRange : public exception
+&#123;
+public:
+    const char *what() const throw()
+    &#123;
+        return &quot;OUT of RANGE&quot;;
+    &#125;
+&#125;;
+
+class errorSize : public exception
+&#123;
+public:
+    const char *what() const throw()
+    &#123;
+        return &quot;ERROR size&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<hr>
+<h3 id="栈的【顺序】表示"><a href="#栈的【顺序】表示" class="headerlink" title="栈的【顺序】表示"></a>栈的【顺序】表示</h3><blockquote>
+<p>采用顺序存储的栈称为顺序栈，利用一组地址连续的存储单元存放自栈底到栈顶的数据元素，同时附设 top 指针指向当前栈顶元素位置。</p>
+</blockquote>
+<pre><code class="C++">template &lt;class T&gt;
+class seqStack : public Stack&lt;T&gt;
+&#123;
+private:
+    T *data;       //* 顺序栈中元素的数组
+    int top;       //* 顺序栈顶指针，指向栈顶元素
+    int maxSize;   //* 顺序栈的大小
+    void resize(); //* 扩顺序栈空间
+
+public:
+    //* 构造函数
+    seqStack(int initSize = 100)
+    &#123;
+        if (initSize &lt;= 0)
+            throw errorSize();
+
+        data = new T[initSize]; //* 数组
+        maxSize = initSize;     //* 当top == maxSize - 1，则表示栈满
+        top = -1;               //* 初始时top = -1，表示栈空
+    &#125;
+
+    ~seqStack() &#123; delete[] data; &#125;;          //* 析构函数
+    bool empty() const &#123; return top == -1; &#125; //* 判栈空
+    int size() const &#123; return top + 1; &#125;     //* 返回顺序栈大小
+    void clear()                             //* 清空顺序栈
+    &#123;
+        //* 直接将top指针初始化即可清空栈
+        top = -1;
+    &#125;;
+    void push(const T &amp;value); //* 顺序栈进栈
+    T pop();                   //* 顺序栈出栈
+    T getTop() const;          //* 获取顺序栈栈顶元素
+&#125;;
+</code></pre>
+<hr>
+<h3 id="顺序栈的运算"><a href="#顺序栈的运算" class="headerlink" title="顺序栈的运算"></a>顺序栈的运算</h3><ul>
+<li>入栈，进栈</li>
+</ul>
+<blockquote>
+<p>从栈顶依次将元素按后进先出的规则填充入栈。<br>需<code>注意</code>：入栈时，栈顶指针先 +1，后元素入栈。</p>
+</blockquote>
+<p><code>时间</code>复杂度：栈<code>满</code>时：O(n)，栈<code>未满</code>时：O(1)</p>
+<pre><code class="C++">template &lt;class T&gt;
+void seqStack&lt;T&gt;::push(const T &amp;value)
+&#123;
+    //* 当top == maxSize - 1，表示栈满
+    if (top == maxSize - 1)
+        resize(); //* 若栈满仍插入，则会导致上溢
+
+    // ++top;
+    // data[top] = value;
+    //* --- 等效于下方代码 ---
+    data[++top] = value; //* 修改栈顶指针，元素进栈，先+1后写入
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>出栈，弹栈</li>
+</ul>
+<blockquote>
+<p>将栈顶元素按后进先出的规则依次弹出。<br>需<code>注意</code>：出栈时，元素先出栈，后栈顶元素 -1。</p>
+</blockquote>
+<p><code>时间</code>复杂度：O(1)</p>
+<pre><code class="C++">template &lt;class T&gt;
+T seqStack&lt;T&gt;::pop()
+&#123;
+    if (empty()) //* 空栈无法出栈，即下溢
+        throw outOfRange();
+
+    // --top;
+    // return data[top]
+    //* --- 等效于下方代码 ---
+    return data[top--]; //* 修改栈顶指针，元素出栈，先出栈后-1
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>取栈顶元素</li>
+</ul>
+<blockquote>
+<p>输出栈顶元素的值。</p>
+</blockquote>
+<p><code>时间</code>复杂度：O(1)</p>
+<pre><code class="C++">template &lt;class T&gt;
+T seqStack&lt;T&gt;::getTop() const
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    return data[top]; //* 直接返回栈顶元素
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>扩大栈空间</li>
+</ul>
+<blockquote>
+<p>算法思想：</p>
+<ol>
+<li>遍历旧栈元素并临时存储。</li>
+<li>申请新栈（容量大于旧栈，如申请两倍、三倍空间）。</li>
+<li>将临时存放的旧栈元素依次重新填充进入新栈。</li>
+<li>释放旧栈空间。</li>
+</ol>
+</blockquote>
+<p><code>时间</code>复杂度：O(n)</p>
+<pre><code class="C++">template &lt;class T&gt;
+void seqStack&lt;T&gt;::resize()
+&#123;
+    T *temp = data;                  //* 将旧栈区数据临时存储
+    data = new T[2 * maxSize];        //* 扩大栈区大小
+    for (int i = 0; i &lt; maxSize; ++i) //* 将旧栈区的数据赋值到新栈区
+        data[i] = temp[i];
+
+    maxSize *= 2;
+    delete[] temp; //* 释放旧栈区
+&#125;
+</code></pre>
+<hr>
+<h3 id="栈的【链式】表示"><a href="#栈的【链式】表示" class="headerlink" title="栈的【链式】表示"></a>栈的【链式】表示</h3><blockquote>
+<p>链栈的优点是便于<code>多个栈共享存储空间和使用效率</code>，且<code>不存在栈满上溢的现象</code>。<br>链栈通常采用<code>单链表</code>表示，并规定<code>所有操作均在单链表表头进行</code>。</p>
+</blockquote>
+<pre><code class="C++">template &lt;class T&gt;
+class linkStack : public Stack&lt;T&gt;
+&#123;
+private:
+    struct Node
+    &#123;
+        T data;
+        Node *next;
+        Node() &#123; next = NULL; &#125;
+        Node(const T &amp;value, Node *p = NULL)
+        &#123;
+            data = value;
+            next = p;
+        &#125;
+    &#125;;
+    Node *top;
+
+public:
+    linkStack() &#123; top = NULL; &#125;;               //* 初始化空栈
+    ~linkStack() &#123; clear(); &#125;;                 //* 析构函数
+    void clear();                              //* 清空栈
+    bool empty() const &#123; return top == NULL; &#125; //* 判栈空，时间复杂度：O(n)
+    int size() const;                          //* 返回链栈长度
+    void push(const T &amp;value);                 //* 进栈
+    T pop();                                   //* 出栈
+    T getTop() const;                          //* 返回栈顶元素
+&#125;;
+</code></pre>
+<hr>
+<h3 id="链栈的运算"><a href="#链栈的运算" class="headerlink" title="链栈的运算"></a>链栈的运算</h3><ul>
+<li>栈长度</li>
+</ul>
+<p><code>时间</code>复杂度：O(n)</p>
+<pre><code class="C++">template &lt;class T&gt;
+int linkStack&lt;T&gt;::size() const
+&#123;
+    Node *p = top;
+    int count = 0;
+    while (p) //* 遍历栈，统计元素个数
+    &#123;
+        count++;
+        p = p-&gt;next;
+    &#125;
+
+    return count;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>入栈，进栈</li>
+</ul>
+<p><code>时间</code>复杂度：O(1)</p>
+<pre><code class="C++">template &lt;class T&gt;
+void linkStack&lt;T&gt;::push(const T &amp;value)
+&#123;
+    Node *p = new Node(value, top); //* 在栈顶插入元素
+    top = p;                        //* 更新栈顶指针
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>出栈，弹栈</li>
+</ul>
+<p><code>时间</code>复杂度：O(1)</p>
+<pre><code class="C++">template &lt;class T&gt;
+T linkStack&lt;T&gt;::pop()
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    Node *p = top;
+    T value = p-&gt;data; //* 保留栈顶元素的值
+    top = top-&gt;next;   //* 更新栈顶指针至下一个栈顶元素
+    delete p;          //* 释放出栈的栈顶元素
+    return value;      //* 返回出栈元素值
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>取栈顶元素</li>
+</ul>
+<p><code>时间</code>复杂度：O(1)</p>
+<pre><code class="C++">template &lt;class T&gt;
+T linkStack&lt;T&gt;::getTop() const
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    return top-&gt;data; //* 返回栈顶元素值
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>清空栈</li>
+</ul>
+<p>时间复杂度：O(n)</p>
+<pre><code class="C++">template &lt;class T&gt;
+void linkStack&lt;T&gt;::clear()
+&#123;
+    Node *p;
+    while (top != NULL)
+    &#123;
+        p = top;         //* p指向当前栈顶元素
+        top = top-&gt;next; //*top指针依次指向写一个栈顶元素
+        delete p;        //* 释放p指向的当前元素
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h3 id="基本定义-2"><a href="#基本定义-2" class="headerlink" title="基本定义"></a>基本定义</h3><blockquote>
+<p>队列（Queue），是一种<code>操作受限</code>的线性表，<code>只允许在表的一端进行插入，在表的另一端进行删除</code>。</p>
+<p>向队列中<code>插入</code>元素的操作成为入队或进队。</p>
+<p><code>删除</code>元素称为出队或离队。</p>
+<p>参考现实中排队的例子不难总结队列的规律：<code>先进先出</code></p>
+</blockquote>
+<hr>
+<h3 id="队列的抽象数据类型"><a href="#队列的抽象数据类型" class="headerlink" title="队列的抽象数据类型"></a>队列的抽象数据类型</h3><pre><code class="C++">template &lt;class T&gt;
+class Queue
+&#123;
+public:
+    virtual bool empty() const = 0;           //* 判队空
+    virtual int size() const = 0;             //* 求队长
+    virtual void clear() = 0;                 //* 清空队列
+    virtual void enQueue(const T &amp;value) = 0; //* 入队
+    virtual T deQueue() = 0;                  //* 出队
+    virtual T getHead() const = 0;            //* 获取队头元素
+    virtual ~Queue();                         //* 析构函数
+&#125;;
+</code></pre>
+<hr>
+<h3 id="自定义的异常处理类-2"><a href="#自定义的异常处理类-2" class="headerlink" title="自定义的异常处理类"></a>自定义的异常处理类</h3><pre><code class="C++">class outOfRange : public exception
+&#123;
+public:
+    const char *what() const throw()
+    &#123;
+        return &quot;ERROR, out of range&quot;;
+    &#125;
+&#125;;
+
+class errorSize : public exception
+&#123;
+public:
+    const char *what() const throw()
+    &#123;
+        return &quot;ERROR, error size&quot;;
+    &#125;
+&#125;;
+</code></pre>
+<hr>
+<h3 id="队列的【顺序】表示"><a href="#队列的【顺序】表示" class="headerlink" title="队列的【顺序】表示"></a>队列的【顺序】表示</h3><blockquote>
+<p>队列的顺序实现是指分配一块<code>连续的存储单元</code>存放队列中的元素，并附设两个指针：</p>
+<p><code>队头指针</code> front 指向队头元素</p>
+<p><code>队尾指针</code> rear 指向队尾元素的下一个位置</p>
+</blockquote>
+<pre><code class="C++">template &lt;class T&gt;
+class seqQueue : public Queue&lt;T&gt;
+&#123;
+private:
+    T *data;       //* 存放数据的数组
+    int maxSize;   //* 队列大小
+    int front;     //* 队首指针
+    int rear;      //* 队尾指针
+    void resize(); //* 扩大队列容量
+
+public:
+    seqQueue(int size = 100);
+    ~seqQueue() &#123; delete[] data; &#125;
+    void clear() &#123; front = rear = 1; &#125;
+    bool empty() const &#123; return front == rear; &#125;
+    bool full() const &#123; (rear + 1) % maxSize == front; &#125;
+    int size() const &#123; return (rear - front + maxSize) % maxSize; &#125;
+    void enQueue(const T &amp;value);
+    T deQueue();
+    T getHead() const;
+&#125;;
+</code></pre>
+<hr>
+<h3 id="顺序队列的运算"><a href="#顺序队列的运算" class="headerlink" title="顺序队列的运算"></a>顺序队列的运算</h3><ul>
+<li>初始化</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+seqQueue&lt;T&gt;::seqQueue(int initSize)
+&#123;
+    if (initSize &lt;= 0)
+        throw errorSize();
+
+    data = new T[initSize];
+    maxSize = initSize;
+    front = rear = -1;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>进队，入队</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+void seqQueue&lt;T&gt;::enQueue(const T &amp;value)
+&#123;
+    if ((rear + 1) % maxSize == front)
+        resize();
+
+    rear = (rear + 1) % maxSize;
+    data[rear] = value;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>出队，离队</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+T seqQueue&lt;T&gt;::deQueue()
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    front = (front + 1) % maxSize;
+    return data[front];
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>取队头元素</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+T seqQueue&lt;T&gt;::getHead() const
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    return data[(front + 1) % maxSize];
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>扩大队列容量</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+void seqQueue&lt;T&gt;::resize()
+&#123;
+    T *p = data;
+    data = new T[2 * maxSize];
+    for (int i = 1; i &lt; maxSize; ++i)
+        data[i] = p[(front + i) % maxSize];
+
+    front = 0;
+    rear = maxSize - 1;
+    maxSize *= 2;
+    delete p;
+&#125;
+</code></pre>
+<hr>
+<h3 id="队列的【链式】表示"><a href="#队列的【链式】表示" class="headerlink" title="队列的【链式】表示"></a>队列的【链式】表示</h3><blockquote>
+<p>队列的链式表示成为链队列，它实际上是一个<code>同时带有队头指针和队尾指针的单链表</code>。</p>
+<p><code>头指针</code>指向<code>对头</code>结点</p>
+<p><code>尾指针</code>指向<code>队尾</code>结点</p>
+</blockquote>
+<pre><code class="C++">template &lt;class T&gt;
+class linkQueue : public Queue&lt;T&gt;
+&#123;
+private:
+    struct Node
+    &#123;
+        T data;
+        Node *next;
+        Node(const T &amp;value, Node *n = NULL)
+        &#123;
+            data = value;
+            next = n;
+        &#125;
+
+        Node() : next(NULL) &#123;&#125;
+        ~Node();
+    &#125;;
+
+    Node *front, *rear;
+
+public:
+    linkQueue() &#123; front = rear = NULL; &#125;
+    ~linkQueue();
+    void clear();
+    bool empty() const &#123; return front == NULL; &#125;;
+    int size() const;
+    void enQueue(const T &amp;value);
+    T deQueue();
+    T getHead() const;
+&#125;;
+</code></pre>
+<hr>
+<h3 id="链队列的运算"><a href="#链队列的运算" class="headerlink" title="链队列的运算"></a>链队列的运算</h3><ul>
+<li>析构</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+linkQueue&lt;T&gt;::~linkQueue&lt;T&gt;()
+&#123;
+    Node *p;
+    while (front != NULL)
+    &#123;
+        p = front;
+        front = front-&gt;next;
+        delete p;
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>清空链队列</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+void linkQueue&lt;T&gt;::clear()
+&#123;
+    Node *p;
+    while (front != NULL)
+    &#123;
+        p = front;
+        front = front-&gt;next;
+        delete p;
+    &#125;
+
+    rear = NULL;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>求队长</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+int linkQueue&lt;T&gt;::size() const
+&#123;
+    Node *p = front;
+    int count = 0;
+    while (p)
+    &#123;
+        count++;
+        p = p-&gt;next;
+    &#125;
+
+    return count;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>入队，进队</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+void linkQueue&lt;T&gt;::enQueue(const T &amp;value)
+&#123;
+    if (rear == NULL)
+    &#123;
+        front = rear = new Node(value);
+    &#125;
+    else
+    &#123;
+        rear-&gt;next = new Node(value);
+        rear = rear-&gt;next;
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>出队</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+T linkQueue&lt;T&gt;::deQueue()
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    Node *p = front;
+    T value = front-&gt;data;
+    front = front-&gt;next;
+    
+    if (front == NULL)
+        rear = NULL;
+
+    delete p;
+    return value;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>输出队头元素</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+T linkQueue&lt;T&gt;::getHead() const
+&#123;
+    if (empty())
+        throw outOfRange();
+
+    return front-&gt;data;
+&#125;
+</code></pre>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -1268,7 +1839,7 @@ free(q);
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Data-Structure-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Program &#x3D; Data Structure + Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">3.</span> <span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">4.1.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0"><span class="toc-number">4.2.</span> <span class="toc-text">数据元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text">数据项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.4.</span> <span class="toc-text">数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">数据的逻辑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">数据的存储结构(物理结构)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">4.7.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">4.8.</span> <span class="toc-text">算法的设计要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E8%A1%A1%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-number">4.9.</span> <span class="toc-text">算法效率的衡量方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.10.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.11.</span> <span class="toc-text">空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.12.</span> <span class="toc-text">抽象数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">线性表的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB"><span class="toc-number">5.2.</span> <span class="toc-text">自定义的异常处理类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.3.</span> <span class="toc-text">线性表的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.4.</span> <span class="toc-text">顺序表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.5.</span> <span class="toc-text">线性表的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.6.</span> <span class="toc-text">单链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">5.7.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.8.</span> <span class="toc-text">双链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">5.9.</span> <span class="toc-text">顺序表、链表的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">5.10.</span> <span class="toc-text">实际应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Data-Structure-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Program &#x3D; Data Structure + Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">3.</span> <span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">4.1.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0"><span class="toc-number">4.2.</span> <span class="toc-text">数据元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text">数据项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.4.</span> <span class="toc-text">数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">数据的逻辑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">数据的存储结构(物理结构)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">4.7.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">4.8.</span> <span class="toc-text">算法的设计要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E8%A1%A1%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-number">4.9.</span> <span class="toc-text">算法效率的衡量方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.10.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.11.</span> <span class="toc-text">空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.12.</span> <span class="toc-text">抽象数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89"><span class="toc-number">5.1.</span> <span class="toc-text">基本定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">线性表的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB"><span class="toc-number">5.3.</span> <span class="toc-text">自定义的异常处理类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.4.</span> <span class="toc-text">线性表的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.5.</span> <span class="toc-text">顺序表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.6.</span> <span class="toc-text">线性表的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.7.</span> <span class="toc-text">单链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">5.8.</span> <span class="toc-text">顺序表、链表的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">5.9.</span> <span class="toc-text">实际应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88"><span class="toc-number">6.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89-1"><span class="toc-number">6.1.</span> <span class="toc-text">基本定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.2.</span> <span class="toc-text">栈的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB-1"><span class="toc-number">6.3.</span> <span class="toc-text">自定义的异常处理类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">6.4.</span> <span class="toc-text">栈的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">6.5.</span> <span class="toc-text">顺序栈的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">6.6.</span> <span class="toc-text">栈的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%A0%88%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">6.7.</span> <span class="toc-text">链栈的运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">7.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89-2"><span class="toc-number">7.1.</span> <span class="toc-text">基本定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">7.2.</span> <span class="toc-text">队列的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB-2"><span class="toc-number">7.3.</span> <span class="toc-text">自定义的异常处理类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">7.4.</span> <span class="toc-text">队列的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">7.5.</span> <span class="toc-text">顺序队列的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">7.6.</span> <span class="toc-text">队列的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E9%98%9F%E5%88%97%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">7.7.</span> <span class="toc-text">链队列的运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">8.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
