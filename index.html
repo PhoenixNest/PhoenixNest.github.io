@@ -472,124 +472,6 @@
     <div class="post-cover animated fadeIn" style="
             background-image:
             radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/operating_system.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/操作系统">
-                    <b>「 </b>操作系统<b> 」</b>
-                </a>
-            
-            一月 13, 2021
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/School-Operating-System-2-Process/" title="操作系统 • （二）进程" class="posttitle">操作系统 • （二）进程</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        976
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                        2 mins.
-                    </span>
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <blockquote>
-<p>本篇整理了我学习<code>操作系统</code>时的一些笔记。<br>所用教学平台：<a href="%22https://www.bilibili.com/%22">BiliBili</a></p>
-</blockquote>
-<hr>
-<h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><p>就是一个指令序列。</p>
-<hr>
-<h3 id="早期的计算机（只支持单道程序）"><a href="#早期的计算机（只支持单道程序）" class="headerlink" title="早期的计算机（只支持单道程序）"></a>早期的计算机（只支持<code>单道</code>程序）</h3><p>此时该程序进程将<code>占用所有计算机的 CPU、内存、I/O设备资源</code>。</p>
-<p>进程对内存的存放也只是单一固定的存放，为典型的栈结构，栈顶可为程序段，栈底为数据段。</p>
-<blockquote>
-<p><strong>程序的代码存放在程序段内</strong>。<br><strong>程序运行过程处理的数据放在数据段...</strong></p></blockquote>
-            
-            <span class="read-more"><a href="/School-Operating-System-2-Process/" title="查看全文" class="posttitle">查看全文</a> <b
-                        class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/operating_system.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/操作系统">
-                    <b>「 </b>操作系统<b> 」</b>
-                </a>
-            
-            一月 13, 2021
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/School-Operating-System-1-Introduction/" title="操作系统 • （一）绪论" class="posttitle">操作系统 • （一）绪论</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        7k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                        13 mins.
-                    </span>
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <blockquote>
-<p>本篇整理了我学习<code>操作系统</code>时的一些笔记。<br>所用教学平台：<a href="%22https://www.bilibili.com/%22">BiliBili</a></p>
-</blockquote>
-<hr>
-<p>控制和管理计算机系统资源，合理调度各类资源，提高系统效率，方便用户使用的<code>系统软件</code>。核心如下：</p>
-<ul>
-<li><p><code>控制和管理</code>计算机系统的<code>硬件、软件资源</code>。</p>
-</li>
-<li><p><code>合理调度</code>各类资源，提高系统效率和吞吐量。</p>
-</li>
-<li><p><code>方便用户</code>使用。</p>
-</li>
-<li><p>硬件系统之上的<code>第一层软件</code>。</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>用户和计算机间的接口</strong>：使用户能够...</p></li></ul>
-            
-            <span class="read-more"><a href="/School-Operating-System-1-Introduction/" title="查看全文" class="posttitle">查看全文</a> <b
-                        class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
             url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg);">
     </div>
     <div class="else">
@@ -680,6 +562,110 @@
 <h3 id="威胁类型"><a href="#威胁类型" class="headerlink" title="威胁类型"></a>威胁类型</h3><p>有线和无线计算机网络是人们日常活动中不可或缺的一部分。个人和组织都同样依赖其计算机和网络。不速之客的入侵可能导致代价高昂的网络中断和工作成果的丢失。针对网络的攻击有时具有相当的破坏性，可能造成重要信息或资...</p>
             
             <span class="read-more"><a href="/School-Computer-Network-Technology-Cyber-Security/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-IPv6/" title="计算机网络原理 • IPv6 编址" class="posttitle">计算机网络原理 • IPv6 编址</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        22k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        40 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/School-Computer-Network-Technology/#IPv6%E7%BC%96%E5%9D%80">IPv6 编址</a>部分的详细介绍。<br>所用教学平台：<a href="%22https://cn.netacad.com/%22">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="IPv6-的必要性"><a href="#IPv6-的必要性" class="headerlink" title="IPv6 的必要性"></a>IPv6 的必要性</h3><p>您已经知道IPv4的地址用完了。这就是为什么您需要了解 IPv6 的原因。</p>
+<p>IPv6 旨在接替 IPv4。IPv6 拥有更大的 128 位地址空间，提供 340 涧（即，340后面有36个0）个不...</p>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-IPv6/" title="查看全文" class="posttitle">查看全文</a> <b
+                        class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/计算机网络">
+                    <b>「 </b>计算机网络<b> 」</b>
+                </a>
+            
+            一月 11, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/School-Computer-Network-Technology-IPv4/" title="计算机网络原理 • IPv4 编址" class="posttitle">计算机网络原理 • IPv4 编址</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        22k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        40 mins.
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%A4%A7%E5%AD%A6/" rel="tag">大学</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="tag">计算机网络原理</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本篇是对<a href="https://phoenixnest.github.io/Notes-Computer-Network-Technology/">计算机网络原理</a>一文中的<a href="https://phoenixnest.github.io/School-Computer-Network-Technology/#IPv4%E7%BC%96%E5%9D%80">IPv4 编址部分</a>的详细介绍。<br>所用教学平台：<a href="%22https://cn.netacad.com/%22">Cisco Networking Academy</a></p>
+</blockquote>
+<hr>
+<h3 id="IPv4-地址结构-网络部分和主机部分"><a href="#IPv4-地址结构-网络部分和主机部分" class="headerlink" title="IPv4 地址结构 - 网络部分和主机部分"></a>IPv4 地址结构 - 网络部分和主机部分</h3><p>IPv4 地址为32位分层地址，由网络部分和主机部分两个部分组成。在确定网络部分和主机部分时，必须先查看 32 位数据流，如图所示。</p>
+<p></p>
+<blockquote>
+<p>对于同一网络中的所有设备，<code>地址的网...</code></p></blockquote>
+            
+            <span class="read-more"><a href="/School-Computer-Network-Technology-IPv4/" title="查看全文" class="posttitle">查看全文</a> <b
                         class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
