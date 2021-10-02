@@ -505,7 +505,7 @@ public:
     virtual ~List()&#123;&#125;;
 &#125;;
 </code></pre>
-<h3 id="自定义的异常处理类-Customized-Exception-handling-class"><a href="#自定义的异常处理类-Customized-Exception-handling-class" class="headerlink" title="自定义的异常处理类 (Customized Exception handling class)"></a>自定义的<code>异常处理类</code> (Customized Exception handling class)</h3><pre><code class="C++">class outOfRange : public exception
+<h3 id="自定义的异常处理类"><a href="#自定义的异常处理类" class="headerlink" title="自定义的异常处理类"></a>自定义的<code>异常处理类</code></h3><pre><code class="C++">class outOfRange : public exception
 &#123;
 public:
     //* 检查范围有效性
@@ -823,7 +823,7 @@ linkList&lt;T&gt;::~linkList()
 </code></pre>
 <hr>
 <ul>
-<li>清空单链表</li>
+<li><code>清空</code>单链表</li>
 </ul>
 <blockquote>
 <p>清空链表中所有元素。</p>
@@ -877,7 +877,7 @@ int linkList&lt;T&gt;::size() const
 </code></pre>
 <hr>
 <ul>
-<li>遍历单链表</li>
+<li><code>遍历</code>单链表</li>
 </ul>
 <p><code>时间</code>复杂度：<code>O(n)</code></p>
 <p><code>空间</code>复杂度：<code>O(1)</code></p>
@@ -897,7 +897,7 @@ void linkList&lt;T&gt;::traverse() const
 </code></pre>
 <hr>
 <ul>
-<li>头插法创建单链表，<code>可用于逆置链表</code></li>
+<li><code>头插法</code>创建单链表，<code>可用于逆置链表</code></li>
 </ul>
 <p><code>Example</code>：根据线性表(5,4,3,2,1)创建单链表，则读入数据的顺序应为：1,2,3,4,5，和线性表中的逻辑顺序<code>正好相反</code>。</p>
 <blockquote>
@@ -925,7 +925,7 @@ void linkList&lt;T&gt;::headCreate()
 </code></pre>
 <hr>
 <ul>
-<li>尾插法创建单链表</li>
+<li><code>尾插法</code>创建单链表</li>
 </ul>
 <p><code>Example</code>：根据线性表(1,2,3,4,5)创建单链表，则读入顺序应为：1,2,3,4,5，读入顺序与单链表的结点<code>顺序相同</code></p>
 <blockquote>
@@ -951,7 +951,7 @@ void linkList&lt;T&gt;::tailCreate()
 </code></pre>
 <hr>
 <ul>
-<li>查找位于position位置的元素（<code>按序号</code>查找）</li>
+<li><code>查找</code>位于position位置的元素（<code>按序号</code>查找）</li>
 </ul>
 <p><code>时间</code>复杂度：<code>O(n)</code></p>
 <pre><code class="C++">template &lt;class T&gt;
@@ -974,7 +974,7 @@ typename linkList&lt;T&gt;::Node *linkList&lt;T&gt;::getPosition(int position) c
 </code></pre>
 <hr>
 <ul>
-<li>查找值为value的元素（<code>按值</code>查找）</li>
+<li><code>查找</code>值为value的元素（<code>按值</code>查找）</li>
 </ul>
 <p><code>时间</code>复杂度：<code>O(n)</code></p>
 <p><code>空间</code>复杂度：<code>O(1)</code></p>
@@ -1092,7 +1092,7 @@ void linkList&lt;T&gt;::inverse()
 </code></pre>
 <hr>
 <ul>
-<li>查找值为value的前驱</li>
+<li><code>查找</code>值为value的<code>前驱</code>（按值查找）</li>
 </ul>
 <pre><code class="C++">template &lt;class T&gt;
 int linkList&lt;T&gt;::prior(const T &amp;value) const
@@ -1268,7 +1268,7 @@ free(q);
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Data-Structure-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Program &#x3D; Data Structure + Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">3.</span> <span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">4.1.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0"><span class="toc-number">4.2.</span> <span class="toc-text">数据元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text">数据项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.4.</span> <span class="toc-text">数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">数据的逻辑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">数据的存储结构(物理结构)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">4.7.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">4.8.</span> <span class="toc-text">算法的设计要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E8%A1%A1%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-number">4.9.</span> <span class="toc-text">算法效率的衡量方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.10.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.11.</span> <span class="toc-text">空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.12.</span> <span class="toc-text">抽象数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">线性表的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB-Customized-Exception-handling-class"><span class="toc-number">5.2.</span> <span class="toc-text">自定义的异常处理类 (Customized Exception handling class)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.3.</span> <span class="toc-text">线性表的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.4.</span> <span class="toc-text">顺序表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.5.</span> <span class="toc-text">线性表的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.6.</span> <span class="toc-text">单链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">5.7.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.8.</span> <span class="toc-text">双链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">5.9.</span> <span class="toc-text">顺序表、链表的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">5.10.</span> <span class="toc-text">实际应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Data-Structure-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Program &#x3D; Data Structure + Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">3.</span> <span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">4.1.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0"><span class="toc-number">4.2.</span> <span class="toc-text">数据元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text">数据项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.4.</span> <span class="toc-text">数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">数据的逻辑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">数据的存储结构(物理结构)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">4.7.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">4.8.</span> <span class="toc-text">算法的设计要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E8%A1%A1%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-number">4.9.</span> <span class="toc-text">算法效率的衡量方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.10.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">4.11.</span> <span class="toc-text">空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.12.</span> <span class="toc-text">抽象数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.1.</span> <span class="toc-text">线性表的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB"><span class="toc-number">5.2.</span> <span class="toc-text">自定义的异常处理类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.3.</span> <span class="toc-text">线性表的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.4.</span> <span class="toc-text">顺序表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.5.</span> <span class="toc-text">线性表的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.6.</span> <span class="toc-text">单链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">5.7.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">5.8.</span> <span class="toc-text">双链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">5.9.</span> <span class="toc-text">顺序表、链表的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">5.10.</span> <span class="toc-text">实际应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">6.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
