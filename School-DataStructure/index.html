@@ -110,13 +110,13 @@ Program = Data Structure + Alg,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    8.3k
+                    15k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    15 mins.
+                    27 mins.
                 </span>
                     
                     
@@ -152,7 +152,7 @@ Program = Data Structure + Alg,">
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>对实际问题进行<code>缜密解析</code>，并辅以<code>优雅的代码</code>进行编写。<br>本篇整理了我学习数据结构与算法时的一些笔记，相关源码已上传<a target="_blank" rel="noopener" href="https://github.com/PhoenixNest/StudyCPlusPlus">Github</a>托管。</p>
+<p>对实际问题进行<code>缜密解析</code>，并辅以<code>优雅的代码</code>进行编写。<br>本篇整理了我学习数据结构与算法时的一些笔记，相关源码已上传<a target="_blank" rel="noopener" href="https://github.com/PhoenixNest/Hello-C-Plus-Plus">Github</a>托管。</p>
 </blockquote>
 <hr>
 <h2 id="Program-Data-Structure-Algorithm"><a href="#Program-Data-Structure-Algorithm" class="headerlink" title="Program = Data Structure + Algorithm"></a>Program = Data Structure + Algorithm</h2><blockquote>
@@ -423,7 +423,7 @@ for (int j = 1; j &lt;= n; j *= 2)
 </tbody></table>
 <p>该线性表中的<code>每一个元素</code>都是<code>一个学生</code>的成绩，也可看成<code>一个记录</code>，由<code>n个</code>科目成绩的<code>数据项构成</code>。从表中可以看出，每个<code>元素</code>都<code>有相同的数据项</code>，而各个<code>数据项</code>都<code>有自己的数据类型</code>。</p>
 <hr>
-<h2 id="线性表的抽象数据类型"><a href="#线性表的抽象数据类型" class="headerlink" title="线性表的抽象数据类型"></a>线性表的抽象数据类型</h2><h3 id="线性表的抽象数据类型-1"><a href="#线性表的抽象数据类型-1" class="headerlink" title="线性表的抽象数据类型"></a>线性表的<code>抽象数据类型</code></h3><pre><code class="C++">template &lt;class T&gt;
+<h3 id="线性表的抽象数据类型"><a href="#线性表的抽象数据类型" class="headerlink" title="线性表的抽象数据类型"></a>线性表的<code>抽象数据类型</code></h3><pre><code class="C++">template &lt;class T&gt;
 class List
 &#123;
 public:
@@ -460,7 +460,7 @@ public:
 &#125;;
 </code></pre>
 <hr>
-<h2 id="线性表的顺序表示和实现"><a href="#线性表的顺序表示和实现" class="headerlink" title="线性表的顺序表示和实现"></a>线性表的顺序表示和实现</h2><h3 id="线性表的顺序表示"><a href="#线性表的顺序表示" class="headerlink" title="线性表的顺序表示"></a>线性表的顺序表示</h3><p>线性表在计算机内部有多种表示方法，最简单最<code>常用</code>的<code>方法</code>即用<code>顺序表示</code>。即在内存中用<code>地址连续</code>的一块<code>有限</code>的<code>表空间</code>，<code>存储</code>线性表的<code>各种元素</code>，这种形式存储的线性表称为<code>顺序表</code>。</p>
+<h3 id="线性表的【顺序】表示"><a href="#线性表的【顺序】表示" class="headerlink" title="线性表的【顺序】表示"></a>线性表的【顺序】表示</h3><p>线性表在计算机内部有多种表示方法，最简单最<code>常用</code>的<code>方法</code>即用<code>顺序表示</code>。即在内存中用<code>地址连续</code>的一块<code>有限</code>的<code>表空间</code>，<code>存储</code>线性表的<code>各种元素</code>，这种形式存储的线性表称为<code>顺序表</code>。</p>
 <p>顺序表用<code>物理</code>上的<code>相邻</code>(即内存中的<code>地址</code>是<code>连续</code>的，如：同一批产品的生产序号)<code>实现</code>元素之间的<code>逻辑相邻</code>关系。</p>
 <p>假定顺序表中的<code>每个元素占k个存储单元</code>(如：一个元素占8个存储单元)，若知道<code>第一个元素</code>的地址(如：1000，即基地址)为<code>Loc(a0)</code>，则<code>位序为i的元素的地址</code>为：</p>
 <p><code>Loc(ai) = Loc(a0) + i * k (0 &lt;= i &lt;= n-1)</code></p>
@@ -494,8 +494,8 @@ public:
 &#125;;
 </code></pre>
 <hr>
-<h3 id="线性表的运算"><a href="#线性表的运算" class="headerlink" title="线性表的运算"></a>线性表的运算</h3><ul>
-<li>构造函数 (Constructor)</li>
+<h3 id="顺序表的运算"><a href="#顺序表的运算" class="headerlink" title="顺序表的运算"></a>顺序表的运算</h3><ul>
+<li>构造函数</li>
 </ul>
 <pre><code class="C++">template &lt;class T&gt;
 seqList&lt;T&gt;::seqList(int initSize)
@@ -654,31 +654,481 @@ void seqList&lt;T&gt;::resize()
 &#125;
 </code></pre>
 <hr>
-<h3 id="顺序表的特点"><a href="#顺序表的特点" class="headerlink" title="顺序表的特点"></a>顺序表的<code>特点</code></h3><p>顺序表示的线性表(即<code>顺序表</code>)，有以下特点：</p>
-<ul>
-<li>存储密度大</li>
+<!-- ### 顺序表的`特点`
+
+顺序表示的线性表(即`顺序表`)，有以下特点：
+
++ 存储密度大
+
+可在计算机`存储容量范围内存储大量元素`。
+
++ 随机存储
+
+由于`逻辑顺序`与`物理顺序`的`一致性`，顺序表能按元素符号`(下标)`直接存取，具有`随机存储`的优点。
+
++ 插入删除操作开销大
+
+由于要`保持`逻辑顺序和物理顺序的`一致性`，顺序表在进行插入、删除操作时，需要`移动大量的元素`(在`插入`元素`时`需`移动`整个顺序表近乎 `n/2 个元素`，在`删除`元素`时`需移动整个线性表近乎 `(n-1)/2 个元素`)
+
++ 易造成空间浪费与溢出
+
+顺序表需要`提前分配`存储空间，但因预留空间的困难性，分配过程中极`易造成`存储`空间`的`浪费`，而当`分配空间过小`时，则有出现`溢出`的风险。
+
++ 扩容难
+
+`改变`顺序表的`大小时`(如扩大表空间为原来的2倍)，需`要创建`一个`新`的`顺序表`，把`原表`中的数据`复制到新表`中，然后`释放旧表`空间。
+
++ 静态存储与操作
+
+顺序表适合`静态`(不经常进行插入删除操作)、经常`定位访问`的线性表。
+
+--- -->
+
+<h3 id="线性表的【链式】表示"><a href="#线性表的【链式】表示" class="headerlink" title="线性表的【链式】表示"></a>线性表的【链式】表示</h3><p><code>链式存储线性表</code>时，不需要使用地址连续的存储单元，即<code>不需要逻辑上相邻的元素在物理位置上也相邻</code>，它通过“链”建立起数据元素之间的逻辑关系，因此<code>插入和删除操作不需要移动元素</code>，则<code>只需要修改指针</code>，但<code>会失去</code>顺序表<code>随机存储</code>的特点。</p>
+<pre><code class="C++">template &lt;class T&gt;
+class linkList : public List&lt;T&gt;
+&#123;
+private:
+    struct Node
+    &#123;
+        T data;     //* 结点数据域
+        Node *next; //* 结点指针域
+        Node(const T value, Node *p = NULL)
+        &#123;
+            data = value;
+            next = p;
+        &#125;
+
+        Node(Node *p = NULL)
+        &#123;
+            next = p;
+        &#125;
+    &#125;;
+
+    Node *head; //* 单链表头指针
+    Node *tail; //* 单链表尾指针
+    int length; //* 单链表表长
+
+    Node *getPosition(int position) const; //* 返回指向position元素的指针
+
+    void traverseRecursive(Node *p);
+    void traverseNonRecursive1();
+    void traverseNonRecursive2();
+    void traverseNonRecursive3();
+
+public:
+    linkList();  //* 构造函数
+    ~linkList(); //* 析构函数
+
+    void clear();                                     //* 清空单链表，使其成为空表
+    bool empty() const &#123; return head-&gt;next == NULL; &#125; //* 判空
+    int size() const &#123; return length; &#125;               //* 返回单链表的当前实际长度
+    void insert(int position, const T &amp;value);        //* 在位置position上插入一个新元素，表长+1
+    void remove(int position);                        //* 删除位于position的元素
+    int search(const T &amp;value) const;                 //* 查找值为value的元素在单链表中第一次出现的位置
+    T visit(int position) const;                      //* 访问在position位置上的单链表的值
+
+    void traverse() const;           //* 遍历单链表
+    void inverse();                  //* 逆置单链表
+    void headCreate();               //* 头插法创建单链表
+    void tailCreate();               //* 尾插法创建单链表
+    int prior(const T &amp;value) const; //* 查找值为value的元素的前驱结点
+    linkList *Union(linkList&lt;T&gt; *list);
+
+    void outPut();
+&#125;;
+</code></pre>
+<hr>
+<h3 id="单链表的运算"><a href="#单链表的运算" class="headerlink" title="单链表的运算"></a><code>单链表</code>的运算</h3><ul>
+<li>构造函数</li>
 </ul>
-<p>可在计算机<code>存储容量范围内存储大量元素</code>。</p>
+<pre><code class="C++">//** 时间复杂度：O(1)
+template &lt;class T&gt;
+linkList&lt;T&gt;::linkList()
+&#123;
+    head = tail = new Node();
+    length = 0;
+&#125;
+</code></pre>
 <ul>
-<li>随机存储</li>
+<li>析构函数</li>
 </ul>
-<p>由于<code>逻辑顺序</code>与<code>物理顺序</code>的<code>一致性</code>，顺序表能按元素符号<code>(下标)</code>直接存取，具有<code>随机存储</code>的优点。</p>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<pre><code class="C++">
+template &lt;class T&gt;
+linkList&lt;T&gt;::~linkList()
+&#123;
+    clear();
+    delete head;
+&#125;
+</code></pre>
 <ul>
-<li>插入删除操作开销大</li>
+<li>清空单链表</li>
 </ul>
-<p>由于要<code>保持</code>逻辑顺序和物理顺序的<code>一致性</code>，顺序表在进行插入、删除操作时，需要<code>移动大量的元素</code>(在<code>插入</code>元素<code>时</code>需<code>移动</code>整个顺序表近乎 <code>n/2 个元素</code>，在<code>删除</code>元素<code>时</code>需移动整个线性表近乎 <code>(n-1)/2 个元素</code>)</p>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::clear()
+&#123;
+    Node *p, *temp;   //* p为工作指针，指向首元结点
+    p = head-&gt;next;   //* 防止意外修改头指针
+    while (p != NULL) //* 等效于：while(p)&#123;&#125;
+    &#123;
+        temp = p;
+        p = p-&gt;next; //* 指针后移
+        delete temp;
+    &#125;
+
+    head-&gt;next = NULL; //* 头结点指针域置空
+    tail = head;       //* 头尾指针均指向头结点
+    length = 0;
+&#125;
+</code></pre>
 <ul>
-<li>易造成空间浪费与溢出</li>
+<li>求表长</li>
 </ul>
-<p>顺序表需要<code>提前分配</code>存储空间，但因预留空间的困难性，分配过程中极<code>易造成</code>存储<code>空间</code>的<code>浪费</code>，而当<code>分配空间过小</code>时，则有出现<code>溢出</code>的风险。</p>
+<p>算法思想：</p>
+<p>与<code>遍历单链表</code>类似，均需要从第一个元素开始遍历并记录临时存储的长度，直到最后一个元素结束。</p>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<pre><code class="C++">
+template &lt;class T&gt;
+int linkList&lt;T&gt;::size() const
+&#123;
+    return length; //* 直接返回length
+&#125;
+*** 若单链表中未设置变量length存储当前表长，则需要遍历整个单链表以计算表长
+template &lt;class T&gt;
+int linkList&lt;T&gt;::size() const
+&#123;
+    Node *p = head-&gt;next; //* 从头到尾遍历整个单链表
+    int count = 0;
+    while (p != NULL)
+    &#123;
+        count++;
+        p = p-&gt;next;
+    &#125;
+
+    return count;
+&#125;
+</code></pre>
 <ul>
-<li>扩容难</li>
+<li>遍历单链表</li>
 </ul>
-<p><code>改变</code>顺序表的<code>大小时</code>(如扩大表空间为原来的2倍)，需<code>要创建</code>一个<code>新</code>的<code>顺序表</code>，把<code>原表</code>中的数据<code>复制到新表</code>中，然后<code>释放旧表</code>空间。</p>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<p><code>空间</code>复杂度：<code>O(1)</code></p>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::traverse() const
+&#123;
+    Node *p = head-&gt;next;
+    cout &lt;&lt; &quot;traverse: &quot;;
+    while (p != NULL)
+    &#123;
+        cout &lt;&lt; p-&gt;data &lt;&lt; &quot; &quot;;
+        p = p-&gt;next;
+    &#125;
+
+    cout &lt;&lt; endl;
+&#125;
+</code></pre>
 <ul>
-<li>静态存储与操作</li>
+<li>头插法创建单链表，<code>可用于逆置链表</code></li>
 </ul>
-<p>顺序表适合<code>静态</code>(不经常进行插入删除操作)、经常<code>定位访问</code>的线性表。</p>
+<blockquote>
+<p><code>Example</code>：根据线性表(5,4,3,2,1)创建单链表，则读入数据的顺序应为：1,2,3,4,5，和线性表中的逻辑顺序<code>正好相反</code>。</p>
+</blockquote>
+<p>元素插入在链表头部，从后往前插入元素。</p>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::headCreate()
+&#123;
+    Node *p;
+    T value, flag;
+    cout &lt;&lt; &quot;input Elements, ended with: &quot;;
+    cin &gt;&gt; flag; //* 输入结束标志
+
+    while (cin &gt;&gt; value, value != flag)
+    &#123;
+        p = new Node(value, head-&gt;next);
+        head-&gt;next = p;   //* 结点p插入到头结点后面
+        if (head == tail) //* 原链表为空，则结点p为尾结点
+            tail = p;
+
+        length++;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>尾插法创建单链表</li>
+</ul>
+<blockquote>
+<p><code>Example</code>：根据线性表(1,2,3,4,5)创建单链表，则读入顺序应为：1,2,3,4,5，读入顺序与单链表的结点<code>顺序相同</code></p>
+</blockquote>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::tailCreate()
+&#123;
+    Node *p;
+    T value, flag;
+    cout &lt;&lt; &quot;input Elements, ended with: &quot;;
+    cin &gt;&gt; flag; //* 输入结束标志
+
+    while (cin &gt;&gt; value, value != flag)
+    &#123;
+        p = new Node(value, NULL);
+        tail-&gt;next = p; //* 给尾指针的指针域赋值新的元素，结点p插入到尾结点的后面
+        tail = p;       //* 结点p成为新的尾结点
+        length++;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>查找位于position位置的元素（<code>按序号</code>查找）</li>
+</ul>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<pre><code class="C++">template &lt;class T&gt;
+typename linkList&lt;T&gt;::Node *linkList&lt;T&gt;::getPosition(int position) const
+&#123;
+    Node *p = head; //* 查找指针p初始指向头节点
+    int count = 0;
+
+    if (position &lt; -1 || position &gt; length - 1) //* 合法查找位置为(-1..n-1)
+        return NULL;                            //* 当要查找的position非法时返回NULL
+
+    while (count &lt;= position)
+    &#123;
+        p = p-&gt;next;
+        count++;
+    &#125;
+
+    return p; //* 返回位于position位置的结点的指针
+&#125;
+</code></pre>
+<ul>
+<li>查找值为value的元素（<code>按值</code>查找）</li>
+</ul>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<p><code>空间</code>复杂度：<code>O(1)</code></p>
+<pre><code class="C++">template &lt;class T&gt;
+int linkList&lt;T&gt;::search(const T &amp;value) const
+&#123;
+    Node *p = head-&gt;next; //* 从头结点开始扫描链表
+    int count = 0;
+
+    //* 当p不为空与p所指向的data域的值不等于value时，继续扫描链表
+    //* 结束循环条件：指针p为NULL 或 指针p的数据域不等于期望值value
+    while (p != NULL &amp;&amp; p-&gt;data != value)
+    &#123;
+        p = p-&gt;next;
+        count++;
+    &#125;
+
+    if (p == NULL) //* 当p为空时(空表)，直接返回非法值
+        return -1;
+    else
+        return count; //* 返回value在链表中的位置
+&#125;
+</code></pre>
+<ul>
+<li>在单链表的position位置<code>插入</code>值为value的元素，<code>挂链</code></li>
+</ul>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<p><code>空间</code>复杂度：<code>O(1)</code></p>
+<blockquote>
+<p>s为指向新结点的指针，p为指向position-1位置元素的指针<br>(1) s-&gt;next = p-&gt;next<br>(2) p-&gt;next = s</p>
+<blockquote>
+<p>上述也可表示为：<br>p指向当前结点，pre表示前一个结点的指针，在<em>p前（</em>pre后）插入元素q<br>(1) q-&gt;next = pre-&gt;next<br>(2) pre-&gt;next = q</p>
+</blockquote>
+</blockquote>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::insert(int position, const T &amp;value)
+&#123;
+    Node *p, *q;
+    if (position &lt; 0 || position &gt; length) //* 合法位置(0..n)
+        throw outOfRange();
+
+    p = getPosition(position - 1); //* p为指向position-1位置的指针
+    q = new Node(value, p-&gt;next);  //* 生成新结点
+    p-&gt;next = q;                   //* q结点插入到p结点的后面
+    if (p == tail)                 //* 若在表尾插入
+        tail = q;                  //* 则修改表尾指针即可
+
+    length++;
+&#125;
+</code></pre>
+<ul>
+<li>在单链表中<code>删除</code>位于position位置的元素（按序号删除）</li>
+</ul>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<p><code>空间</code>复杂度：<code>O(1)</code></p>
+<blockquote>
+<p>p指向当前结点(即待删除结点)，pre表示前一个结点的指针<br>(1) pre-&gt;next = p-&gt;next || 也可写成：pre-&gt;next = pre-&gt;next-&gt;next，其中将pre-&gt;next看成一个结点(即待删除结点)指针<br>(2) delete p</p>
+</blockquote>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::remove(int position)
+&#123;
+    Node *pre, *p;
+    if (position &lt; 0 || position &gt; length - 1)
+        throw outOfRange();
+
+    pre = getPosition(position - 1); //* pre为指向position-1位置，即待删除元素的前一个元素的指针
+    p = pre-&gt;next;                   //* p为指向pre指针的下一个结点的指针，即指向待删除结点
+    if (p == tail)                   //* 若删除元素位于表尾
+    &#123;
+        tail = pre;       //* 则直接修改表尾
+        pre-&gt;next = NULL; //* 并将待删除元素的前一个元素的指针域指向NULL
+        delete p;         //* 释放待删除结点
+    &#125;
+    else //* 若删除元素位于表间
+    &#123;
+        pre-&gt;next = p-&gt;next; //* 将待删除结点的next指针交付给前一个结点的指针域
+        delete p;            //* 释放待删除结点
+    &#125;
+
+    length--;
+&#125;
+</code></pre>
+<ul>
+<li><code>逆置</code>单链表（<code>头插法</code>实现）</li>
+</ul>
+<p><code>时间</code>复杂度：<code>O(n)</code></p>
+<p><code>空间</code>复杂度：<code>O(1)</code></p>
+<p>算法思想：</p>
+<ol>
+<li>断开链接，构造空链表</li>
+<li><code>将原链表中元素用头插法重新插入head链表</code></li>
+</ol>
+<pre><code class="C++">template &lt;class T&gt;
+void linkList&lt;T&gt;::inverse()
+&#123;
+    Node *p, *temp;    //* p用于遍历单链表，temp用于保存后继结点
+    p = head-&gt;next;    //* 指向首元结点
+    head-&gt;next = NULL; //* 头结点指针域置空，构成空链表
+    if (p)
+        tail = p; //* 更新尾结点
+
+    while (p)
+    &#123;
+        temp = p-&gt;next;       //* 暂存p的后继
+        p-&gt;next = head-&gt;next; //* 修改首元结点
+        head-&gt;next = p;       //* 修改头结点
+        p = temp;             //* 处理下一结点
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>查找值为value的前驱</li>
+</ul>
+<pre><code class="C++">template &lt;class T&gt;
+int linkList&lt;T&gt;::prior(const T &amp;value) const
+&#123;
+    Node *p = head-&gt;next;
+    Node *pre = NULL;
+    int count = -1;
+    while (p &amp;&amp; p-&gt;data != value)
+    &#123;
+        pre = p;
+        p = p-&gt;next;
+        count++;
+    &#125;
+
+    if (p == NULL)
+        return -1;
+    else
+        return count;
+&#125;
+</code></pre>
+<hr>
+<h3 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h3><p><code>单链表</code>中只有一个指向后继的指针，使得单链表只能从头结点依次顺序地向后遍历。<code>要访问某个结点的前驱结点（插入、删除操作时），只能从头开始遍历</code>，访问后继结点的时间复杂度为：O(1)，访问前驱结点的时间复杂度为：O(n)。</p>
+<p>为了克服单链表的上述缺点，引入了双链表，<code>双链表结点中有两个指针prior和next，分别指向其前驱和后继结点</code>。</p>
+<pre><code class="C">// 定义双链表结点类型
+typedef struct DNode&#123;
+    ElemType data;              // 数据域
+    struct DNode *prior,*next;  // 前驱和后继指针
+&#125;DNode, *DLinkList
+</code></pre>
+<hr>
+<h3 id="双链表的运算"><a href="#双链表的运算" class="headerlink" title="双链表的运算"></a>双链表的运算</h3><ul>
+<li>插入</li>
+</ul>
+<p>原：(p)-&gt;(c)</p>
+<p>后：(p)-&gt;(s)-&gt;(c)</p>
+<p>算法思想：</p>
+<ol>
+<li><p>先将待插入结点挂链</p>
+</li>
+<li><p>解除插入元素前驱与后继关联（断链），并将其指向新结点。</p>
+</li>
+</ol>
+<pre><code class="C">// 将结点 *s 插入到 结点 *p 之后
+s-&gt;next = p-&gt;next;
+p-&gt;next-&gt;prior = s;
+s-&gt;prior = p;
+p-&gt;next =s;
+</code></pre>
+<ul>
+<li>删除</li>
+</ul>
+<p>原：(p)-&gt;(q)-&gt;(c)</p>
+<p>后：(p)-&gt;(c)</p>
+<p>算法思想：</p>
+<ol>
+<li><p>将待删除结点q的后继指针赋值给前驱结点p中的后继指针</p>
+</li>
+<li><p>修改待删除结点的后继结点c中的前驱指针，使其指向前一结点p</p>
+</li>
+</ol>
+<pre><code class="C">p-&gt;next = q-&gt;next;
+q-&gt;next-&gt;prior = p;
+free(q);
+</code></pre>
+<hr>
+<h3 id="顺序表、链表的比较"><a href="#顺序表、链表的比较" class="headerlink" title="顺序表、链表的比较"></a>顺序表、链表的比较</h3><table>
+<thead>
+<tr>
+<th align="center"><strong>数据结构</strong></th>
+<th><strong>存取（读写）方式</strong></th>
+<th><strong>逻辑结构与物理结构</strong></th>
+<th><strong>查找、插入和删除操作</strong></th>
+<th><strong>空间分配</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">顺序存储</td>
+<td>顺序存取、随机存取（O(1)）</td>
+<td>逻辑相邻，物理相邻</td>
+<td>按值查找：无序（O(n)），有序（折半查找，O(log2n)）；按序查找：随机访问，O(1)</td>
+<td>预分配空间，易出现空间浪费与溢出</td>
+</tr>
+<tr>
+<td align="center">链式存储</td>
+<td>从头顺序存取（O(n)）</td>
+<td>逻辑相邻，物理不一定相邻</td>
+<td>按值查找：O(n)；按序查找：O(n)</td>
+<td>动态分配，但插入删除需要移动大量元素，操作效率低</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><table>
+<thead>
+<tr>
+<th align="center"><strong>数据结构</strong></th>
+<th><strong>基于存储考虑</strong></th>
+<th><strong>基于运算考虑</strong></th>
+<th><strong>基于环境考虑</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">顺序存储</td>
+<td>未知存储规模时，不宜采用顺序表</td>
+<td>按序号访问时优于链式存储结构，时间复杂度：O(1)；但在插入与删除操作时劣于链式存储，需要移动大量元素，且平均移动一半元素</td>
+<td>实现较为简单，任何高级语言中都有数组类型，适合稳定存储的线性表</td>
+</tr>
+<tr>
+<td align="center">链式存储</td>
+<td>动态分配存储空间，但存储密度低</td>
+<td>按序号访问时，时间复杂度：O(n)；插入删除时优于顺序存储，虽要先查找位置，但总体优于顺序存储</td>
+<td>基于指针，适合动态性较强（插入删除操作频繁）的线性表</td>
+</tr>
+</tbody></table>
 <hr>
 <h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p>
 <p>转载时请注明出处 ©️PhoenixNest</p>
@@ -740,7 +1190,7 @@ void seqList&lt;T&gt;::resize()
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Data-Structure-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Program &#x3D; Data Structure + Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">3.</span> <span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-Basic-Concept"><span class="toc-number">4.</span> <span class="toc-text">基本概念 Basic Concept</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE-Data"><span class="toc-number">4.1.</span> <span class="toc-text">数据 (Data)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0-Data-Element"><span class="toc-number">4.2.</span> <span class="toc-text">数据元素 (Data Element)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text">数据项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.4.</span> <span class="toc-text">数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">数据的逻辑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">数据的存储结构(物理结构)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">算法与算法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">5.2.</span> <span class="toc-text">算法的设计要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E8%A1%A1%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">算法效率的衡量方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">5.4.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">5.5.</span> <span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">抽象数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">7.</span> <span class="toc-text">线性表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.</span> <span class="toc-text">线性表的抽象数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1"><span class="toc-number">8.1.</span> <span class="toc-text">线性表的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB-Customized-Exception-handling-class"><span class="toc-number">8.2.</span> <span class="toc-text">自定义的异常处理类 (Customized Exception handling class)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-number">9.</span> <span class="toc-text">线性表的顺序表示和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA"><span class="toc-number">9.1.</span> <span class="toc-text">线性表的顺序表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">9.2.</span> <span class="toc-text">线性表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">9.3.</span> <span class="toc-text">顺序表的特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">10.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Program-Data-Structure-Algorithm"><span class="toc-number">2.</span> <span class="toc-text">Program &#x3D; Data Structure + Algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Structure"><span class="toc-number">3.</span> <span class="toc-text">Data Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-Basic-Concept"><span class="toc-number">4.</span> <span class="toc-text">基本概念 Basic Concept</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE-Data"><span class="toc-number">4.1.</span> <span class="toc-text">数据 (Data)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0-Data-Element"><span class="toc-number">4.2.</span> <span class="toc-text">数据元素 (Data Element)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">4.3.</span> <span class="toc-text">数据项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.4.</span> <span class="toc-text">数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-number">4.5.</span> <span class="toc-text">数据的逻辑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-number">4.6.</span> <span class="toc-text">数据的存储结构(物理结构)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">算法与算法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">5.2.</span> <span class="toc-text">算法的设计要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E8%A1%A1%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">算法效率的衡量方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">5.4.</span> <span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-number">5.5.</span> <span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">抽象数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">7.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">7.1.</span> <span class="toc-text">线性表的抽象数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB-Customized-Exception-handling-class"><span class="toc-number">7.2.</span> <span class="toc-text">自定义的异常处理类 (Customized Exception handling class)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%A1%BA%E5%BA%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">7.3.</span> <span class="toc-text">线性表的【顺序】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">7.4.</span> <span class="toc-text">顺序表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E3%80%90%E9%93%BE%E5%BC%8F%E3%80%91%E8%A1%A8%E7%A4%BA"><span class="toc-number">7.5.</span> <span class="toc-text">线性表的【链式】表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">7.6.</span> <span class="toc-text">单链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">7.7.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">7.8.</span> <span class="toc-text">双链表的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">7.9.</span> <span class="toc-text">顺序表、链表的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">7.10.</span> <span class="toc-text">实际应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Donate-%E2%98%95%EF%B8%8F"><span class="toc-number">8.</span> <span class="toc-text">Donate ☕️</span></a></li></ol>
                         </div>
                     </div>
                 
