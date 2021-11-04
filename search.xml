@@ -8,7 +8,7 @@
       <link href="Welcome/"/>
       <url>Welcome/</url>
       
-        <content type="html"><![CDATA[<h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>👋 欢迎来到我的博客, 我是<code>PhoenixNest • (Peter Chen)</code>。</p><blockquote><ul><li>一个 <code>吉林大学珠海学院 • 计算机学院 • 软件工程专业</code>的<strong>应届本科毕业生</strong>。</li><li>一个知晓 C++、Java、MySQL、SQL Server 等拼写的程序猿（发量犹在，Still a ROOKIE）。</li><li>一个做过<strong>服务器运维</strong>，知晓 <strong>Linux</strong>，调配过数据库与服务器底层硬件的苦逼练习生。</li><li>一个知晓 MVVM 开发架构，使用过 <strong>Google JetPack</strong> 快速开发框架的Android程序猿。</li><li>一个做过高德地图（<strong>Android</strong>）开发，正在转入 <strong>Flutter</strong> 跨平台开发的新人。</li><li>一个热爱星际争霸2，喜欢暴雪游戏，梦想进入暴雪公司（<strong>Blizzard</strong>）的SCer。</li><li>一个喜欢游泳，曾做过<strong>蛙泳与自由泳教练</strong>的泳客。</li><li>一个接触计算机编程开发<strong>3年</strong>，喜欢学习新技术的<strong>软硬件攻城狮</strong>。</li><li>一个做过高达模型评测，开过电台的小 Up 主。</li><li>一个喜欢拍照，喜欢记录生活，不会讲粤语的广东潮汕人。</li></ul></blockquote><hr><h2 id="My-Favorite-Development-Kit"><a href="#My-Favorite-Development-Kit" class="headerlink" title="My Favorite Development Kit"></a>My Favorite Development Kit</h2><h3 id="Languages"><a href="#Languages" class="headerlink" title="Languages"></a>Languages</h3><blockquote><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/java/java-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg"/></blockquote><hr><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><blockquote><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/github/github-icon.svg"><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg"><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg"><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/jetbrains/jetbrains-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg"/></blockquote><hr><h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><blockquote><img style="display:inline; margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg" /><img style="display:inline; margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-ar21.svg"/></blockquote><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[<h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>👋 欢迎来到我的博客, 我是<code>PhoenixNest • (Peter Chen)</code>。</p><blockquote><ul><li>一个 <code>吉林大学珠海学院（现珠海科技学院） • 计算机学院 • 软件工程专业</code>的<strong>应届本科毕业生</strong>。</li><li>一个知晓 C++、Java、MySQL、SQL Server 等拼写的程序猿（发量犹在，Still a ROOKIE）。</li><li>一个做过<strong>服务器运维</strong>，知晓 <strong>Linux</strong>，调配过数据库与服务器底层硬件的苦逼练习生。</li><li>一个知晓 MVVM 开发架构，使用过 <strong>Google JetPack</strong> 快速开发框架的Android程序猿。</li><li>一个做过高德地图（<strong>Android</strong>）开发，正在转入 <strong>Flutter</strong> 跨平台开发的新人。</li><li>一个热爱星际争霸2，喜欢暴雪游戏，梦想进入暴雪公司（<strong>Blizzard</strong>）的SCer。</li><li>一个喜欢游泳，曾做过<strong>蛙泳与自由泳教练</strong>的泳客。</li><li>一个接触计算机编程开发<strong>3年</strong>，喜欢学习新技术的<strong>软硬件攻城狮</strong>。</li><li>一个做过高达模型评测，开过电台的小 Up 主。</li><li>一个喜欢拍照，喜欢记录生活，不会讲粤语的广东潮汕人。</li></ul></blockquote><hr><h2 id="My-Favorite-Development-Kit"><a href="#My-Favorite-Development-Kit" class="headerlink" title="My Favorite Development Kit"></a>My Favorite Development Kit</h2><h3 id="Languages"><a href="#Languages" class="headerlink" title="Languages"></a>Languages</h3><blockquote><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/java/java-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg"/></blockquote><hr><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><blockquote><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/github/github-icon.svg"><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/gitlab/gitlab-icon.svg"><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg"><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/jetbrains/jetbrains-icon.svg"/><img style="display:inline;margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg"/></blockquote><hr><h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><blockquote><img style="display:inline; margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg" /><img style="display:inline; margin:8px;height=32px;width=32px" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-ar21.svg"/></blockquote><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
       
       
       <categories>
@@ -500,31 +500,6 @@
     
     
     <entry>
-      <title>IDS • Snort</title>
-      <link href="IDS-Snort/"/>
-      <url>IDS-Snort/</url>
-      
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p></blockquote><blockquote><p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p></blockquote><hr><h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flexsudo apt-get install snort</code></pre><h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre><h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre><h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogssudo snort -d -l snortLogs</code></pre><p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p><pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre><h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://www.snort.org/">Snort Official</a></p></li><li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p></li><li><p><a href="https://www.wireshark.org/">WireShark</a></p></li></ul><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
-      
-      
-      <categories>
-          
-          <category> IDS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> IDS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux Command Manual</title>
       <link href="Linux-Command-Manual/"/>
       <url>Linux-Command-Manual/</url>
@@ -542,6 +517,31 @@
         <tags>
             
             <tag> Terminal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IDS • Snort</title>
+      <link href="IDS-Snort/"/>
+      <url>IDS-Snort/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p></blockquote><blockquote><p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p></blockquote><hr><h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flexsudo apt-get install snort</code></pre><h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre><h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre><h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogssudo snort -d -l snortLogs</code></pre><p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p><pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre><h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://www.snort.org/">Snort Official</a></p></li><li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p></li><li><p><a href="https://www.wireshark.org/">WireShark</a></p></li></ul><hr><h2 id="Donate-☕️"><a href="#Donate-☕️" class="headerlink" title="Donate ☕️"></a>Donate ☕️</h2><p>如果你喜欢我的博文，可以通过下面的方式支持我，你的支持是我最大的动力 😘</p><p>转载时请注明出处 ©️PhoenixNest</p><table><thead><tr><th align="center">Donate 😇</th><th align="center">Qr code</th></tr></thead><tbody><tr><td align="center">Wechat</td><td align="center"><img src="/img/wechat.png" alt="Wechat"></td></tr><tr><td align="center">Ali Pay</td><td align="center"><img src="/img/alipay.png" alt="Ali Pay"></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDS </tag>
             
         </tags>
       
