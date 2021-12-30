@@ -1337,6 +1337,6 @@ $(function () {
     '%c Github %c',
     'background:#24272A; color:#73ddd7',
     '',
-    'https://github.com/PhoenixNest'
+    'https://github.com/TriDiamond/hexo-theme-obsidian'
   );
 });
