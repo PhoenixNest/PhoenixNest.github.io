@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Flutter • Initialization - PhoenixNest&#39;s Blog</title>
+    <title>RL • PySC2 - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -13,11 +13,17 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
-本篇将介绍我在学习有关Flutter时的一些笔记分享。
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍我在对《星际争霸2》进行 AI 开发的一些笔记分享。
+相关代码已上传Github托管。
+仅以此文，献给《星际争霸》陪伴度过的第11年。
 
 
-Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界,">
+
+开发环境与所需软件包
+
+
+Windows,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -71,7 +77,7 @@ Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建�
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Flutter • Initialization</h3>
+        <h3 class="subtitle">RL • PySC2</h3>
         <div class="social">
             <div>
                 <div class="share">
@@ -93,35 +99,35 @@ Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建�
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/flutter.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Nature.jpeg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/Flutter"><b>「
-                        </b>FLUTTER<b> 」</b></a>
+                    <a href="/categories/Machine Learning"><b>「
+                        </b>MACHINE LEARNING<b> 」</b></a>
                 
-                五月 23, 2021
+                一月 01, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Flutter-Initialization/" title="Flutter • Initialization" class="">Flutter • Initialization</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Hello-PySC2/" title="RL • PySC2" class="">RL • PySC2</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.9k
+                    3.3k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    5 mins.
+                    6 mins.
                 </span>
                     
                     
-                        <span id="/Flutter-Initialization/" class="leancloud_visitors"
-                              data-flag-title="Flutter • Initialization">
+                        <span id="/Hello-PySC2/" class="leancloud_visitors"
+                              data-flag-title="RL • PySC2">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">0</span>
                 </span>
@@ -130,7 +136,7 @@ Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建�
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Cross-Platform/" rel="tag">Cross Platform</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a></li></ul>
             
         </div>
     </div>
@@ -151,137 +157,202 @@ Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建�
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
-<p>本篇将介绍我在学习有关<code>Flutter</code>时的一些笔记分享。</p>
-</blockquote>
-<blockquote>
-<p>Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。 Flutter可以与现有的代码一起工作。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。</p>
-</blockquote>
-<blockquote>
-<p><strong>为什么</strong>使用 Flutter ：</p>
-<ul>
-<li><p>快速开发 - 毫秒级的热重载，修改后，您的应用界面会立即更新。使用丰富的、完全可定制的widget在几分钟内构建原生界面。</p>
-</li>
-<li><p>富有表现力和灵活的UI - 快速发布聚焦于原生体验的功能。分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</p>
-</li>
-<li><p>富有表现力和灵活的UI - Flutter包含了许多核心的widget，如滚动、导航、图标和字体等，这些都可以在iOS和Android上达到原生应用一样的性能。</p>
-</li>
-</ul>
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍我在对<code>《星际争霸2》进行 AI 开发</code>的一些笔记分享。</p>
+<p>相关代码已上传<a target="_blank" rel="noopener" href="https://github.com/PhoenixNest/Hello-PySC2">Github</a>托管。</p>
+<p>仅以此文，献给《星际争霸》陪伴度过的第11年。</p>
 </blockquote>
 <hr>
-<h2 id="获取-Flutter-SDK"><a href="#获取-Flutter-SDK" class="headerlink" title="获取 Flutter SDK"></a>获取 Flutter SDK</h2><p><a target="_blank" rel="noopener" href="https://flutter.dev/docs/get-started/install">Get the Flutter SDK</a></p>
 <blockquote>
-<p>下载完成后解压到任意位置。</p>
-</blockquote>
-<hr>
-<h2 id="安装-Android-Studio"><a href="#安装-Android-Studio" class="headerlink" title="安装 Android Studio"></a>安装 Android Studio</h2><p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio?hl=zh-cn">Download Android Studio and SDK tools  |  Android Developers</a></p>
-<p><code>Android Studio</code> 将用于下载 <code>Android SDK</code> 与 <code>Flutter</code> &amp;&amp; <code>Dart</code> 两个插件。</p>
-<blockquote>
-<p>插件的下载在 Android Studio 的 Setting - Plugins中，搜索 Flutter 并点击 Install，期间会提示捆绑下载 Dart 插件，两个都下载即可。</p>
-</blockquote>
-<hr>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><blockquote>
-<p>将刚才解压的 flutter 文件路径添加到系统变量的 Path 变量中。</p>
+<p>开发环境与所需软件包</p>
 </blockquote>
 <ul>
-<li>例：D:\flutter\bin</li>
-</ul>
-<hr>
-<h3 id="配置-Flutter-环境变量"><a href="#配置-Flutter-环境变量" class="headerlink" title="配置 Flutter 环境变量"></a>配置 Flutter 环境变量</h3><blockquote>
-<p>在系统变量中新建两个值。</p>
-</blockquote>
-<ul>
-<li><p>PUB_HOSTED_URL = <a target="_blank" rel="noopener" href="https://pub.flutter-io.cn/">https://pub.flutter-io.cn</a></p>
+<li><p>Windows 11 Professional Workstation</p>
 </li>
-<li><p>FLUTTER_STORAGE_BASE_URL = <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn</a></p>
+<li><p>StarCraft II 5.0.8.86383（游戏版本尽量保持最新）</p>
+</li>
+<li><p>PyCharm 2021.3.1 (Professional Edition)</p>
+</li>
+<li><p>Python 3.9.9</p>
+</li>
+<li><p>pip 21.2.4</p>
 </li>
 </ul>
 <hr>
-<h3 id="配置-Android-SDK-环境变量"><a href="#配置-Android-SDK-环境变量" class="headerlink" title="配置 Android SDK 环境变量"></a>配置 Android SDK 环境变量</h3><blockquote>
-<p>SDK 下载完毕后，在系统变量中新建 ANDROID_HOME 变量，将 SDK 的地址填入即可。</p>
+<pre><code class="python"># DeepMind • pysc2 - API指令集
+# BurnySC2 - 基于DeepMind • pysc2 二次封装指令集
+pip install pysc2 burnysc2
+
+# pygame
+pip install pygame
+
+# OpenCV
+pip install opencv-contrib-python
+
+# TensorFlow
+pip install tensorflow
+</code></pre>
+<hr>
+<blockquote>
+<p>参考文献：</p>
 </blockquote>
 <ul>
-<li>ANDROID_HOME = D:\Android\Android SDK</li>
+<li><p><a target="_blank" rel="noopener" href="https://sc2ai.net/">sc2ai.net</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://eschamp.discourse.group/">Eschamp</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/deepmind/pysc2">Deepmind-PySC2</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pythonprogramming.net/starcraft-ii-ai-python-sc2-tutorial/">StarCraft-II-AI-Python-Tutorial</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://burnysc2.github.io/python-sc2/docs/index.html">Burnysc2-Python-Index</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://lotv.spawningtool.com/">Spawning Tool: StarCraft 2 Build Orders</a></p>
+</li>
 </ul>
 <hr>
-<h3 id="配置-Android-toolchain"><a href="#配置-Android-toolchain" class="headerlink" title="配置 Android toolchain"></a>配置 Android toolchain</h3><p><code>Android toolchain</code> 将用于<code>证书许可</code>。</p>
-<p>将 Android SDK 配置到环境变量中后，终端执行：</p>
-<pre><code class="bash">flutter doctor --android-licenses
-</code></pre>
-<p>根据提示，输入 y ，直到全部许可都得到授权。</p>
-<hr>
-<h3 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h3><p>所有配置完成后，终端执行</p>
-<pre><code class="bash">flutter doctor
-</code></pre>
-<p>最终结果如下，</p>
-<pre><code class="bash">Doctor summary (to see all details, run flutter doctor -v):
-[✓] Flutter (Channel beta, 2.2.0-10.3.pre, on Microsoft Windows [Version 10.0.19043.1023], locale zh-CN)
-[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
-[✓] Android Studio (version 4.2.1)
-[✓] IntelliJ IDEA Ultimate Edition (version 2021.1)
-[✓] Connected device (2 available)
-
-! No issues found!
-</code></pre>
-<hr>
-<h2 id="Apple-macOS"><a href="#Apple-macOS" class="headerlink" title="Apple macOS"></a>Apple macOS</h2><h3 id="通过终端编辑配置文件"><a href="#通过终端编辑配置文件" class="headerlink" title="通过终端编辑配置文件"></a>通过终端编辑配置文件</h3><blockquote>
-<p>这里使用 vim 进行编辑。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>游戏介绍（简介来源于百度百科）</p>
 </blockquote>
-<pre><code class="bash">vim ~/.bash_profile
-</code></pre>
+<p>《星际争霸Ⅱ》（StarCraftⅡ）是由暴雪娱乐在2010年7月27日推出的一款即时战略游戏，是《星际争霸》系列的第二部作品。游戏以三部曲的形式推出，即《星际争霸Ⅱ：自由之翼》（Wings of Liberty）、《星际争霸Ⅱ：虫群之心》（Heart of the Swarm）和《星际争霸Ⅱ：虚空之遗》（Legacy of the Void）。《星际争霸Ⅱ》剧情上延续了《星际争霸》初代作品的剧情和世界观，保留了一些《星际争霸》的兵种与建筑，同时一些兵种被赋予了新的技能，一些兵种被淘汰或代替了。旧有兵种、升级兵种以及全新的兵种一一登场，为了各自种族的生存，展开搏杀，战火烧遍整个星系。游戏结构类似于《星际争霸》，主要的游戏技巧着重在资源上，玩家用采集的资源建造不同的建筑、军队并进行升级 。</p>
+<p>《星际争霸》有着专业的职业赛事与选手选拔机制，其中不乏进入过早期有着“电子竞技奥运会”之称的WCG（World Cyber Games），官方赛事有着诸如：暴雪WCS（World Championship Series）世界锦标赛，ESL（Electronic Sports League）电子竞技联盟与GSL（Global StarCraftⅡ League）全球星际争霸2联赛等赛事。</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/WCS.jpg" alt="WCS • World Championship Series"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/ESL.jpeg" alt="ESL • Electronic Sports League"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/GSL.png" alt="GSL • Global StarCraftⅡ League"></th>
+</tr>
+</thead>
+</table>
 <hr>
-<h3 id="配置-Flutter-环境变量-1"><a href="#配置-Flutter-环境变量-1" class="headerlink" title="配置 Flutter 环境变量"></a>配置 Flutter 环境变量</h3><pre><code class="bash">export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-
-# 这里的 hackintosh 改为你的 macOS 用户名
-export PATH=/Users/hackintosh/flutter/bin:$PATH
-</code></pre>
-<hr>
-<h3 id="配置-Android-SDK-环境变量-1"><a href="#配置-Android-SDK-环境变量-1" class="headerlink" title="配置 Android SDK 环境变量"></a>配置 Android SDK 环境变量</h3><pre><code class="bash"># 这里的 hackintosh 改为你的 macOS 用户名
-export ANDROID_HOME=&quot;/Users/hackintosh/Library/Android/sdk&quot;
-export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/tools
-export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools
-</code></pre>
 <blockquote>
-<p>保存上述配置</p>
+<p>DeepMind • AlphaStar</p>
 </blockquote>
-<pre><code class="bash">source ~/.bash_profile
+<p>2016年，继AlphaGo在韩国首尔击败顶尖棋手李世石后，DeepMind的下一个目标战场来到了《星际争霸Ⅱ》，尝试在战略游戏领域挑战顶尖人类选手。次年，DeepMind开始在欧服天梯上放出自己开发的人工智能AI，开始在PVP实战中训练AI。</p>
+<p>时间转到2019年，在DeepMind的人工智能登顶星际争霸最高天梯级别（宗师）后，DeepMind释出了AlphaStar，一个专精于星灵（神族）的人工智能AI，并于1月首次公开挑战来自Team Liquid的职业选手Mana与TLO，结局也如DeepMind所期愿，AlphaStar仅仅输了两局，便击败了这两位欧洲职业选手。</p>
+<p>籍此，AlphaStar的胜利将AI的可能性再度拔高，并在<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-019-1724-z.epdf?author_access_token=lZH3nqPYtWJXfDA10W0CNNRgN0jAjWel9jnR3ZoTv0PSZcPzJFGNAZhOlk4deBCKzKm70KfinloafEF1bCCXL6IIHHgKaDkaTkBcTEv7aT-wqDoG1VeO9-wO3GEoAMF9bAOt7mJ0RWQnRVMbyfgH9A==">《Nature》</a>成功发表论文。</p>
+<table>
+<thead>
+<tr>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/DeepMind.jpeg" alt="DeepMind"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Nature.jpeg" alt="Nature"></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><blockquote>
+<p>该项目将介绍如何开发一个星灵（神族）AI。</p>
+</blockquote>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><pre><code class="tree">.
+local
+│   ├── config
+│   │   └── game_config.py
+│   ├── data
+│   │   └── game_data.py
+│   ├── model
+│   │   └── keras_model.py
+│   ├── protoss_agent.py
+│   └── train_data
+│       ├── local_data
+│       └── open_source_data
+</code></pre>
+<ul>
+<li><p>game_config.py：全局配置参数，例如：我方种族与敌方种族，敌方人工智能难度等。</p>
+</li>
+<li><p>game_data.py：用于收集战局数据，例如：晶体矿储量，瓦斯储量，人口等。</p>
+</li>
+<li><p>keras_model.py：用于AI模型的编写与调整。</p>
+</li>
+<li><p>protoss_agent.py：AI主文件。</p>
+</li>
+<li><p>train_data：用于存放战局记录，形成训练集。</p>
+</li>
+</ul>
+<hr>
+<h3 id="项目所需环境包"><a href="#项目所需环境包" class="headerlink" title="项目所需环境包"></a>项目所需环境包</h3><blockquote>
+<p>game_data.py</p>
+</blockquote>
+<pre><code class="python">import cv2
+import numpy as np
+from sc2 import UnitTypeId
 </code></pre>
 <hr>
-<h3 id="配置-Android-toolchain-1"><a href="#配置-Android-toolchain-1" class="headerlink" title="配置 Android toolchain"></a>配置 Android toolchain</h3><p><code>Android toolchain</code> 将用于<code>证书许可</code>。</p>
-<p>将 Android SDK 配置到环境变量中后，终端执行：</p>
-<pre><code class="bash">flutter doctor --android-licenses
-</code></pre>
-<p>根据提示，输入 y ，直到全部许可都得到授权。</p>
-<hr>
-<h3 id="flutter-doctor-1"><a href="#flutter-doctor-1" class="headerlink" title="flutter doctor"></a>flutter doctor</h3><p>所有配置完成后，终端执行</p>
-<pre><code class="bash">flutter doctor
-</code></pre>
-<p>最终结果如下，</p>
-<pre><code class="bash">Doctor summary (to see all details, run flutter doctor -v):
-[✓] Flutter (Channel beta, 2.2.0, on Mac OS X 10.13.6 17G14042 darwin-x64, locale zh-Hans-CN)
-[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
-[!] Xcode - develop for iOS and macOS
-    ✗ Xcode installation is incomplete; a full installation is necessary for iOS development.
-      Download at: https://developer.apple.com/xcode/download/
-      Or install Xcode via the App Store.
-      Once installed, run:
-        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-        sudo xcodebuild -runFirstLaunch
-[✓] Chrome - develop for the web
-[✓] Android Studio (version 4.2)
-[✓] IntelliJ IDEA Ultimate Edition (version 2021.1.1)
-[✓] VS Code (version 1.56.2)
-[!] Proxy Configuration
-    ! NO_PROXY is not set
-
-[✓] Connected device (1 available)
-
-! Doctor found issues in 2 categories.
-</code></pre>
 <blockquote>
-<p>由于我的机器是黑苹果，且止步于 macOS 10.13.6，无法向上升级（10.14以上不支持 Nvidia 显卡），无法下载 Xcode<br>有能力的读者可以购买白果，或者自行组一台 AMD 的黑苹果，即可解决 Xcode 的系统版本限制问题。</p>
+<p>keras_model.py</p>
 </blockquote>
+<pre><code class="python">import os
+import random
+
+import numpy as np
+from tensorflow import keras
+from tensorflow.keras.callbacks import TensorBoard
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.models import Sequential
+</code></pre>
+<hr>
+<blockquote>
+<p>protoss_agent.py</p>
+</blockquote>
+<pre><code class="python">import math
+import random
+import time
+
+import numpy as np
+import sc2
+from keras.models import load_model
+from sc2 import position, Result
+from sc2.bot_ai import BotAI
+from sc2.ids.ability_id import AbilityId
+from sc2.ids.buff_id import BuffId
+from sc2.player import Bot, Computer
+from sc2.units import UnitTypeId
+
+from config import game_config
+from data import game_data
+</code></pre>
+<hr>
+<h3 id="执行指令"><a href="#执行指令" class="headerlink" title="执行指令"></a>执行指令</h3><blockquote>
+<p>protoss_agent.py</p>
+</blockquote>
+<pre><code class="python">    # 操作函数主入口
+        def __init__(self, use_model=False, title=1):
+        super().__init__()
+
+        # 可选指令项
+        self.choices = &#123;0: self.build_scout,
+                        1: self.build_zealot,
+                        2: self.build_gateway,
+                        3: self.build_voidray,
+                        4: self.build_stalker,
+                        5: self.build_workers,
+                        6: self.build_gas_collector,
+                        7: self.build_stargate,
+                        8: self.build_pylons,
+                        9: self.defend_nexus,
+                        10: self.attack_known_enemy_unit,
+                        11: self.attack_known_enemy_structure,
+                        12: self.base_expend,
+                        13: self.do_nothing&#125;
+
+        self.flipped = None
+        self.max_worker = game_config.total_worker  # 全局农民数
+        self.do_something_after = 0
+
+        self.scouts_and_spots = &#123;&#125;  # 侦察点
+        self.expand_dis_dir = &#123;&#125;  # 开矿点
+        self.ordered_exp_distances = None
+
+        self.title = title
+        self.train_data = []  # 生成操作数集
+
+        self.use_model = use_model  # 是否使用模型
+        if self.use_model:  # 使用模型
+            print(&quot;Use Model To Play&quot;)
+            # keras.models.load_model(filepath)
+            self.model = load_model(&quot;BurnySC2/local/model/BasicCNN-30-epochs-0.0001-LR-4.2&quot;)
+</code></pre>
 
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
@@ -325,7 +396,7 @@ export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96-Flutter-SDK"><span class="toc-number">2.</span> <span class="toc-text">获取 Flutter SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Android-Studio"><span class="toc-number">3.</span> <span class="toc-text">安装 Android Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">4.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Flutter-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.</span> <span class="toc-text">配置 Flutter 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-SDK-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.2.</span> <span class="toc-text">配置 Android SDK 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-toolchain"><span class="toc-number">4.3.</span> <span class="toc-text">配置 Android toolchain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flutter-doctor"><span class="toc-number">4.4.</span> <span class="toc-text">flutter doctor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apple-macOS"><span class="toc-number">5.</span> <span class="toc-text">Apple macOS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%BB%88%E7%AB%AF%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">通过终端编辑配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Flutter-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="toc-number">5.2.</span> <span class="toc-text">配置 Flutter 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-SDK-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="toc-number">5.3.</span> <span class="toc-text">配置 Android SDK 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-toolchain-1"><span class="toc-number">5.4.</span> <span class="toc-text">配置 Android toolchain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flutter-doctor-1"><span class="toc-number">5.5.</span> <span class="toc-text">flutter doctor</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">3.</span> <span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%89%80%E9%9C%80%E7%8E%AF%E5%A2%83%E5%8C%85"><span class="toc-number">3.2.</span> <span class="toc-text">项目所需环境包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%8C%87%E4%BB%A4"><span class="toc-number">3.3.</span> <span class="toc-text">执行指令</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
