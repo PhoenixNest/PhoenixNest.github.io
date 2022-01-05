@@ -116,13 +116,13 @@ Windows,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    3.3k
+                    2.7k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    6 mins.
+                    5 mins.
                 </span>
                     
                     
@@ -169,7 +169,7 @@ Windows,">
 <ul>
 <li><p>Windows 11 Professional Workstation</p>
 </li>
-<li><p>StarCraft II 5.0.8.86383（游戏版本尽量保持最新）</p>
+<li><p>StarCraftⅡ（游戏版本尽量保持最新）</p>
 </li>
 <li><p>PyCharm 2021.3.1 (Professional Edition)</p>
 </li>
@@ -211,7 +211,7 @@ pip install tensorflow
 </li>
 </ul>
 <hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="游戏介绍（简介来源于百度百科）"><a href="#游戏介绍（简介来源于百度百科）" class="headerlink" title="游戏介绍（简介来源于百度百科）"></a>游戏介绍（简介来源于百度百科）</h3><p>《星际争霸Ⅱ》（StarCraftⅡ）是由暴雪娱乐在2010年7月27日推出的一款即时战略游戏，是《星际争霸》系列的第二部作品。游戏以三部曲的形式推出，即《星际争霸Ⅱ：自由之翼》（Wings of Liberty）、《星际争霸Ⅱ：虫群之心》（Heart of the Swarm）和《星际争霸Ⅱ：虚空之遗》（Legacy of the Void）。游戏结构类似于《星际争霸》，主要的游戏技巧着重在资源上，玩家用采集的资源建造不同的建筑、军队并进行升级 。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="游戏介绍"><a href="#游戏介绍" class="headerlink" title="游戏介绍"></a>游戏介绍</h3><p>《星际争霸Ⅱ》（StarCraftⅡ）是由暴雪娱乐在2010年7月27日推出的一款即时战略游戏，是《星际争霸》系列的第二部作品。游戏以三部曲的形式推出，即《星际争霸Ⅱ：自由之翼》（Wings of Liberty）、《星际争霸Ⅱ：虫群之心》（Heart of the Swarm）和《星际争霸Ⅱ：虚空之遗》（Legacy of the Void）。游戏结构类似于《星际争霸》，主要的游戏技巧着重在资源上，玩家用采集的资源建造不同的建筑、军队并进行升级 。</p>
 <p>《星际争霸》有着专业的职业赛事与选手选拔机制，其中不乏进入过早期有着“电子竞技奥运会”之称的WCG（World Cyber Games），官方赛事有着诸如：暴雪WCS（World Championship Series）世界锦标赛，ESL（Electronic Sports League）电子竞技联盟与GSL（Global StarCraftⅡ League）全球《星际争霸Ⅱ》联赛等赛事。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/WCS.png" alt="WCS • World Championship Series"></p>
 <!-- | ![WCS • World Championship Series](https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/WCS.png) | ![ESL • Electronic Sports League](https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/ESL.png) |![GSL • Global StarCraftⅡ League](https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/GSL.png) |
@@ -224,16 +224,13 @@ pip install tensorflow
 <table>
 <thead>
 <tr>
-<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/DeepMind.png" alt="DeepMind"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/DeepMind.png" alt="DeepMind • AlphaStar"></th>
 <th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/AlphaStar.gif" alt="AlphaStar"></th>
 </tr>
 </thead>
 </table>
 <hr>
-<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><blockquote>
-<p>该项目将介绍如何开发一个星灵（神族）AI。</p>
-</blockquote>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><pre><code class="tree">.
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><pre><code class="tree">.
 local
 │   ├── config
 │   │   └── game_config.py
@@ -249,7 +246,7 @@ local
 <ul>
 <li><p>game_config.py：全局配置参数，例如：我方种族与敌方种族，敌方人工智能难度等。</p>
 </li>
-<li><p>game_data.py：用于收集战局数据，例如：晶体矿储量，瓦斯储量，人口等。</p>
+<li><p>game_data.py：用于收集战局数据，例如：晶体矿储量，瓦斯储量，人口信息等。</p>
 </li>
 <li><p>keras_model.py：用于AI模型的编写与调整。</p>
 </li>
@@ -259,93 +256,65 @@ local
 </li>
 </ul>
 <hr>
-<h3 id="项目所需环境包"><a href="#项目所需环境包" class="headerlink" title="项目所需环境包"></a>项目所需环境包</h3><blockquote>
-<p>game_data.py</p>
+<h2 id="操作函数"><a href="#操作函数" class="headerlink" title="操作函数"></a>操作函数</h2><blockquote>
+<p>该单元将介绍如何开发一个星灵（神族，以下统称神族）AI的操作指令函数，本文采用基于<a target="_blank" rel="noopener" href="https://github.com/deepmind/pysc2">pysc2</a>二次封装的<a target="_blank" rel="noopener" href="https://github.com/BurnySc2/python-sc2">burnysc2</a>进行开发。</p>
 </blockquote>
-<pre><code class="python">import cv2
-import numpy as np
-from sc2 import UnitTypeId
-</code></pre>
+<table>
+<thead>
+<tr>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Terran.png" alt="科技树 • 人族"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Zerg.png" alt="科技树 • 虫族"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Protoss.png" alt="科技树 • 神族"></th>
+</tr>
+</thead>
+</table>
 <hr>
+<h3 id="生产采集单位"><a href="#生产采集单位" class="headerlink" title="生产采集单位"></a>生产采集单位</h3><blockquote>
+<p>星际争霸中需要有采集单位（俗称：农民）对晶体矿与瓦斯进行采集，不同的种族有不同的采集单位，分别包括人族采集单位（SCV，矿骡），虫族采集单位（工蜂），神族采集单位（探机）。</p>
+</blockquote>
 <blockquote>
-<p>keras_model.py</p>
+<p>除了游戏开局由系统分配12个农民外，为了提高资源产量与持续运营，需要生产更多的采集单位对矿物资源进行采集。以各种族战术而定，通常分为：Rush类战术（单矿一波，双矿一波）与运营类战术（中期骚扰与宏战局运营），各种族战术细节不在本文中赘述。</p>
 </blockquote>
-<pre><code class="python">import os
-import random
-
-import numpy as np
-from tensorflow import keras
-from tensorflow.keras.callbacks import TensorBoard
-from tensorflow.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.keras.layers import Dense, Dropout, Flatten
-from tensorflow.keras.models import Sequential
-</code></pre>
-<hr>
 <blockquote>
-<p>protoss_agent.py</p>
+<p>本文以神族农民（探机）为例。</p>
 </blockquote>
-<pre><code class="python">import math
-import random
-import time
-
-import numpy as np
-import sc2
-from keras.models import load_model
-from sc2 import position, Result
-from sc2.bot_ai import BotAI
-from sc2.ids.ability_id import AbilityId
-from sc2.ids.buff_id import BuffId
-from sc2.player import Bot, Computer
-from sc2.units import UnitTypeId
-
-from config import game_config
-from data import game_data
+<p>算法思想如下：</p>
+<ol>
+<li><p>判断当前是否存在基地（游戏开局将会有一座基地，但随着游戏进程持续进行，中后期将可能有多个基地，俗称：开矿与分矿）</p>
+</li>
+<li><p>判断当前晶矿储量是否满足生产探机要求</p>
+</li>
+<li><p>生产探机（此处暂且定义为随机选择基地进行生产）</p>
+</li>
+</ol>
+<pre><code class="python">    async def build_workers(self):
+        nexuses = self.structures(UnitTypeId.NEXUS).ready
+        if nexuses.exists:
+            if self.can_afford(UnitTypeId.PROBE):
+                self.do(random.choice(nexuses).train(UnitTypeId.PROBE))
 </code></pre>
 <hr>
-<h3 id="执行指令"><a href="#执行指令" class="headerlink" title="执行指令"></a>执行指令</h3><blockquote>
-<p>protoss_agent.py</p>
+<h3 id="建造吸纳仓"><a href="#建造吸纳仓" class="headerlink" title="建造吸纳仓"></a>建造吸纳仓</h3><blockquote>
+<p>吸纳仓是神族专有的采集瓦斯气体的建筑，仅能放置在游戏中基地两旁的瓦斯气矿上，吸纳仓每次生产3单位的瓦斯产量，每一座吸纳仓建议的采集农民数量为3个。</p>
+<p>神族在游戏初期的开气矿时间为通常为水晶塔建造完成后（大约15个农民时间点左右）</p>
 </blockquote>
-<ul>
-<li>操作指令函数</li>
-</ul>
-<p>该函数定义全局AI操作入口，AI将自行选择执行指令项数组中的指令。</p>
-<pre><code class="python">    # 操作函数主入口
-        def __init__(self, use_model=False, title=1):
-        super().__init__()
+<p>算法思想：</p>
+<ol>
+<li></li>
+</ol>
+<pre><code class="python">    async def build_gas_collector(self):
+        for nexus in self.structures(UnitTypeId.NEXUS).ready:
+            vaspenes = self.vespene_geyser.closer_than(15, nexus)
+            for vaspene in vaspenes:
+                if not self.can_afford(UnitTypeId.ASSIMILATOR):
+                    break
 
-        # 可选指令项
-        self.choices = &#123;0: self.build_scout,                    # 前期侦查
-                        1: self.build_zealot,                   # 生产狂热者
-                        2: self.build_gateway,                  # 建造传送门
-                        3: self.build_voidray,                  # 生产虚空辉光舰
-                        4: self.build_stalker,                  # 生产追猎者
-                        5: self.build_workers,                  # 生产探机
-                        6: self.build_gas_collector,            # 建造吸纳仓
-                        7: self.build_stargate,                 # 建造星门
-                        8: self.build_pylons,                   # 建造水晶塔
-                        9: self.defend_nexus,                   # 建造星灵枢纽
-                        10: self.attack_known_enemy_unit,       # 向已知敌方单位下达进攻指令
-                        11: self.attack_known_enemy_structure,  # 向已知敌方建筑下达进攻指令
-                        12: self.base_expend,                   # 开矿
-                        13: self.do_nothing,                    # 无操作
-                        &#125;
+                worker = self.select_build_worker(vaspene.position)
+                if worker is None:
+                    break
 
-        self.flipped = None
-        self.max_worker = game_config.total_worker  # 全局农民数
-        self.do_something_after = 0
-
-        self.scouts_and_spots = &#123;&#125;  # 侦察点
-        self.expand_dis_dir = &#123;&#125;  # 开矿点
-        self.ordered_exp_distances = None
-
-        self.title = title
-        self.train_data = []  # 生成操作数集
-
-        self.use_model = use_model  # 是否使用模型
-        if self.use_model:  # 使用模型
-            print(&quot;Use Model To Play&quot;)
-            # keras.models.load_model(filepath)
-            self.model = load_model(&quot;BurnySC2/local/model/BasicCNN-30-epochs-0.0001-LR-4.2&quot;)
+                if not self.structures(UnitTypeId.ASSIMILATOR).closer_than(1.0, vaspene).exists:
+                    worker.build(UnitTypeId.ASSIMILATOR, vaspene)
 </code></pre>
 
             <!--[if lt IE 9]>
@@ -390,7 +359,7 @@ from data import game_data
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D%EF%BC%88%E7%AE%80%E4%BB%8B%E6%9D%A5%E6%BA%90%E4%BA%8E%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">游戏介绍（简介来源于百度百科）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepMind-%E2%80%A2-AlphaStar"><span class="toc-number">2.2.</span> <span class="toc-text">DeepMind • AlphaStar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">3.</span> <span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%89%80%E9%9C%80%E7%8E%AF%E5%A2%83%E5%8C%85"><span class="toc-number">3.2.</span> <span class="toc-text">项目所需环境包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%8C%87%E4%BB%A4"><span class="toc-number">3.3.</span> <span class="toc-text">执行指令</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">游戏介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepMind-%E2%80%A2-AlphaStar"><span class="toc-number">2.2.</span> <span class="toc-text">DeepMind • AlphaStar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E9%87%87%E9%9B%86%E5%8D%95%E4%BD%8D"><span class="toc-number">4.1.</span> <span class="toc-text">生产采集单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%90%B8%E7%BA%B3%E4%BB%93"><span class="toc-number">4.2.</span> <span class="toc-text">建造吸纳仓</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
