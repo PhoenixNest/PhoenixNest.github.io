@@ -116,13 +116,13 @@ Windows,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.7k
+                    5.1k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    5 mins.
+                    9 mins.
                 </span>
                     
                     
@@ -256,18 +256,145 @@ local
 </li>
 </ul>
 <hr>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><h3 id="game-config-py"><a href="#game-config-py" class="headerlink" title="game_config.py"></a>game_config.py</h3><pre><code class="python"># Game Config
+total_nexus_num = 2
+total_star_gate_num = 2
+total_worker = 50
+total_ob_num = 8
+my_race = sc2.Race.Protoss
+enemy_race = sc2.Race.Protoss
+enemy_difficulty = sc2.Difficulty.Easy
+</code></pre>
+<hr>
+<h3 id="protoss-agent-py"><a href="#protoss-agent-py" class="headerlink" title="protoss_agent.py"></a>protoss_agent.py</h3><ul>
+<li>初始函数体</li>
+</ul>
+<blockquote>
+<p>主要对on_step与on_end函数进行修改。</p>
+</blockquote>
+<pre><code class="python"># 该函数由三个钩子函数构成
+async def on_start(self):
+    print(&quot;Game started&quot;)
+    # Do things here before the game starts
+
+async def on_step(self, iteration):
+    # Populate this function with whatever your bot should do!
+    pass
+
+def on_end(self, result):
+        print(&quot;Game ended.&quot;)
+        # Do things here after the game ends
+</code></pre>
+<hr>
 <h2 id="操作函数"><a href="#操作函数" class="headerlink" title="操作函数"></a>操作函数</h2><blockquote>
 <p>该单元将介绍如何开发一个星灵（神族，以下统称神族）AI的操作指令函数，本文采用基于<a target="_blank" rel="noopener" href="https://github.com/deepmind/pysc2">pysc2</a>二次封装的<a target="_blank" rel="noopener" href="https://github.com/BurnySc2/python-sc2">burnysc2</a>进行开发。</p>
 </blockquote>
 <table>
 <thead>
 <tr>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Protoss.png" alt="科技树 • 神族"></th>
 <th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Terran.png" alt="科技树 • 人族"></th>
 <th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Zerg.png" alt="科技树 • 虫族"></th>
-<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/PySC2/Tech-Tree-Protoss.png" alt="科技树 • 神族"></th>
 </tr>
 </thead>
 </table>
+<hr>
+<h3 id="建造星灵枢纽（基地）"><a href="#建造星灵枢纽（基地）" class="headerlink" title="建造星灵枢纽（基地）"></a>建造星灵枢纽（基地）</h3><blockquote>
+<p>星灵枢纽，作为神族主基地的大型建筑，这种宏伟的建筑为神族提供初期补给（10人口）与基础采集单位建造权限，同时为采集单位提供资源处理集中点，在游戏开始时玩家在出生点处会拥有一座基地与12个采集单位。</p>
+</blockquote>
+<blockquote>
+<p>随着游戏进展与战术选择，单矿战术与多矿战术决定了整场对局中你所拥有的基地数量，若选择常规运营开局，则通常需要扩张大量分基地对战局资源进行高效采集，同时构造纵深的防御阵线（前线基地与后方大本营）。</p>
+</blockquote>
+<blockquote>
+<p>建造星灵枢纽所需晶体矿：400</p>
+</blockquote>
+<pre><code class="python">async def build_nexus(self):
+    try:
+        if self.can_afford(UnitTypeId.NEXUS):
+            await self.expand_now()
+    except Exception as e:
+        print(&quot;do_something: &quot;, str(e))
+</code></pre>
+<hr>
+<h3 id="建造水晶塔"><a href="#建造水晶塔" class="headerlink" title="建造水晶塔"></a>建造水晶塔</h3><blockquote>
+<p>水晶塔是神族重要的补给建筑，不仅为神族提供人口，且为神族建筑群供能，并提供折跃立场以供传送门传送前线部队。</p>
+</blockquote>
+<blockquote>
+<p>通常建造水晶塔的时间点有两个，第一个时间点是在游戏初期生产第1个农民后，生产第2个农民前，需建造第一座水晶塔对人口进行补充；后续时间点通常为剩余人口数小于5时建造。</p>
+</blockquote>
+<blockquote>
+<p>建造吸纳仓所需晶体矿：75</p>
+</blockquote>
+<pre><code class="python">async def build_pylons(self):
+    if self.supply_left &lt; 5 and not self.already_pending(UnitTypeId.PYLON):
+        nexuses = self.structures(UnitTypeId.NEXUS).ready
+        if nexuses.exists:
+            if self.can_afford(UnitTypeId.PYLON):
+                await self.build(UnitTypeId.PYLON, near=nexuses.first)
+</code></pre>
+<hr>
+<h3 id="建造吸纳仓"><a href="#建造吸纳仓" class="headerlink" title="建造吸纳仓"></a>建造吸纳仓</h3><blockquote>
+<p>吸纳仓是神族专有的采集瓦斯气体的建筑，仅能放置在游戏中基地两旁的瓦斯气矿上并覆盖气矿，吸纳仓每次生产3单位的瓦斯产量，每一座吸纳仓建议的采集农民数量为3个。</p>
+</blockquote>
+<blockquote>
+<p>神族在游戏初期的开气矿时间为通常为水晶塔建造完成后（大约15个农民时间点左右）。</p>
+</blockquote>
+<blockquote>
+<p>建造吸纳仓所需晶体矿：75</p>
+</blockquote>
+<pre><code class="python">async def build_gas_collector(self):
+    for nexus in self.structures(UnitTypeId.NEXUS).ready:
+        vaspenes = self.vespene_geyser.closer_than(15, nexus)
+        for vaspene in vaspenes:
+            if not self.can_afford(UnitTypeId.ASSIMILATOR):
+                break
+
+            worker = self.select_build_worker(vaspene.position)
+            if worker is None:
+                break
+
+            if not self.structures(UnitTypeId.ASSIMILATOR).closer_than(1.0, vaspene).exists:
+                worker.build(UnitTypeId.ASSIMILATOR, vaspene)
+</code></pre>
+<hr>
+<h3 id="建造传送门"><a href="#建造传送门" class="headerlink" title="建造传送门"></a>建造传送门</h3><blockquote>
+<p>传送门是神族前期能建造的一级军事建筑，为神族提供前期基础战斗单位：狂热者、追猎者、机械哨兵与使徒，为中后期提供二级灵能单位：高阶圣堂武士与黑暗圣堂武士</p>
+</blockquote>
+<blockquote>
+<p>传送门通常为偶数增长，常见的传送门增长系数为2BG，4BG（最著名的神族前期一波战术打法），8BG，10BG不等（BG为传送门在神族建筑列表中的键盘快捷键，即：按下B键后按G键快速选中传送门）</p>
+</blockquote>
+<blockquote>
+<p>建造传送门所需晶体矿：150</p>
+</blockquote>
+<pre><code class="python">async def build_gateway(self):
+    pylon = self.structures(UnitTypeId.PYLON).ready.random
+    if self.can_afford(UnitTypeId.GATEWAY) and not self.already_pending(UnitTypeId.GATEWAY):
+        await self.build(UnitTypeId.GATEWAY, near=pylon)
+</code></pre>
+<hr>
+<h3 id="建造控制芯核"><a href="#建造控制芯核" class="headerlink" title="建造控制芯核"></a>建造控制芯核</h3><blockquote>
+<p>控制芯核是神族由前期过渡至中后期所必需要建造的科技型建筑，解锁神族高阶军事建筑（如：光影议会、机械台、星门、舰队航标等）与中高级战斗单位（如机械哨兵、追猎者），并为神族提供二级传送门科技（折跃）与空军攻防升级。</p>
+</blockquote>
+<blockquote>
+<p>控制芯核通常只需要一座，但伴随游戏进展至中后期，需要对现有部队进行转型（空军与高级地面单位混编）与升级（空军攻防）时则需要增加至多座，其中不免包括中期可能因为敌方骚扰与渗透而导致的控制芯核被摧毁而需重建等不确定因素。</p>
+</blockquote>
+<blockquote>
+<p>建造控制芯核所需晶体矿：150</p>
+</blockquote>
+<pre><code class="python">async def build_cybernetic_core(self):
+    if not cybernetics_cores.exists:
+        if self.units(UnitTypeId.GATEWAY).ready.exists:
+            if self.can_afford(UnitTypeId.CYBERNETICSCORE) and not self.already_pending(UnitTypeId.CYBERNETICSCORE):
+                await self.build(UnitTypeId.CYBERNETICSCORE, near=pylon)
+</code></pre>
+<hr>
+<h3 id="建造星门"><a href="#建造星门" class="headerlink" title="建造星门"></a>建造星门</h3><pre><code class="python">async def build_stargate(self):
+    if self.structures(UnitTypeId.PYLON).ready.exists:
+        pylon = self.structures(UnitTypeId.PYLON).ready.random
+        if self.structures(UnitTypeId.CYBERNETICSCORE).ready.exists:
+            if self.can_afford(UnitTypeId.STARGATE) and not self.already_pending(UnitTypeId.STARGATE):
+                await self.build(UnitTypeId.STARGATE, near=pylon)
+</code></pre>
 <hr>
 <h3 id="生产采集单位"><a href="#生产采集单位" class="headerlink" title="生产采集单位"></a>生产采集单位</h3><blockquote>
 <p>星际争霸中需要有采集单位（俗称：农民）对晶体矿与瓦斯进行采集，不同的种族有不同的采集单位，分别包括人族采集单位（SCV，矿骡），虫族采集单位（工蜂），神族采集单位（探机）。</p>
@@ -276,46 +403,15 @@ local
 <p>除了游戏开局由系统分配12个农民外，为了提高资源产量与持续运营，需要生产更多的采集单位对矿物资源进行采集。以各种族战术而定，通常分为：Rush类战术（单矿一波，双矿一波）与运营类战术（中期骚扰与宏战局运营），各种族战术细节不在本文中赘述。</p>
 </blockquote>
 <blockquote>
-<p>本文以神族农民（探机）为例。</p>
+<p>本文以神族农民（探机）为例，生产农民所需晶体矿：50</p>
 </blockquote>
-<p>算法思想如下：</p>
-<ol>
-<li><p>判断当前是否存在基地（游戏开局将会有一座基地，但随着游戏进程持续进行，中后期将可能有多个基地，俗称：开矿与分矿）</p>
-</li>
-<li><p>判断当前晶矿储量是否满足生产探机要求</p>
-</li>
-<li><p>生产探机（此处暂且定义为随机选择基地进行生产）</p>
-</li>
-</ol>
-<pre><code class="python">    async def build_workers(self):
-        nexuses = self.structures(UnitTypeId.NEXUS).ready
-        if nexuses.exists:
-            if self.can_afford(UnitTypeId.PROBE):
-                self.do(random.choice(nexuses).train(UnitTypeId.PROBE))
+<pre><code class="python">async def build_workers(self):
+    nexuses = self.structures(UnitTypeId.NEXUS).ready
+    if nexuses.exists:
+        if self.can_afford(UnitTypeId.PROBE):
+            self.do(random.choice(nexuses).train(UnitTypeId.PROBE))
 </code></pre>
 <hr>
-<h3 id="建造吸纳仓"><a href="#建造吸纳仓" class="headerlink" title="建造吸纳仓"></a>建造吸纳仓</h3><blockquote>
-<p>吸纳仓是神族专有的采集瓦斯气体的建筑，仅能放置在游戏中基地两旁的瓦斯气矿上，吸纳仓每次生产3单位的瓦斯产量，每一座吸纳仓建议的采集农民数量为3个。</p>
-<p>神族在游戏初期的开气矿时间为通常为水晶塔建造完成后（大约15个农民时间点左右）</p>
-</blockquote>
-<p>算法思想：</p>
-<ol>
-<li></li>
-</ol>
-<pre><code class="python">    async def build_gas_collector(self):
-        for nexus in self.structures(UnitTypeId.NEXUS).ready:
-            vaspenes = self.vespene_geyser.closer_than(15, nexus)
-            for vaspene in vaspenes:
-                if not self.can_afford(UnitTypeId.ASSIMILATOR):
-                    break
-
-                worker = self.select_build_worker(vaspene.position)
-                if worker is None:
-                    break
-
-                if not self.structures(UnitTypeId.ASSIMILATOR).closer_than(1.0, vaspene).exists:
-                    worker.build(UnitTypeId.ASSIMILATOR, vaspene)
-</code></pre>
 
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
@@ -359,7 +455,7 @@ local
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">游戏介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepMind-%E2%80%A2-AlphaStar"><span class="toc-number">2.2.</span> <span class="toc-text">DeepMind • AlphaStar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E9%87%87%E9%9B%86%E5%8D%95%E4%BD%8D"><span class="toc-number">4.1.</span> <span class="toc-text">生产采集单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%90%B8%E7%BA%B3%E4%BB%93"><span class="toc-number">4.2.</span> <span class="toc-text">建造吸纳仓</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">游戏介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepMind-%E2%80%A2-AlphaStar"><span class="toc-number">2.2.</span> <span class="toc-text">DeepMind • AlphaStar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#game-config-py"><span class="toc-number">4.1.</span> <span class="toc-text">game_config.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protoss-agent-py"><span class="toc-number">4.2.</span> <span class="toc-text">protoss_agent.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%98%9F%E7%81%B5%E6%9E%A2%E7%BA%BD%EF%BC%88%E5%9F%BA%E5%9C%B0%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">建造星灵枢纽（基地）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%B0%B4%E6%99%B6%E5%A1%94"><span class="toc-number">5.2.</span> <span class="toc-text">建造水晶塔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%90%B8%E7%BA%B3%E4%BB%93"><span class="toc-number">5.3.</span> <span class="toc-text">建造吸纳仓</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E4%BC%A0%E9%80%81%E9%97%A8"><span class="toc-number">5.4.</span> <span class="toc-text">建造传送门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%8E%A7%E5%88%B6%E8%8A%AF%E6%A0%B8"><span class="toc-number">5.5.</span> <span class="toc-text">建造控制芯核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%98%9F%E9%97%A8"><span class="toc-number">5.6.</span> <span class="toc-text">建造星门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E9%87%87%E9%9B%86%E5%8D%95%E4%BD%8D"><span class="toc-number">5.7.</span> <span class="toc-text">生产采集单位</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
