@@ -14,7 +14,7 @@
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
-本篇将介绍我在对《星际争霸2》进行 AI 开发的一些笔记分享。
+本篇将介绍我在对《星际争霸2》进行AI开发的一些笔记分享。
 相关代码已上传Github托管。
 仅以此文，献给《星际争霸》陪伴度过的第11年。
 
@@ -23,7 +23,7 @@
 开发环境与所需软件包
 
 
-Windows,">
+Windows 1,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -116,13 +116,13 @@ Windows,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    5.1k
+                    17k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    9 mins.
+                    31 mins.
                 </span>
                     
                     
@@ -158,7 +158,7 @@ Windows,">
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇将介绍我在对<code>《星际争霸2》进行 AI 开发</code>的一些笔记分享。</p>
+<p>本篇将介绍我在对<code>《星际争霸2》进行AI开发</code>的一些笔记分享。</p>
 <p>相关代码已上传<a target="_blank" rel="noopener" href="https://github.com/PhoenixNest/Hello-PySC2">Github</a>托管。</p>
 <p>仅以此文，献给《星际争霸》陪伴度过的第11年。</p>
 </blockquote>
@@ -181,10 +181,8 @@ Windows,">
 <hr>
 <pre><code class="python"># DeepMind • pysc2 - API指令集
 # BurnySC2 - 基于DeepMind • pysc2 二次封装指令集
-pip install pysc2 burnysc2
-
-# pygame
-pip install pygame
+pip install pysc2 
+pip install burnysc2
 
 # OpenCV
 pip install opencv-contrib-python
@@ -203,8 +201,6 @@ pip install tensorflow
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/deepmind/pysc2">Deepmind-PySC2</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://pythonprogramming.net/starcraft-ii-ai-python-sc2-tutorial/">StarCraft-II-AI-Python-Tutorial</a></p>
-</li>
 <li><p><a target="_blank" rel="noopener" href="https://burnysc2.github.io/python-sc2/docs/index.html">Burnysc2-Python-Index</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://lotv.spawningtool.com/">Spawning Tool: StarCraft 2 Build Orders</a></p>
@@ -220,7 +216,7 @@ pip install tensorflow
 <hr>
 <h3 id="DeepMind-•-AlphaStar"><a href="#DeepMind-•-AlphaStar" class="headerlink" title="DeepMind • AlphaStar"></a>DeepMind • AlphaStar</h3><p>2016年，继AlphaGo在韩国首尔击败顶尖棋手李世石后，DeepMind的下一个目标战场来到了《星际争霸Ⅱ》，尝试在战略游戏领域挑战顶尖人类选手。次年，DeepMind开始在欧服天梯上放出自己开发的人工智能AI，开始在PVP实战中训练AI。</p>
 <p>时间转到2019年，在DeepMind的人工智能登顶星际争霸最高天梯级别（宗师）后，DeepMind释出了AlphaStar，一个专精于星灵（神族）的人工智能AI，并于1月首次公开挑战来自Team Liquid的职业选手Mana与TLO，结局也如DeepMind所期愿，AlphaStar仅仅输了两局，便击败了这两位欧洲职业选手。</p>
-<p>籍此，AlphaStar的胜利将AI的可能性再度拔高，并在<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-019-1724-z.epdf?author_access_token=lZH3nqPYtWJXfDA10W0CNNRgN0jAjWel9jnR3ZoTv0PSZcPzJFGNAZhOlk4deBCKzKm70KfinloafEF1bCCXL6IIHHgKaDkaTkBcTEv7aT-wqDoG1VeO9-wO3GEoAMF9bAOt7mJ0RWQnRVMbyfgH9A==">《Nature》</a>成功发表论文。</p>
+<p>籍此，AlphaStar的胜利将AI的可能性再度拔高，并在《Nature》发表了<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-019-1724-z.epdf?author_access_token=lZH3nqPYtWJXfDA10W0CNNRgN0jAjWel9jnR3ZoTv0PSZcPzJFGNAZhOlk4deBCKzKm70KfinloafEF1bCCXL6IIHHgKaDkaTkBcTEv7aT-wqDoG1VeO9-wO3GEoAMF9bAOt7mJ0RWQnRVMbyfgH9A==">有关AlphaStar的论文</a>。</p>
 <table>
 <thead>
 <tr>
@@ -244,7 +240,7 @@ local
 │       └── open_source_data
 </code></pre>
 <ul>
-<li><p>game_config.py：全局配置参数，例如：我方种族与敌方种族，敌方人工智能难度等。</p>
+<li><p>game_config.py：全局配置参数，例如：敌方种族，敌方AI难度等。</p>
 </li>
 <li><p>game_data.py：用于收集战局数据，例如：晶体矿储量，瓦斯储量，人口信息等。</p>
 </li>
@@ -256,21 +252,44 @@ local
 </li>
 </ul>
 <hr>
-<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><h3 id="game-config-py"><a href="#game-config-py" class="headerlink" title="game_config.py"></a>game_config.py</h3><pre><code class="python"># Game Config
-total_nexus_num = 2
-total_star_gate_num = 2
-total_worker = 50
-total_ob_num = 8
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><h3 id="game-config-py"><a href="#game-config-py" class="headerlink" title="game_config.py"></a>game_config.py</h3><pre><code class="python">import sc2
+
+# Game Config
+# 我方AI种族
 my_race = sc2.Race.Protoss
+
+# 敌方AI种族
 enemy_race = sc2.Race.Protoss
+
+# 敌方AI难度
 enemy_difficulty = sc2.Difficulty.Easy
+
+# 是否显示建筑信息
+is_show_structure_info = False
+
+# 是否显示全局简报
+is_show_intel_report = False
+
+# 全局指令条数
+total_order_num = 0
+</code></pre>
+<hr>
+<h3 id="game-data-py"><a href="#game-data-py" class="headerlink" title="game_data.py"></a>game_data.py</h3><pre><code class="python">async def structure_info(self):
+    print(&quot;用于在显示建筑信息：ID、生产队列、建造进度&quot;)
+
+# HEADLESS变量用于判断是否处在无法渲染游戏画面（Linux、Docker等）的终端或虚拟环境
+async def intel(self, HEADLESS):
+    print(&quot;用于显示全局信息栏&quot;)
 </code></pre>
 <hr>
 <h3 id="protoss-agent-py"><a href="#protoss-agent-py" class="headerlink" title="protoss_agent.py"></a>protoss_agent.py</h3><ul>
 <li>初始函数体</li>
 </ul>
 <blockquote>
-<p>主要对on_step与on_end函数进行修改。</p>
+<p>以下是建立AI的三大钩子函数，我们主要对on_step与on_end函数进行修改。</p>
+<p>on_start：该函数在游戏开始前调用，此处暂不重写该函数题</p>
+<p>on_step：该函数将在游戏开始后持续调用，我们需要在该函数中定义好AI执行的操作函数以便对AI操作进行自定义，如控制AI建造基地，生产战斗单位等。</p>
+<p>on_end：该函数将在游戏结束后进行调用，我们将在该函数体中对战局整体数据进行收集并保存，以便生成训练数据。</p>
 </blockquote>
 <pre><code class="python"># 该函数由三个钩子函数构成
 async def on_start(self):
@@ -286,8 +305,186 @@ def on_end(self, result):
         # Do things here after the game ends
 </code></pre>
 <hr>
+<h2 id="全局数据函数"><a href="#全局数据函数" class="headerlink" title="全局数据函数"></a>全局数据函数</h2><h3 id="建筑信息"><a href="#建筑信息" class="headerlink" title="建筑信息"></a>建筑信息</h3><pre><code class="python">async def structure_info(self):
+    for structure in self.structures:
+        self._client.debug_text_world(
+            &quot;\n&quot;.join([f&quot;&#123;structure.type_id.name&#125;:&#123;structure.type_id.value&#125;&quot;,
+                       f&quot;(&#123;structure.position.x:.2f&#125;,&#123;structure.position.y:.2f&#125;)&quot;,
+                       f&quot;&#123;structure.build_progress:.2f&#125;&quot;] + [repr(x) for x in structure.orders]),
+            structure.position3d,
+            color=(0, 255, 0),
+            size=8)
+</code></pre>
+<hr>
+<h3 id="全局简报"><a href="#全局简报" class="headerlink" title="全局简报"></a>全局简报</h3><blockquote>
+<p>对intel()函数进行修改</p>
+</blockquote>
+<blockquote>
+<p>1.声明各UnitTypeID与预定义显示颜色</p>
+</blockquote>
+<pre><code class="python">game_data = np.zeros((self.game_info.map_size[1], self.game_info.map_size[0], 3), np.uint8)
+
+main_base_names = [  # 各个种族基地
+    &quot;nexus&quot;,  # Protoss
+    &quot;commandcenter&quot;,  # Terran
+    &quot;orbitalcommand&quot;,  # Terran
+    &quot;planetaryfortress&quot;,  # Terran
+    &quot;hatchery&quot;  # Zerg
+]
+
+# 绘制 CV 对象
+draw_units = &#123;
+    # UnitTypeID: [半径, BGR]
+    # Structures
+    UnitTypeId.NEXUS: [15, (0, 255, 0)],
+    UnitTypeId.PYLON: [3, (20, 235, 0)],
+    UnitTypeId.ASSIMILATOR: [2, (55, 200, 0)],
+    UnitTypeId.GATEWAY: [3, (200, 100, 0)],
+    UnitTypeId.CYBERNETICSCORE: [3, (150, 150, 0)],
+
+    # Units
+    UnitTypeId.PROBE: [1, (55, 200, 0)],
+    UnitTypeId.MOTHERSHIP: [],
+
+    # BG
+    UnitTypeId.ZEALOT: [1, ()],
+    UnitTypeId.STALKER: [2, (255, 100, 0)],
+    UnitTypeId.ADEPT: [1, ()],
+    UnitTypeId.SENTRY: [1, ()],
+    UnitTypeId.HIGHTEMPLAR: [1, ()],
+    UnitTypeId.DARKTEMPLAR: [1, ()],
+
+    # VR
+    UnitTypeId.OBSERVER: [1, ()],
+    UnitTypeId.WARPPRISM: [1, ()],
+    UnitTypeId.IMMORTAL: [1, ()],
+    UnitTypeId.COLOSSUS: [1, ()],
+    UnitTypeId.DISRUPTOR: [1, ()],
+
+    # VS
+    UnitTypeId.PHOENIX: [1, ()],
+    UnitTypeId.ORACLE: [1, ()],
+    UnitTypeId.VOIDRAY: [3, (255, 100, 0)],
+    UnitTypeId.TEMPEST: [1, ()],
+    UnitTypeId.CARRIER: [1, ()],
+&#125;
+</code></pre>
+<hr>
+<blockquote>
+<p>2.绘制敌我双方信息</p>
+</blockquote>
+<pre><code class="python"># 绘制（敌）方主基地
+for enemy_building in self.enemy_structures:
+    position = enemy_building.position
+
+    # 对方建筑物（是）主基地
+    if enemy_building.name.lower() in main_base_names:
+        cv2.circle(game_data, (int(position[0]), int(position[1])), 15, (0, 0, 255), -1)
+
+# 绘制（敌）方建筑物
+for enemy_building in self.enemy_structures:
+    position = enemy_building.position
+    # 对方建筑物（不是）主基地
+    if enemy_building.name.lower() not in main_base_names:
+        cv2.circle(game_data, (int(position[0]), int(position[1])), 5, (200, 50, 212), -1)
+
+# 绘制（敌）方农民
+for enemy_unit in self.enemy_units:
+    if not enemy_unit.is_structure:
+        # 三族农民ID
+        # P: PROBE
+        # T: SCV
+        # Z: Drone
+        race_worker_names = [&quot;probe&quot;, &quot;scv&quot;, &quot;drone&quot;]
+        position = enemy_unit.position
+        if enemy_unit.name.lower() in race_worker_names:
+            cv2.circle(game_data, (int(position[0]), int(position[1])), 1, (55, 0, 155), -1)
+        else:
+            cv2.circle(game_data, (int(position[0]), int(position[1])), 3, (50, 0, 215), -1)
+
+# 绘制（己）方主基地
+for nexus in self.structures(UnitTypeId.NEXUS):
+    nexus_position = nexus.position
+    # BGR
+    cv2.circle(game_data, (int(nexus_position[0]), int(nexus_position[1])), 10, (0, 255, 0), -1)
+
+# 绘制（己）方单位
+for unit_type in draw_units:
+    for unit in self.units(UnitTypeId.VOIDRAY).ready:
+        pos = unit.position
+        cv2.circle(game_data, (int(pos[0]), int(pos[1])), draw_units[unit_type][0], draw_units[unit_type][1], -1)
+
+# OB
+for observer in self.units(UnitTypeId.OBSERVER).ready:
+    position = observer.position
+    cv2.circle(game_data, (int(position[0]), int(position[1])), 1, (255, 255, 255), -1)
+</code></pre>
+<hr>
+<blockquote>
+<p>3.收集全局资源信息（采集单位人口、战斗单位人口、晶矿产量、瓦斯产量）</p>
+</blockquote>
+<pre><code class="python">try:
+    line_max = 50
+    # 当前晶矿储量
+    mineral_ratio = self.minerals / 1500
+    if mineral_ratio &gt; 1.0:
+        mineral_ratio = 1.0
+
+    # 当前气矿储量
+    gas_ratio = self.vespene / 1500
+    if gas_ratio &gt; 1.0:
+        gas_ratio = 1.0
+
+    # 剩余人口
+    population_ratio = self.supply_left / self.supply_cap
+    if population_ratio &gt; 1.0:
+        population_ratio = 1.0
+
+    # 当前总人口
+    max_supply = self.supply_cap / 200.0
+
+    # 战斗人口
+    army_supply = self.supply_cap - self.supply_left
+    if not army_supply == 0:
+        # 单位所占人口权重
+        army_supply = self.supply_army / army_supply
+        if army_supply &gt; 1.0:
+            army_supply = 1.0
+            # 单位人口 / 当前总人口
+            cv2.line(game_data, (0, 19), (int(line_max * army_supply), 19), (250, 250, 200), 3)
+
+    # 当前总人口 / 200
+    cv2.line(game_data, (0, 15), (int(line_max * max_supply), 15), (220, 200, 200), 3)
+
+    # 剩余人口 / 当前总人口
+    cv2.line(game_data, (0, 11), (int(line_max * population_ratio), 11), (150, 150, 150), 3)
+
+    # 当前气矿储量 / 1500
+    cv2.line(game_data, (0, 7), (int(line_max * gas_ratio), 7), (210, 200, 0), 3)
+
+    # 当前晶矿储量 / 1500
+    cv2.line(game_data, (0, 3), (int(line_max * mineral_ratio), 3), (0, 255, 25), 3)
+
+    self.flipped = cv2.flip(game_data, 0)
+    resized = cv2.resize(self.flipped, dsize=None, fx=2, fy=2)
+
+    if not HEADLESS:
+        if self.use_model:
+            # 开始绘制
+            cv2.imshow(&quot;StarCraftII Battle Field - Use Model&quot;, resized)
+            cv2.waitKey(1)
+        else:
+            # 开始绘制
+            cv2.imshow(&quot;StarCraftII Battle Field&quot;, resized)
+            cv2.waitKey(1)
+
+except Exception as exception:
+    print(str(exception))
+</code></pre>
+<hr>
 <h2 id="操作函数"><a href="#操作函数" class="headerlink" title="操作函数"></a>操作函数</h2><blockquote>
-<p>该单元将介绍如何开发一个星灵（神族，以下统称神族）AI的操作指令函数，本文采用基于<a target="_blank" rel="noopener" href="https://github.com/deepmind/pysc2">pysc2</a>二次封装的<a target="_blank" rel="noopener" href="https://github.com/BurnySc2/python-sc2">burnysc2</a>进行开发。</p>
+<p>该单元将介绍如何开发一个星灵（也称神族，以下统称神族）AI的操作指令函数，本文采用基于<a target="_blank" rel="noopener" href="https://github.com/deepmind/pysc2">pysc2</a>二次封装的<a target="_blank" rel="noopener" href="https://github.com/BurnySc2/python-sc2">burnysc2</a>进行开发。</p>
+<p>下图为<code>各种族科技树</code>。</p>
 </blockquote>
 <table>
 <thead>
@@ -299,21 +496,24 @@ def on_end(self, result):
 </thead>
 </table>
 <hr>
-<h3 id="建造星灵枢纽（基地）"><a href="#建造星灵枢纽（基地）" class="headerlink" title="建造星灵枢纽（基地）"></a>建造星灵枢纽（基地）</h3><blockquote>
+<h2 id="建造函数"><a href="#建造函数" class="headerlink" title="建造函数"></a>建造函数</h2><h3 id="建造星灵枢纽（基地）"><a href="#建造星灵枢纽（基地）" class="headerlink" title="建造星灵枢纽（基地）"></a>建造星灵枢纽（基地）</h3><blockquote>
 <p>星灵枢纽，作为神族主基地的大型建筑，这种宏伟的建筑为神族提供初期补给（10人口）与基础采集单位建造权限，同时为采集单位提供资源处理集中点，在游戏开始时玩家在出生点处会拥有一座基地与12个采集单位。</p>
 </blockquote>
 <blockquote>
-<p>随着游戏进展与战术选择，单矿战术与多矿战术决定了整场对局中你所拥有的基地数量，若选择常规运营开局，则通常需要扩张大量分基地对战局资源进行高效采集，同时构造纵深的防御阵线（前线基地与后方大本营）。</p>
+<p>随着游戏进展与战术选择，单矿战术与多矿战术决定了整场对局中你所拥有的基地数量，若选择常规运营开局，则通常需要扩张大量分基地对战局资源进行高效采集，同时构造纵深的防御阵线（前线基地与后方主阵地）。</p>
 </blockquote>
 <blockquote>
 <p>建造星灵枢纽所需晶体矿：400</p>
+</blockquote>
+<blockquote>
+<p>键盘快捷键为：BN</p>
 </blockquote>
 <pre><code class="python">async def build_nexus(self):
     try:
         if self.can_afford(UnitTypeId.NEXUS):
             await self.expand_now()
-    except Exception as e:
-        print(&quot;do_something: &quot;, str(e))
+    except Exception as exception:
+        print(&quot;expand_now: &quot;, str(exception))
 </code></pre>
 <hr>
 <h3 id="建造水晶塔"><a href="#建造水晶塔" class="headerlink" title="建造水晶塔"></a>建造水晶塔</h3><blockquote>
@@ -325,12 +525,16 @@ def on_end(self, result):
 <blockquote>
 <p>建造吸纳仓所需晶体矿：75</p>
 </blockquote>
+<blockquote>
+<p>键盘快捷键为：BE</p>
+</blockquote>
 <pre><code class="python">async def build_pylons(self):
-    if self.supply_left &lt; 5 and not self.already_pending(UnitTypeId.PYLON):
-        nexuses = self.structures(UnitTypeId.NEXUS).ready
-        if nexuses.exists:
-            if self.can_afford(UnitTypeId.PYLON):
-                await self.build(UnitTypeId.PYLON, near=nexuses.first)
+    # 使水晶塔不占据矿区影响采集效率
+    build_position = self.structures(UnitTypeId.NEXUS).first.position.towards(self.game_info.map_center, 5)
+        if self.supply_left &lt; 5 and not self.already_pending(UnitTypeId.PYLON):
+            if self.structures(UnitTypeId.NEXUS).ready:
+                if self.can_afford(UnitTypeId.PYLON):
+                    await self.build(UnitTypeId.PYLON, near=build_position)
 </code></pre>
 <hr>
 <h3 id="建造吸纳仓"><a href="#建造吸纳仓" class="headerlink" title="建造吸纳仓"></a>建造吸纳仓</h3><blockquote>
@@ -341,6 +545,9 @@ def on_end(self, result):
 </blockquote>
 <blockquote>
 <p>建造吸纳仓所需晶体矿：75</p>
+</blockquote>
+<blockquote>
+<p>键盘快捷键为：BA</p>
 </blockquote>
 <pre><code class="python">async def build_gas_collector(self):
     for nexus in self.structures(UnitTypeId.NEXUS).ready:
@@ -358,7 +565,7 @@ def on_end(self, result):
 </code></pre>
 <hr>
 <h3 id="建造传送门"><a href="#建造传送门" class="headerlink" title="建造传送门"></a>建造传送门</h3><blockquote>
-<p>传送门是神族前期能建造的一级军事建筑，为神族提供前期基础战斗单位：狂热者、追猎者、机械哨兵与使徒，为中后期提供二级灵能单位：高阶圣堂武士与黑暗圣堂武士</p>
+<p>传送门是神族前期能建造的一级军事建筑，为神族提供<code>前期</code>基础战斗单位：狂热者、追猎者、机械哨兵与使徒，为<code>中后期</code>提供二级灵能单位：高阶圣堂武士与黑暗圣堂武士</p>
 </blockquote>
 <blockquote>
 <p>传送门通常为偶数增长，常见的传送门增长系数为2BG，4BG（最著名的神族前期一波战术打法），8BG，10BG不等（BG为传送门在神族建筑列表中的键盘快捷键，即：按下B键后按G键快速选中传送门）</p>
@@ -382,10 +589,55 @@ def on_end(self, result):
 <p>建造控制芯核所需晶体矿：150</p>
 </blockquote>
 <pre><code class="python">async def build_cybernetic_core(self):
-    if not cybernetics_cores.exists:
-        if self.units(UnitTypeId.GATEWAY).ready.exists:
-            if self.can_afford(UnitTypeId.CYBERNETICSCORE) and not self.already_pending(UnitTypeId.CYBERNETICSCORE):
-                await self.build(UnitTypeId.CYBERNETICSCORE, near=pylon)
+    if self.structures(UnitTypeId.CYBERNETICSCORE).ready.amount &lt;= 2:
+        if self.can_afford(UnitTypeId.CYBERNETICSCORE) and not self.already_pending(UnitTypeId.CYBERNETICSCORE):
+            await self.build(UnitTypeId.CYBERNETICSCORE, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造锻炉"><a href="#建造锻炉" class="headerlink" title="建造锻炉"></a>建造锻炉</h3><pre><code class="python">async def build_forge(self):
+    if self.structures(UnitTypeId.FORGE).ready.amount &lt;= 2:
+        if self.can_afford(UnitTypeId.FORGE) and not self.already_pending(UnitTypeId.FORGE):
+            await self.build(UnitTypeId.FORGE, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造护盾发生器"><a href="#建造护盾发生器" class="headerlink" title="建造护盾发生器"></a>建造护盾发生器</h3><pre><code class="python">async def build_shield_battery(self):
+    if self.can_afford(UnitTypeId.SHIELDBATTERY) and not self.already_pending(UnitTypeId.SHIELDBATTERY):
+        await self.build(UnitTypeId.SHIELDBATTERY, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造光子炮台"><a href="#建造光子炮台" class="headerlink" title="建造光子炮台"></a>建造光子炮台</h3><pre><code class="python">async def build_photon_cannon(self):
+    if self.can_afford(UnitTypeId.PHOTONCANNON) and not self.already_pending(UnitTypeId.PHOTONCANNON):
+        await self.build(UnitTypeId.PHOTONCANNON, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造光影议会"><a href="#建造光影议会" class="headerlink" title="建造光影议会"></a>建造光影议会</h3><pre><code class="python">async def build_twilight_council(self):
+    if not self.structures(UnitTypeId.TWILIGHTCOUNCIL).ready:
+        if self.can_afford(UnitTypeId.TWILIGHTCOUNCIL) and not self.already_pending(UnitTypeId.TWILIGHTCOUNCIL):
+            await self.build(UnitTypeId.TWILIGHTCOUNCIL, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造圣堂文库"><a href="#建造圣堂文库" class="headerlink" title="建造圣堂文库"></a>建造圣堂文库</h3><pre><code class="python">async def build_templar_archive(self):
+    if not self.structures(UnitTypeId.TEMPLARARCHIVE).ready:
+        if self.can_afford(UnitTypeId.TEMPLARARCHIVE) and not self.already_pending(UnitTypeId.TEMPLARARCHIVE):
+            await self.build(UnitTypeId.TEMPLARARCHIVE, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造黑暗圣坛"><a href="#建造黑暗圣坛" class="headerlink" title="建造黑暗圣坛"></a>建造黑暗圣坛</h3><pre><code class="python">async def build_dark_shrine(self):
+    if not self.structures(UnitTypeId.DARKSHRINE).ready:
+        if self.can_afford(UnitTypeId.DARKSHRINE) and not self.already_pending(UnitTypeId.DARKSHRINE):
+            await self.build(UnitTypeId.TWILIGHTCOUNCIL, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造机械台"><a href="#建造机械台" class="headerlink" title="建造机械台"></a>建造机械台</h3><pre><code class="python">async def build_robotics_facility(self):
+    if self.structures(UnitTypeId.ROBOTICSFACILITY).amount &lt;= 2:
+        if self.can_afford(UnitTypeId.ROBOTICSFACILITY) and not self.already_pending(UnitTypeId.ROBOTICSFACILITY):
+            await self.build(UnitTypeId.ROBOTICSFACILITY, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<hr>
+<h3 id="建造机械研究所"><a href="#建造机械研究所" class="headerlink" title="建造机械研究所"></a>建造机械研究所</h3><pre><code class="python">async def build_robotics_bay(self):
+    if not self.structures(UnitTypeId.ROBOTICSFACILITY).ready:
+        if self.can_afford(UnitTypeId.ROBOTICSBAY) and not self.already_pending(UnitTypeId.ROBOTICSBAY):
+            await self.build(UnitTypeId.ROBOTICSBAY, near=self.structures(UnitTypeId.PYLON).ready.random)
 </code></pre>
 <hr>
 <h3 id="建造星门"><a href="#建造星门" class="headerlink" title="建造星门"></a>建造星门</h3><pre><code class="python">async def build_stargate(self):
@@ -396,8 +648,126 @@ def on_end(self, result):
                 await self.build(UnitTypeId.STARGATE, near=pylon)
 </code></pre>
 <hr>
-<h3 id="生产采集单位"><a href="#生产采集单位" class="headerlink" title="生产采集单位"></a>生产采集单位</h3><blockquote>
-<p>星际争霸中需要有采集单位（俗称：农民）对晶体矿与瓦斯进行采集，不同的种族有不同的采集单位，分别包括人族采集单位（SCV，矿骡），虫族采集单位（工蜂），神族采集单位（探机）。</p>
+<h3 id="建造舰队航标"><a href="#建造舰队航标" class="headerlink" title="建造舰队航标"></a>建造舰队航标</h3><pre><code class="python">async def build_fleet_beacon(self):
+    if not self.structures(UnitTypeId.FLEETBEACON).ready:
+        if self.can_afford(UnitTypeId.FLEETBEACON) and not self.already_pending(UnitTypeId.FLEETBEACON):
+            await self.build(UnitTypeId.FLEETBEACON, near=self.structures(UnitTypeId.PYLON).ready.random)
+</code></pre>
+<h2 id="科技函数"><a href="#科技函数" class="headerlink" title="科技函数"></a>科技函数</h2><h3 id="研究折跃门"><a href="#研究折跃门" class="headerlink" title="研究折跃门"></a>研究折跃门</h3><pre><code class="python">async def upgrade_warp_gate(self):
+    if self.structures(UnitTypeId.CYBERNETICSCORE).ready:
+        if self.can_afford(AbilityId.RESEARCH_WARPGATE) and self.already_pending_upgrade(
+                UpgradeId.WARPGATERESEARCH) == 0:
+            await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(UpgradeId.WARPGATERESEARCH)
+</code></pre>
+<hr>
+<h3 id="升级飞行单位攻防"><a href="#升级飞行单位攻防" class="headerlink" title="升级飞行单位攻防"></a>升级飞行单位攻防</h3><pre><code class="python"># BY: G
+async def upgrade_air_weapon(self):
+    if self.structures(UnitTypeId.CYBERNETICSCORE).ready:
+        # G1
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDWEAPONSLEVEL1) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSAIRWEAPONSLEVEL1) == 0:
+            if self.time &gt; 60 * 8:
+                await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(
+                    UpgradeId.PROTOSSAIRWEAPONSLEVEL1)
+        # G2
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDWEAPONSLEVEL2) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSAIRWEAPONSLEVEL2) == 0:
+            if self.time &gt; 60 * 12:
+                await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(
+                    UpgradeId.PROTOSSAIRWEAPONSLEVEL2)
+        # G3
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDWEAPONSLEVEL3) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSAIRWEAPONSLEVEL3) == 0:
+            if self.time &gt; 60 * 16:
+                await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(
+                    UpgradeId.PROTOSSAIRWEAPONSLEVEL3)
+
+# BY: F
+async def upgrade_air_armor(self):
+    if self.structures(UnitTypeId.FORGE).ready:
+        # F1
+        if self.can_afford(
+                AbilityId.CYBERNETICSCORERESEARCH_PROTOSSAIRARMORLEVEL1) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSAIRARMORSLEVEL1) == 0:
+            if self.time &gt; 60 * 8:
+                await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(
+                    UpgradeId.PROTOSSAIRARMORSLEVEL1)
+        # F2
+        if self.can_afford(
+                AbilityId.CYBERNETICSCORERESEARCH_PROTOSSAIRARMORLEVEL2) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSAIRARMORSLEVEL2) == 0:
+            if self.time &gt; 60 * 12:
+                await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(
+                    UpgradeId.PROTOSSAIRARMORSLEVEL2)
+        # F3
+        if self.can_afford(
+                AbilityId.CYBERNETICSCORERESEARCH_PROTOSSAIRARMORLEVEL3) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSAIRARMORSLEVEL3) == 0:
+            if self.time &gt; 60 * 16:
+                await self.structures(UnitTypeId.CYBERNETICSCORE).ready.first.research(
+                    UpgradeId.PROTOSSAIRARMORSLEVEL3)
+</code></pre>
+<hr>
+<h3 id="升级地面单位攻防"><a href="#升级地面单位攻防" class="headerlink" title="升级地面单位攻防"></a>升级地面单位攻防</h3><pre><code class="python"># BF: G
+async def upgrade_ground_weapon(self):
+       if self.structures(UnitTypeId.FORGE).ready:
+           # G1
+           if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDWEAPONSLEVEL1) \
+                   and self.already_pending_upgrade(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL1) == 0:
+               if self.time &gt; 60 * 8:
+                   await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL1)
+           # G2
+           if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDWEAPONSLEVEL2) \
+                   and self.already_pending_upgrade(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL2) == 0:
+               if self.time &gt; 60 * 12:
+                   await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL2)
+           # G3
+           if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDWEAPONSLEVEL3) \
+                   and self.already_pending_upgrade(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL3) == 0:
+               if self.time &gt; 60 * 16:
+                   await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL3)
+
+# BF: F
+async def upgrade_ground_armor(self):
+    if self.structures(UnitTypeId.FORGE).ready:
+        # F1
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDARMORLEVEL1) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL1) == 0:
+            if self.time &gt; 60 * 8:
+                await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSGROUNDARMORSLEVEL1)
+        # F2
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDARMORLEVEL2) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL2) == 0:
+            if self.time &gt; 60 * 12:
+                await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSGROUNDARMORSLEVEL2)
+        # F3
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSGROUNDARMORLEVEL3) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSGROUNDWEAPONSLEVEL3) == 0:
+            if self.time &gt; 60 * 16:
+                await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSGROUNDARMORSLEVEL3)
+</code></pre>
+<hr>
+<h3 id="升级全局护盾"><a href="#升级全局护盾" class="headerlink" title="升级全局护盾"></a>升级全局护盾</h3><pre><code class="python">async def upgrade_all_shield(self):
+    if self.structures(UnitTypeId.FORGE).ready:
+        # F1
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSSHIELDSLEVEL1) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSSHIELDSLEVEL1) == 0:
+            if self.time &gt; 60 * 8:
+                await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSSHIELDSLEVEL1)
+        # F2
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSSHIELDSLEVEL2) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSSHIELDSLEVEL2) == 0:
+            if self.time &gt; 60 * 12:
+                await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSSHIELDSLEVEL2)
+        # F3
+        if self.can_afford(AbilityId.FORGERESEARCH_PROTOSSSHIELDSLEVEL3) \
+                and self.already_pending_upgrade(UpgradeId.PROTOSSSHIELDSLEVEL3) == 0:
+            if self.time &gt; 60 * 16:
+                await self.structures(UnitTypeId.FORGE).ready.first.research(UpgradeId.PROTOSSSHIELDSLEVEL3)
+</code></pre>
+<hr>
+<h2 id="生产函数"><a href="#生产函数" class="headerlink" title="生产函数"></a>生产函数</h2><h3 id="生产采集单位"><a href="#生产采集单位" class="headerlink" title="生产采集单位"></a>生产采集单位</h3><blockquote>
+<p>星际争霸中需要有<code>采集单位（俗称农民）</code>对晶体矿与瓦斯进行采集，不同的种族有不同的采集单位，分别包括<code>人族采集单位（SCV，矿骡）</code>，<code>虫族采集单位（工蜂）</code>，<code>神族采集单位（探机）</code>。</p>
 </blockquote>
 <blockquote>
 <p>除了游戏开局由系统分配12个农民外，为了提高资源产量与持续运营，需要生产更多的采集单位对矿物资源进行采集。以各种族战术而定，通常分为：Rush类战术（单矿一波，双矿一波）与运营类战术（中期骚扰与宏战局运营），各种族战术细节不在本文中赘述。</p>
@@ -412,6 +782,7 @@ def on_end(self, result):
             self.do(random.choice(nexuses).train(UnitTypeId.PROBE))
 </code></pre>
 <hr>
+<h2 id="定义训练模型"><a href="#定义训练模型" class="headerlink" title="定义训练模型"></a>定义训练模型</h2><hr>
 
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
@@ -455,7 +826,7 @@ def on_end(self, result):
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">游戏介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepMind-%E2%80%A2-AlphaStar"><span class="toc-number">2.2.</span> <span class="toc-text">DeepMind • AlphaStar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#game-config-py"><span class="toc-number">4.1.</span> <span class="toc-text">game_config.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protoss-agent-py"><span class="toc-number">4.2.</span> <span class="toc-text">protoss_agent.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%98%9F%E7%81%B5%E6%9E%A2%E7%BA%BD%EF%BC%88%E5%9F%BA%E5%9C%B0%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">建造星灵枢纽（基地）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%B0%B4%E6%99%B6%E5%A1%94"><span class="toc-number">5.2.</span> <span class="toc-text">建造水晶塔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%90%B8%E7%BA%B3%E4%BB%93"><span class="toc-number">5.3.</span> <span class="toc-text">建造吸纳仓</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E4%BC%A0%E9%80%81%E9%97%A8"><span class="toc-number">5.4.</span> <span class="toc-text">建造传送门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%8E%A7%E5%88%B6%E8%8A%AF%E6%A0%B8"><span class="toc-number">5.5.</span> <span class="toc-text">建造控制芯核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%98%9F%E9%97%A8"><span class="toc-number">5.6.</span> <span class="toc-text">建造星门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E9%87%87%E9%9B%86%E5%8D%95%E4%BD%8D"><span class="toc-number">5.7.</span> <span class="toc-text">生产采集单位</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">游戏介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepMind-%E2%80%A2-AlphaStar"><span class="toc-number">2.2.</span> <span class="toc-text">DeepMind • AlphaStar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#game-config-py"><span class="toc-number">4.1.</span> <span class="toc-text">game_config.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#game-data-py"><span class="toc-number">4.2.</span> <span class="toc-text">game_data.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protoss-agent-py"><span class="toc-number">4.3.</span> <span class="toc-text">protoss_agent.py</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">全局数据函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF"><span class="toc-number">5.1.</span> <span class="toc-text">建筑信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%AE%80%E6%8A%A5"><span class="toc-number">5.2.</span> <span class="toc-text">全局简报</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">操作函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">建造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%98%9F%E7%81%B5%E6%9E%A2%E7%BA%BD%EF%BC%88%E5%9F%BA%E5%9C%B0%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">建造星灵枢纽（基地）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%B0%B4%E6%99%B6%E5%A1%94"><span class="toc-number">7.2.</span> <span class="toc-text">建造水晶塔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%90%B8%E7%BA%B3%E4%BB%93"><span class="toc-number">7.3.</span> <span class="toc-text">建造吸纳仓</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E4%BC%A0%E9%80%81%E9%97%A8"><span class="toc-number">7.4.</span> <span class="toc-text">建造传送门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%8E%A7%E5%88%B6%E8%8A%AF%E6%A0%B8"><span class="toc-number">7.5.</span> <span class="toc-text">建造控制芯核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E9%94%BB%E7%82%89"><span class="toc-number">7.6.</span> <span class="toc-text">建造锻炉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%8A%A4%E7%9B%BE%E5%8F%91%E7%94%9F%E5%99%A8"><span class="toc-number">7.7.</span> <span class="toc-text">建造护盾发生器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%85%89%E5%AD%90%E7%82%AE%E5%8F%B0"><span class="toc-number">7.8.</span> <span class="toc-text">建造光子炮台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%85%89%E5%BD%B1%E8%AE%AE%E4%BC%9A"><span class="toc-number">7.9.</span> <span class="toc-text">建造光影议会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E5%9C%A3%E5%A0%82%E6%96%87%E5%BA%93"><span class="toc-number">7.10.</span> <span class="toc-text">建造圣堂文库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E9%BB%91%E6%9A%97%E5%9C%A3%E5%9D%9B"><span class="toc-number">7.11.</span> <span class="toc-text">建造黑暗圣坛</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%9C%BA%E6%A2%B0%E5%8F%B0"><span class="toc-number">7.12.</span> <span class="toc-text">建造机械台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%9C%BA%E6%A2%B0%E7%A0%94%E7%A9%B6%E6%89%80"><span class="toc-number">7.13.</span> <span class="toc-text">建造机械研究所</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E6%98%9F%E9%97%A8"><span class="toc-number">7.14.</span> <span class="toc-text">建造星门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E9%80%A0%E8%88%B0%E9%98%9F%E8%88%AA%E6%A0%87"><span class="toc-number">7.15.</span> <span class="toc-text">建造舰队航标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%91%E6%8A%80%E5%87%BD%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">科技函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E6%8A%98%E8%B7%83%E9%97%A8"><span class="toc-number">8.1.</span> <span class="toc-text">研究折跃门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E9%A3%9E%E8%A1%8C%E5%8D%95%E4%BD%8D%E6%94%BB%E9%98%B2"><span class="toc-number">8.2.</span> <span class="toc-text">升级飞行单位攻防</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E5%9C%B0%E9%9D%A2%E5%8D%95%E4%BD%8D%E6%94%BB%E9%98%B2"><span class="toc-number">8.3.</span> <span class="toc-text">升级地面单位攻防</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E5%85%A8%E5%B1%80%E6%8A%A4%E7%9B%BE"><span class="toc-number">8.4.</span> <span class="toc-text">升级全局护盾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E5%87%BD%E6%95%B0"><span class="toc-number">9.</span> <span class="toc-text">生产函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E9%87%87%E9%9B%86%E5%8D%95%E4%BD%8D"><span class="toc-number">9.1.</span> <span class="toc-text">生产采集单位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">定义训练模型</span></a></li></ol>
                         </div>
                     </div>
                 
