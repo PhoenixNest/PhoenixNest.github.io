@@ -1333,10 +1333,10 @@ $(function () {
   utiliseBgColor();
   initialTyped();
   Obsidian.setCodeRowWithLang();
-  console.log(
-    '%c Github %c',
-    'background:#24272A; color:#73ddd7',
-    '',
-    'https://github.com/TriDiamond/hexo-theme-obsidian'
-  );
+  // console.log(
+  //   '%c Github %c',
+  //   'background:#24272A; color:#73ddd7',
+  //   '',
+  //   'https://github.com/TriDiamond/hexo-theme-obsidian'
+  // );
 });
