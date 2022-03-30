@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Welcome To PhoenixNest&#39;s Blog - PhoenixNest&#39;s Blog</title>
+    <title>TnesorFlow-GPU • Initialization - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -13,11 +13,12 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Hi👋 欢迎来到我的博客, 我是PhoenixNest • (Peter Chen)。
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Introduction
+本篇将介绍我在我的笔记本上部署有关TensorFlow-GPU时的一些笔记分享。
 
+本文将着重介绍在Windows上的部署方案。
 
-一个 吉林大学珠海学院（现珠海科技学院） • 计算机学院 • 软件工程专业的应届本科毕业生。
-一个知晓 ,">
+获取 Nvidia 相关开发组件支持 C,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -71,7 +72,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Welcome To PhoenixNest's Blog</h3>
+        <h3 class="subtitle">TnesorFlow-GPU • Initialization</h3>
         <div class="social">
             <div>
                 <div class="share">
@@ -93,35 +94,35 @@
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Background/desktop.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/TensorFlow-GPU/tensorflow-gpu.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/置顶"><b>「
-                        </b>置顶<b> 」</b></a>
+                    <a href="/categories/Machine Learning"><b>「
+                        </b>MACHINE LEARNING<b> 」</b></a>
                 
-                二月 14, 2048
+                三月 30, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Welcome/" title="Welcome To PhoenixNest&#39;s Blog" class="">Welcome To PhoenixNest&#39;s Blog</a>
+            <h3 class="post-title animated fadeInDown"><a href="/TnesorFlow-Gpu-Initialization/" title="TnesorFlow-GPU • Initialization" class="">TnesorFlow-GPU • Initialization</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    400
+                    3.9k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    7 mins.
                 </span>
                     
                     
-                        <span id="/Welcome/" class="leancloud_visitors"
-                              data-flag-title="Welcome To PhoenixNest's Blog">
+                        <span id="/TnesorFlow-Gpu-Initialization/" class="leancloud_visitors"
+                              data-flag-title="TnesorFlow-GPU • Initialization">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">0</span>
                 </span>
@@ -130,7 +131,7 @@
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Top/" rel="tag">Top</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a></li></ul>
             
         </div>
     </div>
@@ -151,20 +152,173 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>👋 欢迎来到我的博客, 我是<code>PhoenixNest • (Peter Chen)</code>。</p>
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>本篇将介绍我在我的笔记本上部署有关<code>TensorFlow-GPU</code>时的一些笔记分享。</p>
+</blockquote>
+<p>本文将着重介绍在<code>Windows</code>上的部署方案。</p>
+<hr>
+<h2 id="获取-Nvidia-相关开发组件"><a href="#获取-Nvidia-相关开发组件" class="headerlink" title="获取 Nvidia 相关开发组件"></a>获取 Nvidia 相关开发组件</h2><p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-gpus">支持 CUDA 的显卡列表</a></p>
 <blockquote>
+<p>CUDA 与 cuDNN 有着<code>严格的版本规定</code>，建议在部署前核查好版本。</p>
+</blockquote>
+<p>我的部署版本为：<code>CUDA v11.5</code> + <code>cuDNN v8.3.3</code></p>
 <ul>
-<li>一个 <code>吉林大学珠海学院（现珠海科技学院） • 计算机学院 • 软件工程专业</code>的<strong>应届本科毕业生</strong>。</li>
-<li>一个知晓 C++、Java、MySQL、SQL Server 等拼写的程序猿（发量犹在，Still a ROOKIE）。</li>
-<li>一个做过<strong>服务器运维</strong>，知晓 <strong>Linux</strong>，调配过数据库与服务器底层硬件的苦逼练习生。</li>
-<li>一个知晓 MVVM 开发架构，使用过 <strong>Google JetPack</strong> 快速开发框架的Android程序猿。</li>
-<li>一个做过高德地图（<strong>Android</strong>）开发，正在转入 <strong>Flutter</strong> 跨平台开发的新人。</li>
-<li>一个热爱星际争霸2，喜欢暴雪游戏，梦想进入暴雪公司（<strong>Blizzard</strong>）的SCer。</li>
-<li>一个喜欢游泳，曾做过<strong>蛙泳与自由泳教练</strong>的泳客。</li>
-<li>一个接触计算机编程开发<strong>3年</strong>，喜欢学习新技术的<strong>软硬件攻城狮</strong>。</li>
-<li>一个做过高达模型评测，开过电台的小 Up 主。</li>
-<li>一个喜欢拍照，喜欢记录生活，不会讲粤语的广东潮汕人。</li>
+<li>CUDA</li>
 </ul>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">Download CUDA Toolkit</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">Nvidia • CUDA Toolkit Documentation</a></p>
+<ul>
+<li>cuDNN（需登录 Nvidia 账号）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn">Download cuDNN</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows">Nvidia • cuDNN Documentation</a></p>
+<ul>
+<li>ZLIB</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://www.winimage.com/zLibDll/zlib123dllx64.zip">Download ZLIB</a></p>
+<blockquote>
+<p>将zlibwapi.dll所在文件夹添加到系统变量。</p>
+</blockquote>
+<hr>
+<h2 id="迁移关键文件"><a href="#迁移关键文件" class="headerlink" title="迁移关键文件"></a>迁移关键文件</h2><p>针对该步骤，Nvidia 官方文档中的描述如下：</p>
+<ul>
+<li><p>a. Copy <installpath>\cuda\bin\cudnn*.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x\bin.</p>
+</li>
+<li><p>b. Copy <installpath>\cuda\include\cudnn*.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x\include.</p>
+</li>
+<li><p>c. Copy <installpath>\cuda\lib\x64\cudnn*.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x\lib\x64.</p>
+</li>
+</ul>
+<hr>
+<h3 id="添加系统变量"><a href="#添加系统变量" class="headerlink" title="添加系统变量"></a>添加系统变量</h3><ul>
+<li><p>变量键: CUDA_PATH</p>
+</li>
+<li><p>变量值: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x</p>
+</li>
+</ul>
+<hr>
+<h2 id="终端核验"><a href="#终端核验" class="headerlink" title="终端核验"></a>终端核验</h2><ul>
+<li>我的CUDA安装位置：C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\extras\demo_suite</li>
+</ul>
+<blockquote>
+<p>nvcc -V</p>
+</blockquote>
+<pre><code class="powershell">PS C:\Users\P7XXTM1-G&gt; nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Mon_Sep_13_20:11:50_Pacific_Daylight_Time_2021
+Cuda compilation tools, release 11.5, V11.5.50
+Build cuda_11.5.r11.5/compiler.30411180_0
+</code></pre>
+<blockquote>
+<p>deviceQuery.exe</p>
+</blockquote>
+<pre><code class="powershell">PS C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\extras\demo_suite&gt; .\deviceQuery.exe
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\extras\demo_suite\deviceQuery.exe Starting...
+
+ CUDA Device Query (Runtime API) version (CUDART static linking)
+
+Detected 1 CUDA Capable device(s)
+
+Device 0: &quot;NVIDIA GeForce GTX 1060&quot;
+  CUDA Driver Version / Runtime Version          11.6 / 11.5
+  CUDA Capability Major/Minor version number:    6.1
+  Total amount of global memory:                 6144 MBytes (6442254336 bytes)
+  (10) Multiprocessors, (128) CUDA Cores/MP:     1280 CUDA Cores
+  GPU Max Clock rate:                            1771 MHz (1.77 GHz)
+  Memory Clock rate:                             4004 Mhz
+  Memory Bus Width:                              192-bit
+  L2 Cache Size:                                 1572864 bytes
+  Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+  Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+  Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+  Total amount of constant memory:               zu bytes
+  Total amount of shared memory per block:       zu bytes
+  Total number of registers available per block: 65536
+  Warp size:                                     32
+  Maximum number of threads per multiprocessor:  2048
+  Maximum number of threads per block:           1024
+  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+  Maximum memory pitch:                          zu bytes
+  Texture alignment:                             zu bytes
+  Concurrent copy and kernel execution:          Yes with 1 copy engine(s)
+  Run time limit on kernels:                     Yes
+  Integrated GPU sharing Host Memory:            No
+  Support host page-locked memory mapping:       Yes
+  Alignment requirement for Surfaces:            Yes
+  Device has ECC support:                        Disabled
+  CUDA Device Driver Mode (TCC or WDDM):         WDDM (Windows Display Driver Model)
+  Device supports Unified Addressing (UVA):      Yes
+  Device supports Compute Preemption:            Yes
+  Supports Cooperative Kernel Launch:            Yes
+  Supports MultiDevice Co-op Kernel Launch:      No
+  Device PCI Domain ID / Bus ID / location ID:   0 / 1 / 0
+  Compute Mode:
+     &lt; Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) &gt;
+
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 11.6, CUDA Runtime Version = 11.5, NumDevs = 1, Device0 = NVIDIA GeForce GTX 1060
+Result = PASS
+</code></pre>
+<hr>
+<blockquote>
+<p>bandwidthTest.exe</p>
+</blockquote>
+<pre><code class="powershell">PS C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\extras\demo_suite&gt; .\bandwidthTest.exe
+[CUDA Bandwidth Test] - Starting...
+Running on...
+
+ Device 0: NVIDIA GeForce GTX 1060
+ Quick Mode
+
+ Host to Device Bandwidth, 1 Device(s)
+ PINNED Memory Transfers
+   Transfer Size (Bytes)        Bandwidth(MB/s)
+   33554432                     12440.9
+
+ Device to Host Bandwidth, 1 Device(s)
+ PINNED Memory Transfers
+   Transfer Size (Bytes)        Bandwidth(MB/s)
+   33554432                     12180.1
+
+ Device to Device Bandwidth, 1 Device(s)
+ PINNED Memory Transfers
+   Transfer Size (Bytes)        Bandwidth(MB/s)
+   33554432                     54242.5
+
+Result = PASS
+
+NOTE: The CUDA Samples are not meant for performance measurements. Results may vary when GPU Boost is enabled.
+</code></pre>
+<hr>
+<h2 id="安装-Anaconda"><a href="#安装-Anaconda" class="headerlink" title="安装 Anaconda"></a>安装 Anaconda</h2><p><a target="_blank" rel="noopener" href="https://www.anaconda.com/">Download Anaconda</a></p>
+<blockquote>
+<p>对于需要管理多个Python开发环境的开发者来说，Anaconda为开发者提供开箱即用的开发环境，集成包括数据科学与机器学习在内的多个开发环境与开发组件，开发者可无需花费大量时间在部署开发环境上，大幅提高开发效率。</p>
+</blockquote>
+<hr>
+<h3 id="新增一个本地环境"><a href="#新增一个本地环境" class="headerlink" title="新增一个本地环境"></a>新增一个本地环境</h3><p>Anaconda安装完成后，将会自带一个基于 Python 3.9.7 的基础开发环境，但此处我们不建议直接使用该基础环境。</p>
+<blockquote>
+<p>本文将新建一个基于 Python 3.9.11 的开发环境用于部署 TensorFlow-GPU。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/TensorFlow-GPU/Init-1.png" alt="步骤 1"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/TensorFlow-GPU/Init-2.png" alt="步骤 2"></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h3 id="部署-TensorFlow-GPU"><a href="#部署-TensorFlow-GPU" class="headerlink" title="部署 TensorFlow-GPU"></a>部署 TensorFlow-GPU</h3><pre><code class="powershell">pip install tensorflow-gpu
+</code></pre>
+<hr>
+<h3 id="在-Jupyter-Notebook-中核验"><a href="#在-Jupyter-Notebook-中核验" class="headerlink" title="在 Jupyter Notebook 中核验"></a>在 Jupyter Notebook 中核验</h3><pre><code class="ipynb">import tensorflow as tf
+
+print(tf.__version__)
+</code></pre>
+<p>输出如下：</p>
+<blockquote>
+<p>2.8.0</p>
 </blockquote>
 
             <!--[if lt IE 9]>
@@ -209,7 +363,7 @@
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hi"><span class="toc-number">1.</span> <span class="toc-text">Hi</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96-Nvidia-%E7%9B%B8%E5%85%B3%E5%BC%80%E5%8F%91%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">获取 Nvidia 相关开发组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">迁移关键文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">添加系统变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E7%AB%AF%E6%A0%B8%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">终端核验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Anaconda"><span class="toc-number">5.</span> <span class="toc-text">安装 Anaconda</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83"><span class="toc-number">5.1.</span> <span class="toc-text">新增一个本地环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-TensorFlow-GPU"><span class="toc-number">5.2.</span> <span class="toc-text">部署 TensorFlow-GPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Jupyter-Notebook-%E4%B8%AD%E6%A0%B8%E9%AA%8C"><span class="toc-number">5.3.</span> <span class="toc-text">在 Jupyter Notebook 中核验</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
