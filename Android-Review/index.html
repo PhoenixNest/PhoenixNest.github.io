@@ -1,0 +1,1003 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Android Review - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍我在整理曾经学习 Android时的一些笔记，也算是对曾经所学知识的回顾。
+
+
+我的岗位要求（校招）
+了解 Android 的基础架构、组件、多线程处理、性能优化、内存优化，对 UI,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Android Review</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/Android.png) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/经验分享"><b>「
+                        </b>经验分享<b> 」</b></a>
+                
+                四月 09, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Android-Review/" title="Android Review" class="">Android Review</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    9.2k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    17 mins.
+                </span>
+                    
+                    
+                        <span id="/Android-Review/" class="leancloud_visitors"
+                              data-flag-title="Android Review">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" rel="tag">经验分享</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍我在整理<code>曾经学习 Android</code>时的一些笔记，也算是对曾经所学知识的<code>回顾</code>。</p>
+</blockquote>
+<hr>
+<h2 id="我的岗位要求（校招）"><a href="#我的岗位要求（校招）" class="headerlink" title="我的岗位要求（校招）"></a>我的岗位要求（校招）</h2><ul>
+<li><p>了解 Android 的基础架构、组件、多线程处理、性能优化、内存优化，对 UI、图像处理 有一定研究。</p>
+</li>
+<li><p>了解 Android 下网络通信机制，对 Socket通信、TCP/IP 和 HTTP协议 有较深刻的理解和开发经验。</p>
+</li>
+<li><p>积极乐观，责任心强，工作认真细致，具有良好的团队沟通与协作能力。</p>
+</li>
+<li><p>有Android开发实习经验优先。</p>
+</li>
+</ul>
+<hr>
+<h2 id="MVC-MVP-MVVM"><a href="#MVC-MVP-MVVM" class="headerlink" title="MVC / MVP / MVVM"></a>MVC / MVP / MVVM</h2><ul>
+<li><p>MVC：Model，View，Controller</p>
+</li>
+<li><p>MVP：Model，View，Presenter</p>
+</li>
+<li><p>MVVM：Model，View，ViewModel</p>
+</li>
+</ul>
+<blockquote>
+<p>架构差异</p>
+</blockquote>
+<ul>
+<li><p>MVC：Controller通常为Activity，将包含数据处理与逻辑业务，但该模式中Activity既充当着View与Controller角色，将导致代码极度耦合。</p>
+</li>
+<li><p>MVP：Presenter 持有 View接口，不直接操作View，并在其中执行业务操作，可将视图操作与业务逻辑解耦，使 Activity 成为 真正View层</p>
+</li>
+</ul>
+<blockquote>
+<p>MVVM</p>
+</blockquote>
+<p>Model：实体模型。</p>
+<p>View：对应于Activity和XML，负责View的绘制以及用户交互。</p>
+<p>ViewModel：负责完成View与Model间的交互，负责业务逻辑。</p>
+<hr>
+<h2 id="反射（Java）"><a href="#反射（Java）" class="headerlink" title="反射（Java）"></a>反射（Java）</h2><p>使程序在运行时可获得类的函数、属性与其内部的一些信息，通过反射，可在运行时（RunningTime）实例化这些函数并调用这些方法。</p>
+<hr>
+<h3 id="进程保活"><a href="#进程保活" class="headerlink" title="进程保活"></a>进程保活</h3><hr>
+<h3 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h3><hr>
+<h2 id="Android-Native"><a href="#Android-Native" class="headerlink" title="Android Native"></a>Android Native</h2><h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><blockquote>
+<p>在 Google 公开 Jetpack 后，官方提倡 单Activity 的开发模式。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/activity_lifecycle.png" alt="Activity Lifecycle"></p>
+<blockquote>
+<p>生命周期</p>
+</blockquote>
+<p>Activity启动 -&gt; onCreate() -&gt; onStart() -&gt; onResume()</p>
+<ul>
+<li><p>onCreate()：设置布局资源，数据加载，图片预加载。</p>
+</li>
+<li><p>onStart()：Activity暂未处在前台状态，用户无法对 Activity 进行触摸点击或者滑动等操作。</p>
+</li>
+<li><p>onResume()：调用后，用户即可对Activity进行控制，也可在该方法中进行数据预加载。</p>
+</li>
+</ul>
+<hr>
+<p>Activity 不可见 -&gt; onPause() -&gt; onStop()</p>
+<ul>
+<li><p>onPause()：表明 Activity 处于停滞状态，Activity 可见但不可被操作，Activity退居后台时被调用。</p>
+</li>
+<li><p>onStop()：整个 Activity 处于后台不可见或被其他 Activity 覆盖，若系统处于内存吃紧状态时可能会被系统回收。</p>
+</li>
+</ul>
+<hr>
+<p>再次回到 Activity 时 -&gt; onRestart() -&gt; onStart() -&gt; onResume()</p>
+<ul>
+<li>onRestart()：Activity由不可见状态到可见状态时调用，常见场景为后台App重新回到前台。</li>
+</ul>
+<hr>
+<p>退出当前Activity时 -&gt; onPause() -&gt; onStop -&gt; onDestroy()</p>
+<ul>
+<li>onDestroy()：最后一个生命周期方法，资源释放、内存回收。</li>
+</ul>
+<hr>
+<blockquote>
+<p>进程优先级</p>
+</blockquote>
+<p>由高到低以此为：</p>
+<p>前台 / 可见 / 服务 / 后台 / 空</p>
+<hr>
+<blockquote>
+<p>启动模式</p>
+</blockquote>
+<ul>
+<li><p>standard：普通模式，会走所有生命周期方法，对内存有很消耗。</p>
+</li>
+<li><p>singleTop：<code>栈顶复用</code>模式，判断待创建的Activity是否已位于栈顶，若待创建Activity已位于栈顶，则会复用栈顶 Activity；若没有，则还是会走所有生命周期。</p>
+</li>
+<li><p>singleTask：<code>栈内复用</code>模式，检测整个任务栈中是否存在当前需要启动的Activity，若存在，则直接置于栈顶，并将已有 栈顶Activity 全数销毁，并回调 onNewIntent() 方法</p>
+</li>
+<li><p>singleInstance：<code>独享</code>模式，若Activity在整个App中只有一个实例，且独占一个任务栈，则称为独享模式。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>数据通信</p>
+</blockquote>
+<ul>
+<li>在 Activity 之间发送数据（Bundle）</li>
+</ul>
+<p>操作系统会将 intent 的基础 Bundle 打包。然后，操作系统会创建新的 Activity，将数据拆包，并将 intent 传递给新的 Activity。</p>
+<ul>
+<li>在进程之间发送数据（Parcelable）</li>
+</ul>
+<hr>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><blockquote>
+<p>生命周期</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/fragment-view-lifecycle.png" alt="Fragment Lifecycle"></p>
+<blockquote>
+<p>Fragment 通信</p>
+</blockquote>
+<ul>
+<li><p>在<code>Fragment</code>中 调用<code>Activity</code>中 的方法 <code>GetActivity</code>（F -&gt; A）</p>
+</li>
+<li><p>在<code>Activity</code>中 调用<code>Fragment</code>中 的方法进行 <code>接口回调</code>（A -&gt; F）</p>
+</li>
+<li><p>在<code>Fragment</code>中 调用<code>Fragment</code>中 的方法 <code>findFragmentById</code> （F -&gt; F）</p>
+</li>
+</ul>
+<blockquote>
+<p>replace、add、remove</p>
+</blockquote>
+<hr>
+<h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><blockquote>
+<p>应用场景</p>
+</blockquote>
+<blockquote>
+<p>与 Thread 区别</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<h3 id="Content-Provider"><a href="#Content-Provider" class="headerlink" title="Content Provider"></a>Content Provider</h3><hr>
+<h3 id="Broadcast-Receiver"><a href="#Broadcast-Receiver" class="headerlink" title="Broadcast Receiver"></a>Broadcast Receiver</h3><hr>
+<h3 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h3><hr>
+<h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM 架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
+<blockquote>
+<p>主要的 Jetpack 框架组件：</p>
+</blockquote>
+<ul>
+<li><p>Lifecycle（生命周期）</p>
+</li>
+<li><p>LiveData（观察者模式的数据监控）</p>
+</li>
+<li><p>ViewModel（状态管理，页面通信）</p>
+</li>
+<li><p>ViewBinding or DataBinding（数据双向绑定与Ui访问控制）</p>
+</li>
+<li><p>Navigation（页面管理）</p>
+</li>
+<li><p>Paging（分页）</p>
+</li>
+<li><p>WorkManager（多线程处理）</p>
+</li>
+<li><p>ROOM（数据库接口）</p>
+</li>
+</ul>
+<blockquote>
+<p>组件库提供的新 Ui 组件</p>
+</blockquote>
+<ul>
+<li><p>Jetpack Compose（声明式Ui，所见即所得）</p>
+</li>
+<li><p>ViewPager2</p>
+</li>
+</ul>
+<hr>
+<h3 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h3><p>常见的 Lifecycle 组件用法是通过其提供的观察者模式，将生命周期的复杂操作进行封装，开发者只需在视图控制器（配合ViewBinding或DataBinding使用）中注册生命周期持有者，即可优雅完成对当前 Activity 或 Fragment 生命周期控制。</p>
+<hr>
+<h3 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h3><p>LiveData的出现主要是为了帮助开发者遵循 “通过唯一可信源分发状态” 的标准化开发理念。</p>
+<p>通过与Lifecycle配合使用，以观察者模式将Ui与数据动态解耦，使Ui能动态响应数据变化，LiveData仅在当前状态为 STARTED 或 RESUMED 时才会通知 Ui 进行更新。</p>
+<blockquote>
+<p>LiveData 带来的优点：</p>
+</blockquote>
+<ul>
+<li><p>确保 Ui 与数据始终保持一致：LiveData 将时刻关注被赋予 Observer 的对象，当你的数据发生变化时，无需手动对 Ui 进行重绘，LiveData将自动通知 Ui 更新数据。</p>
+</li>
+<li><p>减少内存泄漏：由于 Observer 对象的生命周期与当前 Activity 或 Fragment绑定，LiveData将自动对已进入 Destroyed 状态的对象进行清理，从而减少不必要的内存泄漏。若当前 Activity 或 Fragment 在栈区中处于不活跃状态，LiveData则不会接收任何对于数据的更新直到绑定对象重新位于前台活跃状态。</p>
+</li>
+<li><p>减少通过人为手段对生命周期的管理监控：LiveData能够自动管理其绑定对象的生命周期，并在 App 处于前/后台状态时自动更新其状态。</p>
+</li>
+</ul>
+<hr>
+<h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><p>ViewModel为了</p>
+<hr>
+<h3 id="ViewBinding-与-DataBinding"><a href="#ViewBinding-与-DataBinding" class="headerlink" title="ViewBinding 与 DataBinding"></a>ViewBinding 与 DataBinding</h3><blockquote>
+<p>与使用 findViewById 相比，视图绑定（ViewBinding）具有一些很显著的优点：</p>
+</blockquote>
+<ul>
+<li><p>Null 安全：由于视图绑定会创建对视图的直接引用，因此不存在因视图 ID 无效而引发 Null 指针异常的风险。此外，如果视图仅出现在布局的某些配置中，则绑定类中包含其引用的字段会使用 @Nullable 标记。</p>
+</li>
+<li><p>类型安全：每个绑定类中的字段均具有与它们在 XML 文件中引用的视图相匹配的类型。这意味着不存在发生类转换异常的风险。<br>这些差异意味着布局和代码之间的不兼容将会导致构建在编译时（而非运行时）失败。</p>
+</li>
+</ul>
+<blockquote>
+<p>与数据绑定的对比</p>
+</blockquote>
+<p>视图绑定和数据绑定均会生成可用于直接引用视图的绑定类。但是，视图绑定旨在处理更简单的用例，与数据绑定相比，具有以下优势：</p>
+<ul>
+<li><p>更快的编译速度：视图绑定不需要处理注释，因此编译时间更短。</p>
+</li>
+<li><p>易于使用：视图绑定不需要特别标记的 XML 布局文件，因此在应用中采用速度更快。在模块中启用视图绑定后，它会自动应用于该模块的所有布局。</p>
+</li>
+</ul>
+<blockquote>
+<p>反过来，与数据绑定（DataBinding）相比，视图绑定也具有以下限制：</p>
+</blockquote>
+<ul>
+<li><p>视图绑定不支持布局变量或布局表达式，因此不能用于直接在 XML 布局文件中声明动态界面内容。</p>
+</li>
+<li><p>视图绑定不支持双向数据绑定。</p>
+</li>
+</ul>
+<blockquote>
+<p>考虑到这些因素，在某些情况下，最好在项目中同时使用视图绑定和数据绑定。您可以在需要高级功能的布局中使用数据绑定，而在不需要高级功能的布局中使用视图绑定。</p>
+</blockquote>
+<hr>
+<h3 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h3><p>与 IOS开发 中的故事板一样，Jetpack为<code>导航</code>提供Navigation组件以管控各页面间的关联跳转。使用了 Navigation组件 构建的App通常需要有一个其实目的地，在应用中，<code>back操作</code> 与 <code>pop up操作</code>将会起到一样的作用。</p>
+<blockquote>
+<p>导航组件提供各种其他优势，包括以下内容：</p>
+</blockquote>
+<ul>
+<li><p>处理 Fragment 事务。</p>
+</li>
+<li><p>默认情况下，正确处理往返操作。</p>
+</li>
+<li><p>为动画和转换提供标准化资源。</p>
+</li>
+<li><p>实现和处理深层链接。</p>
+</li>
+<li><p>包括导航界面模式（例如抽屉式导航栏和底部导航），用户只需完成极少的额外工作。</p>
+</li>
+<li><p>Safe Args - 可在目标之间导航和传递数据时提供类型安全的 Gradle 插件。</p>
+</li>
+<li><p>ViewModel 支持 - 您可以将 ViewModel 的范围限定为导航图，以在图表的目标之间共享与界面相关的数</p>
+</li>
+</ul>
+<hr>
+<h3 id="WorkManager"><a href="#WorkManager" class="headerlink" title="WorkManager"></a>WorkManager</h3><hr>
+<h3 id="ROOM"><a href="#ROOM" class="headerlink" title="ROOM"></a>ROOM</h3><p>Room 持久性库在 SQLite 的基础上提供了一个抽象层，让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。</p>
+<blockquote>
+<p>具体来说，ROOM具有以下优势：</p>
+</blockquote>
+<ul>
+<li><p>针对 SQL 查询的编译时验证。</p>
+</li>
+<li><p>可最大限度减少重复和容易出错的样板代码的方便注解。</p>
+</li>
+<li><p>简化了数据库迁移路径。</p>
+</li>
+</ul>
+<blockquote>
+<p>ROOM 概览</p>
+</blockquote>
+<ul>
+<li>Entity</li>
+</ul>
+<p>ROOM 使用 @Entity 注解对类进行标识，数据实体通常为数据库中的一行，如常见的 User实体，通常会包括含<code>主键id</code>在内的姓名，昵称，出生日期，性别等列属性。</p>
+<p>对于<code>主键</code>，可使用 @PrimaryKey 对其进行标注，并使用 unique属性 指定唯一性；</p>
+<p>对于<code>列属性</code>，可使用 @ColumInfo 对其进行标注，并通过 name属性 指定别名。</p>
+<ul>
+<li>Dao</li>
+</ul>
+<p>数据访问对象（Data Access Object），开发者可通过使用 Dao，对数据实体以及数据库进行交互，包括常见的 CURD操作。</p>
+<p>常见的<code>Dao注解</code>有：@Insert，@Update, @Delete，@Query</p>
+<ul>
+<li>Database</li>
+</ul>
+<p>在使用数据库之前通常需要对数据库实例进行初始化，这一操作最好在 ViewModel 中进行，通过与 ViewModel 进行生命周期绑定，使其能与 整体App 生命周期统一管理。</p>
+<p>通过继承 RoomDatabase 并进行单例操作，以创建全局唯一数据库实例。</p>
+<blockquote>
+<p>局限性</p>
+</blockquote>
+<p>由于数据库操作通常是耗时操作，Google Android官方不推荐将 ROOM 直接应用于主线程中，而是以异步的形式在后台进行数据处理，通常配合 AsyncTask 进行异步使用。</p>
+<hr>
+<h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>通过与ROOM进行配合，Paging库 能轻松对所接受数据进行分页。</p>
+<hr>
+<h3 id="Jetpack-Compose"><a href="#Jetpack-Compose" class="headerlink" title="Jetpack Compose"></a>Jetpack Compose</h3><hr>
+<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><blockquote>
+<p>优势</p>
+</blockquote>
+<ul>
+<li><p>编译为本地机器码，支持跨平台，代码简洁。</p>
+</li>
+<li><p>与使用 JavaScript 的React-Native 对比，性能更高效且支持更多平台。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>层级</p>
+</blockquote>
+<ul>
+<li><p>Framework：Dart层，为 Dart 上级Api 提供支持。</p>
+</li>
+<li><p>Engine：引擎层，包含 Skia、Dart 和 Text。</p>
+</li>
+<li><p>Embedder：嵌入层，使 Flutter 能嵌入到任何平台。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>为什么使用 Dart</p>
+</blockquote>
+<ul>
+<li><p>DartVM 可编译为 ARM代码，直接运行在硬件上。</p>
+</li>
+<li><p>使用isolate实现多线程，且不共享内存，可实现无锁快速分配。</p>
+</li>
+<li><p>线性指针，保证内存线性增长。</p>
+</li>
+<li><p>底层为 OpenGL绘制库，先调用OpenGL 后调用操作系统API，性能接近原生渲染。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>混合开发</p>
+</blockquote>
+<p>将 现有Flutter项目 打包成 jar包 或 so库，集成到其他平台。</p>
+<p><a target="_blank" rel="noopener" href="https://flutter.cn/docs/development/add-to-app">将 Flutter 集成到现有应用 • Flutter.cn</a></p>
+<ul>
+<li>步骤1：在 AndroidManifest.xml 中添加 FlutterActivity</li>
+</ul>
+<p>Flutter 提供了 FlutterActivity，用于在 Android 应用内部展示一个 Flutter 的交互界面。和其他的 Activity 一样，FlutterActivity 必须在项目的 AndroidManifest.xml 文件中注册。将下边的 XML 代码添加到你的 AndroidManifest.xml 文件中的 application 标签内：</p>
+<pre><code class="xml">&lt;activity
+  android:name=&quot;io.flutter.embedding.android.FlutterActivity&quot;
+  android:theme=&quot;@style/LaunchTheme&quot;
+  android:configChanges=&quot;orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode&quot;
+  android:hardwareAccelerated=&quot;true&quot;
+  android:windowSoftInputMode=&quot;adjustResize&quot;
+  /&gt;
+</code></pre>
+<p>上述代码中的 @style/LaunchTheme 可以替换为想要在你的 FlutterActivity 中使用的其他 Android 主题。主题的选择决定 Android 系统展示框架所使用的颜色，例如 Android 的导航栏，以及 Flutter UI 自身的第一次渲染前 FlutterActivity 的背景色。</p>
+<hr>
+<ul>
+<li>步骤 2：加载 FlutterActivity</li>
+</ul>
+<p>在你的清单文件中注册了 FlutterActivity 之后，根据需要，你可以在应用中的任意位置添加打开 FlutterActivity 的代码。下边的代码展示了如何在 OnClickListener 的点击事件中打开 FlutterActivity。</p>
+<pre><code class="java">import io.flutter.embedding.android.FlutterActivity;
+</code></pre>
+<pre><code class="java">myButton.setOnClickListener(new OnClickListener() &#123;
+  @Override
+  public void onClick(View v) &#123;
+    startActivity(
+      FlutterActivity.createDefaultIntent(currentActivity)
+    );
+  &#125;
+&#125;);
+</code></pre>
+<p>上述的例子假定了你的 Dart 代码入口是调用 main()，并且你的 Flutter 初始路由是 ‘/’。 Dart 代码入口不能通过 Intent 改变，但是初始路由可以通过 Intent 来修改。下面的例子讲解了如何打开一个自定义 Flutter 初始路由的 FlutterActivity。</p>
+<pre><code class="java">myButton.addOnClickListener(new OnClickListener() &#123;
+  @Override
+  public void onClick(View v) &#123;
+    startActivity(
+      FlutterActivity
+        .withNewEngine()
+        .initialRoute(&quot;/my_route&quot;)
+        .build(this)
+      );
+  &#125;
+&#125;);
+</code></pre>
+<p>可以用你想要的初始路由替换掉 “/my_route”。</p>
+<p>工厂方法 withNewEngine() 可以用于配置一个 FlutterActivity，它会在内部创建一个属于自己的 FlutterEngine 实例，这会有一个明显的初始化时间。另外一种可选的做法是让 FlutterActivity 使用一个预热且缓存的 FlutterEngine，这可以最小化 Flutter 初始化的时间。这种方式接下来会讨论到。</p>
+<hr>
+<ul>
+<li>步骤3：（可选）使用缓存的 FlutterEngine</li>
+</ul>
+<p>每一个 FlutterActivity 默认会创建它自己的 FlutterEngine。每一个 FlutterEngine 会有一个明显的预热时间。这意味着加载一个标准的 FlutterActivity 时，在你的 Flutter 交互页面可见之前会有一个短暂的延迟。想要最小化这个延迟时间，你可以在抵达你的 FlutterActivity 之前，初始化一个 FlutterEngine，然后使用这个已经预热好的 FlutterEngine。</p>
+<p>要预热一个 FlutterEngine，可以在你的应用中找一个合理的地方实例化一个 FlutterEngine。下面的这个例子是在 Application 类中预先初始化一个 FlutterEngine：</p>
+<pre><code class="java">public class MyApplication extends Application &#123;
+  public FlutterEngine flutterEngine;
+  
+  @Override
+  public void onCreate() &#123;
+    super.onCreate();
+    // Instantiate a FlutterEngine.
+    flutterEngine = new FlutterEngine(this);
+
+    // Start executing Dart code to pre-warm the FlutterEngine.
+    flutterEngine.getDartExecutor().executeDartEntrypoint(
+      DartEntrypoint.createDefault()
+    );
+
+    // Cache the FlutterEngine to be used by FlutterActivity.
+    FlutterEngineCache
+      .getInstance()
+      .put(&quot;my_engine_id&quot;, flutterEngine);
+  &#125;
+&#125;
+</code></pre>
+<hr>
+<blockquote>
+<p>与原生数据交互</p>
+</blockquote>
+<p>MethodChannel</p>
+<hr>
+<h2 id="第三方库（Android）"><a href="#第三方库（Android）" class="headerlink" title="第三方库（Android）"></a>第三方库（Android）</h2><h3 id="Volley"><a href="#Volley" class="headerlink" title="Volley"></a>Volley</h3><p>Google官方出品的异步请求框架，2013年发布，适合数据量小，通信量大的发布。</p>
+<ul>
+<li>步骤1：创建 RequestQueue请求队列</li>
+</ul>
+<p>请求队列通常只需要生成一个，可使用单例模式进行创建，进行高并发请求。</p>
+<pre><code class="java">public class VolleyUtils &#123;
+    private static RequestQueue requestQueue;
+
+    public static synchronized RequestQueue getInstance(Context context) &#123;
+        if (requestQueue == null) &#123;
+            requestQueue = Volley.newRequestQueue(context.getApplicationContext());
+        &#125;
+
+        return requestQueue;
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>步骤2：创建 StringRequest请求对象</li>
+</ul>
+<pre><code class="java">StringRequest request = new StringRequest(requestUrl, response -&gt; &#123;
+            // success
+        &#125;, error -&gt; &#123;
+            // failure
+        &#125;);
+</code></pre>
+<hr>
+<ul>
+<li>步骤3：向 RequestQueue请求队列 中添加 StringRequest请求对象</li>
+</ul>
+<pre><code class="java">VolleyUtils.getInstance(context).add(request);
+</code></pre>
+<hr>
+<blockquote>
+<p>源码分析</p>
+</blockquote>
+<ul>
+<li><p>CacheDispatcher：内部就是一个线程，开启子线程的缓存请求队列，while时刻运行网络请求。首次操作会先从本地判断是否存在缓存，如果有则直接从缓存中获取，否则直接走NetworkDispatcher</p>
+</li>
+<li><p>NetworkDispatcher：内部也是一个线程，开启网络请求队列，while时刻运行网络请求。首次操作会先从CacheDispatcher中判断是否存在缓存，有的话则走CacheDispatcher，若无缓存或缓存过期则会新建一个请求，并将响应回传主线程。</p>
+</li>
+<li><p>ResponseDelivery：响应分发器，对响应进行分发回传。</p>
+</li>
+</ul>
+<hr>
+<h3 id="okHttp"><a href="#okHttp" class="headerlink" title="okHttp"></a>okHttp</h3><ul>
+<li>步骤1：创建 okHttp Client</li>
+</ul>
+<pre><code class="java">private final OkHttpClient _client = new OkHttpClient();
+</code></pre>
+<hr>
+<ul>
+<li>步骤2： 建立请求</li>
+</ul>
+<p>Builder模式：将一个复杂对象的构建与表示相分离。</p>
+<pre><code class="java">Request request = new Request.Builder().url(&quot;you url&quot;).build();
+</code></pre>
+<hr>
+<ul>
+<li>步骤3：执行请求（<code>同步</code>请求）</li>
+</ul>
+<p>阻塞当前线程获取数据。</p>
+<pre><code class="java">OkHttp3.Response response = _client.newCall(request).execute()
+</code></pre>
+<blockquote>
+<p>OR</p>
+</blockquote>
+<ul>
+<li>步骤3：执行请求（<code>异步</code>请求）</li>
+</ul>
+<pre><code class="java">_client.newCall(request).enqueue(
+  new Callback()&#123;
+    @Override
+    public void onFailure(Call call, IOException e)&#123; 
+      // handle error
+      return e.printStackTrace();
+      &#125;
+
+    @Override
+    public void onResponse(Call call, okhttp3.Response response) throw IOException&#123;
+      // get response
+      System.out.println(response.body().string())
+    &#125;
+  &#125;
+)
+</code></pre>
+<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/okhttp_interceptors.png" alt="拦截器"></p>
+<blockquote>
+<p>拦截器（同步请求）</p>
+</blockquote>
+<p>将以下拦截器进行逐次调用，形成链条。</p>
+<ul>
+<li><p>retryAndFollowUpInterceptor：失败重试，重定向。</p>
+</li>
+<li><p>BridgeInterceptor：将用户构造的请求转换为服务器请求，并将服务器响应转化为用户易于查看的响应，起桥接作用。</p>
+</li>
+<li><p>CacheInterceptor：缓存拦截器，负责读取或更新缓存。</p>
+</li>
+<li><p>ConnectInterceptor：负责与服务端进行连接。</p>
+</li>
+<li><p>CallServerInterceptor：负责网络端进行连接。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>拦截器（异步请求）</p>
+</blockquote>
+<p>dispatcher().enqueue()方法中：</p>
+<ul>
+<li><p>readyAsyncCalls：正在准备的一些异步请求。</p>
+</li>
+<li><p>runningAsyncCalls：正在运行的异步请求。</p>
+</li>
+<li><p>runningSyncCalls：正在运行的同步请求。</p>
+</li>
+</ul>
+<p>内部会开启几个线程池，任务在后台执行。</p>
+<hr>
+<blockquote>
+<p>事件</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/okhttp_events.png" alt="基本事件"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/okhttp_events_with_failures.png" alt="基本事件 + 失败事件"></th>
+<th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/okhttp_events_with_failures_and_retries.png" alt="基本事件 + 失败事件 + 重试事件"></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h3 id="GSON"><a href="#GSON" class="headerlink" title="GSON"></a>GSON</h3><hr>
+<h3 id="Glide"><a href="#Glide" class="headerlink" title="Glide"></a>Glide</h3><hr>
+<h3 id="GreenDao"><a href="#GreenDao" class="headerlink" title="GreenDao"></a>GreenDao</h3><hr>
+<h3 id="LeakCanary"><a href="#LeakCanary" class="headerlink" title="LeakCanary"></a>LeakCanary</h3><hr>
+<h2 id="第三方库（Flutter）"><a href="#第三方库（Flutter）" class="headerlink" title="第三方库（Flutter）"></a>第三方库（Flutter）</h2><h3 id="dio"><a href="#dio" class="headerlink" title="dio"></a>dio</h3><hr>
+<h3 id="GetX"><a href="#GetX" class="headerlink" title="GetX"></a>GetX</h3><hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.android.google.cn/jetpack">Android for Developer • Jetpack</a></li>
+</ul>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">29 <p>文章</p></a></li>
+                    <li><a href="/categories">16 <p>分类</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%B2%97%E4%BD%8D%E8%A6%81%E6%B1%82%EF%BC%88%E6%A0%A1%E6%8B%9B%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">我的岗位要求（校招）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">3.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%EF%BC%88Java%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">反射（Java）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">4.1.</span> <span class="toc-text">进程保活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-number">4.2.</span> <span class="toc-text">热更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Native"><span class="toc-number">5.</span> <span class="toc-text">Android Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">5.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">5.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">5.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">5.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">5.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler"><span class="toc-number">5.6.</span> <span class="toc-text">Handler</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Jetpack"><span class="toc-number">6.</span> <span class="toc-text">Android Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">6.1.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">6.2.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">6.3.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-%E4%B8%8E-DataBinding"><span class="toc-number">6.4.</span> <span class="toc-text">ViewBinding 与 DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">6.5.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">6.6.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">6.7.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">6.8.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">6.9.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">7.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">8.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">8.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSON"><span class="toc-number">8.3.</span> <span class="toc-text">GSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">8.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">8.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">8.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">9.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">9.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">10.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>
