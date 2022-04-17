@@ -20,8 +20,8 @@
 待完善ing……
 
 
-MVC / MVP / MVVM
-MVC：Model，View，Controll,">
+Android NativeActivity
+在 Google 公开 Jetpa,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -114,13 +114,13 @@ MVC：Model，View，Controll,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    9k
+                    9.5k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    16 mins.
+                    17 mins.
                 </span>
                     
                     
@@ -162,51 +162,36 @@ MVC：Model，View，Controll,">
 <p>待完善ing……</p>
 </blockquote>
 <hr>
-<h2 id="MVC-MVP-MVVM"><a href="#MVC-MVP-MVVM" class="headerlink" title="MVC / MVP / MVVM"></a>MVC / MVP / MVVM</h2><ul>
-<li><p>MVC：Model，View，Controller</p>
-</li>
-<li><p>MVP：Model，View，Presenter</p>
-</li>
-<li><p>MVVM：Model，View，ViewModel</p>
-</li>
-</ul>
-<blockquote>
-<p>架构差异</p>
-</blockquote>
-<ul>
-<li><p>MVC：Controller通常为Activity，将包含数据处理与逻辑业务，但该模式中Activity既充当着View与Controller角色，将导致代码极度耦合。</p>
-</li>
-<li><p>MVP：Presenter 持有 View接口，不直接操作View，并在其中执行业务操作，可将视图操作与业务逻辑解耦，使 Activity 成为 真正View层</p>
-</li>
-</ul>
-<blockquote>
-<p>MVVM</p>
-</blockquote>
-<p>Model：实体模型。</p>
-<p>View：对应于Activity和XML，负责View的绘制以及用户交互。</p>
-<p>ViewModel：负责完成View与Model间的交互，负责业务逻辑。</p>
-<hr>
-<h2 id="反射（Java）"><a href="#反射（Java）" class="headerlink" title="反射（Java）"></a>反射（Java）</h2><p>使程序在运行时可获得类的函数、属性与其内部的一些信息，通过反射，可在运行时（RunningTime）实例化这些函数并调用这些方法。</p>
-<hr>
-<h3 id="进程保活"><a href="#进程保活" class="headerlink" title="进程保活"></a>进程保活</h3><hr>
-<h3 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h3><hr>
 <h2 id="Android-Native"><a href="#Android-Native" class="headerlink" title="Android Native"></a>Android Native</h2><h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><blockquote>
-<p>在 Google 公开 Jetpack 后，官方提倡 单Activity 的开发模式。</p>
+<p>在 Google 公开 Jetpack 后，官方提倡 <code>单Activity，多Fragment</code> 的开发模式。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/activity_lifecycle.png" alt="Activity Lifecycle"></p>
+<p>优点：</p>
+<ul>
+<li><p>Fragment 比 Activity 占用较少系统资源，使 App 能在较低端的手机上流畅运行。</p>
+</li>
+<li><p>Fragment 作为碎片，更容易控制每个场景的生命周期与状态。</p>
+</li>
+</ul>
+<hr>
 <blockquote>
 <p>生命周期</p>
 </blockquote>
+<p>下图为Activity的生命周期示意图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/activity_lifecycle.png" alt="Activity Lifecycle"></p>
+<p>场景：用户点击 App图标 启动App</p>
 <p>Activity启动 -&gt; onCreate() -&gt; onStart() -&gt; onResume()</p>
 <ul>
-<li><p>onCreate()：设置布局资源，数据加载，图片预加载。</p>
+<li><p>onCreate()：设置布局资源，数据加载，图片预加载等。</p>
 </li>
 <li><p>onStart()：Activity暂未处在前台状态，用户无法对 Activity 进行触摸点击或者滑动等操作。</p>
 </li>
-<li><p>onResume()：调用后，用户即可对Activity进行控制，也可在该方法中进行数据预加载。</p>
+<li><p>onResume()：该生命周期方法调用后，用户即可对Activity进行控制，也可在该方法中进行数据预加载。</p>
 </li>
 </ul>
 <hr>
+<blockquote>
+<p>场景：用户将App退居后台。</p>
+</blockquote>
 <p>Activity 不可见 -&gt; onPause() -&gt; onStop()</p>
 <ul>
 <li><p>onPause()：表明 Activity 处于停滞状态，Activity 可见但不可被操作，Activity退居后台时被调用。</p>
@@ -215,11 +200,17 @@ MVC：Model，View，Controll,">
 </li>
 </ul>
 <hr>
+<blockquote>
+<p>场景：用户从后台返回App、用户再次点击App图标使其回到前台。</p>
+</blockquote>
 <p>再次回到 Activity 时 -&gt; onRestart() -&gt; onStart() -&gt; onResume()</p>
 <ul>
 <li>onRestart()：Activity由不可见状态到可见状态时调用，常见场景为后台App重新回到前台。</li>
 </ul>
 <hr>
+<blockquote>
+<p>场景：用户将App从后台堆栈中移除。</p>
+</blockquote>
 <p>退出当前Activity时 -&gt; onPause() -&gt; onStop -&gt; onDestroy()</p>
 <ul>
 <li>onDestroy()：最后一个生命周期方法，资源释放、内存回收。</li>
@@ -228,41 +219,131 @@ MVC：Model，View，Controll,">
 <blockquote>
 <p>进程优先级</p>
 </blockquote>
-<p>由高到低以此为：</p>
+<p>由高到低依次为：</p>
 <p>前台 / 可见 / 服务 / 后台 / 空</p>
+<ul>
+<li><p>前台进程：App前台可操作。</p>
+</li>
+<li><p>可见：App处于后台堆栈，可见但不可操作。</p>
+</li>
+<li><p>服务：Service服务进程通常是一种可在后台执行长时间操作而不提供界面的应用组件。</p>
+</li>
+<li><p>后台：App处于后台堆栈不可见，若手机内存不足，则该进程可能被后台回收。</p>
+</li>
+<li><p>空：在该进程内，没有任何东西运行，该进程目的是用作缓存。以减少应用在下次启动中所需的时间。</p>
+</li>
+</ul>
 <hr>
 <blockquote>
 <p>启动模式</p>
 </blockquote>
 <ul>
-<li><p>standard：普通模式，会走所有生命周期方法，对内存有很消耗。</p>
+<li><p>standard：普通模式，走所有生命周期方法，对内存有很大消耗。</p>
 </li>
-<li><p>singleTop：<code>栈顶复用</code>模式，判断待创建的Activity是否已位于栈顶，若待创建Activity已位于栈顶，则会复用栈顶 Activity；若没有，则还是会走所有生命周期。</p>
+<li><p>singleTop：<code>栈顶复用</code>模式，判断 待创建的Activity 是否已位于栈顶，若 待创建Activity 已位于栈顶，则会复用 栈顶 Activity；若没有，则还是会走所有生命周期创建一个 新的Activity。</p>
 </li>
-<li><p>singleTask：<code>栈内复用</code>模式，检测整个任务栈中是否存在当前需要启动的Activity，若存在，则直接置于栈顶，并将已有 栈顶Activity 全数销毁，并回调 onNewIntent() 方法</p>
+<li><p>singleTask：<code>栈内复用</code>模式，检测整个任务栈中是否存在当前需要启动的Activity，若存在，则直接置于栈顶，并将已有 栈顶Activity 全数销毁出栈，并回调 onNewIntent() 方法</p>
 </li>
 <li><p>singleInstance：<code>独享</code>模式，若Activity在整个App中只有一个实例，且独占一个任务栈，则称为独享模式。</p>
 </li>
 </ul>
 <hr>
 <blockquote>
-<p>数据通信</p>
+<p>进程间通信</p>
 </blockquote>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1441385">Android中进程间通信（IPC）方式</a></p>
+<p>IPC（Inter-Process Communication）为进程间通信或跨进程通信，是指两个进程进行进程间通信的过程。</p>
+<p>在Android中，为每一个应用程序都分配了一个独立的虚拟机，不同虚拟机在内存分配上都有不同的地址空间，互相访问数据需要借助其他手段。</p>
 <ul>
-<li>在 Activity 之间发送数据（Bundle）</li>
+<li>Bundle模式</li>
 </ul>
-<p>操作系统会将 intent 的基础 Bundle 打包。然后，操作系统会创建新的 Activity，将数据拆包，并将 intent 传递给新的 Activity。</p>
+<p>在Android中三大组件（Activity，Service，Receiver）都支持在Intent中传递Bundle数据，由于Bundle实现了Parcelable接口（一种特有的序列化方法），所以它可以很方便的在不同的进程之间进行传输。当在一个进程中启动另外一个进程的Activity，Service，Receiver时，可以在Bundle中附加需要传输给远程的进程的信息，并通过Intent发送出去。</p>
+<p>putExtras(Bundle data)：向Intent中放入所需要“携带”的数据包。</p>
+<p>Bundle getExtras()：取出Intent中所“携带”的数据包。</p>
+<pre><code class="java">Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+Bundle bundle = new Bundle();
+bundle.putString(&quot;key&quot;, &quot;value&quot;);
+intent.putExtras(bundle);
+startActivity(intent);
+</code></pre>
+<hr>
 <ul>
-<li>在进程之间发送数据（Parcelable）</li>
+<li>文件共享模式</li>
+</ul>
+<p>文件共享：将对象序列化之后保存到文件中，在通过反序列，将对象从文件中读取出来。此方式对文件的格式没有具体的要求，可以是文件、XML、JSON等。</p>
+<p>文件共享方式也存在着很大的局限性，如并发读/写问题，如读取的数据不完整或者读取的数据不是最新的。文件共享适合在对数据同步要求不高的进程间通信，并且要妥善处理并发读/写的问题。</p>
+<hr>
+<ul>
+<li>Messenger模式</li>
 </ul>
 <hr>
-<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><blockquote>
+<ul>
+<li>使用AIDL的方式</li>
+</ul>
+<hr>
+<ul>
+<li>ContentProvider</li>
+</ul>
+<hr>
+<ul>
+<li>广播接收者（Broadcast）</li>
+</ul>
+<hr>
+<ul>
+<li>Socket</li>
+</ul>
+<hr>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/fragment-screen-sizes.png" alt="Fragment"></p>
+<blockquote>
 <p>生命周期</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/fragment-view-lifecycle.png" alt="Fragment Lifecycle"></p>
 <blockquote>
+<p>场景：Activity 携带的 Fragment 初始化。</p>
+</blockquote>
+<p>CREATED -&gt; STARTED -&gt; RESUMED</p>
+<ul>
+<li>CREATED：onCreate() -&gt; onCreateView() -&gt; onViewCreated() -&gt; onViewStateRestored()</li>
+</ul>
+<p>对于 onCreteView()，可在该方法内手动填充或创建 Fragment 视图，且可在该方法内使用 getViewLifecycleOwnerLiveData() 对 LiveData 进行初始化或更新。若属兔已经创建完成，则会调用<br> onViewStateRestored()，在该方法内需要对已与 Fragment视图 进行关联的状态进行重建。</p>
+<ul>
+<li>STARTED：onStart()</li>
+</ul>
+<p>Fragment实体已经处于可用状态（用户暂不可操作），当前Fragment 所属的 FragmentManager 将执行相应 Fragment事务。</p>
+<ul>
+<li>RESUMED：onResumed()</li>
+</ul>
+<p>Fragment可见，其动画与事务均执行完毕，且可响应用户操作。</p>
+<hr>
+<blockquote>
+<p>场景：用户选择离开当前Fragment页面、宿主Activity 退居后台、当前Fragment 退居后台不可见。</p>
+</blockquote>
+<p>RESUMED -&gt; STARTED -&gt; CREATED</p>
+<ul>
+<li><p>RESUMED：onResumed()</p>
+</li>
+<li><p>STARTED：onPause()</p>
+</li>
+<li><p>CREATED：onStop() -&gt; onSaveInstanceSate() -&gt; onDestroyView()</p>
+</li>
+</ul>
+<p>对于API级别28（Android 9）之前的设备，onSaveInstanceState() 函数将在 onStop() 前调用。</p>
+<p>对于API级别28（Android 9）之后的设备，则反之。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/fragment-stop-save-order.png" alt="onSaveInstanceState() 与 onStop()"></p>
+<hr>
+<blockquote>
+<p>场景：宿主Activity 或 当前Fragment 被回收、当前Fragment的FragmentManager被销毁。</p>
+</blockquote>
+<p>DESTROYED</p>
+<ul>
+<li>onDestroy()</li>
+</ul>
+<hr>
+<blockquote>
 <p>Fragment 通信</p>
 </blockquote>
+<p>大部分情况下，通过ViewModel在多个Fragment或与其宿主Activity之间共享数据是一个理想的选择。</p>
+<p>普通模式：</p>
 <ul>
 <li><p>在<code>Fragment</code>中 调用<code>Activity</code>中 的方法 <code>GetActivity</code>（F -&gt; A）</p>
 </li>
@@ -271,22 +352,57 @@ MVC：Model，View，Controll,">
 <li><p>在<code>Fragment</code>中 调用<code>Fragment</code>中 的方法 <code>findFragmentById</code> （F -&gt; F）</p>
 </li>
 </ul>
-<blockquote>
-<p>replace、add、remove</p>
-</blockquote>
 <hr>
 <h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><blockquote>
 <p>应用场景</p>
 </blockquote>
-<blockquote>
-<p>与 Thread 区别</p>
-</blockquote>
-<blockquote>
-</blockquote>
+<p>一种可在后台执行长时间运行操作而不提供界面的应用组件，如后台处理网络事务、播放音乐，执行文件 I/O 或与内容提供程序进行交互。</p>
+<p>简单地说，服务是一种即使用户未与应用交互也可在后台运行的组件，因此，只有在需要服务时才应创建服务。</p>
 <hr>
-<h3 id="Content-Provider"><a href="#Content-Provider" class="headerlink" title="Content Provider"></a>Content Provider</h3><hr>
-<h3 id="Broadcast-Receiver"><a href="#Broadcast-Receiver" class="headerlink" title="Broadcast Receiver"></a>Broadcast Receiver</h3><hr>
+<blockquote>
+<p>与 线程Thread 区别</p>
+</blockquote>
+<p>如果必须在主线程之外执行操作，但只在用户与您的应用交互时执行此操作，则应创建新线程。例如，如果您只是想在 Activity 运行的同时播放一些音乐，则可在 onCreate() 中创建线程，在 onStart() 中启动线程运行，然后在 onStop() 中停止线程。</p>
+<hr>
+<blockquote>
+<p>生命周期</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/service_lifecycle.png" alt="Service Lifecycle"></p>
+<p>onStartCommand() -&gt; onBind() -&gt; onCreate() -&gt; onDestroy()</p>
+<ul>
+<li>onStartCommand()</li>
+</ul>
+<p>当一个组件，如Activity请求启动服务时，系统将调用该方法，在服务启动后，会在后台无限期运行，直到调用stopSelf() 或 stopService() 停止。</p>
+<p>PS：若只需要绑定服务，则无需实现此方法。</p>
+<hr>
+<ul>
+<li>onBind()</li>
+</ul>
+<p>当另一个组件想要与服务绑定时，系统将调用该方法，在此方法中，必须返回IBinder提供的接口，以供客户端与服务进行通信。</p>
+<hr>
+<ul>
+<li>onCreate()</li>
+</ul>
+<p>首次创建服务时，系统会首先调用此方法执行一次性设置（先于onStartCommand()或onBind()），若该服务已在运行，则不会调用。</p>
+<hr>
+<ul>
+<li>onDestroy()</li>
+</ul>
+<p>不再使用服务并且准备将其销毁时，系统将调用该方法，服务应通过使用该方法清理并回收资源，如：线程、注册的侦听器、接受器等。</p>
+<hr>
+<h3 id="Content-Provider"><a href="#Content-Provider" class="headerlink" title="Content Provider"></a>Content Provider</h3><p>使用场景：当前应用需要与其他应用共享数据，如当前应用需使用拨号，则会寻求电话应用共享数据。</p>
+<hr>
+<h3 id="Broadcast-Receiver"><a href="#Broadcast-Receiver" class="headerlink" title="Broadcast Receiver"></a>Broadcast Receiver</h3><p>使用场景：登录异常强制退出、用户身份认证过期需重新登陆。</p>
+<ul>
+<li><p>标准广播：是一种<code>完全异步执行</code>的广播，在广播发出之后，所有的BroadcastReceiver几乎会在一时刻收到这条广播消息，因此它们之间没有任何先后顺序可言。这种广播的<code>效率会比较高</code>，但同时也意味着它是<code>无法被截断</code>的。</p>
+</li>
+<li><p>有序广播（消息队列）：是一种<code>同步执行</code>的广播，在广播发出之后，同一时刻只会有一个BroadcastReceiver能够收到这条广播消息，当这个BroadcastReceiver中的逻辑执行完毕后，广播才会继续传递。所以此时的BroadcastReceiver是有先后顺序的，优先级高的BroadcastReceiver就可以先收到广播消息，并且前面的BroadcastReceiver还可以截断正在传递的广播，这样后面的BroadcastReceiver就无法收到广播消息了。</p>
+</li>
+</ul>
+<hr>
 <h3 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h3><hr>
+<h3 id="进程保活"><a href="#进程保活" class="headerlink" title="进程保活"></a>进程保活</h3><p>使用场景：聊天信息实时接收</p>
+<hr>
 <h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM 架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
 <blockquote>
 <p>主要的 Jetpack 框架组件：</p>
@@ -318,6 +434,30 @@ MVC：Model，View，Controll,">
 <li><p>ViewPager2</p>
 </li>
 </ul>
+<hr>
+<h3 id="MVC-MVP-MVVM"><a href="#MVC-MVP-MVVM" class="headerlink" title="MVC / MVP / MVVM"></a>MVC / MVP / MVVM</h3><ul>
+<li><p>MVC：Model，View，Controller</p>
+</li>
+<li><p>MVP：Model，View，Presenter</p>
+</li>
+<li><p>MVVM：Model，View，ViewModel</p>
+</li>
+</ul>
+<blockquote>
+<p>架构差异</p>
+</blockquote>
+<ul>
+<li><p>MVC：Controller通常为Activity，将包含数据处理与逻辑业务，但该模式中Activity既充当着View与Controller角色，将导致代码极度耦合。</p>
+</li>
+<li><p>MVP：Presenter 持有 View接口，不直接操作View，并在其中执行业务操作，可将视图操作与业务逻辑解耦，使 Activity 成为 真正View层</p>
+</li>
+</ul>
+<blockquote>
+<p>MVVM</p>
+</blockquote>
+<p>Model：实体模型。</p>
+<p>View：对应于Activity和XML，负责View的绘制以及用户交互。</p>
+<p>ViewModel：负责完成View与Model间的交互，负责业务逻辑。</p>
 <hr>
 <h3 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h3><p>常见的 Lifecycle 组件用法是通过其提供的观察者模式，将生命周期的复杂操作进行封装，开发者只需在视图控制器（配合ViewBinding或DataBinding使用）中注册生命周期持有者，即可优雅完成对当前 Activity 或 Fragment 生命周期控制。</p>
 <hr>
@@ -389,7 +529,8 @@ MVC：Model，View，Controll,">
 </li>
 </ul>
 <hr>
-<h3 id="WorkManager"><a href="#WorkManager" class="headerlink" title="WorkManager"></a>WorkManager</h3><hr>
+<h3 id="WorkManager"><a href="#WorkManager" class="headerlink" title="WorkManager"></a>WorkManager</h3><p>任务管理。</p>
+<hr>
 <h3 id="ROOM"><a href="#ROOM" class="headerlink" title="ROOM"></a>ROOM</h3><p>Room 持久性库在 SQLite 的基础上提供了一个抽象层，让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。</p>
 <blockquote>
 <p>具体来说，ROOM具有以下优势：</p>
@@ -428,7 +569,8 @@ MVC：Model，View，Controll,">
 <hr>
 <h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>通过与ROOM进行配合，Paging库 能轻松对所接受数据进行分页。</p>
 <hr>
-<h3 id="Jetpack-Compose"><a href="#Jetpack-Compose" class="headerlink" title="Jetpack Compose"></a>Jetpack Compose</h3><hr>
+<h3 id="Jetpack-Compose"><a href="#Jetpack-Compose" class="headerlink" title="Jetpack Compose"></a>Jetpack Compose</h3><p>声明式 Ui 组件库</p>
+<hr>
 <h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><blockquote>
 <p>优势</p>
 </blockquote>
@@ -468,84 +610,7 @@ MVC：Model，View，Controll,">
 <blockquote>
 <p>混合开发</p>
 </blockquote>
-<p>将 现有Flutter项目 打包成 jar包 或 so库，集成到其他平台。</p>
 <p><a target="_blank" rel="noopener" href="https://flutter.cn/docs/development/add-to-app">将 Flutter 集成到现有应用 • Flutter.cn</a></p>
-<ul>
-<li>步骤1：在 AndroidManifest.xml 中添加 FlutterActivity</li>
-</ul>
-<p>Flutter 提供了 FlutterActivity，用于在 Android 应用内部展示一个 Flutter 的交互界面。和其他的 Activity 一样，FlutterActivity 必须在项目的 AndroidManifest.xml 文件中注册。将下边的 XML 代码添加到你的 AndroidManifest.xml 文件中的 application 标签内：</p>
-<pre><code class="xml">&lt;activity
-  android:name=&quot;io.flutter.embedding.android.FlutterActivity&quot;
-  android:theme=&quot;@style/LaunchTheme&quot;
-  android:configChanges=&quot;orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode&quot;
-  android:hardwareAccelerated=&quot;true&quot;
-  android:windowSoftInputMode=&quot;adjustResize&quot;
-  /&gt;
-</code></pre>
-<p>上述代码中的 @style/LaunchTheme 可以替换为想要在你的 FlutterActivity 中使用的其他 Android 主题。主题的选择决定 Android 系统展示框架所使用的颜色，例如 Android 的导航栏，以及 Flutter UI 自身的第一次渲染前 FlutterActivity 的背景色。</p>
-<hr>
-<ul>
-<li>步骤 2：加载 FlutterActivity</li>
-</ul>
-<p>在你的清单文件中注册了 FlutterActivity 之后，根据需要，你可以在应用中的任意位置添加打开 FlutterActivity 的代码。下边的代码展示了如何在 OnClickListener 的点击事件中打开 FlutterActivity。</p>
-<pre><code class="java">import io.flutter.embedding.android.FlutterActivity;
-</code></pre>
-<pre><code class="java">myButton.setOnClickListener(new OnClickListener() &#123;
-  @Override
-  public void onClick(View v) &#123;
-    startActivity(
-      FlutterActivity.createDefaultIntent(currentActivity)
-    );
-  &#125;
-&#125;);
-</code></pre>
-<p>上述的例子假定了你的 Dart 代码入口是调用 main()，并且你的 Flutter 初始路由是 ‘/’。 Dart 代码入口不能通过 Intent 改变，但是初始路由可以通过 Intent 来修改。下面的例子讲解了如何打开一个自定义 Flutter 初始路由的 FlutterActivity。</p>
-<pre><code class="java">myButton.addOnClickListener(new OnClickListener() &#123;
-  @Override
-  public void onClick(View v) &#123;
-    startActivity(
-      FlutterActivity
-        .withNewEngine()
-        .initialRoute(&quot;/my_route&quot;)
-        .build(this)
-      );
-  &#125;
-&#125;);
-</code></pre>
-<p>可以用你想要的初始路由替换掉 “/my_route”。</p>
-<p>工厂方法 withNewEngine() 可以用于配置一个 FlutterActivity，它会在内部创建一个属于自己的 FlutterEngine 实例，这会有一个明显的初始化时间。另外一种可选的做法是让 FlutterActivity 使用一个预热且缓存的 FlutterEngine，这可以最小化 Flutter 初始化的时间。这种方式接下来会讨论到。</p>
-<hr>
-<ul>
-<li>步骤3：（可选）使用缓存的 FlutterEngine</li>
-</ul>
-<p>每一个 FlutterActivity 默认会创建它自己的 FlutterEngine。每一个 FlutterEngine 会有一个明显的预热时间。这意味着加载一个标准的 FlutterActivity 时，在你的 Flutter 交互页面可见之前会有一个短暂的延迟。想要最小化这个延迟时间，你可以在抵达你的 FlutterActivity 之前，初始化一个 FlutterEngine，然后使用这个已经预热好的 FlutterEngine。</p>
-<p>要预热一个 FlutterEngine，可以在你的应用中找一个合理的地方实例化一个 FlutterEngine。下面的这个例子是在 Application 类中预先初始化一个 FlutterEngine：</p>
-<pre><code class="java">public class MyApplication extends Application &#123;
-  public FlutterEngine flutterEngine;
-  
-  @Override
-  public void onCreate() &#123;
-    super.onCreate();
-    // Instantiate a FlutterEngine.
-    flutterEngine = new FlutterEngine(this);
-
-    // Start executing Dart code to pre-warm the FlutterEngine.
-    flutterEngine.getDartExecutor().executeDartEntrypoint(
-      DartEntrypoint.createDefault()
-    );
-
-    // Cache the FlutterEngine to be used by FlutterActivity.
-    FlutterEngineCache
-      .getInstance()
-      .put(&quot;my_engine_id&quot;, flutterEngine);
-  &#125;
-&#125;
-</code></pre>
-<hr>
-<blockquote>
-<p>与原生数据交互</p>
-</blockquote>
-<p>MethodChannel</p>
 <hr>
 <h2 id="第三方库（Android）"><a href="#第三方库（Android）" class="headerlink" title="第三方库（Android）"></a>第三方库（Android）</h2><h3 id="Volley"><a href="#Volley" class="headerlink" title="Volley"></a>Volley</h3><p>Google官方出品的异步请求框架，2013年发布，适合数据量小，通信量大的发布。</p>
 <ul>
@@ -680,12 +745,20 @@ MVC：Model，View，Controll,">
 </thead>
 </table>
 <hr>
-<h3 id="GSON"><a href="#GSON" class="headerlink" title="GSON"></a>GSON</h3><hr>
-<h3 id="Glide"><a href="#Glide" class="headerlink" title="Glide"></a>Glide</h3><hr>
-<h3 id="GreenDao"><a href="#GreenDao" class="headerlink" title="GreenDao"></a>GreenDao</h3><hr>
-<h3 id="LeakCanary"><a href="#LeakCanary" class="headerlink" title="LeakCanary"></a>LeakCanary</h3><hr>
-<h2 id="第三方库（Flutter）"><a href="#第三方库（Flutter）" class="headerlink" title="第三方库（Flutter）"></a>第三方库（Flutter）</h2><h3 id="dio"><a href="#dio" class="headerlink" title="dio"></a>dio</h3><hr>
-<h3 id="GetX"><a href="#GetX" class="headerlink" title="GetX"></a>GetX</h3><hr>
+<h3 id="Gson"><a href="#Gson" class="headerlink" title="Gson"></a>Gson</h3><p>Json解析。</p>
+<hr>
+<h3 id="Glide"><a href="#Glide" class="headerlink" title="Glide"></a>Glide</h3><p>图像解析。</p>
+<hr>
+<h3 id="GreenDao"><a href="#GreenDao" class="headerlink" title="GreenDao"></a>GreenDao</h3><p>ORM数据库。</p>
+<hr>
+<h3 id="LeakCanary"><a href="#LeakCanary" class="headerlink" title="LeakCanary"></a>LeakCanary</h3><p>内存泄漏检测。</p>
+<hr>
+<h2 id="第三方库（Flutter）"><a href="#第三方库（Flutter）" class="headerlink" title="第三方库（Flutter）"></a>第三方库（Flutter）</h2><h3 id="dio"><a href="#dio" class="headerlink" title="dio"></a>dio</h3><p>网络请求。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/flutterchina/dio">Github • Dio</a></p>
+<hr>
+<h3 id="GetX"><a href="#GetX" class="headerlink" title="GetX"></a>GetX</h3><p>状态管理、依赖注入。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jonataslaw/getx">Github • GetX</a></p>
+<hr>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://developer.android.google.cn/jetpack">Android for Developer • Jetpack</a></li>
 </ul>
@@ -732,7 +805,7 @@ MVC：Model，View，Controll,">
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">2.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%EF%BC%88Java%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">反射（Java）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">3.1.</span> <span class="toc-text">进程保活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-number">3.2.</span> <span class="toc-text">热更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Native"><span class="toc-number">4.</span> <span class="toc-text">Android Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">4.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">4.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">4.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">4.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">4.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler"><span class="toc-number">4.6.</span> <span class="toc-text">Handler</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Jetpack"><span class="toc-number">5.</span> <span class="toc-text">Android Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">5.1.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">5.2.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">5.3.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-%E4%B8%8E-DataBinding"><span class="toc-number">5.4.</span> <span class="toc-text">ViewBinding 与 DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">5.5.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">5.6.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">5.7.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">5.8.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">5.9.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">6.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">7.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">7.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSON"><span class="toc-number">7.3.</span> <span class="toc-text">GSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">7.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">7.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">7.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">8.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">8.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">9.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Native"><span class="toc-number">2.</span> <span class="toc-text">Android Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">2.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">2.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">2.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">2.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">2.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler"><span class="toc-number">2.6.</span> <span class="toc-text">Handler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">2.7.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Jetpack"><span class="toc-number">3.</span> <span class="toc-text">Android Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">3.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">3.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">3.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">3.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-%E4%B8%8E-DataBinding"><span class="toc-number">3.5.</span> <span class="toc-text">ViewBinding 与 DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">3.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">3.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">3.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">3.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">3.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">4.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">5.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">5.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">5.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">5.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">5.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">5.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">6.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">6.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
                         </div>
                     </div>
                 
