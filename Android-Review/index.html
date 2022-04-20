@@ -114,13 +114,13 @@ Android NativeActivity
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    9.5k
+                    13k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    17 mins.
+                    24 mins.
                 </span>
                     
                     
@@ -217,6 +217,31 @@ Android NativeActivity
 </ul>
 <hr>
 <blockquote>
+<p>显式Intent、隐式Intent</p>
+</blockquote>
+<ul>
+<li>显示Intent</li>
+</ul>
+<p>对于已经在 Manifest清单文件 中定义的Activity，可使用以下代码进行显示跳转</p>
+<pre><code class="java">// 模拟从欢迎页跳转到主页
+startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+</code></pre>
+<hr>
+<ul>
+<li>隐式Intent</li>
+</ul>
+<p>相较于显式Intent，隐式Intent则含蓄了许多，它并不明确指出想要启动哪一个Activity，而是指定了一系列更为抽象的action和category等信息，然后交由系统去分析这个Intent，并找出合适的Activity去启动。</p>
+<pre><code class="java">// 模拟拨号，隐式Intent将会判断传入的意图，并自动搜索适合的Activity进行启动
+Intent telIntent = new Intent(Intent.ACTION_DIAL)
+
+// 设置电话号码
+Uri data = Uri.parse(&quot;tel:&quot; + telNum);
+telIntent.setData(data);
+
+startActivity(telIntent);
+</code></pre>
+<hr>
+<blockquote>
 <p>进程优先级</p>
 </blockquote>
 <p>由高到低依次为：</p>
@@ -286,7 +311,7 @@ startActivity(intent);
 </ul>
 <hr>
 <ul>
-<li>广播接收者（Broadcast）</li>
+<li>广播（Broadcast）</li>
 </ul>
 <hr>
 <ul>
@@ -400,7 +425,132 @@ startActivity(intent);
 </li>
 </ul>
 <hr>
-<h3 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h3><hr>
+<h3 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h3><blockquote>
+<p>Android 本身不允许我们在Ui线程中进行复杂的耗时操作，这些耗时操作极易造成 ANR（Application Not Responding），因此耗时操作通常会在后台子线程中执行。</p>
+</blockquote>
+<p>在 Android中，官方提供了诸如Handler、AsyncTask来处理后台耗时消息。</p>
+<blockquote>
+<p>异步消息处理机制</p>
+</blockquote>
+<ul>
+<li>Message</li>
+</ul>
+<p>Message是<code>在线程之间传递的消息</code>，它可以在内部携带少量的信息，用于在不同线程之间传递数据。</p>
+<hr>
+<ul>
+<li>Handler</li>
+</ul>
+<p>Handler顾名思义也就是<code>处理者</code>的意思，它主要是用于发送和处理消息的。发送消息一般是使用Handler的sendMessage()方法、post()方法等，而发出的消息经过一系列地辗转处理后，最终会传递到Handler的handleMessage()方法中。</p>
+<hr>
+<ul>
+<li>MessageQueue</li>
+</ul>
+<p>MessageQueue是<code>消息队列</code>的意思，它主要用于存放所有通过Handler发送的消息。这部分消息会一直存在于消息队列中，等待被处理。每个线程中只会有一个MessageQueue对象。</p>
+<hr>
+<ul>
+<li>Looper</li>
+</ul>
+<p>Looper是<code>每个线程中的MessageQueue的管家</code>，调用Looper的loop()方法后，就会进入一个无限循环当中，然后每当发现MessageQueue中存在一条消息时，就会将它取出，并传递到Handler的handleMessage()方法中。<code>每个线程中只会有一个Looper对象</code>。</p>
+<hr>
+<blockquote>
+<p>AsyncTask</p>
+</blockquote>
+<p>首先来看一下AsyncTask的基本用法。由于AsyncTask是一个抽象类，所以如果我们想使用它，就必须创建一个子类去继承它。在继承时我们可以为AsyncTask类指定3个泛型参数，这3个参数的用途如下。</p>
+<ul>
+<li><p>Params：在执行AsyncTask时需要传入的参数，可用于在后台任务中使用。</p>
+</li>
+<li><p>Progress：在后台任务执行时，如果需要在界面上显示当前的进度，则使用这里指定的泛型作为进度单位。</p>
+</li>
+<li><p>Result：当任务执行完毕后，如果需要对结果进行返回，则使用这里指定的泛型作为返回值类型</p>
+</li>
+</ul>
+<pre><code class="java">class DownloadTask extends AsyncTask&lt;Params, Progress, Result&gt;() &#123;
+ ...
+&#125;
+</code></pre>
+<hr>
+<p>对于AsyncTask的使用我们还需要重写以下4个方法才能完成对任务的定制。</p>
+<ul>
+<li>onPreExecute()</li>
+</ul>
+<p>这个方法会在后台任务开始执行之前调用，用于进行一些界面上的初始化操作，比如显示一个进度条对话框等。</p>
+<hr>
+<ul>
+<li>doInBackground(Params…)</li>
+</ul>
+<p>这个方法中的所有代码都会在子线程中运行，我们应该在这里去处理所有的耗时任务。任务一旦完成，就可以通过return语句将任务的执行结果返回，如果AsyncTask的第三个泛型参数指定的是Unit，就可以不返回任务执行结果。</p>
+<p>注意，在这个方法中是不可以进行UI操作的。</p>
+<p>如果需要更新UI元素，比如说反馈当前任务的执行进度，可以调用 publishProgress(Progress…)方法来完成。</p>
+<hr>
+<ul>
+<li>onProgressUpdate(Progress…)</li>
+</ul>
+<p>当在后台任务中调用了publishProgress(Progress…)方法后，onProgressUpdate (Progress…)方法就会很快被调用，该方法中携带的参数就是在后台任务中传递过来的。</p>
+<p>在这个方法中可以对UI进行操作，利用参数中的数值就可以对界面元素进行相应的更新。</p>
+<hr>
+<ul>
+<li>onPostExecute(Result)</li>
+</ul>
+<p>当后台任务执行完毕并通过return语句进行返回时，这个方法就很快会被调用。</p>
+<p>返回的数据会作为参数传递到此方法中，可以利用返回的数据进行一些UI操作，比如说提醒任务执行的结果，以及关闭进度条对话框等。</p>
+<hr>
+<blockquote>
+<p>一个模拟下载的AsyncTask例子：</p>
+</blockquote>
+<pre><code class="java">public static class DownloadTask extends AsyncTask&lt;Void, Integer, Boolean&gt; &#123;
+
+        @Override
+        protected void onPreExecute() &#123;
+            progressDialog.show(); // 显示进度对话框
+        &#125;
+
+        @Override
+        protected Boolean doInBackground(Void... voids) &#123;
+            try &#123;
+                while (true) &#123;
+                    Integer downloadPercent = doDownload(); // 这是一个虚构的方法
+                    publishProgress(downloadPercent);
+
+                    if (downloadPercent &gt;= 100) &#123;
+                        break;
+                    &#125;
+                &#125;
+
+                return true;
+
+            &#125; catch (Exception exception) &#123;
+                return false;
+            &#125;
+        &#125;
+
+        @Override
+        protected void onProgressUpdate(Integer... values) &#123;
+            // 在这里更新下载进度
+            progressDialog.setMessage(&quot;Downloaded &quot; + values[0] + &quot;%&quot;);
+        &#125;
+
+        @Override
+        protected void onPostExecute(Boolean result) &#123;
+            progressDialog.dismiss();// 关闭进度对话框
+            // 在这里提示下载结果
+            if (result) &#123;
+                Toast.makeText(context, &quot;Download succeeded&quot;, Toast.LENGTH_SHORT).show();
+            &#125; else &#123;
+                Toast.makeText(context, &quot;Download failed&quot;, Toast.LENGTH_SHORT).show();
+            &#125;
+
+        &#125;
+    &#125;
+</code></pre>
+<p>在这个DownloadTask中，我们在doInBackground()方法里执行具体的下载任务。这个方法里的代码都是在子线程中运行的，因而不会影响主线程的运行。注意，这里虚构了一个doDownload()方法，用于计算当前的下载进度并返回，我们假设这个方法已经存在了。在得到了当前的下载进度后，下面就该考虑如何把它显示到界面上了，由于doInBackground()方法是在子线程中运行的，在这里肯定不能进行UI操作，所以我们可以调用publishProgress()方法并传入当前的下载进度，这样onProgressUpdate()方法就会很快被调用，在这里就可以进行UI操作了。</p>
+<p>当下载完成后，doInBackground()方法会返回一个布尔型变量，这样onPostExecute()方法就会很快被调用，这个方法也是在主线程中运行的。然后，在这里我们会根据下载的结果弹出相应的Toast提示，从而完成整个DownloadTask任务。</p>
+<blockquote>
+<p>简单来说，使用AsyncTask的诀窍就是，在doInBackground()方法中执行具体的耗时任务，在onProgressUpdate()方法中进行UI操作，在onPostExecute()方法中执行一些任务的收尾工作。</p>
+</blockquote>
+<p>如果想要启动这个任务，只需编写以下代码即可：</p>
+<pre><code class="java">new DownloadTask().execute();
+</code></pre>
+<hr>
 <h3 id="进程保活"><a href="#进程保活" class="headerlink" title="进程保活"></a>进程保活</h3><p>使用场景：聊天信息实时接收</p>
 <hr>
 <h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM 架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
@@ -805,7 +955,7 @@ startActivity(intent);
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Native"><span class="toc-number">2.</span> <span class="toc-text">Android Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">2.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">2.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">2.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">2.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">2.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Handler"><span class="toc-number">2.6.</span> <span class="toc-text">Handler</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">2.7.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Jetpack"><span class="toc-number">3.</span> <span class="toc-text">Android Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">3.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">3.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">3.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">3.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-%E4%B8%8E-DataBinding"><span class="toc-number">3.5.</span> <span class="toc-text">ViewBinding 与 DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">3.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">3.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">3.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">3.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">3.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">4.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">5.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">5.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">5.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">5.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">5.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">5.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">6.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">6.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Native"><span class="toc-number">2.</span> <span class="toc-text">Android Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">2.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">2.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">2.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">2.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">2.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">2.6.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">2.7.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Jetpack"><span class="toc-number">3.</span> <span class="toc-text">Android Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">3.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">3.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">3.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">3.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-%E4%B8%8E-DataBinding"><span class="toc-number">3.5.</span> <span class="toc-text">ViewBinding 与 DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">3.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">3.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">3.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">3.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">3.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">4.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">5.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">5.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">5.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">5.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">5.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">5.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">6.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">6.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
                         </div>
                     </div>
                 
