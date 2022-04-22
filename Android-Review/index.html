@@ -20,8 +20,10 @@
 待完善ing……
 
 
-Android NativeActivity
-在 Google 公开 Jetpa,">
+Java • Native四大特性
+封装
+
+原则：将不需要对外提供的内容隐藏起来,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -114,13 +116,13 @@ Android NativeActivity
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    13k
+                    21k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    24 mins.
+                    38 mins.
                 </span>
                     
                     
@@ -162,7 +164,404 @@ Android NativeActivity
 <p>待完善ing……</p>
 </blockquote>
 <hr>
-<h2 id="Android-Native"><a href="#Android-Native" class="headerlink" title="Android Native"></a>Android Native</h2><h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><blockquote>
+<h2 id="Java-•-Native"><a href="#Java-•-Native" class="headerlink" title="Java • Native"></a>Java • Native</h2><h3 id="四大特性"><a href="#四大特性" class="headerlink" title="四大特性"></a>四大特性</h3><blockquote>
+<p>封装</p>
+</blockquote>
+<p>原则：将不需要对外提供的内容隐藏起来，属性隐藏，提供公共的访问方式。</p>
+<p>好处：提高安全性，代码复用性</p>
+<p>局部变量隐藏成员变量（就近原则）</p>
+<hr>
+<blockquote>
+<p>继承</p>
+</blockquote>
+<p>在程序中，继承是在描述类与类之间的所属关系，蒋多个类中的共有成员变量和成员方法抽取到一个类中（父类），让多个类去继承这个父类。</p>
+<p><code>一个类继承另一个类，继承这个类以后，就继承了它所有的属性和方法</code>。</p>
+<p>使用extends关键字继承另一个类。格式：class （子类或派生类） extends （父类、超类或基类）。</p>
+<pre><code class="java">class Son extends Father&#123;
+    // ...
+&#125;
+</code></pre>
+<hr>
+<p>特点：</p>
+<ul>
+<li><p>Java中，类只支持单继承，不允许多继承。</p>
+</li>
+<li><p>一个类可以被多个类继承。</p>
+</li>
+<li><p>多层继承，一个类的父类可以在去继承另一个父类。</p>
+</li>
+<li><p>子父类的关系是相对概念。</p>
+</li>
+</ul>
+<hr>
+<p>继承中成员变量的特点：</p>
+<ul>
+<li><p>只能继承父类非私有化，成员变量名字相同就用子类自己的名字。名字不同，子类没有，就用父类。</p>
+</li>
+<li><p>就近原则：谁离得近就用谁，如果就局部变量就优先使用局部变量，如果没有局部变量，就先看子类的成员变量 ，如果子类的成员变量也没有，就看父类的成员变量。</p>
+</li>
+<li><p>super：和this用法很像，super表示父类（this和super都是写在方法的第一行，但是他俩不能出现在同一行）。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>多态</p>
+</blockquote>
+<p>父类应用变量指向子类对象</p>
+<p>格式：父类类型 变量名 =new 子类类型（）；</p>
+<p>多态的前提：</p>
+<ul>
+<li><p>子父类继承关系（实现关系）</p>
+</li>
+<li><p>父类引用指向子类对象</p>
+</li>
+<li><p>方法的重写</p>
+</li>
+</ul>
+<p>一个父类类型的变量指向子类类型的对象，在运行时，变现出子类的特征。</p>
+<p>多态情况下，只能直接调用父类中的方法，子类中的方法不直接调用。</p>
+<p>出多态的原因：Java代码需要编译，在编译时，允许父类对象指向子类对象，该对象边线处父类特征，这叫编译时类型。在运行时，变现出子类特征，在运行时类型。</p>
+<hr>
+<blockquote>
+<p>抽象</p>
+</blockquote>
+<p>抽象：使用abstract关键字修饰一个类，这个类就是抽象类。</p>
+<p>用于修饰方法和类。</p>
+<ul>
+<li><p>抽象方法：不同类的方法时相似的，单时具体内容不一样，这是我们只抽取他们的声明<br>没有具体的方法体，没有集体方法体的方法就叫做抽象方法</p>
+</li>
+<li><p>抽象类：有抽象方法的类必须时抽象类。</p>
+</li>
+</ul>
+<p>注意：一个类继承了抽象类需要重写所有的抽象方法，否则这个类就是抽象方法。</p>
+<p>特点：</p>
+<ul>
+<li><p>抽象方法只能在抽象类中。</p>
+</li>
+<li><p>抽象方法和抽象类都被abstract修饰。</p>
+</li>
+<li><p>抽象类不能创建对象。</p>
+</li>
+<li><p>抽象类中，可以有非抽象方法。</p>
+</li>
+<li><p>抽象类与类的关系也是继承。</p>
+</li>
+<li><p>一个类继承了抽象类需要重写所有的抽象方法，否则这个类就是抽象类。</p>
+</li>
+</ul>
+<p>抽象类的成员特点:</p>
+<ul>
+<li><p>成员变量：可以有成员变量，也可以有常量。</p>
+</li>
+<li><p>成员方法：可以有抽象方法，也可以有非抽象方法。</p>
+</li>
+<li><p>构造方法：可以有构造方法，也可以对成员变量初始化。</p>
+</li>
+<li><p>private：私有，只有当前类中可以访问。</p>
+</li>
+<li><p>[default]：默认的，同一个包可以访问。</p>
+</li>
+<li><p>protected：受保护的，字类可以访问。</p>
+</li>
+<li><p>public：公有的，所有类中都可以访问。</p>
+</li>
+</ul>
+<hr>
+<h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>final作为Java中的关键字可以用于三个地方。用于修饰类、类属性和类方法。</p>
+<p>特征：凡是引用final关键字的地方皆不可修改！</p>
+<ul>
+<li><p>(1) 修饰类：表示该类不能被继承；</p>
+</li>
+<li><p>(2) 修饰方法：表示方法不能被重写；</p>
+</li>
+<li><p>(3) 修饰变量：表示变量只能一次赋值以后值不能被修改（常量）。</p>
+</li>
+</ul>
+<hr>
+<h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><pre><code class="java">// 实体类
+public class Developer &#123;
+    private String name; // 姓名
+    private String department; // 所在部门
+    private int age; // 年龄
+
+    @Override
+    public String toString() &#123;
+        return &quot;Developer name: &quot; + name +
+                &quot; department: &quot; + department +
+                &quot; age &quot; + age;
+    &#125;
+
+    public Developer(String name, String department, int age) &#123;
+        this.name = name;
+        this.department = department;
+        this.age = age;
+    &#125;
+
+    // 创建一个让程序员开始工作的方法
+    public void work() &#123;
+        System.out.println(name + &quot; start work&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">public class Demo &#123;
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException &#123;
+        // 通过反射获取实体类
+        Class&lt;?&gt; developer = Class.forName(&quot;Developer&quot;);
+
+        // 获取构造函数
+        // 参数列表为实体类构造函数的参数列表类型
+        Constructor&lt;?&gt; constructor = developer.getConstructor(String.class, String.class, int.class);
+
+        // 接下来可通过该构造体，生成新的实例
+        // 参数列表为新实例的 属性
+        // 可以自行设置
+        Object instance = constructor.newInstance(&quot;Peter Chen&quot;, &quot;Dev&quot;, 22);
+
+        // 实例创建结束，调用方法
+        System.out.println(instance.toString());
+
+        // 可以通过反射，修改实例对象的属性值
+        // 修改姓名
+        Field name = developer.getDeclaredField(&quot;name&quot;);
+        // 公开访问
+        name.setAccessible(true);
+        // 修改
+        name.set(instance, &quot;zhangsan&quot;);
+
+        // 可通过反射，调用实体类的中的方法，试试让新的 zhangsan 程序员开始工作
+        Method work = developer.getMethod(&quot;work&quot;, null);
+        // 反馈回刚才生成的实例
+        work.invoke(instance, null);
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h3 id="强引用-软引用-弱引用-虚引用"><a href="#强引用-软引用-弱引用-虚引用" class="headerlink" title="强引用 / 软引用 / 弱引用 / 虚引用"></a>强引用 / 软引用 / 弱引用 / 虚引用</h3><blockquote>
+<p>强引用</p>
+</blockquote>
+<p>强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出 OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用 对象来解决内存不足的问题。</p>
+<pre><code class="java">Object object = new Object();
+
+String string = &quot;Test&quot;;
+</code></pre>
+<hr>
+<blockquote>
+<p>软引用</p>
+</blockquote>
+<p>软引用是用来描述一些有用但并不是必需的对象，在Java中用<code>java.lang.ref.SoftReference类</code>来表示。</p>
+<p>对于软引用关联着的对象，只有在内存不足的时候JVM才会回收该对象。</p>
+<p>因此，这一点可以<code>很好地用来解决OOM的问题</code>，并且这个特性很<code>适合用来实现缓存</code>：比如网页缓存、图片缓存等。</p>
+<pre><code class="java">public class SoftRef &#123;  
+ 
+    public static void main(String[] args)&#123;  
+        System.out.println(&quot;start&quot;);            
+        Obj obj = new Obj();            
+        SoftReference&lt;Obj&gt; sr = new SoftReference&lt;Obj&gt;(obj);  
+        obj = null;  
+        System.out.println(sr.get());  
+        System.out.println(&quot;end&quot;);     
+    &#125;       
+&#125;  
+ 
+class Obj&#123;  
+    int[] obj ;  
+    public Obj()&#123;  
+        obj = new int[1000];  
+    &#125;  
+</code></pre>
+<p>当内存足够大时可以把数组存入软引用，取数据时就可从内存里取数据，提高运行效率。</p>
+<p>软引用在实际中有重要的应用，例如浏览器的后退按钮，这个后退时显示的网页内容可以重新进行请求或者从缓存中取出：</p>
+<ul>
+<li><p>如果一个网页在浏览结束时就进行内容的回收，则按后退查看前面浏览过的页面时，需要重新构建。</p>
+</li>
+<li><p>如果将浏览过的网页存储到内存中会造成内存的大量浪费，甚至会造成内存溢出这时候就可以使用软引用。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>弱引用</p>
+</blockquote>
+<p>弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。在java中，用<code>java.lang.ref.WeakReference类</code>来表示。</p>
+<p>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。</p>
+<p>在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。</p>
+<p>不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。所以被软引用关联的对象只有在内存不足时才会被回收，而被弱引用关联的对象在JVM进行垃圾回收时总会被回收。</p>
+<pre><code class="java">WeakReference&lt;String&gt; sr = new WeakReference&lt;String&gt;(new String(&quot;hello&quot;));
+System.out.println(sr.get());
+
+// 在使用软引用和弱引用的时候，我们可以显式地通过 System.gc() 来通知JVM进行垃圾回收。
+// 但是要注意的是，虽然发出了通知，JVM不一定会立刻执行。
+// 也就是说 System.gc() 是无法确保此时JVM一定会进行垃圾回收的。
+System.gc();
+System.out.println(sr.get());
+</code></pre>
+<p>弱引用还可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</p>
+<pre><code class="java">Object obj = new Object(); //只要obj还指向对象就不会被回收
+WeakReference&lt;Object&gt; wr = new WeakReference&lt;Object&gt;(obj);
+</code></pre>
+<p>当要获得 weak reference引用的object时, 首先需要判断它是否已经被回收，如果wr.get()方法为空, 那么说明weakCar指向的对象已经被回收了。</p>
+<hr>
+<blockquote>
+<p>虚引用</p>
+</blockquote>
+<p>虚引用和前面的软引用、弱引用不同，它<code>并不影响对象的生命周期</code>。在Java中用<code>java.lang.ref.PhantomReference类</code>表示。</p>
+<p>如果一个对象与虚引用关联，则跟没有引用与之关联一样，<code>在任何时候都可能被垃圾回收器回收</code>。虚引用主要用来跟踪对象被垃圾回收的活动。</p>
+<p><code>虚引用必须和引用队列关联使用</code>，当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会把这个虚引用加入到与之 关联的引用队列中。</p>
+<p>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。</p>
+<p>如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</p>
+<pre><code class="java">// 虚引用必须和引用队列关联使用
+ReferenceQueue&lt;String&gt; queue = new ReferenceQueue&lt;String&gt;();
+PhantomReference&lt;String&gt; pr = new PhantomReference&lt;String&gt;(new String(&quot;hello&quot;), queue);
+
+System.out.println(pr.get());
+</code></pre>
+<hr>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>引用类型</strong></th>
+<th><strong>被回收时间</strong></th>
+<th><strong>用途</strong></th>
+<th><strong>生存时间</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>强引用</td>
+<td>从来不会</td>
+<td>对象的一般状态</td>
+<td>JVM停止运行时</td>
+</tr>
+<tr>
+<td>软引用</td>
+<td>内存不足时</td>
+<td>对象缓存</td>
+<td>内存不足时</td>
+</tr>
+<tr>
+<td>弱引用</td>
+<td>jvm垃圾回收时</td>
+<td>对象缓存</td>
+<td>gc运行后</td>
+</tr>
+<tr>
+<td>虚引用</td>
+<td>未知</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="数组-集合"><a href="#数组-集合" class="headerlink" title="数组 / 集合"></a>数组 / 集合</h3><ul>
+<li><p>数组是Java语言内置的数据类型，他是一个线性的序列，所有可以快速访问其他的元素，数组和其他语言不同，当你创建了一个数组时，他的容量是不变的，而且在生命周期也是不能改变的，还有Java数组会做边界检查，如果发现有越界现象，会报RuntimeException异常错误，当然检查边界会以效率为代价。</p>
+</li>
+<li><p>Java 还提供其他集合，List，Map，Set，他们处理对象的时候就好像这些对象没有自己的类型一样，而是直接归根于Object，这样只需要创建一个集合，把对象放进去，取出时转换成自己的类型就行了。</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>区别</p>
+</blockquote>
+<ul>
+<li><p>数组声明了它容纳的元素的类型，而集合不声明。</p>
+</li>
+<li><p>数组是静态的，一个数组实例具有固定的大小，一旦创建了就无法改变容量了。</p>
+</li>
+<li><p>集合是可以动态扩展容量，可以根据需要动态改变大小，集合提供更多的成员方法，能满足更多的需求。</p>
+</li>
+<li><p>数组的存放的类型只能是一种（基本类型/引用类型）。</p>
+</li>
+<li><p>集合存放的类型可以不是一种（不加泛型时添加的类型是Object）。</p>
+</li>
+<li><p>数组是Java语言中内置的数据类型,是线性排列的,执行效率或者类型检查都是最快的。</p>
+</li>
+</ul>
+<hr>
+<h3 id="String-StringBuffer-StringBuilder"><a href="#String-StringBuffer-StringBuilder" class="headerlink" title="String / StringBuffer / StringBuilder"></a>String / StringBuffer / StringBuilder</h3><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1414756">腾讯云 • 深入理解String、StringBuffer和StringBuilder类的区别</a></p>
+<blockquote>
+<p>可变与不可变</p>
+</blockquote>
+<ul>
+<li><p>String：<code>不可变</code>类，即创建String对象后，该对象中的字符串是不可改变的，直到这个对象被销毁</p>
+</li>
+<li><p>StringBuffer：继承自AbstractStringBuilder类，在AbstractStringBuilder中也是使用字符数组保存字符串，是<code>可变</code>类。</p>
+</li>
+<li><p>StringBuilder：继承自AbstractStringBuilder类，在AbstractStringBuilder中也是使用字符数组保存字符串，是<code>可变</code>类。</p>
+</li>
+</ul>
+<p>由于String是可变类，适合在需要被共享的场合中使用，当一个字符串经常被修改时，最好使用StringBuffer实现。</p>
+<p>如果用String保存一个经常被修改的字符串，该字符串每次修改时都会创建新的无用的对象，这些无用的对象会被垃圾回收器回收，会影响程序的性能，不建议这么做。</p>
+<hr>
+<blockquote>
+<p>初始化方式</p>
+</blockquote>
+<p>由于String是可变类，适合在需要被共享的场合中使用，当一个字符串经常被修改时，最好使用StringBuffer实现。如果用String保存一个经常被修改的字符串，该字符串每次修改时都会创建新的无用的对象，这些无用的对象会被垃圾回收器回收，会影响程序的性能，不建议这么做。</p>
+<hr>
+<blockquote>
+<p>字符串修改方式</p>
+</blockquote>
+<p>String字符串修改方法：</p>
+<ol>
+<li><p>创建一个StringBuffer</p>
+</li>
+<li><p>调用StringBuffer的append方法</p>
+</li>
+<li><p>调用StringBuffer 的 toString()方法 把结果返回</p>
+</li>
+</ol>
+<p>示例代码如下：</p>
+<pre><code class="java">// String
+String str = &quot;hello&quot;;
+str += &quot;java&quot;;
+
+// 对String的修改等价于以下使用StringBuffer的代码：
+
+// StringBuffer
+StringBuffer stringBuffer = new StringBuffer(str);
+stringBuffer.append(&quot;java&quot;);
+str = stringBuffer.toString();
+</code></pre>
+<p>上述String字符串的修改过程要比StringBuffer多一些额外操作，会增加一些临时的对象，从而导致程序的执行效率降低。</p>
+<p>StringBuffer和StringBuilder在修改字符串方面比String的性能要高。</p>
+<hr>
+<blockquote>
+<p>内部实现 equals 和 hashCode 方法</p>
+</blockquote>
+<p>String 实现了 equals()方法 和 hashCode()方法。</p>
+<pre><code class="java">new String(&quot;java&quot;).equals(new String(&quot;java&quot;)) // 结果为true
+</code></pre>
+<hr>
+<p>StringBuffer没有实现equals()方法和hashCode()方法。</p>
+<pre><code class="java">new StringBuffer(&quot;java&quot;).equals(new StringBuffer(&quot;java&quot;)) // 结果为false
+</code></pre>
+<p>将StringBuffer对象存储进Java集合类中会出现问题。</p>
+<hr>
+<blockquote>
+<p>线程安全</p>
+</blockquote>
+<p>StringBuffer与StringBuilder都提供了一系列插入、追加、改变字符串里的字符序列的方法，它们的用法基本相同，只是StringBuilder是线程不安全的，StringBuffer是线程安全的，。如果只是在单线程中使用字符串缓冲区，则StringBuilder的效率会高些，但是当多线程访问时，最好使用StringBuffer。</p>
+<hr>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<p>综上，在执行效率方面，StringBuilder最高，StringBuffer次之，String最低，对于这种情况，一般而言，如果要操作的数量比较小，应优先使用String类；如果是在单线程下操作大量数据，应优先使用StringBuilder类；如果是在多线程下操作大量数据，应优先使用StringBuilder类。</p>
+<hr>
+<blockquote>
+<p>用例：将字符串反转</p>
+</blockquote>
+<pre><code class="java">// StringBuffer reverse
+StringBuffer stringBuffer = new StringBuffer();
+stringBuffer.append(&quot;abcdefg&quot;);
+System.out.println(stringBuffer. reverse()); // gfedcba
+
+// StringBuilder reverse
+StringBuilder stringBuilder = new StringBuilder();
+stringBuilder.append(&quot;abcdefg&quot;);
+System.out.println(stringBuilder. reverse()); // gfedcba
+</code></pre>
+<hr>
+<h2 id="Android-•-Native"><a href="#Android-•-Native" class="headerlink" title="Android • Native"></a>Android • Native</h2><h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><blockquote>
 <p>在 Google 公开 Jetpack 后，官方提倡 <code>单Activity，多Fragment</code> 的开发模式。</p>
 </blockquote>
 <p>优点：</p>
@@ -387,7 +786,7 @@ startActivity(intent);
 <blockquote>
 <p>与 线程Thread 区别</p>
 </blockquote>
-<p>如果必须在主线程之外执行操作，但只在用户与您的应用交互时执行此操作，则应创建新线程。例如，如果您只是想在 Activity 运行的同时播放一些音乐，则可在 onCreate() 中创建线程，在 onStart() 中启动线程运行，然后在 onStop() 中停止线程。</p>
+<p>如果必须在主线程之外执行操作，但只在用户与应用交互时执行此操作，则应创建新线程。例如，如果只是想在 Activity 运行的同时播放一些音乐，则可在 onCreate() 中创建线程，在 onStart() 中启动线程运行，然后在 onStop() 中停止线程。</p>
 <hr>
 <blockquote>
 <p>生命周期</p>
@@ -415,6 +814,36 @@ startActivity(intent);
 </ul>
 <p>不再使用服务并且准备将其销毁时，系统将调用该方法，服务应通过使用该方法清理并回收资源，如：线程、注册的侦听器、接受器等。</p>
 <hr>
+<blockquote>
+<p>前台Service</p>
+</blockquote>
+<p>若希望Service一直保持运行状态，则可以考虑使用前台Service，该Service会有一个一直运行在系统状态栏的图标，下拉状态栏可以看到更加详细的信息，类似通知的效果。</p>
+<p>由于状态栏中一直有一个正在运行的图标，相当于应用的另一种前台可见状态，因此系统不会倾向于回收前台Service。</p>
+<hr>
+<blockquote>
+<p>IntentService</p>
+</blockquote>
+<p>处理异步请求，实现多线程。</p>
+<p>若 Service中 处理过多耗时逻辑，则有可能出现 ANR（Application Not Responding）的情况。</p>
+<ul>
+<li>与 普通Service 区别</li>
+</ul>
+<p>Service需要主动调用 stopSelf() 来结束服务，而IntentService不需要。</p>
+<p>在 IntentService中，onHandleIntent() 方法可用来处理一些耗时逻辑。</p>
+<p>在所有Intent被处理完后，系统会自动关闭服务。</p>
+<pre><code class="java">public class MyIntentService extends IntentService &#123;
+
+    public MyIntentService() &#123;
+        super(&quot;MyIntentService&quot;);
+    &#125;
+
+    @Override
+    protected void onHandleIntent(Intent intent) &#123;
+        // 处理耗时逻辑
+    &#125;
+&#125;
+</code></pre>
+<hr>
 <h3 id="Content-Provider"><a href="#Content-Provider" class="headerlink" title="Content Provider"></a>Content Provider</h3><p>使用场景：当前应用需要与其他应用共享数据，如当前应用需使用拨号，则会寻求电话应用共享数据。</p>
 <hr>
 <h3 id="Broadcast-Receiver"><a href="#Broadcast-Receiver" class="headerlink" title="Broadcast Receiver"></a>Broadcast Receiver</h3><p>使用场景：登录异常强制退出、用户身份认证过期需重新登陆。</p>
@@ -425,6 +854,7 @@ startActivity(intent);
 </li>
 </ul>
 <hr>
+<h3 id="SharedPreferences"><a href="#SharedPreferences" class="headerlink" title="SharedPreferences"></a>SharedPreferences</h3><hr>
 <h3 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h3><blockquote>
 <p>Android 本身不允许我们在Ui线程中进行复杂的耗时操作，这些耗时操作极易造成 ANR（Application Not Responding），因此耗时操作通常会在后台子线程中执行。</p>
 </blockquote>
@@ -553,7 +983,7 @@ startActivity(intent);
 <hr>
 <h3 id="进程保活"><a href="#进程保活" class="headerlink" title="进程保活"></a>进程保活</h3><p>使用场景：聊天信息实时接收</p>
 <hr>
-<h2 id="Android-Jetpack"><a href="#Android-Jetpack" class="headerlink" title="Android Jetpack"></a>Android Jetpack</h2><p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM 架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
+<h2 id="Android-•-Jetpack"><a href="#Android-•-Jetpack" class="headerlink" title="Android • Jetpack"></a>Android • Jetpack</h2><p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM 架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
 <blockquote>
 <p>主要的 Jetpack 框架组件：</p>
 </blockquote>
@@ -626,7 +1056,7 @@ startActivity(intent);
 </ul>
 <hr>
 <h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><hr>
-<h3 id="ViewBinding-与-DataBinding"><a href="#ViewBinding-与-DataBinding" class="headerlink" title="ViewBinding 与 DataBinding"></a>ViewBinding 与 DataBinding</h3><blockquote>
+<h3 id="ViewBinding-DataBinding"><a href="#ViewBinding-DataBinding" class="headerlink" title="ViewBinding / DataBinding"></a>ViewBinding / DataBinding</h3><blockquote>
 <p>与使用 findViewById 相比，视图绑定（ViewBinding）具有一些很显著的优点：</p>
 </blockquote>
 <ul>
@@ -757,10 +1187,7 @@ startActivity(intent);
 </li>
 </ul>
 <hr>
-<blockquote>
-<p>混合开发</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://flutter.cn/docs/development/add-to-app">将 Flutter 集成到现有应用 • Flutter.cn</a></p>
+<h3 id="混合开发"><a href="#混合开发" class="headerlink" title="混合开发"></a>混合开发</h3><p><a target="_blank" rel="noopener" href="https://flutter.cn/docs/development/add-to-app">将 Flutter 集成到现有应用 • Flutter.cn</a></p>
 <hr>
 <h2 id="第三方库（Android）"><a href="#第三方库（Android）" class="headerlink" title="第三方库（Android）"></a>第三方库（Android）</h2><h3 id="Volley"><a href="#Volley" class="headerlink" title="Volley"></a>Volley</h3><p>Google官方出品的异步请求框架，2013年发布，适合数据量小，通信量大的发布。</p>
 <ul>
@@ -955,7 +1382,7 @@ startActivity(intent);
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Native"><span class="toc-number">2.</span> <span class="toc-text">Android Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">2.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">2.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">2.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">2.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">2.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">2.6.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">2.7.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-Jetpack"><span class="toc-number">3.</span> <span class="toc-text">Android Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">3.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">3.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">3.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">3.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-%E4%B8%8E-DataBinding"><span class="toc-number">3.5.</span> <span class="toc-text">ViewBinding 与 DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">3.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">3.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">3.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">3.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">3.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">4.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">5.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">5.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">5.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">5.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">5.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">5.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">6.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">6.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E2%80%A2-Native"><span class="toc-number">2.</span> <span class="toc-text">Java • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-number">2.2.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">2.3.</span> <span class="toc-text">反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8-%E8%BD%AF%E5%BC%95%E7%94%A8-%E5%BC%B1%E5%BC%95%E7%94%A8-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">强引用 &#x2F; 软引用 &#x2F; 弱引用 &#x2F; 虚引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84-%E9%9B%86%E5%90%88"><span class="toc-number">2.5.</span> <span class="toc-text">数组 &#x2F; 集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-StringBuffer-StringBuilder"><span class="toc-number">2.6.</span> <span class="toc-text">String &#x2F; StringBuffer &#x2F; StringBuilder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Native"><span class="toc-number">3.</span> <span class="toc-text">Android • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">3.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">3.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">3.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">3.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SharedPreferences"><span class="toc-number">3.6.</span> <span class="toc-text">SharedPreferences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">3.7.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">3.8.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Jetpack"><span class="toc-number">4.</span> <span class="toc-text">Android • Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">4.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">4.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">4.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">4.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-DataBinding"><span class="toc-number">4.5.</span> <span class="toc-text">ViewBinding &#x2F; DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">4.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">4.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">4.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">4.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">4.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">5.</span> <span class="toc-text">Flutter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91"><span class="toc-number">5.1.</span> <span class="toc-text">混合开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">6.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">6.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">6.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">6.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">6.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">6.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">7.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">7.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
                         </div>
                     </div>
                 
