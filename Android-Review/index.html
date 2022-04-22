@@ -228,7 +228,7 @@ Java • Native四大特性
 <p>抽象：使用abstract关键字修饰一个类，这个类就是抽象类。</p>
 <p>用于修饰方法和类。</p>
 <ul>
-<li><p>抽象方法：不同类的方法时相似的，单时具体内容不一样，这是我们只抽取他们的声明<br>没有具体的方法体，没有集体方法体的方法就叫做抽象方法</p>
+<li><p>抽象方法：不同类的方法是相似的，但是具体内容不一样，这是我们只抽取他们的声明。没有具体的方法体，没有集体方法体的方法就叫做抽象方法</p>
 </li>
 <li><p>抽象类：有抽象方法的类必须时抽象类。</p>
 </li>
@@ -268,13 +268,13 @@ Java • Native四大特性
 </ul>
 <hr>
 <h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>final作为Java中的关键字可以用于三个地方。用于修饰类、类属性和类方法。</p>
-<p>特征：凡是引用final关键字的地方皆不可修改！</p>
+<p>特征：凡是引用final关键字的地方皆不可修改。</p>
 <ul>
-<li><p>(1) 修饰类：表示该类不能被继承；</p>
+<li><p>修饰<code>类</code>：表示该类不能被继承.</p>
 </li>
-<li><p>(2) 修饰方法：表示方法不能被重写；</p>
+<li><p>修饰<code>方法</code>：表示方法不能被重写。</p>
 </li>
-<li><p>(3) 修饰变量：表示变量只能一次赋值以后值不能被修改（常量）。</p>
+<li><p>修饰<code>变量</code>：表示变量只能一次赋值以后值不能被修改（常量）。</p>
 </li>
 </ul>
 <hr>
@@ -398,7 +398,7 @@ System.out.println(sr.get());
 <pre><code class="java">Object obj = new Object(); //只要obj还指向对象就不会被回收
 WeakReference&lt;Object&gt; wr = new WeakReference&lt;Object&gt;(obj);
 </code></pre>
-<p>当要获得 weak reference引用的object时, 首先需要判断它是否已经被回收，如果wr.get()方法为空, 那么说明weakCar指向的对象已经被回收了。</p>
+<p>当要获得 WeakReference引用的object时, 首先需要判断它是否已经被回收，如果wr.get()方法为空, 那么说明 WeakReference 指向的对象已经被回收了。</p>
 <hr>
 <blockquote>
 <p>虚引用</p>
@@ -485,9 +485,9 @@ System.out.println(pr.get());
 <ul>
 <li><p>String：<code>不可变</code>类，即创建String对象后，该对象中的字符串是不可改变的，直到这个对象被销毁</p>
 </li>
-<li><p>StringBuffer：继承自AbstractStringBuilder类，在AbstractStringBuilder中也是使用字符数组保存字符串，是<code>可变</code>类。</p>
+<li><p>StringBuffer：继承自 AbstractStringBuilder 类，在 AbstractStringBuilder 中也是使用字符数组保存字符串，是<code>可变</code>类。</p>
 </li>
-<li><p>StringBuilder：继承自AbstractStringBuilder类，在AbstractStringBuilder中也是使用字符数组保存字符串，是<code>可变</code>类。</p>
+<li><p>StringBuilder：继承自 AbstractStringBuilder 类，在 AbstractStringBuilder 中也是使用字符数组保存字符串，是<code>可变</code>类。</p>
 </li>
 </ul>
 <p>由于String是可变类，适合在需要被共享的场合中使用，当一个字符串经常被修改时，最好使用StringBuffer实现。</p>
@@ -540,7 +540,8 @@ str = stringBuffer.toString();
 <blockquote>
 <p>线程安全</p>
 </blockquote>
-<p>StringBuffer与StringBuilder都提供了一系列插入、追加、改变字符串里的字符序列的方法，它们的用法基本相同，只是StringBuilder是线程不安全的，StringBuffer是线程安全的，。如果只是在单线程中使用字符串缓冲区，则StringBuilder的效率会高些，但是当多线程访问时，最好使用StringBuffer。</p>
+<p>StringBuffer与StringBuilder都提供了一系列插入、追加、改变字符串里的字符序列的方法，它们的用法基本相同，只是<code>StringBuilder是线程不安全的</code>，<code>StringBuffer是线程安全的</code>。</p>
+<p>如果只是在单线程中使用字符串缓冲区，则StringBuilder的效率会高些，但是当多线程访问时，最好使用StringBuffer。</p>
 <hr>
 <blockquote>
 <p>总结</p>
@@ -630,7 +631,7 @@ startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
 <li>隐式Intent</li>
 </ul>
 <p>相较于显式Intent，隐式Intent则含蓄了许多，它并不明确指出想要启动哪一个Activity，而是指定了一系列更为抽象的action和category等信息，然后交由系统去分析这个Intent，并找出合适的Activity去启动。</p>
-<pre><code class="java">// 模拟拨号，隐式Intent将会判断传入的意图，并自动搜索适合的Activity进行启动
+<pre><code class="java">// 模拟拨号，隐式Intent 将会判断传入的意图，并自动搜索适合的Activity进行启动
 Intent telIntent = new Intent(Intent.ACTION_DIAL)
 
 // 设置电话号码
@@ -682,8 +683,6 @@ startActivity(telIntent);
 <li>Bundle模式</li>
 </ul>
 <p>在Android中三大组件（Activity，Service，Receiver）都支持在Intent中传递Bundle数据，由于Bundle实现了Parcelable接口（一种特有的序列化方法），所以它可以很方便的在不同的进程之间进行传输。当在一个进程中启动另外一个进程的Activity，Service，Receiver时，可以在Bundle中附加需要传输给远程的进程的信息，并通过Intent发送出去。</p>
-<p>putExtras(Bundle data)：向Intent中放入所需要“携带”的数据包。</p>
-<p>Bundle getExtras()：取出Intent中所“携带”的数据包。</p>
 <pre><code class="java">Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 Bundle bundle = new Bundle();
 bundle.putString(&quot;key&quot;, &quot;value&quot;);
@@ -980,6 +979,11 @@ startActivity(intent);
 <p>如果想要启动这个任务，只需编写以下代码即可：</p>
 <pre><code class="java">new DownloadTask().execute();
 </code></pre>
+<hr>
+<h3 id="点击事件分发机制"><a href="#点击事件分发机制" class="headerlink" title="点击事件分发机制"></a>点击事件分发机制</h3><blockquote>
+<p>事件传递的顺序</p>
+</blockquote>
+<p>Activity -&gt; ViewGroup -&gt; View</p>
 <hr>
 <h3 id="进程保活"><a href="#进程保活" class="headerlink" title="进程保活"></a>进程保活</h3><p>使用场景：聊天信息实时接收</p>
 <hr>
@@ -1371,9 +1375,9 @@ startActivity(intent);
                     
                 </div>
                 <ul>
-                    <li><a href="/">29 <p>文章</p></a></li>
-                    <li><a href="/categories">16 <p>分类</p></a></li>
-                    <li><a href="/tags">24 <p>标签</p></a></li>
+                    <li><a href="/">28 <p>文章</p></a></li>
+                    <li><a href="/categories">15 <p>分类</p></a></li>
+                    <li><a href="/tags">23 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -1382,7 +1386,7 @@ startActivity(intent);
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E2%80%A2-Native"><span class="toc-number">2.</span> <span class="toc-text">Java • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-number">2.2.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">2.3.</span> <span class="toc-text">反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8-%E8%BD%AF%E5%BC%95%E7%94%A8-%E5%BC%B1%E5%BC%95%E7%94%A8-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">强引用 &#x2F; 软引用 &#x2F; 弱引用 &#x2F; 虚引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84-%E9%9B%86%E5%90%88"><span class="toc-number">2.5.</span> <span class="toc-text">数组 &#x2F; 集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-StringBuffer-StringBuilder"><span class="toc-number">2.6.</span> <span class="toc-text">String &#x2F; StringBuffer &#x2F; StringBuilder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Native"><span class="toc-number">3.</span> <span class="toc-text">Android • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">3.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">3.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">3.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">3.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SharedPreferences"><span class="toc-number">3.6.</span> <span class="toc-text">SharedPreferences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">3.7.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">3.8.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Jetpack"><span class="toc-number">4.</span> <span class="toc-text">Android • Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">4.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">4.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">4.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">4.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-DataBinding"><span class="toc-number">4.5.</span> <span class="toc-text">ViewBinding &#x2F; DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">4.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">4.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">4.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">4.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">4.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">5.</span> <span class="toc-text">Flutter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91"><span class="toc-number">5.1.</span> <span class="toc-text">混合开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">6.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">6.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">6.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">6.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">6.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">6.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">7.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">7.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E2%80%A2-Native"><span class="toc-number">2.</span> <span class="toc-text">Java • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-number">2.2.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">2.3.</span> <span class="toc-text">反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8-%E8%BD%AF%E5%BC%95%E7%94%A8-%E5%BC%B1%E5%BC%95%E7%94%A8-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">强引用 &#x2F; 软引用 &#x2F; 弱引用 &#x2F; 虚引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84-%E9%9B%86%E5%90%88"><span class="toc-number">2.5.</span> <span class="toc-text">数组 &#x2F; 集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-StringBuffer-StringBuilder"><span class="toc-number">2.6.</span> <span class="toc-text">String &#x2F; StringBuffer &#x2F; StringBuilder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Native"><span class="toc-number">3.</span> <span class="toc-text">Android • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">3.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">3.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">3.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">3.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SharedPreferences"><span class="toc-number">3.6.</span> <span class="toc-text">SharedPreferences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">3.7.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">3.8.</span> <span class="toc-text">点击事件分发机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">3.9.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Jetpack"><span class="toc-number">4.</span> <span class="toc-text">Android • Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">4.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">4.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">4.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">4.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-DataBinding"><span class="toc-number">4.5.</span> <span class="toc-text">ViewBinding &#x2F; DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">4.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">4.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">4.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">4.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">4.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">5.</span> <span class="toc-text">Flutter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91"><span class="toc-number">5.1.</span> <span class="toc-text">混合开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">6.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">6.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">6.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">6.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">6.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">6.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">7.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">7.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
                         </div>
                     </div>
                 
