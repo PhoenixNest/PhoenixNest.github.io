@@ -117,13 +117,13 @@ Java • Native
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    21k
+                    22k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    38 mins.
+                    41 mins.
                 </span>
                     
                     
@@ -269,7 +269,78 @@ Java • Native
 </li>
 </ul>
 <hr>
-<h3 id="equals"><a href="#equals" class="headerlink" title="== / equals"></a>== / equals</h3><hr>
+<h3 id="equals"><a href="#equals" class="headerlink" title="== / equals()"></a>== / equals()</h3><blockquote>
+<p>==</p>
+</blockquote>
+<p>通常用于比较两个变量的值是否相同，即两个对象在内存中的首地址。</p>
+<hr>
+<blockquote>
+<p>equals()</p>
+</blockquote>
+<p>对于<code>字符串</code>来说是比较内容的。</p>
+<p>而对于<code>非字符串</code>来说是比较其指向的对象是否相同的。</p>
+<hr>
+<pre><code class="java">String s1, s2, s3 = &quot;abc&quot;, s4 =&quot;abc&quot; ;
+s1 = new String(&quot;abc&quot;);
+s2 = new String(&quot;abc&quot;);
+
+String s1, s2, s3 = &quot;abc&quot;, s4 =&quot;abc&quot; ;
+s1 = new String(&quot;abc&quot;);
+s2 = new String(&quot;abc&quot;);
+
+System.out.println(&quot;s1 == s2: &quot;+(s1==s2)); // false，两个变量的内存地址不一样，也就是说它们指向的对象不一样
+System.out.println(&quot;s1 == s3: &quot;+(s1==s3)); // false
+System.out.println(&quot;s3 == s4: &quot;+(s3==s4)); // true
+
+System.out.println(&quot;s1.equals(s2): &quot;+(s1.equals(s2))); // true，两个变量的所包含的内容是abc，故相等
+System.out.println(&quot;s1.equals(s3): &quot;+(s1.equals(s3))); // true
+System.out.println(&quot;s3.equals(s4): &quot;+(s3.equals(s4))); // true
+</code></pre>
+<hr>
+<blockquote>
+<p>对于 StringBuffer</p>
+</blockquote>
+<p>StringBuffer类中没有重新定义 equals 这个方法。</p>
+<p>因此这个方法就来自Object类（Object类中的equals方法是用来比较 “地址” 的，所以等于 false）</p>
+<pre><code class="java">StringBuffer s1 = new StringBuffer(&quot;a&quot;);
+StringBuffer s2 = new StringBuffer(&quot;a&quot;);
+
+System.out.println(&quot;s1.equals(s2):&quot;+(s1.equals(s2))); // false
+</code></pre>
+<hr>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<ul>
+<li>基本类型比较</li>
+</ul>
+<p>只能用 == 来比较，不能用 equals()。</p>
+<pre><code class="java">int a = 3;
+int b = 4;
+int c = 3;
+
+System.out.println(a == b); // false
+System.out.println(a == c); // true
+
+System.out.println(a.equals(c));// 错误，编译不能通过，不能使用 equals() 方法
+</code></pre>
+<hr>
+<ul>
+<li>基本类型的包装类型</li>
+</ul>
+<p>比如Boolean、Character、Byte、Shot、Integer、Long、Float、Double 等的引用变量。</p>
+<p>== 是比较地址的，而 equals() 是比较内容的。</p>
+<pre><code class="java">Integer n1 = new Integer(30);
+Integer n2 = new Integer(30);
+Integer n3 = new Integer(31);
+
+System.out.println(n1 == n2); // false，两个不同的Integer对象，其地址不同
+System.out.println(n1 == n3); // false，不管是 new Integer(30)，还是 new Integer(31)，结果都显示 false 
+
+System.out.println(n1.equals(n2)); // true，根据jdk文档中的说明，n1与n2指向的对象中的内容是相等的，都是30，故equals比较后结果是true 
+System.out.println(n1.equals(n3)); // false，因对象内容不一样，一个是30一个是31
+</code></pre>
+<hr>
 <h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>final作为Java中的关键字可以用于三个地方。用于修饰类、类属性和类方法。</p>
 <p>特征：凡是引用final关键字的地方皆不可修改。</p>
 <ul>
@@ -1393,7 +1464,7 @@ startActivity(intent);
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E2%80%A2-Native"><span class="toc-number">2.</span> <span class="toc-text">Java • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals"><span class="toc-number">2.2.</span> <span class="toc-text">&#x3D;&#x3D; &#x2F; equals</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-number">2.3.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">2.4.</span> <span class="toc-text">反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8-%E8%BD%AF%E5%BC%95%E7%94%A8-%E5%BC%B1%E5%BC%95%E7%94%A8-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">强引用 &#x2F; 软引用 &#x2F; 弱引用 &#x2F; 虚引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84-%E9%9B%86%E5%90%88"><span class="toc-number">2.6.</span> <span class="toc-text">数组 &#x2F; 集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-StringBuffer-StringBuilder"><span class="toc-number">2.7.</span> <span class="toc-text">String &#x2F; StringBuffer &#x2F; StringBuilder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Native"><span class="toc-number">3.</span> <span class="toc-text">Android • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">3.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">3.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">3.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">3.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SharedPreferences"><span class="toc-number">3.6.</span> <span class="toc-text">SharedPreferences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">3.7.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">3.8.</span> <span class="toc-text">点击事件分发机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">3.9.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Jetpack"><span class="toc-number">4.</span> <span class="toc-text">Android • Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">4.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">4.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">4.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">4.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-DataBinding"><span class="toc-number">4.5.</span> <span class="toc-text">ViewBinding &#x2F; DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">4.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">4.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">4.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">4.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">4.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">5.</span> <span class="toc-text">Flutter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91"><span class="toc-number">5.1.</span> <span class="toc-text">混合开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">6.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">6.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">6.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">6.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">6.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">6.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">7.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">7.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E2%80%A2-Native"><span class="toc-number">2.</span> <span class="toc-text">Java • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals"><span class="toc-number">2.2.</span> <span class="toc-text">&#x3D;&#x3D; &#x2F; equals()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-number">2.3.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">2.4.</span> <span class="toc-text">反射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8-%E8%BD%AF%E5%BC%95%E7%94%A8-%E5%BC%B1%E5%BC%95%E7%94%A8-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">强引用 &#x2F; 软引用 &#x2F; 弱引用 &#x2F; 虚引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84-%E9%9B%86%E5%90%88"><span class="toc-number">2.6.</span> <span class="toc-text">数组 &#x2F; 集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-StringBuffer-StringBuilder"><span class="toc-number">2.7.</span> <span class="toc-text">String &#x2F; StringBuffer &#x2F; StringBuilder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Native"><span class="toc-number">3.</span> <span class="toc-text">Android • Native</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity"><span class="toc-number">3.1.</span> <span class="toc-text">Activity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fragment"><span class="toc-number">3.2.</span> <span class="toc-text">Fragment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-number">3.3.</span> <span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Content-Provider"><span class="toc-number">3.4.</span> <span class="toc-text">Content Provider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadcast-Receiver"><span class="toc-number">3.5.</span> <span class="toc-text">Broadcast Receiver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SharedPreferences"><span class="toc-number">3.6.</span> <span class="toc-text">SharedPreferences</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">3.7.</span> <span class="toc-text">多线程编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6"><span class="toc-number">3.8.</span> <span class="toc-text">点击事件分发机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB"><span class="toc-number">3.9.</span> <span class="toc-text">进程保活</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E2%80%A2-Jetpack"><span class="toc-number">4.</span> <span class="toc-text">Android • Jetpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-MVP-MVVM"><span class="toc-number">4.1.</span> <span class="toc-text">MVC &#x2F; MVP &#x2F; MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lifecycle"><span class="toc-number">4.2.</span> <span class="toc-text">Lifecycle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LiveData"><span class="toc-number">4.3.</span> <span class="toc-text">LiveData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewModel"><span class="toc-number">4.4.</span> <span class="toc-text">ViewModel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewBinding-DataBinding"><span class="toc-number">4.5.</span> <span class="toc-text">ViewBinding &#x2F; DataBinding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation"><span class="toc-number">4.6.</span> <span class="toc-text">Navigation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WorkManager"><span class="toc-number">4.7.</span> <span class="toc-text">WorkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROOM"><span class="toc-number">4.8.</span> <span class="toc-text">ROOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paging"><span class="toc-number">4.9.</span> <span class="toc-text">Paging</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jetpack-Compose"><span class="toc-number">4.10.</span> <span class="toc-text">Jetpack Compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">5.</span> <span class="toc-text">Flutter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91"><span class="toc-number">5.1.</span> <span class="toc-text">混合开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Android%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">第三方库（Android）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Volley"><span class="toc-number">6.1.</span> <span class="toc-text">Volley</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#okHttp"><span class="toc-number">6.2.</span> <span class="toc-text">okHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gson"><span class="toc-number">6.3.</span> <span class="toc-text">Gson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Glide"><span class="toc-number">6.4.</span> <span class="toc-text">Glide</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDao"><span class="toc-number">6.5.</span> <span class="toc-text">GreenDao</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeakCanary"><span class="toc-number">6.6.</span> <span class="toc-text">LeakCanary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88Flutter%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">第三方库（Flutter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dio"><span class="toc-number">7.1.</span> <span class="toc-text">dio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetX"><span class="toc-number">7.2.</span> <span class="toc-text">GetX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
                         </div>
                     </div>
                 
