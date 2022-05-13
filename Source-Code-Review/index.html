@@ -1,0 +1,1645 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Source Code Review - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,Basic计算机网络原理
+
+okHttp
+
+Reference
+
+okHttp Official
+OkHttp 源码解析
+
+Intro
+This Intro will show you how to,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Source Code Review</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/create_everything.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/categories"><b>「
+                        </b>CATEGORIES<b> 」</b></a>
+                
+                五月 12, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Source-Code-Review/" title="Source Code Review" class="">Source Code Review</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    27k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    49 mins.
+                </span>
+                    
+                    
+                        <span id="/Source-Code-Review/" class="leancloud_visitors"
+                              data-flag-title="Source Code Review">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/tags/" rel="tag">tags</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><p><a href="https://phoenixnest.github.io/School-Computer-Network-Technology/">计算机网络原理</a></p>
+<hr>
+<h2 id="okHttp"><a href="#okHttp" class="headerlink" title="okHttp"></a>okHttp</h2><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Source%20Code%20Review/okHttp.png" alt="okHttp"></p>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://square.github.io/okhttp/">okHttp Official</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116777864">OkHttp 源码解析</a></p>
+<hr>
+<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><blockquote>
+<p>This Intro will show you how to create a okHttpClient and process a new Request base on Sync or Async.</p>
+</blockquote>
+<pre><code class="java">// TODO 1: Create a okHttpClient
+private OkHttpClient okHttpClient = new OkHttpClient.Builder()
+         // .callTimeout(10, TimeUnit.SECONDS)
+         // .readTimeout(10, TimeUnit.SECONDS)
+            .addInterceptor(new LogInterceptor())
+            .build();
+
+// TODO 2: Create a Request
+private Request request = new Request.Builder()
+        .url(&quot;base url&quot;)
+        .get()
+        .build();
+
+// TODO 3: Sync Request
+okHttpClient.newCall(request).execute();
+
+// OR
+
+// TODO 3: Async Request
+okHttpClient.newCall(request).enqueue(new Callback() &#123;
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) &#123;
+                System.out.println(&quot;Exception: &quot; + e);
+            &#125;
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException &#123;
+                int code = response.code();
+                String message = response.message();
+                Headers headers = response.headers();
+                ResponseBody body = response.body();
+
+                if (code == 200 &amp;&amp; body != null) &#123;
+                    System.out.println(&quot;responseCode: %d responseMessage: %s responseHeaders: %s responseBody:%s %n&quot;, code, message, headers, body);
+                &#125;
+            &#125;
+        &#125;);
+</code></pre>
+<hr>
+<h2 id="okHttp-Dispatcher-Kotlin-Style"><a href="#okHttp-Dispatcher-Kotlin-Style" class="headerlink" title="okHttp Dispatcher ( Kotlin Style)"></a>okHttp Dispatcher ( Kotlin Style)</h2><blockquote>
+<p>This Dispatcher will been called if you want to start a Sync or Async Request.</p>
+</blockquote>
+<h3 id="Core-Properties"><a href="#Core-Properties" class="headerlink" title="Core Properties"></a>Core Properties</h3><ul>
+<li>maxRequests</li>
+</ul>
+<blockquote>
+<p>The maximum number of requests to execute concurrently</p>
+</blockquote>
+<pre><code class="kotlin">// Dispatcher.kt
+
+/**
+ * The maximum number of requests to execute concurrently. Above this requests queue in memory,
+ * waiting for the running calls to complete.
+ *
+ * If more than [maxRequests] requests are in flight when this is invoked, those requests will
+ * remain in flight.
+ */
+@get:Synchronized var maxRequests = 64
+  set(maxRequests) &#123;
+    require(maxRequests &gt;= 1) &#123; &quot;max &lt; 1: $maxRequests&quot; &#125;
+    synchronized(this) &#123;
+      field = maxRequests
+    &#125;
+    promoteAndExecute()
+  &#125;
+</code></pre>
+<hr>
+<ul>
+<li>maxRequestsPerHost</li>
+</ul>
+<pre><code class="kotlin">// Dispatcher.kt
+
+/**
+ * The maximum number of requests for each host to execute concurrently. This limits requests by
+ * the URL&#39;s host name. Note that concurrent requests to a single IP address may still exceed this
+ * limit: multiple hostnames may share an IP address or be routed through the same HTTP proxy.
+ *
+ * If more than [maxRequestsPerHost] requests are in flight when this is invoked, those requests
+ * will remain in flight.
+ *
+ * WebSocket connections to hosts **do not** count against this limit.
+ */
+@get:Synchronized var maxRequestsPerHost = 5
+  set(maxRequestsPerHost) &#123;
+    require(maxRequestsPerHost &gt;= 1) &#123; &quot;max &lt; 1: $maxRequestsPerHost&quot; &#125;
+    synchronized(this) &#123;
+      field = maxRequestsPerHost
+    &#125;
+    promoteAndExecute()
+  &#125;
+</code></pre>
+<hr>
+<ul>
+<li>running<code>Sync</code>Calls</li>
+</ul>
+<blockquote>
+<p>Each <code>Sync Call</code> will be added into a ArrayList which contain with RealCall.</p>
+</blockquote>
+<pre><code class="kotlin">/** Running synchronous calls. Includes canceled calls that haven&#39;t finished yet. */
+private val runningSyncCalls = ArrayDeque&lt;RealCall&gt;()
+</code></pre>
+<hr>
+<ul>
+<li>running<code>Async</code>Calls</li>
+</ul>
+<blockquote>
+<p>Each <code>Async Call</code> will be added into a ArrayList which contain with RealCall.</p>
+</blockquote>
+<p>This ArrayList will includes canceled calls that haven’t finished yet.</p>
+<pre><code class="kotlin">/** Running asynchronous calls. Includes canceled calls that haven&#39;t finished yet. */
+private val runningAsyncCalls = ArrayDeque&lt;AsyncCall&gt;()
+</code></pre>
+<hr>
+<h3 id="Core-Function"><a href="#Core-Function" class="headerlink" title="Core Function"></a>Core Function</h3><ul>
+<li>executed ( <code>Sync</code> )</li>
+</ul>
+<blockquote>
+<p>add Each of Sync-Call into a ArrayList given above.</p>
+</blockquote>
+<pre><code class="kotlin">// Dispatcher.kt
+
+/** Used by [Call.execute] to signal it is in-flight. */
+@Synchronized internal fun executed(call: RealCall) &#123;
+  runningSyncCalls.add(call)
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>enqueue ( <code>Async</code> )</li>
+</ul>
+<blockquote>
+<p>add Each of Async-Call into a Request-Queue.</p>
+</blockquote>
+<pre><code class="kotlin">// Dispatcher.kt
+
+internal fun enqueue(call: AsyncCall) &#123;
+    synchronized(this) &#123;
+      // TODO 1: add current call into Request-Queue
+      readyAsyncCalls.add(call)
+
+      // Mutate the AsyncCall so that it shares the AtomicInteger of an existing running call to the same host.
+      if (!call.call.forWebSocket) &#123;
+        // TODO 2: change the AsyncCall with Singleton Mode
+
+        val existingCall = findExistingCallWithHost(call.host)
+        if (existingCall != null) call.reuseCallsPerHostFrom(existingCall)
+      &#125;
+    &#125;
+    promoteAndExecute()
+  &#125;
+</code></pre>
+<hr>
+<ul>
+<li>findExistingCallWithHost ( <code>Async</code> )</li>
+</ul>
+<blockquote>
+<p>if there has a exist Async-Call that is Host want, return it directly.</p>
+</blockquote>
+<pre><code class="kotlin">// Dispatcher.kt
+
+private fun findExistingCallWithHost(host: String): AsyncCall? &#123;
+    for (existingCall in runningAsyncCalls) &#123;
+      if (existingCall.host == host) return existingCall
+    &#125;
+    for (existingCall in readyAsyncCalls) &#123;
+      if (existingCall.host == host) return existingCall
+    &#125;
+    return null
+  &#125;
+</code></pre>
+<hr>
+<h2 id="okHttp-Transmitter"><a href="#okHttp-Transmitter" class="headerlink" title="okHttp Transmitter"></a>okHttp Transmitter</h2><blockquote>
+<p>Bridge between the application and network layers. supports asynchronous canceling.</p>
+</blockquote>
+<hr>
+<h3 id="Core-Function-1"><a href="#Core-Function-1" class="headerlink" title="Core Function"></a>Core Function</h3><ul>
+<li><p>canRetry</p>
+</li>
+<li><p>cancel</p>
+</li>
+</ul>
+<blockquote>
+<p>This function lets you can Cancel current Connection manually.</p>
+</blockquote>
+<pre><code class="java">// Transmitter.java
+
+/**
+  * Immediately closes the socket connection if it&#39;s currently held. Use this to interrupt an
+  * in-flight request from any thread. It&#39;s the caller&#39;s responsibility to close the request body
+  * and response body streams; otherwise resources may be leaked.
+  *
+  * This method is safe to be called concurrently, but provides limited guarantees. If a
+  * transport layer connection has been established (such as a HTTP/2 stream) that is terminated.
+  * Otherwise if a socket connection is being established, that is terminated.
+  */
+public void cancel() &#123;
+    Exchange exchangeToCancel;
+    RealConnection connectionToCancel;
+    synchronized (connectionPool) &#123;
+      canceled = true;
+      exchangeToCancel = exchange;
+      connectionToCancel = exchangeFinder != null &amp;&amp; exchangeFinder.connectingConnection() != null
+          ? exchangeFinder.connectingConnection()
+          : connection;
+    &#125;
+    if (exchangeToCancel != null) &#123;
+      // TODO 1: Cancel Data Exchange
+      exchangeToCancel.cancel();
+
+    &#125; else if (connectionToCancel != null) &#123;
+      // TODO 2: Cancel Connection
+      connectionToCancel.cancel();
+    
+    &#125;
+  &#125;
+</code></pre>
+<hr>
+<h2 id="okHttp-Interceptor"><a href="#okHttp-Interceptor" class="headerlink" title="okHttp Interceptor"></a>okHttp Interceptor</h2><blockquote>
+<p>Interceptor is the most important Part in okHttp. Each Interceptor has its unique usage in the Internet Request. Such as Catch and Save the Log and Cache the Internet-Data.</p>
+</blockquote>
+<h3 id="Interceptor-Priority"><a href="#Interceptor-Priority" class="headerlink" title="Interceptor Priority"></a>Interceptor Priority</h3><blockquote>
+<p>In okHttp, Interceptor can be called by Responsibility-Chain, each Call will has its own Chain and you can add you custom Interceptor into this Chain using addInterceptor() or addInterceptor().</p>
+</blockquote>
+<ul>
+<li><p><code>UserInterceptor</code></p>
+</li>
+<li><p>RetryAndFollowUpInterceptor</p>
+</li>
+<li><p>BridgeInterceptor</p>
+</li>
+<li><p>CacheInterceptor</p>
+</li>
+<li><p>ConnectInterceptor</p>
+</li>
+<li><p>CallServerInterceptor</p>
+</li>
+</ul>
+<pre><code class="java">// RealCall.java
+
+Response getResponseWithInterceptorChain() throws IOException &#123;
+    // Build a full stack of interceptors.
+    List&lt;Interceptor&gt; interceptors = new ArrayList&lt;&gt;();
+    interceptors.addAll(client.interceptors());
+    interceptors.add(new RetryAndFollowUpInterceptor(client));
+    interceptors.add(new BridgeInterceptor(client.cookieJar()));
+    interceptors.add(new CacheInterceptor(client.internalCache()));
+    interceptors.add(new ConnectInterceptor(client));
+    if (!forWebSocket) &#123;
+      interceptors.addAll(client.networkInterceptors());
+    &#125;
+    interceptors.add(new CallServerInterceptor(forWebSocket));
+
+    Interceptor.Chain chain = new RealInterceptorChain(
+      interceptors,                   // List&lt;Interceptor&gt; interceptors
+      transmitter,                    // Transmitter transmitter
+      null,                           // Exchange exchange
+      0,                              // int index
+      originalRequest,                // Request request
+      this,                           // Call call,
+      client.connectTimeoutMillis(),  // int connectTimeout
+      client.readTimeoutMillis(),     // int readTimeout
+      client.writeTimeoutMillis()     // int writeTimeout
+    );
+
+    ...
+  &#125;
+</code></pre>
+<hr>
+<h3 id="RetryAndFollowUpInterceptor"><a href="#RetryAndFollowUpInterceptor" class="headerlink" title="RetryAndFollowUpInterceptor"></a>RetryAndFollowUpInterceptor</h3><blockquote>
+<p>This interceptor will be called by Try to recover the failure Connection.</p>
+</blockquote>
+<p>Usage:</p>
+<ul>
+<li><p>Retry Request</p>
+</li>
+<li><p>Re-direct</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>Core function:</p>
+</blockquote>
+<ul>
+<li>recover</li>
+</ul>
+<blockquote>
+<p>This function will follow this Execution-Order in order to recover the Connection.</p>
+</blockquote>
+<ul>
+<li><p>Rule 1</p>
+</li>
+<li><p>Rule 2</p>
+</li>
+<li><p>Rule 3</p>
+</li>
+<li><p>Rule 4</p>
+</li>
+<li><p>Retry if all fail</p>
+</li>
+</ul>
+<pre><code class="java">// RetryAndFollowUpInterceptor.java
+
+/**
+ * Report and attempt to recover from a failure to communicate with a server. Returns true if
+ * &#123;@code e&#125; is recoverable, or false if the failure is permanent. Requests with a body can only
+ * be recovered if the body is buffered or if the failure occurred before the request has been
+ * sent.
+ */
+private boolean recover(IOException e, Transmitter transmitter,
+      boolean requestSendStarted, Request userRequest) &#123;
+
+    // TODO Rule 1: The application layer has forbidden retries.
+    if (!client.retryOnConnectionFailure()) return false;
+
+    // TODO Rule 2: We can&#39;t send the request body again.
+    if (requestSendStarted &amp;&amp; requestIsOneShot(e, userRequest)) return false;
+
+    // TODO Rule 3: This exception is fatal.
+    if (!isRecoverable(e, requestSendStarted)) return false;
+
+    // TODO Rule 4: No more routes to attempt.
+    if (!transmitter.canRetry()) return false;
+
+    // TODO 5: if all the rules are fail, retry current request.
+
+    // For failure recovery, use the same route selector with a new connection.
+    return true;
+  &#125;
+</code></pre>
+<hr>
+<h3 id="BridgeInterceptor"><a href="#BridgeInterceptor" class="headerlink" title="BridgeInterceptor"></a>BridgeInterceptor</h3><blockquote>
+<p>This Interceptor will be called when Packing Request, Response…</p>
+</blockquote>
+<p>Usage:</p>
+<ul>
+<li><p>Packing Request</p>
+</li>
+<li><p>Packing Response</p>
+</li>
+<li><p>Setting up: Content-Length, Content-Encoding, <code>GZip-Compressing</code>, User-Agent, Host, <code>Keep-Alive</code></p>
+</li>
+<li><p>Add Cookie</p>
+</li>
+<li><p>…</p>
+</li>
+</ul>
+<hr>
+<h3 id="CacheInterceptor"><a href="#CacheInterceptor" class="headerlink" title="CacheInterceptor"></a>CacheInterceptor</h3><blockquote>
+<p>This Interceptor will be called if you want to Caching Data.</p>
+</blockquote>
+<p>Usage:</p>
+<ul>
+<li><p>Create a Caching strategies <code>base on</code> request, response, time.</p>
+</li>
+<li><p>check if already Cached the Request and Response on the disk</p>
+</li>
+</ul>
+<p>if <code>Cache exist</code>, return it and close request, this function is <code>unsupported default</code> ( default value: false ).</p>
+<p>if <code>Cache exist</code> and the <code>Caching strategies</code> is “Don’t use the Internet”, return the Cache directly.</p>
+<hr>
+<h3 id="ConnectInterceptor"><a href="#ConnectInterceptor" class="headerlink" title="ConnectInterceptor"></a>ConnectInterceptor</h3><blockquote>
+<p>This Interceptor will be called when sending the DNS Request and Try to Establish TCP Connection.</p>
+</blockquote>
+<p>Usage:</p>
+<ul>
+<li>DNS resolve, Socket Connect ( TLS included )</li>
+</ul>
+<p>Source Code of <code>DNS resolve</code> which located in ExchangeFinder.java:</p>
+<pre><code class="java">// ExchangeFinder.java
+
+/**
+  * Finds a connection and returns it if it is healthy. If it is unhealthy the process is repeated
+  * until a healthy connection is found.
+  */
+private RealConnection findHealthyConnection(
+    int connectTimeout, 
+    int readTimeout,
+    int writeTimeout, 
+    int pingIntervalMillis, 
+    boolean connectionRetryEnabled,
+    boolean doExtensiveHealthChecks
+  ) throws IOException &#123;
+    while (true) &#123;
+      RealConnection candidate = findConnection(connectTimeout, readTimeout, writeTimeout, pingIntervalMillis, connectionRetryEnabled);
+
+      // If this is a brand new connection, we can skip the extensive health checks.
+      synchronized (connectionPool) &#123;
+        if (candidate.successCount == 0 &amp;&amp; !candidate.isMultiplexed()) &#123;
+          return candidate;
+        &#125;
+      &#125;
+
+      // Do a (potentially slow) check to confirm that the pooled connection is still good. If it
+      // isn&#39;t, take it out of the pool and start again.
+      if (!candidate.isHealthy(doExtensiveHealthChecks)) &#123;
+        candidate.noNewExchanges();
+        continue;
+      &#125;
+
+      return candidate;
+    &#125;
+  &#125;
+</code></pre>
+<hr>
+<p>Source Code of <code>Socket ( TLS )</code> which located in ExchangeFinder.java:</p>
+<pre><code class="java">// ExchangeFinder.java
+
+/**
+   * Returns a connection to host a new stream. This prefers the existing connection if it exists,
+   * then the pool, finally building a new connection.
+   */
+  private RealConnection findConnection(
+    int connectTimeout,
+    int readTimeout,
+    int writeTimeout,
+    int pingIntervalMillis,
+    boolean connectionRetryEnabled
+  ) throws IOException &#123;
+    boolean foundPooledConnection = false;
+    RealConnection result = null;
+    Route selectedRoute = null;
+    RealConnection releasedConnection;
+    Socket toClose;
+
+    // TODO 1. Check if the connection should be release.
+    synchronized (connectionPool) &#123;
+      if (transmitter.isCanceled()) throw new IOException(&quot;Canceled&quot;);
+      hasStreamFailure = false; // This is a fresh attempt.
+
+      // Attempt to use an already-allocated connection. We need to be careful here because our
+      // already-allocated connection may have been restricted from creating new exchanges.
+      releasedConnection = transmitter.connection;
+      toClose = transmitter.connection != null &amp;&amp; transmitter.connection.noNewExchanges
+          ? transmitter.releaseConnectionNoEvents()
+          : null;
+
+      if (transmitter.connection != null) &#123;
+        // We had an already-allocated connection and it&#39;s good.
+        result = transmitter.connection;
+        releasedConnection = null;
+      &#125;
+
+      if (result == null) &#123;
+
+        // TODO 2: Try to get the RealConnection in the ConnectionPool
+
+        // Attempt to get a connection from the pool.
+        if (connectionPool.transmitterAcquirePooledConnection(address, transmitter, null, false)) &#123;
+          foundPooledConnection = true;
+          result = transmitter.connection;
+        &#125; else if (nextRouteToTry != null) &#123;
+          selectedRoute = nextRouteToTry;
+          nextRouteToTry = null;
+        &#125; else if (retryCurrentRoute()) &#123;
+
+          // TODO 3: if already setting to use current Route to retry, reuse current Route
+          selectedRoute = transmitter.connection.route();
+        &#125;
+      &#125;
+    &#125;
+    closeQuietly(toClose);
+
+    if (releasedConnection != null) &#123;
+      eventListener.connectionReleased(call, releasedConnection);
+    &#125;
+    if (foundPooledConnection) &#123;
+      eventListener.connectionAcquired(call, result);
+    &#125;
+    if (result != null) &#123;
+      // TODO 4: 
+
+      // If we found an already-allocated or pooled connection, we&#39;re done.
+      return result;
+    &#125;
+
+    // TODO 5:
+
+    // If we need a route selection, make one. This is a blocking operation.
+    boolean newRouteSelection = false;
+    if (selectedRoute == null &amp;&amp; (routeSelection == null || !routeSelection.hasNext())) &#123;
+      newRouteSelection = true;
+
+      // TODO 6: Await DNS resolve until we get the result
+      routeSelection = routeSelector.next();
+    &#125;
+
+    List&lt;Route&gt; routes = null;
+    synchronized (connectionPool) &#123;
+      if (transmitter.isCanceled()) throw new IOException(&quot;Canceled&quot;);
+
+      if (newRouteSelection) &#123;
+        // Now that we have a set of IP addresses, make another attempt at getting a connection from
+        // the pool. This could match due to connection coalescing.
+        routes = routeSelection.getAll();
+
+        // TODO 7: if we use routeSelector() and get the new Route(a set of new IP), check if we have reuseable Connection in ConnectionPool
+        if (connectionPool.transmitterAcquirePooledConnection(
+            address, transmitter, routes, false)) &#123;
+          foundPooledConnection = true;
+          result = transmitter.connection;
+        &#125;
+      &#125;
+
+      if (!foundPooledConnection) &#123;
+        if (selectedRoute == null) &#123;
+
+          // TODO 8: use routeSelection() to get one of IP
+          selectedRoute = routeSelection.next();
+        &#125;
+
+        // TODO 9: use the new Route to create a new Connection with connect
+
+        // Create a connection and assign it to this allocation immediately. This makes it possible
+        // for an asynchronous cancel() to interrupt the handshake we&#39;re about to do.
+        result = new RealConnection(connectionPool, selectedRoute);
+        connectingConnection = result;
+      &#125;
+    &#125;
+
+    // TODO 10:
+
+    // If we found a pooled connection on the 2nd time around, we&#39;re done.
+    if (foundPooledConnection) &#123;
+      eventListener.connectionAcquired(call, result);
+      return result;
+    &#125;
+
+    // TODO 11:
+
+    // Do TCP + TLS handshakes. This is a blocking operation.
+    result.connect(connectTimeout, readTimeout, writeTimeout, pingIntervalMillis, connectionRetryEnabled, call, eventListener);
+
+    // TODO 12: put the RealConnection into ConnectionPool if connect successful
+
+    connectionPool.routeDatabase.connected(result.route());
+
+    Socket socket = null;
+    synchronized (connectionPool) &#123;
+      connectingConnection = null;
+      // Last attempt at connection coalescing, which only occurs if we attempted multiple
+      // concurrent connections to the same host.
+      if (connectionPool.transmitterAcquirePooledConnection(address, transmitter, routes, true)) &#123;
+        // We lost the race! Close the connection we created and return the pooled connection.
+        result.noNewExchanges = true;
+        socket = result.socket();
+        result = transmitter.connection;
+
+        // It&#39;s possible for us to obtain a coalesced connection that is immediately unhealthy. In
+        // that case we will retry the route we just successfully connected with.
+        nextRouteToTry = selectedRoute;
+      &#125; else &#123;
+        connectionPool.put(result);
+        transmitter.acquireConnectionNoEvents(result);
+      &#125;
+    &#125;
+    closeQuietly(socket);
+
+    eventListener.connectionAcquired(call, result);
+    return result;
+  &#125;
+</code></pre>
+<hr>
+<blockquote>
+<p><code>Conclusion</code> of findConnection :</p>
+</blockquote>
+<ul>
+<li><p>Step 1: check the saved Connection if qualify in current ExchangeFinder</p>
+</li>
+<li><p>Step 2: check the saved Connection if qualify in current ConnectionPool</p>
+</li>
+<li><p>Step 3: check the Route (sealed Object which has proxy and IP) if qualify in current RouteSelector Table</p>
+</li>
+<li><p>Step 4: double check the available Route when we get the new Route after DNS request, else crete a new RealConnection</p>
+</li>
+<li><p>Step 5: use the RealConnection to proceed TCP and TLS Connect and save it if connect successful</p>
+</li>
+</ul>
+<hr>
+<h3 id="CallServerInterceptor"><a href="#CallServerInterceptor" class="headerlink" title="CallServerInterceptor"></a>CallServerInterceptor</h3><blockquote>
+<p>This is the last Interceptor will be called by okHttpClient.</p>
+</blockquote>
+<p>Usage:</p>
+<ul>
+<li><p>send Request-body to Remote-Server if we have</p>
+</li>
+<li><p>Create a <code>Response Object</code> after read Response-Header, if we have Request-body, <code>Recreate</code> a new Response Object</p>
+</li>
+<li><p><code>send the Request</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Source%20Code%20Review/retrofit.png" alt="Retrofit"></p>
+<blockquote>
+<p>Reference</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://square.github.io/retrofit/">Retrofit Official</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/226076809">Retrofit 源码解析</a></p>
+<hr>
+<h3 id="Intro-1"><a href="#Intro-1" class="headerlink" title="Intro"></a>Intro</h3><blockquote>
+<p>This Intro will show you how to create a Retrofit Client and process a new Request.</p>
+</blockquote>
+<pre><code class="kotlin">// TODO 1: Create a interface
+public interface NewsAPi &#123;
+    @Headers(&quot;apikey:you key&quot;)
+    @GET(&quot;word/word&quot;)
+    Call&lt;News&gt; getNews(@Query(&quot;num&quot;) String num,@Query(&quot;page&quot;)String page);
+&#125;
+
+// TODO 2: Create a Retrofit ( which more like the okHttpClient)
+val retrofit = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(&quot;BASE_URL&quot;)
+        .build();
+
+// TODO 3: use create() function to create a Request, this function has use Dynamic-Proxy
+newsApi = retrofit.create(NewsAPi.class);
+
+// TODO 4: Use the API to get Data from Remote-Server
+Call&lt;News&gt; news = newsApi.getNews(&quot;1&quot;, &quot;10&quot;);
+news.enqueue(new Callback&lt;News&gt;() &#123;
+    @Override
+    public void onResponse(Call&lt;News&gt; call, Response&lt;News&gt; response) &#123;
+        // Handle Response
+    &#125;
+
+    @Override
+    public void onFailure(Call&lt;News&gt; call, Throwable t) &#123;
+        // Handle Error
+    &#125;
+&#125;);
+</code></pre>
+<hr>
+<h3 id="Annotation"><a href="#Annotation" class="headerlink" title="Annotation"></a>Annotation</h3><blockquote>
+<p>Request Method</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>Request Method</strong></th>
+<th><strong>Info</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@GET</td>
+<td>Get Request</td>
+</tr>
+<tr>
+<td>@POST</td>
+<td>Post Request</td>
+</tr>
+<tr>
+<td>@PUT</td>
+<td>Put Request</td>
+</tr>
+<tr>
+<td>@DELETE</td>
+<td>Delete Request</td>
+</tr>
+<tr>
+<td>@HEAD</td>
+<td>Head Request</td>
+</tr>
+<tr>
+<td>@OPTIONS</td>
+<td>Option Request</td>
+</tr>
+<tr>
+<td>@PATCH</td>
+<td>Patch Request</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p>Request Annotation</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>Request Annotation</strong></th>
+<th><strong>Info</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Headers</td>
+<td>Add Request Header</td>
+</tr>
+<tr>
+<td>@Path</td>
+<td>Replace Path</td>
+</tr>
+<tr>
+<td>@Query</td>
+<td>Query Parameters combine with @GET</td>
+</tr>
+<tr>
+<td>@FormUrlEncoded</td>
+<td>Commit Table Data</td>
+</tr>
+<tr>
+<td>@Field</td>
+<td>Parameters combine with @POST</td>
+</tr>
+<tr>
+<td>@Body</td>
+<td>Upload file or Commit Json Data</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Core-Function-2"><a href="#Core-Function-2" class="headerlink" title="Core Function"></a>Core Function</h3><blockquote>
+<p>Priority</p>
+</blockquote>
+<p>create -&gt; loadServiceMethod -&gt; enqueue -&gt; createRawCall -&gt; constructor of OkHttpCall -&gt; parseAnnotations -&gt; build -&gt; parseMethodAnnotations</p>
+<ul>
+<li>create</li>
+</ul>
+<blockquote>
+<p>Use this function to create a Retrofit Client.</p>
+</blockquote>
+<pre><code class="java">// Retrofit.java
+
+public &lt;T&gt; T create(final Class&lt;T&gt; service) &#123;
+    validateServiceInterface(service);
+
+    // TODO 1: Dynamic-Proxy
+    return (T)
+        // Java Reflect usage
+        Proxy.newProxyInstance(
+            // TODO 2: Obtain a ClassLoader
+            service.getClassLoader(),
+            new Class&lt;?&gt;[] &#123;service&#125;,
+            new InvocationHandler() &#123;
+              private final Platform platform = Platform.get();
+              private final Object[] emptyArgs = new Object[0];
+
+              // TODO 3: parameters-table: 
+              // 
+              // proxy: which object need to be proxy 
+              // method: which method need to be call by proxy-object
+              // args: which parameter should be pass
+
+              @Override
+              public @Nullable Object invoke(Object proxy, Method method, @Nullable Object[] args) throws Throwable &#123;
+                // If the method is a method from Object then defer to normal invocation.
+                if (method.getDeclaringClass() == Object.class) &#123;
+                  return method.invoke(this, args);
+                &#125;
+
+                args = args != null ? args : emptyArgs;
+
+                return platform.isDefaultMethod(method)
+                    ? platform.invokeDefaultMethod(method, service, proxy, args)
+                    : loadServiceMethod(method).invoke(args);
+              &#125;
+            &#125;);
+  &#125;
+</code></pre>
+<ul>
+<li>loadServiceMethod</li>
+</ul>
+<blockquote>
+<p>Use this method to resolve the Method-Annotation.</p>
+</blockquote>
+<p>Recommend: read this function with parseAnnotations() together.</p>
+<pre><code class="java">// Retrofit.java
+
+ServiceMethod&lt;?&gt; loadServiceMethod(Method method) &#123;
+    // TODO 1: get Method from ConcurrentHashMap which call serviceMethodCache 
+    ServiceMethod&lt;?&gt; result = serviceMethodCache.get(method);
+    if (result != null) return result;
+
+    synchronized (serviceMethodCache) &#123;
+      result = serviceMethodCache.get(method);
+
+      if (result == null) &#123;
+
+        // TODO 2: Create a ServiceMethod object
+        result = ServiceMethod.parseAnnotations(this, method);
+
+        // TODO 3: Caching ServiceMethod object to optimize the performance
+        serviceMethodCache.put(method, result);
+      &#125;
+    &#125;
+    return result;
+  &#125;
+</code></pre>
+<ul>
+<li>build</li>
+</ul>
+<blockquote>
+<p>As above we have just call Retrofit Instance is a client, in this function, a Retrofit Instance will contain a okHttpClient.</p>
+</blockquote>
+<pre><code class="java">// Retrofit.java
+
+public Retrofit build() &#123;
+      if (baseUrl == null) &#123;
+        throw new IllegalStateException(&quot;Base URL required.&quot;);
+      &#125;
+
+      okhttp3.Call.Factory callFactory = this.callFactory;
+      if (callFactory == null) &#123;
+        // TODO 1: Same usage with okHttpClient
+        callFactory = new OkHttpClient();
+      &#125;
+
+      Executor callbackExecutor = this.callbackExecutor;
+      if (callbackExecutor == null) &#123;
+        callbackExecutor = platform.defaultCallbackExecutor();
+      &#125;
+
+      // Make a defensive copy of the adapters and add the default Call adapter.
+      List&lt;CallAdapter.Factory&gt; callAdapterFactories = new ArrayList&lt;&gt;(this.callAdapterFactories);
+      callAdapterFactories.addAll(platform.defaultCallAdapterFactories(callbackExecutor));
+
+      // TODO3: Create a converter
+
+      // Make a defensive copy of the converters.
+      List&lt;Converter.Factory&gt; converterFactories = new ArrayList&lt;&gt;(1 + this.converterFactories.size() + platform.defaultConverterFactoriesSize());
+
+      // Add the built-in converter factory first. This prevents overriding its behavior but also
+      // ensures correct behavior when using converters that consume all types.
+      converterFactories.add(new BuiltInConverters());
+      converterFactories.addAll(this.converterFactories);
+      converterFactories.addAll(platform.defaultConverterFactories());
+
+      return new Retrofit(
+          callFactory,
+          baseUrl,
+          unmodifiableList(converterFactories),
+          unmodifiableList(callAdapterFactories),
+          callbackExecutor,
+          validateEagerly);
+    &#125;
+</code></pre>
+<hr>
+<ul>
+<li>enqueue</li>
+</ul>
+<blockquote>
+<p>This function will use okHttpClient to process a Async-Request.</p>
+</blockquote>
+<pre><code class="java">// OkHttpClient.java
+
+@Override
+  public void enqueue(final Callback&lt;T&gt; callback) &#123;
+    Objects.requireNonNull(callback, &quot;callback == null&quot;);
+
+    // TODO 1: Define a object of okhttp3.Call to request from internet 
+    okhttp3.Call call;
+    Throwable failure;
+
+    synchronized (this) &#123;
+      if (executed) throw new IllegalStateException(&quot;Already executed.&quot;);
+      executed = true;
+
+      call = rawCall;
+      failure = creationFailure;
+      if (call == null &amp;&amp; failure == null) &#123;
+
+        try &#123;
+          // TODO 2: assign the value of okHttp3.Call
+          call = rawCall = createRawCall();
+
+        &#125; catch (Throwable t) &#123;
+          throwIfFatal(t);
+          failure = creationFailure = t;
+        &#125;
+      &#125;
+    &#125;
+
+    if (failure != null) &#123;
+      callback.onFailure(this, failure);
+      return;
+    &#125;
+
+    if (canceled) &#123;
+      call.cancel();
+    &#125;
+
+    // TODO 3: call the enqueue function to process the perform the real Internet request
+    call.enqueue(
+        new okhttp3.Callback() &#123;
+          @Override
+          public void onResponse(okhttp3.Call call, okhttp3.Response rawResponse) &#123;
+            Response&lt;T&gt; response;
+            try &#123;
+
+              // TODO 4: parse the Response
+              response = parseResponse(rawResponse);
+            &#125; catch (Throwable e) &#123;
+              throwIfFatal(e);
+              callFailure(e);
+              return;
+            &#125;
+
+            try &#123;
+              // TODO 5: Success callback
+              callback.onResponse(OkHttpCall.this, response);
+
+            &#125; catch (Throwable t) &#123;
+              throwIfFatal(t);
+              t.printStackTrace(); // TODO this is not great
+            &#125;
+          &#125;
+
+          @Override
+          public void onFailure(okhttp3.Call call, IOException e) &#123;
+            callFailure(e);
+          &#125;
+
+          private void callFailure(Throwable e) &#123;
+            try &#123;
+              // TODO 6: Failure Callback
+              callback.onFailure(OkHttpCall.this, e);
+
+            &#125; catch (Throwable t) &#123;
+              throwIfFatal(t);
+              t.printStackTrace(); // TODO this is not great
+            &#125;
+          &#125;
+        &#125;);
+  &#125;
+</code></pre>
+<hr>
+<ul>
+<li>createRawCall</li>
+</ul>
+<blockquote>
+<p>This function will be use to create a new Call ( RealCall ) in okHttp by use CallFactory.</p>
+</blockquote>
+<pre><code class="java">// OkHttpClient.java
+
+private okhttp3.Call createRawCall() throws IOException &#123;
+    okhttp3.Call call = callFactory.newCall(requestFactory.create(args));
+    if (call == null) &#123;
+      throw new NullPointerException(&quot;Call.Factory returned null.&quot;);
+    &#125;
+    return call;
+  &#125;
+</code></pre>
+<hr>
+<ul>
+<li>constructor of OkHttpCall</li>
+</ul>
+<pre><code class="java">// HttpServiceMethod.java
+
+HttpServiceMethod(
+      RequestFactory requestFactory,
+      okhttp3.Call.Factory callFactory,
+      Converter&lt;ResponseBody, ResponseT&gt; responseConverter
+) &#123;
+    this.requestFactory = requestFactory;
+
+    // TODO: initialize the callFactory in HttpServiceMethod construct
+    this.callFactory = callFactory;
+    this.responseConverter = responseConverter;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>parseAnnotations</li>
+</ul>
+<pre><code class="java">static &lt;ResponseT, ReturnT&gt; HttpServiceMethod&lt;ResponseT, ReturnT&gt; parseAnnotations(
+      Retrofit retrofit,
+      Method method,
+      RequestFactory requestFactory
+  ) &#123;
+    boolean isKotlinSuspendFunction = requestFactory.isKotlinSuspendFunction;
+    boolean continuationWantsResponse = false;
+    boolean continuationBodyNullable = false;
+
+    ...
+    
+    // TODO 1: get the object by Retrofit
+    okhttp3.Call.Factory callFactory = retrofit.callFactory;
+    
+    // TODO 2: check if Kotlin-Suspend-Function Environment
+    if (!isKotlinSuspendFunction) &#123;
+
+      // return if non-Kotlin Env
+      return new CallAdapted&lt;&gt;(requestFactory, callFactory, responseConverter, callAdapter);
+
+    &#125; else if (continuationWantsResponse) &#123;
+      //noinspection unchecked Kotlin compiler guarantees ReturnT to be Object.
+      return (HttpServiceMethod&lt;ResponseT, ReturnT&gt;)
+          new SuspendForResponse&lt;&gt;(
+              requestFactory,
+              callFactory,
+              responseConverter,
+              (CallAdapter&lt;ResponseT, Call&lt;ResponseT&gt;&gt;) callAdapter);
+    &#125; else &#123;
+      //noinspection unchecked Kotlin compiler guarantees ReturnT to be Object.
+      return (HttpServiceMethod&lt;ResponseT, ReturnT&gt;)
+          new SuspendForBody&lt;&gt;(
+              requestFactory,
+              callFactory,
+              responseConverter,
+              (CallAdapter&lt;ResponseT, Call&lt;ResponseT&gt;&gt;) callAdapter,
+              continuationBodyNullable);
+    &#125;
+  &#125;
+</code></pre>
+<hr>
+<ul>
+<li>build()</li>
+</ul>
+<pre><code class="java">// Retrofit.java
+public Retrofit build() &#123;
+      if (baseUrl == null) &#123;
+        throw new IllegalStateException(&quot;Base URL required.&quot;);
+      &#125;
+
+      okhttp3.Call.Factory callFactory = this.callFactory;
+
+      if (callFactory == null) &#123;
+        // TODO: link to okHttp
+        callFactory = new OkHttpClient();
+
+      &#125;
+
+      ...
+
+      return new Retrofit(
+          callFactory,
+          baseUrl,
+          unmodifiableList(converterFactories),
+          unmodifiableList(callAdapterFactories),
+          callbackExecutor,
+          validateEagerly);
+    &#125;
+</code></pre>
+<hr>
+<ul>
+<li>parseMethodAnnotation()</li>
+</ul>
+<pre><code class="java">// RequestFactory.java
+
+static RequestFactory parseAnnotations(Retrofit retrofit, Method method) &#123;
+    return new Builder(retrofit, method).build();
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>build()</li>
+</ul>
+<pre><code class="java">// RequestFactory.java
+
+// focus on build()
+RequestFactory build() &#123;
+      for (Annotation annotation : methodAnnotations) &#123;
+        parseMethodAnnotation(annotation);
+      &#125;
+      
+      ...
+
+      return new RequestFactory(this);
+    &#125;
+</code></pre>
+<hr>
+<ul>
+<li>parseMethodAnnotation()</li>
+</ul>
+<p>using this function to resolve the Annotation like: @GET, @POST …</p>
+<pre><code class="java">// RequestFactory.java
+private void parseMethodAnnotation(Annotation annotation) &#123;
+      if (annotation instanceof DELETE) &#123;
+        parseHttpMethodAndPath(&quot;DELETE&quot;, ((DELETE) annotation).value(), false);
+      &#125; else if (annotation instanceof GET) &#123;
+        parseHttpMethodAndPath(&quot;GET&quot;, ((GET) annotation).value(), false);
+      &#125; else if (annotation instanceof HEAD) &#123;
+        parseHttpMethodAndPath(&quot;HEAD&quot;, ((HEAD) annotation).value(), false);
+      &#125; else if (annotation instanceof PATCH) &#123;
+        parseHttpMethodAndPath(&quot;PATCH&quot;, ((PATCH) annotation).value(), true);
+      &#125; else if (annotation instanceof POST) &#123;
+        parseHttpMethodAndPath(&quot;POST&quot;, ((POST) annotation).value(), true);
+      &#125; else if (annotation instanceof PUT) &#123;
+        parseHttpMethodAndPath(&quot;PUT&quot;, ((PUT) annotation).value(), true);
+      &#125; else if (annotation instanceof OPTIONS) &#123;
+        parseHttpMethodAndPath(&quot;OPTIONS&quot;, ((OPTIONS) annotation).value(), false);
+      &#125; else if (annotation instanceof HTTP) &#123;
+        HTTP http = (HTTP) annotation;
+        parseHttpMethodAndPath(http.method(), http.path(), http.hasBody());
+      &#125; else if (annotation instanceof retrofit2.http.Headers) &#123;
+        String[] headersToParse = ((retrofit2.http.Headers) annotation).value();
+        if (headersToParse.length == 0) &#123;
+          throw methodError(method, &quot;@Headers annotation is empty.&quot;);
+        &#125;
+        headers = parseHeaders(headersToParse);
+      &#125; else if (annotation instanceof Multipart) &#123;
+        if (isFormEncoded) &#123;
+          throw methodError(method, &quot;Only one encoding annotation is allowed.&quot;);
+        &#125;
+        isMultipart = true;
+      &#125; else if (annotation instanceof FormUrlEncoded) &#123;
+        if (isMultipart) &#123;
+          throw methodError(method, &quot;Only one encoding annotation is allowed.&quot;);
+        &#125;
+        isFormEncoded = true;
+      &#125;
+    &#125;
+</code></pre>
+<hr>
+<h3 id="Core-Object"><a href="#Core-Object" class="headerlink" title="Core Object"></a>Core Object</h3><blockquote>
+<p>Call.java</p>
+</blockquote>
+<p>Same as the okHttpCall ( RealCall ).</p>
+<pre><code class="java">// Call.java
+
+/**
+ * An invocation of a Retrofit method that sends a request to a webserver and returns a response.
+ * Each call yields its own HTTP request and response pair. Use &#123;@link #clone&#125; to make multiple
+ * calls with the same parameters to the same webserver; this may be used to implement polling or to
+ * retry a failed call.
+ *
+ * &lt;p&gt;Calls may be executed synchronously with &#123;@link #execute&#125;, or asynchronously with &#123;@link
+ * #enqueue&#125;. In either case the call can be canceled at any time with &#123;@link #cancel&#125;. A call that
+ * is busy writing its request or reading its response may receive a &#123;@link IOException&#125;; this is
+ * working as designed.
+ *
+ * @param &lt;T&gt; Successful response body type.
+ */
+public interface Call&lt;T&gt; extends Cloneable &#123;
+  /**
+   * Synchronously send the request and return its response.
+   *
+   * @throws IOException if a problem occurred talking to the server.
+   * @throws RuntimeException (and subclasses) if an unexpected error occurs creating the request or
+   *     decoding the response.
+   */
+  Response&lt;T&gt; execute() throws IOException;
+
+  /**
+   * Asynchronously send the request and notify &#123;@code callback&#125; of its response or if an error
+   * occurred talking to the server, creating the request, or processing the response.
+   */
+  void enqueue(Callback&lt;T&gt; callback);
+
+  /**
+   * Returns true if this call has been either &#123;@linkplain #execute() executed&#125; or &#123;@linkplain
+   * #enqueue(Callback) enqueued&#125;. It is an error to execute or enqueue a call more than once.
+   */
+  boolean isExecuted();
+
+  /**
+   * Cancel this call. An attempt will be made to cancel in-flight calls, and if the call has not
+   * yet been executed it never will be.
+   */
+  void cancel();
+
+  /** True if &#123;@link #cancel()&#125; was called. */
+  boolean isCanceled();
+
+  /**
+   * Create a new, identical call to this one which can be enqueued or executed even if this call
+   * has already been.
+   */
+  Call&lt;T&gt; clone();
+
+  /** The original HTTP request. */
+  Request request();
+
+  /**
+   * Returns a timeout that spans the entire call: resolving DNS, connecting, writing the request
+   * body, server processing, and reading the response body. If the call requires redirects or
+   * retries all must complete within one timeout period.
+   */
+  Timeout timeout();
+&#125;
+</code></pre>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">30 <p>文章</p></a></li>
+                    <li><a href="/categories">16 <p>分类</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic"><span class="toc-number">1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#okHttp"><span class="toc-number">2.</span> <span class="toc-text">okHttp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intro"><span class="toc-number">2.1.</span> <span class="toc-text">Intro</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#okHttp-Dispatcher-Kotlin-Style"><span class="toc-number">3.</span> <span class="toc-text">okHttp Dispatcher ( Kotlin Style)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Properties"><span class="toc-number">3.1.</span> <span class="toc-text">Core Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Function"><span class="toc-number">3.2.</span> <span class="toc-text">Core Function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#okHttp-Transmitter"><span class="toc-number">4.</span> <span class="toc-text">okHttp Transmitter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Function-1"><span class="toc-number">4.1.</span> <span class="toc-text">Core Function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#okHttp-Interceptor"><span class="toc-number">5.</span> <span class="toc-text">okHttp Interceptor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Interceptor-Priority"><span class="toc-number">5.1.</span> <span class="toc-text">Interceptor Priority</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RetryAndFollowUpInterceptor"><span class="toc-number">5.2.</span> <span class="toc-text">RetryAndFollowUpInterceptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BridgeInterceptor"><span class="toc-number">5.3.</span> <span class="toc-text">BridgeInterceptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CacheInterceptor"><span class="toc-number">5.4.</span> <span class="toc-text">CacheInterceptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ConnectInterceptor"><span class="toc-number">5.5.</span> <span class="toc-text">ConnectInterceptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CallServerInterceptor"><span class="toc-number">5.6.</span> <span class="toc-text">CallServerInterceptor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Retrofit"><span class="toc-number">6.</span> <span class="toc-text">Retrofit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Intro-1"><span class="toc-number">6.1.</span> <span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Annotation"><span class="toc-number">6.2.</span> <span class="toc-text">Annotation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Function-2"><span class="toc-number">6.3.</span> <span class="toc-text">Core Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Core-Object"><span class="toc-number">6.4.</span> <span class="toc-text">Core Object</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>
