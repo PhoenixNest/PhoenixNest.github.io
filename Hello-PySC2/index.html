@@ -18,17 +18,7 @@
 相关代码已上传Github托管。
 
 
-
-开发环境与所需软件包
-
-
-Windows 10
-
-Python 3.9.9
-
-
-
-pip i,">
+机器学习 (ML) 是人工智能 (AI) 的一个分支，旨在构建能够根据所使用的数据进行学习或改,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -121,13 +111,13 @@ pip i,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.8k
+                    2.4k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    3 mins.
+                    4 mins.
                 </span>
                     
                     
@@ -166,25 +156,12 @@ pip i,">
 <p>本篇将介绍我在对<code>《星际争霸2》进行AI开发</code>的一些笔记分享。</p>
 <p>相关代码已上传<a target="_blank" rel="noopener" href="https://github.com/PhoenixNest/Hello-PySC2">Github</a>托管。</p>
 </blockquote>
-<hr>
 <blockquote>
-<p>开发环境与所需软件包</p>
+<p>机器学习 (ML) 是人工智能 (AI) 的一个分支，旨在构建能够根据所使用的数据进行学习或改进性能的系统。人工智能是一个宽泛的术语，指的是模仿人类智能的系统或机器。机器学习和人工智能这两个术语经常被相提并论，有时甚至互换使用，但它们的含义并不相同。其中一个重大区别是，所有的机器学习都是 AI，但不是所有的 AI 都是机器学习。</p>
 </blockquote>
-<ul>
-<li><p>Windows 10</p>
-</li>
-<li><p>Python 3.9.9</p>
-</li>
-</ul>
-<hr>
-<pre><code class="python">pip install pysc2
-pip install burnysc2
-
-pip install opencv-contrib-python
-
-pip install tensorflow
-# pip install tensorflow-gpu
-</code></pre>
+<blockquote>
+<p>强化学习（Reinforcement Learning, RL），又称再励学习、评价学习或增强学习，是机器学习的范式和方法论之一，用于描述和解决智能体（agent）在与环境的交互过程中通过学习策略以达成回报最大化或实现特定目标的问题。强化学习的常见模型是标准的马尔可夫决策过程（Markov Decision Process, MDP）。按给定条件，强化学习可分为基于模式的强化学习（model-based RL）和无模式强化学习（model-free RL），以及主动强化学习（active RL）和被动强化学习（passive RL） 。强化学习的变体包括逆向强化学习、阶层强化学习和部分可观测系统的强化学习。求解强化学习问题所使用的算法可分为策略搜索算法和值函数（value function）算法两类。深度学习模型可以在强化学习中得到使用，形成深度强化学习 。</p>
+</blockquote>
 <hr>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="游戏背景"><a href="#游戏背景" class="headerlink" title="游戏背景"></a>游戏背景</h3><p>《星际争霸2》（StarCraft2）是由暴雪娱乐在2010年7月27日推出的一款即时战略游戏，是《星际争霸》系列的第二部作品。游戏以三部曲的形式推出，即《星际争霸2：自由之翼》（Wings of Liberty）、《星际争霸2：虫群之心》（Heart of the Swarm）和《星际争霸2：虚空之遗》（Legacy of the Void）。游戏结构类似于《星际争霸》，主要的游戏技巧着重在资源上，玩家用采集的资源建造不同的建筑、军队并进行升级 。</p>
 <p>《星际争霸》有着专业的职业赛事与选手选拔机制，其中不乏进入过早期有着“电子竞技奥运会”之称的WCG（World Cyber Games），官方赛事有着诸如：暴雪WCS（World Championship Series）世界锦标赛，ESL（Electronic Sports League）电子竞技联盟与GSL（Global StarCraft2 League）全球《星际争霸2》联赛等赛事。</p>
@@ -213,18 +190,31 @@ pip install tensorflow
 </li>
 </ul>
 <blockquote>
-<p>主要软件包及版本：</p>
-</blockquote>
+<p>开发环境与所需软件包</p>
 <ul>
-<li><p>Python：3.9</p>
-</li>
-<li><p>PySC2：3.0.0</p>
-</li>
-<li><p>BurnySC2：5.0.12</p>
-</li>
-<li><p>TensorFlow-GPU：2.7.0</p>
-</li>
+<li>Windows 10 / 11</li>
+<li>Anaconda</li>
+<li>Python 3.9.10</li>
 </ul>
+</blockquote>
+<blockquote>
+<p>主要<code>pip软件包</code>及版本：</p>
+<ul>
+<li>PySC2：3.0.0</li>
+<li>BurnySC2：5.0.12</li>
+<li>TensorFlow-GPU：2.7.0</li>
+</ul>
+</blockquote>
+<pre><code class="python">pip install pysc2
+pip install burnysc2==5.0.12
+
+pip install opencv-contrib-python
+
+pip install tensorflow
+
+# if you want to training your model by GPU, try tensorflow-gpu
+# pip install tensorflow-gpu
+</code></pre>
 <hr>
 <h2 id="Ai设计"><a href="#Ai设计" class="headerlink" title="Ai设计"></a>Ai设计</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>在《星际争霸2》中，整个系统分为自然资源与人口（最高200）两种主要的资源，自然资源包括晶体矿与瓦斯，而人口则包括了采集单位人口与战斗单位人口；在对战方面，大量的职业联赛也为其带来了数不胜数的战术选择。</p>
 <p>即时战略具有高度可变性与不确定性，通常的建筑都需要晶体矿，而对于科技建筑与科技升级，则往往需要额外的瓦斯支出；在人口方面，过量的采集单位会使战斗人口较少而导致正面军队疲软，而低效的采集单位占比则往往会导致后续战局中缓慢的经济收入，无法快速弥补前线战斗导致的战损与及时的攀升科技；战术选择方面，早期偏激的战术在可能的带来高收益（挫败对手采集单位，延缓其经济收入甚至一击制胜）的同时往往也带来高风险，若该战术被对手成功防下，优势将如滚雪球似伴随整场比赛，胜者可能易主；在操作方面，高质量的兵种搭配将为整只部队带来极大的人口优势，同人口下的高级兵种与低级兵种战斗中往往能出现以少胜多的局面。</p>
@@ -276,7 +266,7 @@ pip install tensorflow
                 <ul>
                     <li><a href="/">31 <p>文章</p></a></li>
                     <li><a href="/categories">17 <p>分类</p></a></li>
-                    <li><a href="/tags">25 <p>标签</p></a></li>
+                    <li><a href="/tags">24 <p>标签</p></a></li>
                 </ul>
             </div>
             
