@@ -179,7 +179,7 @@ Java • Native
 <p>在程序中，继承是在描述类与类之间的所属关系，蒋多个类中的共有成员变量和成员方法抽取到一个类中（父类），让多个类去继承这个父类。</p>
 <p><code>一个类继承另一个类，继承这个类以后，就继承了它所有的属性和方法</code>。</p>
 <p>使用extends关键字继承另一个类。格式：class （子类或派生类） extends （父类、超类或基类）。</p>
-<pre><code class="java">class Son extends Father&#123;
+<pre><code class="java">class Son extends Father &#123;
     // ...
 &#125;
 </code></pre>
@@ -280,21 +280,21 @@ Java • Native
 <p>对于<code>字符串</code>来说是比较内容的。</p>
 <p>而对于<code>非字符串</code>来说是比较其指向的对象是否相同的。</p>
 <hr>
-<pre><code class="java">String s1, s2, s3 = &quot;abc&quot;, s4 = &quot;abc&quot; ;
-s1 = new String(&quot;abc&quot;);
-s2 = new String(&quot;abc&quot;);
+<pre><code class="java">String s1,s2,s3=&quot;abc&quot;,s4=&quot;abc&quot;;
+        s1=new String(&quot;abc&quot;);
+        s2=new String(&quot;abc&quot;);
 
-String s1, s2, s3 = &quot;abc&quot;, s4 = &quot;abc&quot; ;
-s1 = new String(&quot;abc&quot;);
-s2 = new String(&quot;abc&quot;);
+        String s1,s2,s3=&quot;abc&quot;,s4=&quot;abc&quot;;
+        s1=new String(&quot;abc&quot;);
+        s2=new String(&quot;abc&quot;);
 
-System.out.println(&quot;s1 == s2: &quot; + (s1 == s2)); // false，两个变量的内存地址不一样，也就是说它们指向的对象不一样。
-System.out.println(&quot;s1 == s3: &quot; + (s1 == s3)); // false
-System.out.println(&quot;s3 == s4: &quot; + (s3 == s4)); // true
+        System.out.println(&quot;s1 == s2: &quot;+(s1==s2)); // false，两个变量的内存地址不一样，也就是说它们指向的对象不一样。
+        System.out.println(&quot;s1 == s3: &quot;+(s1==s3)); // false
+        System.out.println(&quot;s3 == s4: &quot;+(s3==s4)); // true
 
-System.out.println(&quot;s1.equals(s2): &quot; + (s1.equals(s2))); // true，两个变量的所包含的内容是abc，故相等。
-System.out.println(&quot;s1.equals(s3): &quot; + (s1.equals(s3))); // true
-System.out.println(&quot;s3.equals(s4): &quot; + (s3.equals(s4))); // true
+        System.out.println(&quot;s1.equals(s2): &quot;+(s1.equals(s2))); // true，两个变量的所包含的内容是abc，故相等。
+        System.out.println(&quot;s1.equals(s3): &quot;+(s1.equals(s3))); // true
+        System.out.println(&quot;s3.equals(s4): &quot;+(s3.equals(s4))); // true
 </code></pre>
 <hr>
 <blockquote>
@@ -302,10 +302,10 @@ System.out.println(&quot;s3.equals(s4): &quot; + (s3.equals(s4))); // true
 </blockquote>
 <p>StringBuffer类中没有重新定义 equals 这个方法。</p>
 <p>因此这个方法就来自Object类（Object类中的equals方法是用来比较 “地址” 的，所以等于 false）</p>
-<pre><code class="java">StringBuffer s1 = new StringBuffer(&quot;a&quot;);
-StringBuffer s2 = new StringBuffer(&quot;a&quot;);
+<pre><code class="java">StringBuffer s1=new StringBuffer(&quot;a&quot;);
+        StringBuffer s2=new StringBuffer(&quot;a&quot;);
 
-System.out.println(&quot;s1.equals(s2): &quot; + (s1.equals(s2))); // false
+        System.out.println(&quot;s1.equals(s2): &quot;+(s1.equals(s2))); // false
 </code></pre>
 <hr>
 <blockquote>
@@ -315,14 +315,14 @@ System.out.println(&quot;s1.equals(s2): &quot; + (s1.equals(s2))); // false
 <li>基本类型比较</li>
 </ul>
 <p>只能用 == 来比较，不能用 equals()。</p>
-<pre><code class="java">int a = 3;
-int b = 4;
-int c = 3;
+<pre><code class="java">int a=3;
+        int b=4;
+        int c=3;
 
-System.out.println(a == b); // false
-System.out.println(a == c); // true
+        System.out.println(a==b); // false
+        System.out.println(a==c); // true
 
-System.out.println(a.equals(c)); // 错误，编译不能通过，不能使用 equals() 方法。
+        System.out.println(a.equals(c)); // 错误，编译不能通过，不能使用 equals() 方法。
 </code></pre>
 <hr>
 <ul>
@@ -330,15 +330,15 @@ System.out.println(a.equals(c)); // 错误，编译不能通过，不能使用 e
 </ul>
 <p>比如Boolean、Character、Byte、Shot、Integer、Long、Float、Double 等的引用变量。</p>
 <p>== 是比较地址的，而 equals() 是比较内容的。</p>
-<pre><code class="java">Integer n1 = new Integer(30);
-Integer n2 = new Integer(30);
-Integer n3 = new Integer(31);
+<pre><code class="java">Integer n1=new Integer(30);
+        Integer n2=new Integer(30);
+        Integer n3=new Integer(31);
 
-System.out.println(n1 == n2); // false，两个不同的Integer对象，其地址不同。
-System.out.println(n1 == n3); // false，不管是 new Integer(30)，还是 new Integer(31)，结果都显示 false。
+        System.out.println(n1==n2); // false，两个不同的Integer对象，其地址不同。
+        System.out.println(n1==n3); // false，不管是 new Integer(30)，还是 new Integer(31)，结果都显示 false。
 
-System.out.println(n1.equals(n2)); // true，根据jdk文档中的说明，n1与n2指向的对象中的内容是相等的，都是30，故equals比较后结果是true。
-System.out.println(n1.equals(n3)); // false，因对象内容不一样，一个是30一个是31。
+        System.out.println(n1.equals(n2)); // true，根据jdk文档中的说明，n1与n2指向的对象中的内容是相等的，都是30，故equals比较后结果是true。
+        System.out.println(n1.equals(n3)); // false，因对象内容不一样，一个是30一个是31。
 </code></pre>
 <hr>
 <h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>final作为Java中的关键字可以用于三个地方。用于修饰类、类属性和类方法。</p>
@@ -363,21 +363,21 @@ public class Student &#123;
     // constructor, getter &amp;&amp; setter ...
 &#125;
 
-public static void main(String[] args) &#123;
-    // (1)：实例化获取
-    Student student = new Student(&quot;Java&quot;, &quot;Female&quot;);
-    Class&lt;? extends Student&gt; aClass = student.getClass();
+    public static void main(String[] args) &#123;
+        // (1)：实例化获取
+        Student student = new Student(&quot;Java&quot;, &quot;Female&quot;);
+        Class&lt;? extends Student&gt; aClass = student.getClass();
 
-    // (2)：名称匹配 / 地址 获取，注意抛出 ClassNotFoundException 异常
-    try &#123;
-        Class&lt;?&gt; aClass1 = Class.forName(&quot;main.Student&quot;);
-    &#125; catch (ClassNotFoundException e) &#123;
-        e.printStackTrace();
+        // (2)：名称匹配 / 地址 获取，注意抛出 ClassNotFoundException 异常
+        try &#123;
+            Class&lt;?&gt; aClass1 = Class.forName(&quot;main.Student&quot;);
+        &#125; catch (ClassNotFoundException e) &#123;
+            e.printStackTrace();
+        &#125;
+
+        // (3)：通过类获取
+        Class&lt;Student&gt; studentClass = Student.class;
     &#125;
-
-    // (3)：通过类获取
-    Class&lt;Student&gt; studentClass = Student.class;
-&#125;
 </code></pre>
 <hr>
 <blockquote>
@@ -385,27 +385,27 @@ public static void main(String[] args) &#123;
 </blockquote>
 <pre><code class="java">// 实体类
 public class Developer &#123;
-    private String name; // 姓名
-    private String department; // 所在部门
-    private int age; // 年龄
+  private final String name; // 姓名
+  private final String department; // 所在部门
+  private final int age; // 年龄
 
-    @Override
-    public String toString() &#123;
-        return &quot;Developer name: &quot; + name +
-                &quot; department: &quot; + department +
-                &quot; age &quot; + age;
-    &#125;
+  @Override
+  public String toString() &#123;
+    return &quot;Developer name: &quot; + name +
+            &quot; department: &quot; + department +
+            &quot; age &quot; + age;
+  &#125;
 
-    public Developer(String name, String department, int age) &#123;
-        this.name = name;
-        this.department = department;
-        this.age = age;
-    &#125;
+  public Developer(String name, String department, int age) &#123;
+    this.name = name;
+    this.department = department;
+    this.age = age;
+  &#125;
 
-    // 创建一个让程序员开始工作的方法
-    public void work() &#123;
-        System.out.println(name + &quot; start work&quot;);
-    &#125;
+  // 创建一个让程序员开始工作的方法
+  public void work() &#123;
+    System.out.println(name + &quot; start work&quot;);
+  &#125;
 &#125;
 </code></pre>
 <pre><code class="java">public class Demo &#123;
@@ -444,10 +444,10 @@ public class Developer &#123;
 <h3 id="强引用-软引用-弱引用-虚引用"><a href="#强引用-软引用-弱引用-虚引用" class="headerlink" title="强引用 / 软引用 / 弱引用 / 虚引用"></a>强引用 / 软引用 / 弱引用 / 虚引用</h3><blockquote>
 <p>强引用</p>
 </blockquote>
-<p>强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出 OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用 对象来解决内存不足的问题。</p>
-<pre><code class="java">Object object = new Object();
+<p>强引用是使用最普遍的引用。如果一个对象具有强引用，那垃圾收器绝不会回收它。当内存空间不足，Java虚拟机宁愿抛出 OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用<br>对象来解决内存不足的问题。</p>
+<pre><code class="java">Object object=new Object();
 
-String string = &quot;Test&quot;;
+        String string=&quot;Test&quot;;
 </code></pre>
 <hr>
 <blockquote>
@@ -456,22 +456,23 @@ String string = &quot;Test&quot;;
 <p>软引用是用来描述一些有用但并不是必需的对象，在Java中用<code>java.lang.ref.SoftReference类</code>来表示。</p>
 <p>对于软引用关联着的对象，只有在内存不足的时候JVM才会回收该对象。</p>
 <p>因此，这一点可以<code>很好地用来解决OOM的问题</code>，并且这个特性很<code>适合用来实现缓存</code>：比如网页缓存、图片缓存等。</p>
-<pre><code class="java">public class SoftRef &#123;  
- 
-    public static void main(String[] args)&#123;  
-        System.out.println(&quot;start&quot;);            
-        Obj obj = new Obj();            
-        SoftReference&lt;Obj&gt; sr = new SoftReference&lt;Obj&gt;(obj);  
-        obj = null;  
-        System.out.println(sr.get());  
-        System.out.println(&quot;end&quot;);     
-    &#125;       
-&#125;  
- 
-class Obj&#123;  
-    int[] obj ;  
-    public Obj()&#123;  
-        obj = new int[1000];  
+<pre><code class="java">public class SoftRef &#123;
+
+    public static void main(String[] args) &#123;
+        System.out.println(&quot;start&quot;);
+        Obj obj = new Obj();
+        SoftReference&lt;Obj&gt; sr = new SoftReference&lt;Obj&gt;(obj);
+        obj = null;
+        System.out.println(sr.get());
+        System.out.println(&quot;end&quot;);
+    &#125;
+&#125;
+
+class Obj &#123;
+    int[] obj;
+
+    public Obj() &#123;
+        obj = new int[1000];
     &#125;  
 </code></pre>
 <p>当内存足够大时可以把数组存入软引用，取数据时就可从内存里取数据，提高运行效率。</p>
@@ -490,18 +491,18 @@ class Obj&#123;
 <p>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。</p>
 <p>在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。</p>
 <p>不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。所以被软引用关联的对象只有在内存不足时才会被回收，而被弱引用关联的对象在JVM进行垃圾回收时总会被回收。</p>
-<pre><code class="java">WeakReference&lt;String&gt; sr = new WeakReference&lt;String&gt;(new String(&quot;hello&quot;));
-System.out.println(sr.get());
+<pre><code class="java">WeakReference&lt;String&gt; sr=new WeakReference&lt;String&gt;(new String(&quot;hello&quot;));
+        System.out.println(sr.get());
 
 // 在使用软引用和弱引用的时候，我们可以显式地通过 System.gc() 来通知JVM进行垃圾回收。
 // 但是要注意的是，虽然发出了通知，JVM不一定会立刻执行。
 // 也就是说 System.gc() 是无法确保此时JVM一定会进行垃圾回收的。
-System.gc();
-System.out.println(sr.get());
+        System.gc();
+        System.out.println(sr.get());
 </code></pre>
 <p>弱引用还可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</p>
-<pre><code class="java">Object obj = new Object(); //只要obj还指向对象就不会被回收
-WeakReference&lt;Object&gt; wr = new WeakReference&lt;Object&gt;(obj);
+<pre><code class="java">Object obj=new Object(); //只要obj还指向对象就不会被回收
+        WeakReference&lt;Object&gt; wr=new WeakReference&lt;Object&gt;(obj);
 </code></pre>
 <p>当要获得 WeakReference引用的object时, 首先需要判断它是否已经被回收，如果wr.get()方法为空, 那么说明 WeakReference 指向的对象已经被回收了。</p>
 <hr>
@@ -514,10 +515,10 @@ WeakReference&lt;Object&gt; wr = new WeakReference&lt;Object&gt;(obj);
 <p>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。</p>
 <p>如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</p>
 <pre><code class="java">// 虚引用必须和引用队列关联使用
-ReferenceQueue&lt;String&gt; queue = new ReferenceQueue&lt;String&gt;();
-PhantomReference&lt;String&gt; pr = new PhantomReference&lt;String&gt;(new String(&quot;hello&quot;), queue);
+ReferenceQueue&lt;String&gt; queue=new ReferenceQueue&lt;String&gt;();
+        PhantomReference&lt;String&gt; pr=new PhantomReference&lt;String&gt;(new String(&quot;hello&quot;),queue);
 
-System.out.println(pr.get());
+        System.out.println(pr.get());
 </code></pre>
 <hr>
 <blockquote>
@@ -558,11 +559,9 @@ System.out.println(pr.get());
 </tr>
 </tbody></table>
 <hr>
-<h3 id="数组-集合"><a href="#数组-集合" class="headerlink" title="数组 / 集合"></a>数组 / 集合</h3><ul>
-<li><p>数组是Java语言内置的数据类型，他是一个线性的序列，所有可以快速访问其他的元素，数组和其他语言不同，当你创建了一个数组时，他的容量是不变的，而且在生命周期也是不能改变的，还有Java数组会做边界检查，如果发现有越界现象，会报RuntimeException异常错误，当然检查边界会以效率为代价。</p>
-</li>
-<li><p>Java 还提供其他集合，List，Map，Set，他们处理对象的时候就好像这些对象没有自己的类型一样，而是直接归根于Object，这样只需要创建一个集合，把对象放进去，取出时转换成自己的类型就行了。</p>
-</li>
+<h3 id="数组-集合"><a href="#数组-集合" class="headerlink" title="数组 / 集合"></a>数组 / 集合</h3><p>+<br>数组是Java语言内置的数据类型，他是一个线性的序列，所有可以快速访问其他的元素，数组和其他语言不同，当你创建了一个数组时，他的容量是不变的，而且在生命周期也是不能改变的，还有Java数组会做边界检查，如果发现有越界现象，会报RuntimeException异常错误，当然检查边界会以效率为代价。</p>
+<ul>
+<li>Java<br>还提供其他集合，List，Map，Set，他们处理对象的时候就好像这些对象没有自己的类型一样，而是直接归根于Object，这样只需要创建一个集合，把对象放进去，取出时转换成自己的类型就行了。</li>
 </ul>
 <hr>
 <blockquote>
@@ -617,15 +616,15 @@ System.out.println(pr.get());
 </ol>
 <p>示例代码如下：</p>
 <pre><code class="java">// String
-String str = &quot;hello&quot;;
-str += &quot;java&quot;;
+String str=&quot;hello&quot;;
+        str+=&quot;java&quot;;
 
 // 对String的修改等价于以下使用StringBuffer的代码：
 
 // StringBuffer
-StringBuffer stringBuffer = new StringBuffer(str);
-stringBuffer.append(&quot;java&quot;);
-str = stringBuffer.toString();
+        StringBuffer stringBuffer=new StringBuffer(str);
+        stringBuffer.append(&quot;java&quot;);
+        str=stringBuffer.toString();
 </code></pre>
 <p>上述String字符串的修改过程要比StringBuffer多一些额外操作，会增加一些临时的对象，从而导致程序的执行效率降低。</p>
 <p>StringBuffer和StringBuilder在修改字符串方面比String的性能要高。</p>
@@ -645,7 +644,7 @@ str = stringBuffer.toString();
 <blockquote>
 <p>线程安全</p>
 </blockquote>
-<p>StringBuffer与StringBuilder都提供了一系列插入、追加、改变字符串里的字符序列的方法，它们的用法基本相同，只是<code>StringBuilder是线程不安全的</code>，<code>StringBuffer是线程安全的</code>。</p>
+<p>StringBuffer与StringBuilder都提供了一系列插入、追加、改变字符串里的字符序列的方法，它们的用法基本相同，只是<code>StringBuilder是线程不安全的</code><br>，<code>StringBuffer是线程安全的</code>。</p>
 <p>如果只是在单线程中使用字符串缓冲区，则StringBuilder的效率会高些，但是当多线程访问时，最好使用StringBuffer。</p>
 <hr>
 <blockquote>
@@ -657,14 +656,14 @@ str = stringBuffer.toString();
 <p>用例：将字符串反转</p>
 </blockquote>
 <pre><code class="java">// StringBuffer reverse
-StringBuffer stringBuffer = new StringBuffer();
-stringBuffer.append(&quot;abcdefg&quot;);
-System.out.println(stringBuffer. reverse()); // gfedcba
+StringBuffer stringBuffer=new StringBuffer();
+        stringBuffer.append(&quot;abcdefg&quot;);
+        System.out.println(stringBuffer.reverse()); // gfedcba
 
 // StringBuilder reverse
-StringBuilder stringBuilder = new StringBuilder();
-stringBuilder.append(&quot;abcdefg&quot;);
-System.out.println(stringBuilder. reverse()); // gfedcba
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append(&quot;abcdefg&quot;);
+        System.out.println(stringBuilder.reverse()); // gfedcba
 </code></pre>
 <hr>
 <h2 id="Android-•-Native"><a href="#Android-•-Native" class="headerlink" title="Android • Native"></a>Android • Native</h2><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Android/Android.png" alt="Android"></p>
@@ -730,7 +729,7 @@ System.out.println(stringBuilder. reverse()); // gfedcba
 </ul>
 <p>对于已经在 Manifest清单文件 中定义的Activity，可使用以下代码进行显示跳转</p>
 <pre><code class="java">// 模拟从欢迎页跳转到主页
-startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
 </code></pre>
 <hr>
 <ul>
@@ -738,13 +737,13 @@ startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
 </ul>
 <p>相较于显式Intent，隐式Intent则含蓄了许多，它并不明确指出想要启动哪一个Activity，而是指定了一系列更为抽象的action和category等信息，然后交由系统去分析这个Intent，并找出合适的Activity去启动。</p>
 <pre><code class="java">// 模拟拨号，隐式Intent 将会判断传入的意图，并自动搜索适合的Activity进行启动
-Intent telIntent = new Intent(Intent.ACTION_DIAL)
+Intent telIntent=new Intent(Intent.ACTION_DIAL)
 
 // 设置电话号码
-Uri data = Uri.parse(&quot;tel:&quot; + telNum);
-telIntent.setData(data);
+        Uri data=Uri.parse(&quot;tel:&quot;+telNum);
+        telIntent.setData(data);
 
-startActivity(telIntent);
+        startActivity(telIntent);
 </code></pre>
 <hr>
 <blockquote>
@@ -771,9 +770,9 @@ startActivity(telIntent);
 <ul>
 <li><p>standard：普通模式，走所有生命周期方法，对内存有很大消耗。</p>
 </li>
-<li><p>singleTop：<code>栈顶复用</code>模式，判断 待创建的Activity 是否已位于栈顶，若 待创建Activity 已位于栈顶，则会复用 栈顶 Activity；若没有，则还是会走所有生命周期创建一个 新的Activity。</p>
+<li><p>singleTop：<code>栈顶复用</code>模式，判断 待创建的Activity 是否已位于栈顶，若 待创建Activity 已位于栈顶，则会复用 栈顶<br>Activity；若没有，则还是会走所有生命周期创建一个 新的Activity。</p>
 </li>
-<li><p>singleTask：<code>栈内复用</code>模式，检测整个任务栈中是否存在当前需要启动的Activity，若存在，则直接置于栈顶，并将已有 栈顶Activity 全数销毁出栈，并回调 onNewIntent() 方法</p>
+<li><p>singleTask：<code>栈内复用</code>模式，检测整个任务栈中是否存在当前需要启动的Activity，若存在，则直接置于栈顶，并将已有 栈顶Activity 全数销毁出栈，并回调<br>onNewIntent() 方法</p>
 </li>
 <li><p>singleInstance：<code>独享</code>模式，若Activity在整个App中只有一个实例，且独占一个任务栈，则称为独享模式。</p>
 </li>
@@ -789,11 +788,11 @@ startActivity(telIntent);
 <li>Bundle模式</li>
 </ul>
 <p>在Android中三大组件（Activity，Service，Receiver）都支持在Intent中传递Bundle数据，由于Bundle实现了Parcelable接口（一种特有的序列化方法），所以它可以很方便的在不同的进程之间进行传输。当在一个进程中启动另外一个进程的Activity，Service，Receiver时，可以在Bundle中附加需要传输给远程的进程的信息，并通过Intent发送出去。</p>
-<pre><code class="java">Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-Bundle bundle = new Bundle();
-bundle.putString(&quot;key&quot;, &quot;value&quot;);
-intent.putExtras(bundle);
-startActivity(intent);
+<pre><code class="java">Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putString(&quot;key&quot;,&quot;value&quot;);
+        intent.putExtras(bundle);
+        startActivity(intent);
 </code></pre>
 <hr>
 <ul>
@@ -834,7 +833,7 @@ startActivity(intent);
 <ul>
 <li>CREATED：onCreate() -&gt; onCreateView() -&gt; onViewCreated() -&gt; onViewStateRestored()</li>
 </ul>
-<p>对于 onCreteView()，可在该方法内手动填充或创建 Fragment 视图，且可在该方法内使用 getViewLifecycleOwnerLiveData() 对 LiveData 进行初始化或更新。若属兔已经创建完成，则会调用<br> onViewStateRestored()，在该方法内需要对已与 Fragment视图 进行关联的状态进行重建。</p>
+<p>对于 onCreteView()，可在该方法内手动填充或创建 Fragment 视图，且可在该方法内使用 getViewLifecycleOwnerLiveData() 对 LiveData<br>进行初始化或更新。若属兔已经创建完成，则会调用<br>onViewStateRestored()，在该方法内需要对已与 Fragment视图 进行关联的状态进行重建。</p>
 <ul>
 <li>STARTED：onStart()</li>
 </ul>
@@ -891,7 +890,7 @@ startActivity(intent);
 <blockquote>
 <p>与 线程Thread 区别</p>
 </blockquote>
-<p>如果必须在主线程之外执行操作，但只在用户与应用交互时执行此操作，则应创建新线程。例如，如果只是想在 Activity 运行的同时播放一些音乐，则可在 onCreate() 中创建线程，在 onStart() 中启动线程运行，然后在 onStop() 中停止线程。</p>
+<p>如果必须在主线程之外执行操作，但只在用户与应用交互时执行此操作，则应创建新线程。例如，如果只是想在 Activity 运行的同时播放一些音乐，则可在 onCreate() 中创建线程，在<br>onStart() 中启动线程运行，然后在 onStop() 中停止线程。</p>
 <hr>
 <blockquote>
 <p>生命周期</p>
@@ -953,9 +952,9 @@ startActivity(intent);
 <hr>
 <h3 id="Broadcast-Receiver"><a href="#Broadcast-Receiver" class="headerlink" title="Broadcast Receiver"></a>Broadcast Receiver</h3><p>使用场景：登录异常强制退出、用户身份认证过期需重新登陆。</p>
 <ul>
-<li><p>标准广播：是一种<code>完全异步执行</code>的广播，在广播发出之后，所有的BroadcastReceiver几乎会在一时刻收到这条广播消息，因此它们之间没有任何先后顺序可言。这种广播的<code>效率会比较高</code>，但同时也意味着它是<code>无法被截断</code>的。</p>
+<li><p>标准广播：是一种<code>完全异步执行</code>的广播，在广播发出之后，所有的BroadcastReceiver几乎会在一时刻收到这条广播消息，因此它们之间没有任何先后顺序可言。这种广播的<code>效率会比较高</code><br>，但同时也意味着它是<code>无法被截断</code>的。</p>
 </li>
-<li><p>有序广播（消息队列）：是一种<code>同步执行</code>的广播，在广播发出之后，同一时刻只会有一个BroadcastReceiver能够收到这条广播消息，当这个BroadcastReceiver中的逻辑执行完毕后，广播才会继续传递。所以此时的BroadcastReceiver是有先后顺序的，优先级高的BroadcastReceiver就可以先收到广播消息，并且前面的BroadcastReceiver还可以截断正在传递的广播，这样后面的BroadcastReceiver就无法收到广播消息了。</p>
+<li><p>有序广播（消息队列）：是一种<code>同步执行</code><br>的广播，在广播发出之后，同一时刻只会有一个BroadcastReceiver能够收到这条广播消息，当这个BroadcastReceiver中的逻辑执行完毕后，广播才会继续传递。所以此时的BroadcastReceiver是有先后顺序的，优先级高的BroadcastReceiver就可以先收到广播消息，并且前面的BroadcastReceiver还可以截断正在传递的广播，这样后面的BroadcastReceiver就无法收到广播消息了。</p>
 </li>
 </ul>
 <hr>
@@ -976,7 +975,7 @@ startActivity(intent);
 <ul>
 <li>Handler</li>
 </ul>
-<p>Handler顾名思义也就是<code>处理者</code>的意思，它主要是用于发送和处理消息的。发送消息一般是使用Handler的sendMessage()方法、post()方法等，而发出的消息经过一系列地辗转处理后，最终会传递到Handler的handleMessage()方法中。</p>
+<p>Handler顾名思义也就是<code>处理者</code>的意思，它主要是用于发送和处理消息的。发送消息一般是使用Handler的sendMessage()方法、post()<br>方法等，而发出的消息经过一系列地辗转处理后，最终会传递到Handler的handleMessage()方法中。</p>
 <hr>
 <ul>
 <li>MessageQueue</li>
@@ -986,7 +985,7 @@ startActivity(intent);
 <ul>
 <li>Looper</li>
 </ul>
-<p>Looper是<code>每个线程中的MessageQueue的管家</code>，调用Looper的loop()方法后，就会进入一个无限循环当中，然后每当发现MessageQueue中存在一条消息时，就会将它取出，并传递到Handler的handleMessage()方法中。<code>每个线程中只会有一个Looper对象</code>。</p>
+<p>Looper是<code>每个线程中的MessageQueue的管家</code>，调用Looper的loop()<br>方法后，就会进入一个无限循环当中，然后每当发现MessageQueue中存在一条消息时，就会将它取出，并传递到Handler的handleMessage()<br>方法中。<code>每个线程中只会有一个Looper对象</code>。</p>
 <hr>
 <blockquote>
 <p>AsyncTask</p>
@@ -1000,9 +999,9 @@ startActivity(intent);
 <li><p>Result：当任务执行完毕后，如果需要对结果进行返回，则使用这里指定的泛型作为返回值类型</p>
 </li>
 </ul>
-<pre><code class="java">class DownloadTask extends AsyncTask&lt;Params, Progress, Result&gt;() &#123;
- ...
-&#125;
+<pre><code class="java">class DownloadTask extends AsyncTask&lt;Params, Progress, Result&gt;()&#123;
+        ...
+        &#125;
 </code></pre>
 <hr>
 <p>对于AsyncTask的使用我们还需要重写以下4个方法才能完成对任务的定制。</p>
@@ -1021,7 +1020,7 @@ startActivity(intent);
 <ul>
 <li>onProgressUpdate(Progress…)</li>
 </ul>
-<p>当在后台任务中调用了publishProgress(Progress…)方法后，onProgressUpdate (Progress…)方法就会很快被调用，该方法中携带的参数就是在后台任务中传递过来的。</p>
+<p>当在后台任务中调用了publishProgress(Progress…)方法后，onProgressUpdate (Progress…)<br>方法就会很快被调用，该方法中携带的参数就是在后台任务中传递过来的。</p>
 <p>在这个方法中可以对UI进行操作，利用参数中的数值就可以对界面元素进行相应的更新。</p>
 <hr>
 <ul>
@@ -1035,53 +1034,53 @@ startActivity(intent);
 </blockquote>
 <pre><code class="java">public static class DownloadTask extends AsyncTask&lt;Void, Integer, Boolean&gt; &#123;
 
-        @Override
-        protected void onPreExecute() &#123;
-            progressDialog.show(); // 显示进度对话框
-        &#125;
+    @Override
+    protected void onPreExecute() &#123;
+        progressDialog.show(); // 显示进度对话框
+    &#125;
 
-        @Override
-        protected Boolean doInBackground(Void... voids) &#123;
-            try &#123;
-                while (true) &#123;
-                    Integer downloadPercent = doDownload(); // 这是一个虚构的方法
-                    publishProgress(downloadPercent);
+    @Override
+    protected Boolean doInBackground(Void... voids) &#123;
+        try &#123;
+            while (true) &#123;
+                Integer downloadPercent = doDownload(); // 这是一个虚构的方法
+                publishProgress(downloadPercent);
 
-                    if (downloadPercent &gt;= 100) &#123;
-                        break;
-                    &#125;
+                if (downloadPercent &gt;= 100) &#123;
+                    break;
                 &#125;
-
-                return true;
-
-            &#125; catch (Exception exception) &#123;
-                return false;
-            &#125;
-        &#125;
-
-        @Override
-        protected void onProgressUpdate(Integer... values) &#123;
-            // 在这里更新下载进度
-            progressDialog.setMessage(&quot;Downloaded &quot; + values[0] + &quot;%&quot;);
-        &#125;
-
-        @Override
-        protected void onPostExecute(Boolean result) &#123;
-            progressDialog.dismiss();// 关闭进度对话框
-            // 在这里提示下载结果
-            if (result) &#123;
-                Toast.makeText(context, &quot;Download succeeded&quot;, Toast.LENGTH_SHORT).show();
-            &#125; else &#123;
-                Toast.makeText(context, &quot;Download failed&quot;, Toast.LENGTH_SHORT).show();
             &#125;
 
+            return true;
+
+        &#125; catch (Exception exception) &#123;
+            return false;
         &#125;
     &#125;
+
+    @Override
+    protected void onProgressUpdate(Integer... values) &#123;
+        // 在这里更新下载进度
+        progressDialog.setMessage(&quot;Downloaded &quot; + values[0] + &quot;%&quot;);
+    &#125;
+
+    @Override
+    protected void onPostExecute(Boolean result) &#123;
+        progressDialog.dismiss();// 关闭进度对话框
+        // 在这里提示下载结果
+        if (result) &#123;
+            Toast.makeText(context, &quot;Download succeeded&quot;, Toast.LENGTH_SHORT).show();
+        &#125; else &#123;
+            Toast.makeText(context, &quot;Download failed&quot;, Toast.LENGTH_SHORT).show();
+        &#125;
+
+    &#125;
+&#125;
 </code></pre>
-<p>在这个DownloadTask中，我们在doInBackground()方法里执行具体的下载任务。这个方法里的代码都是在子线程中运行的，因而不会影响主线程的运行。注意，这里虚构了一个doDownload()方法，用于计算当前的下载进度并返回，我们假设这个方法已经存在了。在得到了当前的下载进度后，下面就该考虑如何把它显示到界面上了，由于doInBackground()方法是在子线程中运行的，在这里肯定不能进行UI操作，所以我们可以调用publishProgress()方法并传入当前的下载进度，这样onProgressUpdate()方法就会很快被调用，在这里就可以进行UI操作了。</p>
-<p>当下载完成后，doInBackground()方法会返回一个布尔型变量，这样onPostExecute()方法就会很快被调用，这个方法也是在主线程中运行的。然后，在这里我们会根据下载的结果弹出相应的Toast提示，从而完成整个DownloadTask任务。</p>
+<p>在这个DownloadTask中，我们在doInBackground()<br>方法里执行具体的下载任务。这个方法里的代码都是在子线程中运行的，因而不会影响主线程的运行。注意，这里虚构了一个doDownload()<br>方法，用于计算当前的下载进度并返回，我们假设这个方法已经存在了。在得到了当前的下载进度后，下面就该考虑如何把它显示到界面上了，由于doInBackground()<br>方法是在子线程中运行的，在这里肯定不能进行UI操作，所以我们可以调用publishProgress()方法并传入当前的下载进度，这样onProgressUpdate()<br>方法就会很快被调用，在这里就可以进行UI操作了。</p>
+<p>当下载完成后，doInBackground()方法会返回一个布尔型变量，这样onPostExecute()<br>方法就会很快被调用，这个方法也是在主线程中运行的。然后，在这里我们会根据下载的结果弹出相应的Toast提示，从而完成整个DownloadTask任务。</p>
 <blockquote>
-<p>简单来说，使用AsyncTask的诀窍就是，在doInBackground()方法中执行具体的耗时任务，在onProgressUpdate()方法中进行UI操作，在onPostExecute()方法中执行一些任务的收尾工作。</p>
+<p>简单来说，使用AsyncTask的诀窍就是，在doInBackground()方法中执行具体的耗时任务，在onProgressUpdate()方法中进行UI操作，在onPostExecute()<br>方法中执行一些任务的收尾工作。</p>
 </blockquote>
 <p>如果想要启动这个任务，只需编写以下代码即可：</p>
 <pre><code class="java">new DownloadTask().execute();
@@ -1093,7 +1092,7 @@ startActivity(intent);
 <p>Activity -&gt; ViewGroup -&gt; View</p>
 <hr>
 <h2 id="Android-•-Jetpack"><a href="#Android-•-Jetpack" class="headerlink" title="Android • Jetpack"></a>Android • Jetpack</h2><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/android_jetpack.png" alt="Jetpack"></p>
-<p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM 架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
+<p>Jetpack 是一个架构组件库，其中任何一个组件也可独立拆分使用，采用由 Google 官方推荐的 MVVM<br>架构（Model、View、ViewModel），旨在为开发者提供开箱即用的快速开发体验。</p>
 <blockquote>
 <p>主要的 Jetpack 框架组件：</p>
 </blockquote>
@@ -1149,7 +1148,7 @@ startActivity(intent);
 <p>View：对应于Activity和XML，负责View的绘制以及用户交互。</p>
 <p>ViewModel：负责完成View与Model间的交互，负责业务逻辑。</p>
 <hr>
-<h3 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h3><p>常见的 Lifecycle 组件用法是通过其提供的观察者模式，将生命周期的复杂操作进行封装，开发者只需在视图控制器（配合ViewBinding或DataBinding使用）中注册生命周期持有者，即可优雅完成对当前 Activity 或 Fragment 生命周期控制。</p>
+<h3 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h3><p>常见的 Lifecycle<br>组件用法是通过其提供的观察者模式，将生命周期的复杂操作进行封装，开发者只需在视图控制器（配合ViewBinding或DataBinding使用）中注册生命周期持有者，即可优雅完成对当前<br>Activity 或 Fragment 生命周期控制。</p>
 <hr>
 <h3 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h3><p>LiveData的出现主要是为了帮助开发者遵循 “通过唯一可信源分发状态” 的标准化开发理念。</p>
 <p>通过与Lifecycle配合使用，以观察者模式将Ui与数据动态解耦，使Ui能动态响应数据变化，LiveData仅在当前状态为 STARTED 或 RESUMED 时才会通知 Ui 进行更新。</p>
@@ -1159,7 +1158,7 @@ startActivity(intent);
 <ul>
 <li><p>确保 Ui 与数据始终保持一致：LiveData 将时刻关注被赋予 Observer 的对象，当你的数据发生变化时，无需手动对 Ui 进行重绘，LiveData将自动通知 Ui 更新数据。</p>
 </li>
-<li><p>减少内存泄漏：由于 Observer 对象的生命周期与当前 Activity 或 Fragment绑定，LiveData将自动对已进入 Destroyed 状态的对象进行清理，从而减少不必要的内存泄漏。若当前 Activity 或 Fragment 在栈区中处于不活跃状态，LiveData则不会接收任何对于数据的更新直到绑定对象重新位于前台活跃状态。</p>
+<li><p>减少内存泄漏：由于 Observer 对象的生命周期与当前 Activity 或 Fragment绑定，LiveData将自动对已进入 Destroyed<br>状态的对象进行清理，从而减少不必要的内存泄漏。若当前 Activity 或 Fragment 在栈区中处于不活跃状态，LiveData则不会接收任何对于数据的更新直到绑定对象重新位于前台活跃状态。</p>
 </li>
 <li><p>减少通过人为手段对生命周期的管理监控：LiveData能够自动管理其绑定对象的生命周期，并在 App 处于前/后台状态时自动更新其状态。</p>
 </li>
@@ -1170,7 +1169,7 @@ startActivity(intent);
 <p>与使用 findViewById 相比，视图绑定（ViewBinding）具有一些很显著的优点：</p>
 </blockquote>
 <ul>
-<li><p>Null 安全：由于视图绑定会创建对视图的直接引用，因此不存在因视图 ID 无效而引发 Null 指针异常的风险。此外，如果视图仅出现在布局的某些配置中，则绑定类中包含其引用的字段会使用 @Nullable 标记。</p>
+<li><p>Null 安全：由于视图绑定会创建对视图的直接引用，因此不存在因视图 ID 无效而引发 Null 指针异常的风险。此外，如果视图仅出现在布局的某些配置中，则绑定类中包含其引用的字段会使用<br>@Nullable 标记。</p>
 </li>
 <li><p>类型安全：每个绑定类中的字段均具有与它们在 XML 文件中引用的视图相匹配的类型。这意味着不存在发生类转换异常的风险。<br>这些差异意味着布局和代码之间的不兼容将会导致构建在编译时（而非运行时）失败。</p>
 </li>
@@ -1198,7 +1197,7 @@ startActivity(intent);
 <p>考虑到这些因素，在某些情况下，最好在项目中同时使用视图绑定和数据绑定。您可以在需要高级功能的布局中使用数据绑定，而在不需要高级功能的布局中使用视图绑定。</p>
 </blockquote>
 <hr>
-<h3 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h3><p>与 IOS开发 中的故事板一样，Jetpack为<code>导航</code>提供Navigation组件以管控各页面间的关联跳转。使用了 Navigation组件 构建的App通常需要有一个其实目的地，在应用中，<code>back操作</code> 与 <code>pop up操作</code>将会起到一样的作用。</p>
+<h3 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h3><p>与 IOS开发 中的故事板一样，Jetpack为<code>导航</code>提供Navigation组件以管控各页面间的关联跳转。使用了 Navigation组件<br>构建的App通常需要有一个其实目的地，在应用中，<code>back操作</code> 与 <code>pop up操作</code>将会起到一样的作用。</p>
 <blockquote>
 <p>导航组件提供各种其他优势，包括以下内容：</p>
 </blockquote>
@@ -1321,10 +1320,10 @@ startActivity(intent);
 <ul>
 <li>步骤2：创建 StringRequest请求对象</li>
 </ul>
-<pre><code class="java">StringRequest request = new StringRequest(requestUrl, response -&gt; &#123;
-            // success
-        &#125;, error -&gt; &#123;
-            // failure
+<pre><code class="java">StringRequest request=new StringRequest(requestUrl,response-&gt;&#123;
+        // success
+        &#125;,error-&gt;&#123;
+        // failure
         &#125;);
 </code></pre>
 <hr>
@@ -1337,13 +1336,10 @@ startActivity(intent);
 <blockquote>
 <p>源码分析</p>
 </blockquote>
+<p>+<br>CacheDispatcher：内部就是一个线程，开启子线程的缓存请求队列，while时刻运行网络请求。首次操作会先从本地判断是否存在缓存，如果有则直接从缓存中获取，否则直接走NetworkDispatcher</p>
+<p>+<br>NetworkDispatcher：内部也是一个线程，开启网络请求队列，while时刻运行网络请求。首次操作会先从CacheDispatcher中判断是否存在缓存，有的话则走CacheDispatcher，若无缓存或缓存过期则会新建一个请求，并将响应回传主线程。</p>
 <ul>
-<li><p>CacheDispatcher：内部就是一个线程，开启子线程的缓存请求队列，while时刻运行网络请求。首次操作会先从本地判断是否存在缓存，如果有则直接从缓存中获取，否则直接走NetworkDispatcher</p>
-</li>
-<li><p>NetworkDispatcher：内部也是一个线程，开启网络请求队列，while时刻运行网络请求。首次操作会先从CacheDispatcher中判断是否存在缓存，有的话则走CacheDispatcher，若无缓存或缓存过期则会新建一个请求，并将响应回传主线程。</p>
-</li>
-<li><p>ResponseDelivery：响应分发器，对响应进行分发回传。</p>
-</li>
+<li>ResponseDelivery：响应分发器，对响应进行分发回传。</li>
 </ul>
 <hr>
 <h3 id="okHttp"><a href="#okHttp" class="headerlink" title="okHttp"></a>okHttp</h3><p><a href="https://phoenixnest.github.io/Source-Code-Review/">有关 okHttp 的源码解析，可查看我的另一篇源码解析文章 👉</a></p>

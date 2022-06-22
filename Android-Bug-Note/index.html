@@ -147,7 +147,7 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="ViewBinding"><a href="#ViewBinding" class="headerlink" title="ViewBinding"></a>ViewBinding</h2><h3 id="try-to-use-layout-id-directly-in-you-Activity-Fragment"><a href="#try-to-use-layout-id-directly-in-you-Activity-Fragment" class="headerlink" title="try to use layout id directly in you Activity / Fragment"></a>try to use layout id directly in you Activity / Fragment</h3><p>after Gradle Version 6.5, if you want to use layout id directly, you should modify build.gradle file by yourself to enable this function.</p>
+            <h2 id="ViewBinding"><a href="#ViewBinding" class="headerlink" title="ViewBinding"></a>ViewBinding</h2><h3 id="try-to-use-layout-id-directly-in-you-Activity-Fragment"><a href="#try-to-use-layout-id-directly-in-you-Activity-Fragment" class="headerlink" title="try to use layout id directly in you Activity / Fragment"></a>try to use layout id directly in you Activity / Fragment</h3><p>after Gradle Version 6.5, if you want to use layout id directly, you should modify build.gradle file<br>by yourself to enable this function.</p>
 <blockquote>
 <p>PS: recommend to use ViewBinding or DataBinding</p>
 </blockquote>
@@ -163,7 +163,7 @@
 <pre><code class="output">java.lang.RuntimeException: Unable to start activity ComponentInfo&#123;xxx.MainActivity&#125;: java.lang.IllegalStateException: Activity xxx.MainActivity@xxx does not have a NavController set on xxx
 </code></pre>
 <blockquote>
-<p>to Solve this problem, <code>try this code in your MainActivity or any where you want to use NavController</code>:</p>
+<p>to Solve this<br>problem, <code>try this code in your MainActivity or any where you want to use NavController</code>:</p>
 </blockquote>
 <ul>
 <li>before</li>
@@ -189,7 +189,8 @@
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
 
         // set up the default AppBar to auto change the correct label
@@ -205,42 +206,45 @@
 <ul>
 <li>before</li>
 </ul>
-<pre><code class="xml">&lt;androidx.fragment.app.FragmentContainerView
+<pre><code class="xml">
+&lt;androidx.fragment.app.FragmentContainerView
         android:id=&quot;@+id/navHostFragment&quot;
         android:name=&quot;androidx.navigation.fragment.NavHostFragment&quot;
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;match_parent&quot;
         app:defaultNavHost=&quot;true&quot;
-        app:navGraph=&quot;@navigation/nav&quot; /&gt;
+        app:navGraph=&quot;@navigation/nav&quot;/&gt;
 </code></pre>
 <ul>
 <li>after</li>
 </ul>
-<pre><code class="xml">&lt;fragment
+<pre><code class="xml">
+&lt;fragment
         android:id=&quot;@+id/navHostFragment&quot;
         android:name=&quot;androidx.navigation.fragment.NavHostFragment&quot;
         android:layout_width=&quot;match_parent&quot;
         android:layout_height=&quot;match_parent&quot;
         app:defaultNavHost=&quot;true&quot;
-        app:navGraph=&quot;@navigation/nav&quot; /&gt;
+        app:navGraph=&quot;@navigation/nav&quot;/&gt;
 </code></pre>
 <hr>
 <h3 id="Cannot-resolve-symbol-‘com-xxx-xxxFragmentArgs’-in-XML"><a href="#Cannot-resolve-symbol-‘com-xxx-xxxFragmentArgs’-in-XML" class="headerlink" title="Cannot resolve symbol ‘com.xxx.xxxFragmentArgs’ in XML"></a>Cannot resolve symbol ‘com.xxx.xxxFragmentArgs’ in XML</h3><blockquote>
-<p>if you are using DataBinding with Navigation, and try to pass value between Activity / Fragment in XML like the code below:</p>
+<p>if you are using DataBinding with Navigation, and try to pass value between Activity / Fragment in<br>XML like the code below:</p>
 </blockquote>
-<pre><code class="xml">&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+<pre><code class="xml">
+&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+        xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+        xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
     &lt;data&gt;
         &lt;variable
-            name=&quot;args&quot;
-            type=&quot;com.xxx.xxxFragmentArgs&quot; /&gt;
+                name=&quot;args&quot;
+                type=&quot;com.xxx.xxxFragmentArgs&quot;/&gt;
     &lt;/data&gt;
 
     &lt;androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;match_parent&quot;
-        tools:context=&quot;.xxxFragment&quot;&gt;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;match_parent&quot;
+            tools:context=&quot;.xxxFragment&quot;&gt;
 
         ...
 
@@ -304,7 +308,7 @@ dependencies &#123;
 <p>Make your constructor public.</p>
 <p>Make sure your ViewModel has <code>constructor with only one parameter</code> i.e. Application.</p>
 <p>example:</p>
-<p>public MyViewModel(Application application) {<br>    super(application);<br>    …</p>
+<p>public MyViewModel(Application application) {<br>super(application);<br>…</p>
 <hr>
 <h2 id="Dagger-Hilt"><a href="#Dagger-Hilt" class="headerlink" title="Dagger Hilt"></a>Dagger Hilt</h2><h3 id="Unresolved-reference-ApplicationComponent"><a href="#Unresolved-reference-ApplicationComponent" class="headerlink" title="Unresolved reference: ApplicationComponent"></a>Unresolved reference: ApplicationComponent</h3><p><code>After</code> Dagger-Version: <code>2.31</code>, <code>ApplicationComponent has been removed</code> by Google</p>
 <blockquote>
