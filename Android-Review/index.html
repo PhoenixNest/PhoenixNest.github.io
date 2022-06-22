@@ -559,9 +559,11 @@ ReferenceQueue&lt;String&gt; queue=new ReferenceQueue&lt;String&gt;();
 </tr>
 </tbody></table>
 <hr>
-<h3 id="数组-集合"><a href="#数组-集合" class="headerlink" title="数组 / 集合"></a>数组 / 集合</h3><p>+<br>数组是Java语言内置的数据类型，他是一个线性的序列，所有可以快速访问其他的元素，数组和其他语言不同，当你创建了一个数组时，他的容量是不变的，而且在生命周期也是不能改变的，还有Java数组会做边界检查，如果发现有越界现象，会报RuntimeException异常错误，当然检查边界会以效率为代价。</p>
-<ul>
-<li>Java<br>还提供其他集合，List，Map，Set，他们处理对象的时候就好像这些对象没有自己的类型一样，而是直接归根于Object，这样只需要创建一个集合，把对象放进去，取出时转换成自己的类型就行了。</li>
+<h3 id="数组-集合"><a href="#数组-集合" class="headerlink" title="数组 / 集合"></a>数组 / 集合</h3><ul>
+<li><p>数组是Java语言内置的数据类型，他是一个线性的序列，所有可以快速访问其他的元素，数组和其他语言不同，当你创建了一个数组时，他的容量是不变的，而且在生命周期也是不能改变的，还有Java数组会做边界检查，如果发现有越界现象，会报RuntimeException异常错误，当然检查边界会以效率为代价。</p>
+</li>
+<li><p>Java 还提供其他集合，List，Map，Set，他们处理对象的时候就好像这些对象没有自己的类型一样，而是直接归根于Object，这样只需要创建一个集合，把对象放进去，取出时转换成自己的类型就行了。</p>
+</li>
 </ul>
 <hr>
 <blockquote>
@@ -1336,10 +1338,13 @@ Intent telIntent=new Intent(Intent.ACTION_DIAL)
 <blockquote>
 <p>源码分析</p>
 </blockquote>
-<p>+<br>CacheDispatcher：内部就是一个线程，开启子线程的缓存请求队列，while时刻运行网络请求。首次操作会先从本地判断是否存在缓存，如果有则直接从缓存中获取，否则直接走NetworkDispatcher</p>
-<p>+<br>NetworkDispatcher：内部也是一个线程，开启网络请求队列，while时刻运行网络请求。首次操作会先从CacheDispatcher中判断是否存在缓存，有的话则走CacheDispatcher，若无缓存或缓存过期则会新建一个请求，并将响应回传主线程。</p>
 <ul>
-<li>ResponseDelivery：响应分发器，对响应进行分发回传。</li>
+<li><p>CacheDispatcher：内部就是一个线程，开启子线程的缓存请求队列，while时刻运行网络请求。首次操作会先从本地判断是否存在缓存，如果有则直接从缓存中获取，否则直接走NetworkDispatcher</p>
+</li>
+<li><p>NetworkDispatcher：内部也是一个线程，开启网络请求队列，while时刻运行网络请求。首次操作会先从CacheDispatcher中判断是否存在缓存，有的话则走CacheDispatcher，若无缓存或缓存过期则会新建一个请求，并将响应回传主线程。</p>
+</li>
+<li><p>ResponseDelivery：响应分发器，对响应进行分发回传。</p>
+</li>
 </ul>
 <hr>
 <h3 id="okHttp"><a href="#okHttp" class="headerlink" title="okHttp"></a>okHttp</h3><p><a href="https://phoenixnest.github.io/Source-Code-Review/">有关 okHttp 的源码解析，可查看我的另一篇源码解析文章 👉</a></p>
@@ -1447,9 +1452,8 @@ dispatcher().enqueue()方法中：
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904176502177806">高效的 Android 图片压缩框架扩展库</a></p>
 <ul>
-<li>Luban ( ✅ )</li>
+<li>Luban：<a target="_blank" rel="noopener" href="https://github.com/Curzibn/Luban">Github</a></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/Curzibn/Luban">Github</a></p>
 <blockquote>
 <p>Reference</p>
 </blockquote>
@@ -1457,28 +1461,16 @@ dispatcher().enqueue()方法中：
 <p><a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/top.zibin/Luban-turbo/1.0.0">Luban-turbo.aar • Maven</a></p>
 <hr>
 <ul>
-<li>Compressor By zetbaitsu ( ✅ )</li>
+<li>Compressor By zetbaitsu：<a target="_blank" rel="noopener" href="https://github.com/zetbaitsu/Compressor">Github</a></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/zetbaitsu/Compressor">Github</a></p>
 <hr>
 <ul>
-<li>Compressor By Shouheng88 ( ✅ )</li>
+<li>Compressor By Shouheng88：<a target="_blank" rel="noopener" href="https://github.com/Shouheng88/Compressor">Github</a></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/Shouheng88/Compressor">Github</a></p>
 <hr>
 <ul>
-<li>SiliCompressor ( ✅ )</li>
+<li>SiliCompressor：<a target="_blank" rel="noopener" href="https://github.com/Tourenathan-G5organisation/SiliCompressor">Github</a></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/Tourenathan-G5organisation/SiliCompressor">Github</a></p>
-<hr>
-<ul>
-<li>ImageCompress ( ❌ )</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/WGDrzjz/ImageCompress">Github</a></p>
-<blockquote>
-<p>Reference</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/libjpeg-turbo/libjpeg-turbo">libjpeg-turbo • Github</a></p>
 <hr>
 <h2 id="第三方库（Flutter）"><a href="#第三方库（Flutter）" class="headerlink" title="第三方库（Flutter）"></a>第三方库（Flutter）</h2><h3 id="dio"><a href="#dio" class="headerlink" title="dio"></a>dio</h3><p>网络请求。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/flutterchina/dio">Github • Dio</a></p>

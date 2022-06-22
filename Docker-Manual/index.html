@@ -155,18 +155,15 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
 <p>本篇整理了我学习<code>Docker</code>时的一些笔记。<br>部署环境：Windows 10 Professional Workstation</p>
 </blockquote>
 <blockquote>
-<p>Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。<br>Docker自2013年以来非常火热，无论是从 github 上的代码活跃度，还是Redhat在RHEL6.5中集成对Docker的支持, 就连 Google 的 Compute Engine<br>也支持 docker 在其之上运行。</p>
+<p>Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。</p>
+<p>Docker自2013年以来非常火热，无论是从 github 上的代码活跃度，还是Redhat在RHEL6.5中集成对Docker的支持, 就连 Google 的 Compute Engine 也支持 docker 在其之上运行。</p>
 <ul>
-<li><p><strong>环境管理复杂</strong> - 从各种OS到各种中间件到各种app, 一款产品能够成功作为开发者需要关心的东西太多，且难于管理，这个问题几乎在所有现代IT相关行业都需要面对。</p>
-</li>
-<li><p><strong>云计算时代的到来</strong> - AWS的成功, 引导开发者将应用转移到 cloud 上, 解决了硬件管理的问题，然而中间件相关的问题依然存在 (所以openstack HEAT和 AWS<br>  cloudformation 都着力解决这个问题)。开发者思路变化提供了可能性。</p>
-</li>
-<li><p><strong>虚拟化手段的变化</strong> - cloud 时代采用标配硬件来降低成本，采用虚拟化手段来满足用户按需使用的需求以及保证可用性和隔离性。然而无论是KVM还是Xen在 docker<br>  看来,都在浪费资源，因为用户需要的是高效运行环境而非OS, GuestOS既浪费资源又难于管理, 更加轻量级的LXC更加灵活和快速</p>
-</li>
-<li><p><strong>LXC的移动性</strong> - LXC在 linux 2.6 的 kernel<br>  里就已经存在了，但是其设计之初并非为云计算考虑的，缺少标准化的描述手段和容器的可迁移性，决定其构建出的环境难于迁移和标准化管理(相对于KVM之类image和snapshot的概念)<br>  。docker 就在这个问题上做出实质性的革新。这是docker最独特的地方。</p>
-<p>  面对上述几个问题，docker设想是交付运行环境如同海运，OS如同一个货轮，每一个在OS基础上的软件都如同一个集装箱，用户可以通过标准化手段自由组装运行环境，同时集装箱的内容可以由用户自定义，也可以由专业人员制造。这样，交付一个软件，就是一系列标准化组件的集合的交付，如同乐高积木，用户只需要选择合适的积木组合，并且在最顶端署上自己的名字(<br>  最后一个标准化组件是用户的app)。这也就是基于docker的PaaS产品的原型。</p>
-</li>
+<li><strong>环境管理复杂</strong> - 从各种OS到各种中间件到各种app, 一款产品能够成功作为开发者需要关心的东西太多，且难于管理，这个问题几乎在所有现代IT相关行业都需要面对。</li>
+<li><strong>云计算时代的到来</strong> - AWS的成功, 引导开发者将应用转移到 cloud 上, 解决了硬件管理的问题，然而中间件相关的问题依然存在 (所以openstack HEAT和 AWS cloudformation 都着力解决这个问题)。开发者思路变化提供了可能性。</li>
+<li><strong>虚拟化手段的变化</strong> - cloud 时代采用标配硬件来降低成本，采用虚拟化手段来满足用户按需使用的需求以及保证可用性和隔离性。然而无论是KVM还是Xen在 docker 看来,都在浪费资源，因为用户需要的是高效运行环境而非OS, GuestOS既浪费资源又难于管理, 更加轻量级的LXC更加灵活和快速。</li>
+<li><strong>LXC的移动性</strong> - LXC在 linux 2.6 的 kernel 里就已经存在了，但是其设计之初并非为云计算考虑的，缺少标准化的描述手段和容器的可迁移性，决定其构建出的环境难于迁移和标准化管理(相对于KVM之类image和snapshot的概念)。docker 就在这个问题上做出实质性的革新。这是docker最独特的地方。</li>
 </ul>
+<p>面对上述几个问题，docker设想是交付运行环境如同海运，OS如同一个货轮，每一个在OS基础上的软件都如同一个集装箱，用户可以通过标准化手段自由组装运行环境，同时集装箱的内容可以由用户自定义，也可以由专业人员制造。这样，交付一个软件，就是一系列标准化组件的集合的交付，如同乐高积木，用户只需要选择合适的积木组合，并且在最顶端署上自己的名字( 最后一个标准化组件是用户的app )。这也就是基于docker的PaaS产品的原型。</p>
 </blockquote>
 <hr>
 <h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><ul>
@@ -190,17 +187,17 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
 <ul>
 <li><p><strong>配置快</strong> - 提供独立的开发环境，便于开发， 由于 Docker 可以在各种各样的环境中使用，而基础架构不要求与应用程序的环境相关联，因此不存在兼容性问题。</p>
 </li>
-<li><p><strong>提高工作效率</strong> -<br>这是一种类似于集装箱的概念，在开发之初就将项目放到一个类似于集装箱的独立环境进行开发，到部署的时候只是部署集装箱环境，而集装箱环境已经被所有的系统指定了统一标准，不存在兼容问题，所以可以提高工作效率。</p>
+<li><p><strong>提高工作效率</strong> - 这是一种类似于集装箱的概念，在开发之初就将项目放到一个类似于集装箱的独立环境进行开发，到部署的时候只是部署集装箱环境，而集装箱环境已经被所有的系统指定了统一标准，不存在兼容问题，所以可以提高工作效率。</p>
 </li>
 <li><p><strong>应用隔离</strong> - Docker 提供用于在隔离环境中运行应用程序的容器。每个容器都是独立，并允许执行任何类型的应用程序，并且不存在入侵和病毒感染的问题，甚至可以使用沙箱进行病毒隔离。</p>
 </li>
-<li><p><strong>云集</strong> - 它是 Docker 容器的集群和调度工具。 Swarm 使用 Docker API作为其前端，这有助于我们使用各种工具来控制它。 它还可以将 Docker<br>主机集群控制为一个虚拟主机。 这是一个用于启用可插拔后端的自组织引擎组。</p>
+<li><p><strong>云集</strong> - 它是 Docker 容器的集群和调度工具。 Swarm 使用 Docker API作为其前端，这有助于我们使用各种工具来控制它。 它还可以将 Docker 主机集群控制为一个虚拟主机。 这是一个用于启用可插拔后端的自组织引擎组。</p>
 </li>
 <li><p><strong>路由网</strong> - 它能够将可用节点上已发布端口的传入请求路由到活动容器，实现连接。</p>
 </li>
 <li><p><strong>服务</strong> - 服务是允许指定集群内的容器状态的任务列表。 每个任务表示一个应该运行的容器的一个实例，并且 Swarm 在节点之间调度它们。</p>
 </li>
-<li><p><strong>安全管理</strong> -<br>安全性和管理应当是一个高优先级的考虑因素;企业用户不应再把它们当作应用程序迁移至容器的最后一步。反之，企业必须从一开始就做好安全性和管理的规划，把它们的功能纳入应用程序的开发过程中，并在应用程序运行过程中积极主动地关注这些方面。</p>
+<li><p><strong>安全管理</strong> - 安全性和管理应当是一个高优先级的考虑因素;企业用户不应再把它们当作应用程序迁移至容器的最后一步。反之，企业必须从一开始就做好安全性和管理的规划，把它们的功能纳入应用程序的开发过程中，并在应用程序运行过程中积极主动地关注这些方面。</p>
 </li>
 </ul>
 <blockquote>
@@ -213,7 +210,7 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
 </li>
 <li><p>隔离性相比KVM之类的虚拟化方案还是<strong>有些欠缺</strong>，所有 container 公用一部分的运行库。</p>
 </li>
-<li><p><strong>网络管理相对简单</strong>，主要是基于 namespace 隔离，cgroup 的 cpu 和 cpuset 提供的cpu功能相比 KVM 的等虚拟化方案相比难以度量（所以 Dotcloud<br>主要是按内存收费）。</p>
+<li><p><strong>网络管理相对简单</strong>，主要是基于 namespace 隔离，cgroup 的 cpu 和 cpuset 提供的cpu功能相比 KVM 的等虚拟化方案相比难以度量（所以 Dotcloud 主要是按内存收费）。</p>
 </li>
 <li><p>Docker 对 disk 的<strong>管理比较有</strong>限，container 随着用户进程的停止而销毁，container 中的 log 等<strong>用户数据不便收集</strong>。</p>
 </li>
@@ -750,9 +747,8 @@ ubuntu@DESKTOP-5IG459O:/home$
 <p>这里我们制作一个带有 Vim 编辑器的 Ubuntu 镜像（ubuntu-vim），并通过 docker commit 命令制作一个本地镜像。</p>
 </blockquote>
 <blockquote>
-<p>当我们尝试对 Ubuntu</p>
+<p>当我们尝试对 Ubuntu 镜像添加软件或对一些系统配置进行修改时，我们就生成了一个属于自己的自定义镜像，通过使用自定义镜像，我们可以对日常工作时的项目进行客制化修改，并可以省去大部分需要因为配置开发环境与部署环境的高度重合的工作，<code>只需要对自定义镜像进行二次修改，即可满足需求再次上线。</code></p>
 </blockquote>
-<p>镜像添加软件或对一些系统配置进行修改时，我们就生成了一个属于自己的自定义镜像，通过使用自定义镜像，我们可以对日常工作时的项目进行客制化修改，并可以省去大部分需要因为配置开发环境与部署环境的高度重合的工作，<code>只需要对自定义镜像进行二次修改，即可满足需求再次上线。</code></p>
 <pre><code class="bash">docker commit -a &quot;Peter Chen&quot; -m &quot;Add Vim&quot; c79bc37440d2 ubuntu-vim
 sha256:8e9d1c74cd2404d7c006c5f7074b1f00b61f8c10a22044ab5b24da68c34a67ae
 ubuntu@DESKTOP-5IG459O:~$ docker images
@@ -819,7 +815,8 @@ ubuntu@DESKTOP-5IG459O:~$ curl localhost:8080
 ubuntu@DESKTOP-5IG459O:~$
 </code></pre>
 <blockquote>
-<p>在这里我们会感受到 Docker 镜像的最小化体验，即我们通过 curl 命令直接访问是会报 404的，这是因为 Docker 的镜像通常只包含最小运行环境，会省去大量无用的资源。<br>在进入容器后，我们会发现 Tomcat 中的 webapps 文件夹目录下并无任何东西。</p>
+<p>在这里我们会感受到 Docker 镜像的最小化体验，即我们通过 curl 命令直接访问是会报 404的，这是因为 Docker 的镜像通常只包含最小运行环境，会省去大量无用的资源。</p>
+<p>在进入容器后，我们会发现 Tomcat 中的 webapps 文件夹目录下并无任何东西。</p>
 </blockquote>
 <pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker exec -it Tomcat /bin/bash
 root@1d5186fd99fa:/usr/local/tomcat# whereis tomcat
