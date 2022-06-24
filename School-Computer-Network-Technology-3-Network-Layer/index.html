@@ -94,7 +94,7 @@
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/cisco.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/cisco.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -159,7 +159,7 @@
 <h2 id="网络层（第3层）"><a href="#网络层（第3层）" class="headerlink" title="网络层（第3层）"></a>网络层（第3层）</h2><blockquote>
 <p>网络层即 OSI 第 3 层，提供能够让终端设备跨整个网络交换数据的服务。如图所示，IP 版本 4 (IPv4) 和 IP 版本 6 (IPv6) 是主要的网络层通信协议。其他网络层协议包括<strong>路由协议</strong>，如开放式最短路径优先协议(OSPF)，和<strong>消息传递协议</strong>，如<strong>Internet控制消息协议</strong>(ICMP)。</p>
 </blockquote>
-<h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_1.png" alt="网络层"></p>
+<h3 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_1.png" alt="网络层"></p>
 <p>为了实现跨网络边界的端到端通信，<code>网络层协议执行四个基本操作</code>:</p>
 <ul>
 <li><p><strong>终端设备编址</strong> - 必须为终端设备配置唯一的 IP 地址，以便在网络上进行识别。</p>
@@ -178,7 +178,7 @@
 <h3 id="IP-封装"><a href="#IP-封装" class="headerlink" title="IP 封装"></a>IP 封装</h3><blockquote>
 <p>IP 通过添加 IP 报头将传输层（网络层之上的层）数据段或其他数据进行封装。IP报头用于将数据包传送到目的主机。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_2.png" alt="网络层 PDU 如何封装传输层 PDU 来创建 IP 数据包"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_2.png" alt="网络层 PDU 如何封装传输层 PDU 来创建 IP 数据包"></p>
 <p>逐层封装数据的流程使我们可以开发和扩展位于不同层的服务而不影响其他层。<strong>这意味着传输层数据段可以随时通过 IPv4 或 IPv6 进行封装，或使用未来可能开发出的任何新协议进行封装</strong>。</p>
 <p><code>IP数据包在通过网络传输到其目的地时，会被第3层设备（即路由器和第3层交换机）检查IP报头</code>。需要注意的是，<code>从数据包离开源主机到达目的主机之前，IP编址信息保持不变，除非是由为IPv4执行网络地址转换(NAT)的设备进行转换</code>。</p>
 <blockquote>
@@ -201,17 +201,17 @@
 <h3 id="无连接"><a href="#无连接" class="headerlink" title="无连接"></a>无连接</h3><blockquote>
 <p>IP 是无连接协议，这意味着发送数据前IP不会创建专用的端到端连接。<code>无连接通信的概念类似于不事先通知收件人就邮寄信件</code>。图中总结了这些要点。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_3_1.png" alt="无连接 - 类比"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_3_1.png" alt="无连接 - 类比"></p>
 <blockquote>
 <p>无连接数据通信按照同样的原理工作。如图所示，IP 在转发数据包前，并<code>不需要初步交换控制信息来创建端到端连接</code>。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_3_2.png" alt="无连接 - 网络"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_3_2.png" alt="无连接 - 网络"></p>
 <hr>
 <h3 id="“尽力而为”-Best-Effort"><a href="#“尽力而为”-Best-Effort" class="headerlink" title="“尽力而为”(Best Effort)"></a>“尽力而为”(Best Effort)</h3><blockquote>
 <p><code>IP 也不需要报头中包含其他字段来维持建立的连接</code>。此过程<strong>显著降低了 IP 的开销</strong>。但是，<strong>由于没有预先建立端到端连接，发送数据包时，发送方不知道目的地是否存在和正常运行，同时发送数据包时，也不会知道目的地是否接收数据包，或者，目的设备是否可以访问并读取数据包</strong>。</p>
 </blockquote>
 <p>IP 协议不保证交付的所有数据包都能被收到。图中显示了 IP 协议不可靠或尽力交付的特征。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_4.png" alt="IP 协议不可靠或尽力交付的特征"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_4.png" alt="IP 协议不可靠或尽力交付的特征"></p>
 <hr>
 <h3 id="介质无关性"><a href="#介质无关性" class="headerlink" title="介质无关性"></a>介质无关性</h3><blockquote>
 <p><strong>不可靠</strong><code>表示 IP 不具备管理和恢复未送达数据包或已损坏数据包的能力</code>。</p>
@@ -223,7 +223,7 @@
 <p>如果数据包顺序错乱或丢失，则使用数据或上层服务的应用程序必须解决这些问题。这让 IP 可以非常有效地发挥作用。<code>在 TCP/IP 协议簇中，可靠性是TCP协议在传输层的功能</code>。</p>
 </blockquote>
 <p><code>IP 的工作与在协议栈低层传送数据的介质无关</code>。如图所示，IP 数据包既可以作为电信号通过铜缆传送，也可以作为光信号通过光纤传送或作为无线电信号无线传送。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_5.png" alt="可以通过不同介质传送 IP 数据包"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_5.png" alt="可以通过不同介质传送 IP 数据包"></p>
 <p><strong>OSI 数据链路层</strong>负责接收数据包并准备数据包以在通信介质上传输。<code>这就意味着 IP 数据包的交付不限于任何特定的介质</code>。</p>
 <p>但是，网络层会考虑介质的一个重要特征：每种介质可以传输的最大 PDU 大小。此特征称为最大传输单位 (MTU)。数据链路层和网络层之间的部分控制通信就是确定数据包的最大尺寸。数据链路层将 MTU 值向上传送到网络层。网络层会由此确定可以传送的数据包的大小。</p>
 <p>有时，中间设备（通常是路由器），在将<code>IPv4数据包</code>从一个介质转发到具有更小 MTU 的介质时，<code>必须分割数据包</code>。此过程称为数据包分片或分片。<code>分片会导致延迟</code>。<code>IPv6 数据包不能被路由器分片</code>。</p>
@@ -238,7 +238,7 @@
 <h3 id="IPv4-数据包报头字段"><a href="#IPv4-数据包报头字段" class="headerlink" title="IPv4 数据包报头字段"></a>IPv4 数据包报头字段</h3><blockquote>
 <p>每个字段的二进制值均用于确定 IP 数据包的各种设置。协议报头图（从左到右、从上到下阅读）可提供在讨论协议字段时参考的直观图。图中所示的 IP 协议报头图标识了 IPv4 数据包中的字段。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_7.png" alt="IPv4数据包报头中的字段"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_7.png" alt="IPv4数据包报头中的字段"></p>
 <p><code>两种最常参考的字段是源和目的 IP 地址</code>。<strong>这些字段用于确定数据包的源位置和目的位置</strong>。通常，在从源传输到目的地期间，这些地址不会改变。</p>
 <p><strong>互联网报头长度（IHL）</strong>、<strong>总长度</strong>和<strong>报头校验</strong>和<strong>字段</strong><code>用于识别和验证数据包</code>。</p>
 <blockquote>
@@ -267,7 +267,7 @@
 </li>
 </ul>
 <p>32 位的 IPv4 地址空间提供大约 4,294,967,296 个地址。IPv6 地址空间提供 340,282,366,920,938,463,463,374,607,431,768,211,456 个或 340 涧（10 的 36 次方）个地址。这大致相当于地球上的每一粒沙子。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_9.png" alt="IPv4 和 IPv6 地址空间的可视比较"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_9.png" alt="IPv4 和 IPv6 地址空间的可视比较"></p>
 <hr>
 <h3 id="IPv6数据包报头中的IPv4数据包报头字段"><a href="#IPv6数据包报头中的IPv4数据包报头字段" class="headerlink" title="IPv6数据包报头中的IPv4数据包报头字段"></a>IPv6数据包报头中的IPv4数据包报头字段</h3><blockquote>
 <p>IPv6 较 IPv4 的一个重大改进是简化的 IPv6 报头。</p>
@@ -276,14 +276,14 @@
 <blockquote>
 <p>对于 IPv6，某些字段保持不变，某些字段的名称和位置发生了变化，而某些 IPv4 字段不再需要，正如图中突出显示。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_10_1.png" alt="IPv4 数据包报头"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_10_1.png" alt="IPv4 数据包报头"></p>
 <blockquote>
 <p>相比而言，下图显示的简化 IPv6 报头包含 40 个二进制八位数的固定长度报头（主要为源和目的 IPv6 地址的长度）。</p>
 </blockquote>
 <p><code>IPv6 简化报头允许更高效地处理 IPv6 报头</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_10_2.png" alt="IPv6 数据包报头"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_10_2.png" alt="IPv6 数据包报头"></p>
 <hr>
-<h3 id="IPv6-数据包报头"><a href="#IPv6-数据包报头" class="headerlink" title="IPv6 数据包报头"></a>IPv6 数据包报头</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_11.png" alt="IPv6 数据包报头"></p>
+<h3 id="IPv6-数据包报头"><a href="#IPv6-数据包报头" class="headerlink" title="IPv6 数据包报头"></a>IPv6 数据包报头</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_11.png" alt="IPv6 数据包报头"></p>
 <blockquote>
 <p>IPv6 数据包还可能包含扩展报头（EH），以便提供可选的网络层信息。扩展报头为可选项，位于 IPv6 报头及负载之间。EH 用于分段、安全性、移动性支持等。</p>
 </blockquote>
@@ -301,7 +301,7 @@
 <li><p><strong>远程主机</strong> - 这是位于远程网络上的目的主机。源和目的主机不共享同一个网络地址。</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_12.png" alt=" PC1 连接到同一网络上的本地主机和位于另一网络上的远程主机"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_12.png" alt=" PC1 连接到同一网络上的本地主机和位于另一网络上的远程主机"></p>
 <blockquote>
 <p><code>数据包是要发送到本地主机还是远程主机是由源端设备决定的</code>。<strong>源端设备确定目的 IP 地址是否与源设备本身所在的网络相同。确定方法因 IP 版本不同而异</strong>：</p>
 </blockquote>
@@ -331,12 +331,12 @@
 </blockquote>
 <hr>
 <h3 id="主机路由到默认网关"><a href="#主机路由到默认网关" class="headerlink" title="主机路由到默认网关"></a>主机路由到默认网关</h3><p>主机的路由表通常包括默认网关。在IPv4中，主机通过动态主机配置协议 (DHCP) 动态接收默认网关 IPv4 地址，或者通过手动配置。在 IPv6 中，路由器通告默认网关地址，或者可以在主机上手动配置。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_13.png" alt="PC1 和 PC2 均配置了 IPv4 地址 192.168.10.1作为默认网关"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_13.png" alt="PC1 和 PC2 均配置了 IPv4 地址 192.168.10.1作为默认网关"></p>
 <p>配置默认网关会在 PC 的路由表中创建一个默认路由。默认路由是计算机尝试联系远程网络时所用的路由或路径。</p>
 <p>PC1 和 PC2 都会使用默认路由将去往远程网络的所有流量发送到 R1。</p>
 <hr>
 <h3 id="主机路由表"><a href="#主机路由表" class="headerlink" title="主机路由表"></a>主机路由表</h3><p>在 Windows 主机上，使用route print或命netstat -r令可以显示主机路由表。这两个命令生成相同的输出。输出可能乍一看很晦涩，但是实际上相当容易理解。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_14.png" alt="PC1 和 PC2 均配置了 IPv4 地址 192.168.10.1作为默认网关"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_14.png" alt="PC1 和 PC2 均配置了 IPv4 地址 192.168.10.1作为默认网关"></p>
 <pre><code class="bash"># PC1 的 IPv4 路由表
 C:\Users\PC1&gt; netstat -r 
 IPv4 Route Table
@@ -371,7 +371,7 @@ Network Destination Netmask Gateway Interface Metric
 <blockquote>
 <p>数据包到达路由器接口时，路由器会检查数据包的目的 IP 地址并搜索其路由表以确定将数据包转发到何处。<code>路由表包含所有已知网络地址（前缀）以及数据包转发位置的列表。这些条目称为路由条目或路由</code>。<strong>路由器将使用最佳（最长）匹配的路由条目转发数据包</strong>。</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_15.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_15.png">
 
 <p>下表显示了来自<code>R1路由表</code>的相关信息。</p>
 <table>
@@ -410,7 +410,7 @@ Network Destination Netmask Gateway Interface Metric
 </li>
 </ul>
 <p>该图用于确定路由器 R1 的直连和远程网络。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_16.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_16.png">
 
 <p>路由器可通过两种方式获知远程网络：</p>
 <ul>
@@ -423,12 +423,12 @@ Network Destination Netmask Gateway Interface Metric
 <h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><blockquote>
 <p><strong>静态路由是手动配置的路由条目</strong>。下图显示了在路由器 R1 上手动配置的静态路由的示例。<strong>静态路由包括远程网络地址和下一跳路由器的IP地址</strong>。</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_17_1.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_17_1.png">
 
 <blockquote>
 <p>如果网络拓扑改变，静态路由不会自动更新，必须手动重新配置静态路由。例如，在图中，R1有一条通过R2到达10.1.1.0/24网络的静态路由。如果该路径不再可用，R1将需要重新配置一个新的静态路由，通过R3到达10.1.1.0/24网络。因此，路由器R3需要在其路由表中有一个路由条目，以便将目的地为10.1.1.0/24的数据包发送到R2。</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_17_2.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_17_2.png">
 
 <p>静态路由具有以下特征：</p>
 <ul>
@@ -446,7 +446,7 @@ Network Destination Netmask Gateway Interface Metric
 <p><code>动态路由协议可让路由器从其他路由器那里自动学习远程网络，包括默认路由</code>。如果使用动态路由协议，则路由器无需网络管理员的参与，即可自动与其它路由器共享路由信息并对拓扑结构的变化作出反应。如果网络拓扑发生变化，路由器将使用动态路由协议共享此信息，并自动更新路由表。</p>
 </blockquote>
 <p><code>动态路由协议</code>包括<strong>开放式最短路径优先路由协议（OSPF）</strong>和<strong>增强型内部网关路由协议（EIGRP）</strong>。该图显示了路由器 R1 和 R2 使用路由协议 OSPF 自动共享网络信息的示例。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_18_1.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_18_1.png">
 
 <p><code>基本配置只需要网络管理员在动态路由协议中启用直连网络</code>。动态路由协议将自动执行如下操作：</p>
 <ul>
@@ -460,14 +460,14 @@ Network Destination Netmask Gateway Interface Metric
 </li>
 </ul>
 <p><strong>当使用静态路由手动配置路由器或使用动态路由协议动态学习远程网络时，远程网络地址和下一跳地址将被输入到IP路由表中</strong>。如图所示，如果网络拓扑发生变化，路由器将自动调整并尝试找到新的最佳路径。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_18_2.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_18_2.png">
 
 <p>注意: <strong>通常一些路由器会同时使用静态路由和动态路由协议</strong>。</p>
 <hr>
 <h3 id="IPv4-路由表简介"><a href="#IPv4-路由表简介" class="headerlink" title="IPv4 路由表简介"></a>IPv4 路由表简介</h3><blockquote>
 <p>请注意，在图中 R2 连接到了互联网。因此，当路由表中没有与目的IP 地址匹配的特定条目时，管理员将为 R1 配置默认静态路由，将数据包发送到 R2。R1和R2还使用OSPF路由来通告直连的网络。</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/6_19.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/6_19.png">
 
 <pre><code class="CISCO">R1# show ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -561,7 +561,7 @@ R1#
                 <ul id="audio-list" style="display:none">
                     
                         
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
                         
                     
                 </ul>
@@ -576,15 +576,15 @@ R1#
         <div class="sidebar">
             <div class="box animated fadeInRight">
                 <div class="subbox">
-                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <img src="/img/favicon.png" height=300 width=300 />
                     <p>PhoenixNest</p>
                     <span>用实力让情怀落地</span>
                     
                 </div>
                 <ul>
-                    <li><a href="/">31 <p>文章</p></a></li>
-                    <li><a href="/categories">17 <p>分类</p></a></li>
-                    <li><a href="/tags">24 <p>标签</p></a></li>
+                    <li><a href="/">32 <p>文章</p></a></li>
+                    <li><a href="/categories">18 <p>分类</p></a></li>
+                    <li><a href="/tags">25 <p>标签</p></a></li>
                 </ul>
             </div>
             

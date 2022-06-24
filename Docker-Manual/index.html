@@ -93,7 +93,7 @@ Docker 是 PaaS 提供商 dotCloud 开源的一个,">
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -922,9 +922,9 @@ ubuntu@DESKTOP-5IG459O:~$
 <blockquote>
 <p>Portainer 显示效果</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_portainer_login.png" alt="Portainer 登录页"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_portainer_manage.png" alt="Portainer 管理配置页"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_portainer_home.png" alt="Portainer 主页"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_portainer_login.png" alt="Portainer 登录页"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_portainer_manage.png" alt="Portainer 管理配置页"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_portainer_home.png" alt="Portainer 主页"></p>
 <hr>
 <h2 id="容器数据卷"><a href="#容器数据卷" class="headerlink" title="容器数据卷"></a>容器数据卷</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><blockquote>
 <p>当我们想要通过 Docker 进行数据持久化存储的时候，若我们将数据全部存放于 Docker 容器中，则当我们删除容器时，容器中的数据也就被我们一并删除，也就是通俗意义上讲的“删库跑路”。<br>现实中为了防止此类事情发生，通常可以通过容器数据卷技术，将容器中的目录挂载到外部目录（这个外部目录通常是当前计算机上的物理地址）。</p>
@@ -939,7 +939,7 @@ ubuntu@DESKTOP-5IG459O:~$
 </blockquote>
 <pre><code class="bash">ubuntu@DESKTOP-5IG459O:~$ docker run -it -v /home/test:/home ubuntu /bin/bash
 </code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_data_share.png" alt="挂载后容器与外部的数据共享"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_data_share.png" alt="挂载后容器与外部的数据共享"></p>
 <blockquote>
 <p>通过 docker inspect，我们可以检查容器挂载信息。</p>
 </blockquote>
@@ -1082,8 +1082,8 @@ ubuntu@DESKTOP-5IG459O:~$
 <blockquote>
 <p>Windows10 WSL2 Ubuntu20.04中的镜像位置：<br>\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_volumes_folder_for_windows.png" alt="Windows 中的 Docker 容器数据卷位置"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_volumes_test.png" alt="通过 docker volume inspect 命令提供的目录，如果你的操作系统是 Linux，则可以直接访问挂载的命令目录，由于我的机器是 Windows，挂载目录较其他系统不一样"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_volumes_folder_for_windows.png" alt="Windows 中的 Docker 容器数据卷位置"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_volumes_test.png" alt="通过 docker volume inspect 命令提供的目录，如果你的操作系统是 Linux，则可以直接访问挂载的命令目录，由于我的机器是 Windows，挂载目录较其他系统不一样"></p>
 <hr>
 <h3 id="具名挂载"><a href="#具名挂载" class="headerlink" title="具名挂载"></a>具名挂载</h3><p>这里我们生成一个测试用的 Nginx 容器，并通过<code>具名挂载方式</code>，挂载 Nginx 的配置文件目录。</p>
 <pre><code class="bash">ubuntu@DESKTOP-5IG459O:/mnt/c/Users/P7XXTM1-G$ docker run -d -P --name NamedMountNginx -v named-nginx-volume:/etc/nginx nginx
@@ -1193,7 +1193,7 @@ root@3e8bb3cc0c7a:/#
 <blockquote>
 <p>我们在 volume1 文件夹中创建一个测试文件 testFile。<br>通过 docker inspect 命令，检查<code>用客制化镜像所生成的容器</code>。<br>通过检查 Windows 中的 Docker Volume文件夹，验证我们创建的容器的正确性。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker_file_custom_ubuntu_test.png" alt="检查挂载容器数据卷中的文件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker_file_custom_ubuntu_test.png" alt="检查挂载容器数据卷中的文件"></p>
 <hr>
 <h2 id="数据卷容器（待完善）"><a href="#数据卷容器（待完善）" class="headerlink" title="数据卷容器（待完善）"></a>数据卷容器（待完善）</h2><p>当容器与容器之间需要同步数据的时候，一般使用数据卷容器进行挂载。</p>
 <p>使用场景示例：多个 MySQL 同步数据。</p>
@@ -1244,10 +1244,10 @@ drwxr-xr-x   2 root root 4096 Apr 15  2020 boot
 ...
 root@2864c4f3b8ba:/#
 </code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker-host-child-file-sharing.png" alt="当我们在父容器 Docker-Host 中创建文件时，子容器 Docker-Child01 会同步文件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker-host-child-file-sharing.png" alt="当我们在父容器 Docker-Host 中创建文件时，子容器 Docker-Child01 会同步文件"></p>
 <hr>
 <p>创建多个子容器，当我们在子容器中进行文件的修改，父容器也会同步。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Docker/docker-host-child-sharing-file-from-child02.png" alt="子容器 Docker-Child02 创建文件，父容器 Docker-Host 同步文件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Docker/docker-host-child-sharing-file-from-child02.png" alt="子容器 Docker-Child02 创建文件，父容器 Docker-Host 同步文件"></p>
 <hr>
 <p>PS：</p>
 <blockquote>
@@ -1277,7 +1277,7 @@ root@2864c4f3b8ba:/#
                 <ul id="audio-list" style="display:none">
                     
                         
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
                         
                     
                 </ul>
@@ -1292,15 +1292,15 @@ root@2864c4f3b8ba:/#
         <div class="sidebar">
             <div class="box animated fadeInRight">
                 <div class="subbox">
-                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <img src="/img/favicon.png" height=300 width=300 />
                     <p>PhoenixNest</p>
                     <span>用实力让情怀落地</span>
                     
                 </div>
                 <ul>
-                    <li><a href="/">31 <p>文章</p></a></li>
-                    <li><a href="/categories">17 <p>分类</p></a></li>
-                    <li><a href="/tags">24 <p>标签</p></a></li>
+                    <li><a href="/">32 <p>文章</p></a></li>
+                    <li><a href="/categories">18 <p>分类</p></a></li>
+                    <li><a href="/tags">25 <p>标签</p></a></li>
                 </ul>
             </div>
             

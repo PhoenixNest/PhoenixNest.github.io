@@ -93,7 +93,7 @@ IPv4 的问题IPv6 的必要性您已经知道IPv4的地址用完了,">
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/ipv4_vs_ipv6.png) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -159,7 +159,7 @@ IPv4 的问题IPv6 的必要性您已经知道IPv4的地址用完了,">
 <p>IPv6 旨在接替 IPv4。IPv6 拥有更大的 128 位地址空间，提供 340 涧（即，340后面有36个0）个不确定地址。不过，IPv6 不只是具有更大的地址空间。</p>
 <p>当 IEFT 开始开发 IPv4 的接替版本时，还借此机会修复了 IPv4 的限制，并开发了增强功能。一个示例是 Internet 控制消息协议第 6 版 (ICMPv6)，它包括 IPv4 的 ICMP (ICMPv4) 中没有的地址解析和地址自动配置功能。</p>
 <p>IPv4 地址空间耗尽一直是迁移到 IPv6 的动因。随着非洲、亚洲和世界其他地区越来越多地使用互联网，IPv4 地址已经无法满足这一增长需求。如图所示，5 个 RIR 中的 4 个都已耗尽了 IPv4 地址。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_1.png" alt="各RIR IPv4地址耗尽日期"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_1.png" alt="各RIR IPv4地址耗尽日期"></p>
 <p>理论上，IPv4 最多有 43 亿个地址。私有地址与网络地址转换 (NAT) 对于放缓 IPv4 地址空间的耗尽起了不可或缺的作用。然而，NAT对于许多应用程序来说是有问题的，它会造成延迟，并且有严重阻碍对等体对对等体通信的限制。</p>
 <p>随着移动设备数量的不断增加，移动供应商一直在引领着向IPv6的过渡。美国最大的两家移动运营商报告称，他们超过90%的流量都在IPv6之上。</p>
 <p>大多数顶级ISP和内容提供商，如YouTube、Facebook和NetFlix，也已经完成了过渡。许多公司，如微软、Facebook和LinkedIn，都在向内部只允许使用ipv6过渡。2018年，宽带ISP Comcast报告部署超过65%，英国天空广播报告超过86%。</p>
@@ -175,19 +175,19 @@ IPv4 的问题IPv6 的必要性您已经知道IPv4的地址用完了,">
 <li>双堆栈</li>
 </ul>
 <p>双堆栈允许 IPv4 和 IPv6 在同一网段上共存。双堆栈设备同时运行 IPv4 和 IPv6 协议栈。称为原生 IPv6，这意味着客户网络与他们的ISP建立了IPv6连接，并能够通过IPv6访问互联网上的内容。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_2_1.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_2_1.png">
 
 <ul>
 <li>隧道</li>
 </ul>
 <p>隧道是一种通过 IPv4 网络传输 IPv6 数据包的方法。IPv6 数据包与其他类型数据类似，也封装在 IPv4 数据包中。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_2_2.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_2_2.png">
 
 <ul>
 <li>转换</li>
 </ul>
 <p>网络地址转换 64 (NAT64) 允许支持 IPv6 的设备与支持 IPv4 的设备使用类似于 IPv4 中 NAT 的转换技术进行通信。IPv6 数据包被转换为 IPv4 数据包，IPv4 数据包被转换为 IPv6 数据包。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_2_3.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_2_3.png">
 
 <blockquote>
 <p>注意: 隧道和转换用于过渡到原生IPv6，仅应在需要时使用。目标是从源到目的地进行本地 IPv6 通信。</p>
@@ -195,7 +195,7 @@ IPv4 的问题IPv6 的必要性您已经知道IPv4的地址用完了,">
 <hr>
 <h2 id="IPv6-地址表示方法"><a href="#IPv6-地址表示方法" class="headerlink" title="IPv6 地址表示方法"></a>IPv6 地址表示方法</h2><h3 id="IPv6-编址格式"><a href="#IPv6-编址格式" class="headerlink" title="IPv6 编址格式"></a>IPv6 编址格式</h3><p>学习网络中的IPv6的第一步是理解IPv6地址的编写和格式化方式。IPv6 地址比 IPv4 地址多得多，这就是为什么我们不太可能用完它们。</p>
 <p>IPv6 地址长度为 128 位，写作十六进制值字符串。如图所示，每 4 位以一个十六进制数字表示，共 32 个十六进制值。IPv6 地址不区分大小写，可用大写或小写书写。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_3.png" alt="16位数据段或十六进制数"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_3.png" alt="16位数据段或十六进制数"></p>
 <blockquote>
 <p>首选格式</p>
 </blockquote>
@@ -483,11 +483,11 @@ fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef
 <h3 id="IPv6-前缀长度"><a href="#IPv6-前缀长度" class="headerlink" title="IPv6 前缀长度"></a>IPv6 前缀长度</h3><p>IPv4 地址的前缀或网络部分可以由点分十进制子网掩码或前缀长度（斜线记法）标识。例如， IPv4 地址 192.168.1.10（点分十进制子网掩码为 255.255.255.0）等值于 192.168.1.10/24。</p>
 <p>在 IPv4 中，/24 称为前缀。在 IPv6 中，它被称为前缀长度。IPv6 不使用点分十进制子网掩码记法。与IPv4一样，前缀长度以斜线记法表示，用于表示 IPv6 地址的网络部分。</p>
 <p>前缀长度范围为 0 至 128。推荐的局域网和大多数其他网络类型 IPv6 前缀长度为 /64，如图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_7.png" alt="IPv6 前缀长度"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_7.png" alt="IPv6 前缀长度"></p>
 <p>强烈建议对大多数网络使用 64 位接口 ID。这是因为无状态地址自动配置(SLAAC)使用64位作为接口ID。它还使子网划分更易于创建和管理。</p>
 <hr>
 <h3 id="IPv6-单播地址的类型"><a href="#IPv6-单播地址的类型" class="headerlink" title="IPv6 单播地址的类型"></a>IPv6 单播地址的类型</h3><p>IPv6 单播地址用于唯一标识支持 IPv6 的设备上的接口。发送到单播地址的数据包由分配有该地址的接口接收。与 IPv4 类似，源 IPv6 地址必须是单播地址。目的 IPv6 地址可以是单播地址也可以是组播地址。该图显示了IPv6 单播地址的不同类型。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_8.png" alt="IPv6 单播地址"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_8.png" alt="IPv6 单播地址"></p>
 <p>与IPv4设备只有一个地址不同，IPv6地址通常有两个单播地址:</p>
 <ul>
 <li><p><strong>全局单播地址(GUA)</strong> - 这类似于公有 IPv4 地址。这些地址具有全局唯一性，是互联网可路由的地址。GUA可静态配置或动态分配</p>
@@ -515,8 +515,8 @@ fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef
 <blockquote>
 <p>注意: 2001:db8::/32已经留作备档之用，包括示例用途。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_10_1.png" alt="该图显示了 GUA 的三个部分：首先是全局路由前缀，然后是子网 ID，最后是接口 ID。全局路由前缀的前三位是 001。第一个十六进制数的范围显示为0010 0000 0000 0000(2000)到0011 1111 1111 1111 (3fff)"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_10_2.png" alt="该图显示了 GUA 的三个部分：首先是带有48位长度的全局路由前缀，然后是16位长度的子网 ID，最后是64位长度的接口 ID。图下的文字写明：一个/ 48路由前缀 + 16 位子网 ID = /64前缀"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_10_1.png" alt="该图显示了 GUA 的三个部分：首先是全局路由前缀，然后是子网 ID，最后是接口 ID。全局路由前缀的前三位是 001。第一个十六进制数的范围显示为0010 0000 0000 0000(2000)到0011 1111 1111 1111 (3fff)"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_10_2.png" alt="该图显示了 GUA 的三个部分：首先是带有48位长度的全局路由前缀，然后是16位长度的子网 ID，最后是64位长度的接口 ID。图下的文字写明：一个/ 48路由前缀 + 16 位子网 ID = /64前缀"></p>
 <hr>
 <h3 id="IPv6-GUA-结构"><a href="#IPv6-GUA-结构" class="headerlink" title="IPv6 GUA 结构"></a>IPv6 GUA 结构</h3><ul>
 <li>全局路由前缀</li>
@@ -553,12 +553,12 @@ fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef
 <blockquote>
 <p>物理拓扑显示有两台 PC、一台服务器、一台打印机、一台交换机和一台路由器。它描述了链路本地通信不会路由到网络之外</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_12_1.png" alt="IPv6 链路本地通信"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_12_1.png" alt="IPv6 链路本地通信"></p>
 <p>下图显示了IPv6 LLA的一些用途。</p>
 <blockquote>
 <p>该图显示了两个路由器通过一个带有LLA地址的链路进行连接。带有指向每个路由器的双向箭头的数字1与文本“路由协议消息”一起通过链路。一台PC与左侧的路由器相连，带有数字2，一个箭头从PC指向路由器。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_12_2.png" alt="IPv6 链路本地通信"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_12_2.png" alt="IPv6 链路本地通信"></p>
 <p>注意: 通常情况下，<code>用作链路上其他设备的默认网关的是路由器的LLA而不是GUA</code>。</p>
 <p>设备可以通过两种方式获取 LLA：</p>
 <ul>
@@ -581,7 +581,7 @@ fe80 : 0000 : 0000 : 0000 : 0123 : 4567 : 89ab: cdef
 <li><p><strong>2001:db8:acad:3:/64</strong></p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_13.png" alt="示例拓扑"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_13.png" alt="示例拓扑"></p>
 <p>示例列出在 R1 的 G0/0/0、G0/0/1 和 Serial 0/1/0 接口上配置 IPv6 GUA所需的命令。</p>
 <pre><code class="CISCO"># 路由器 R1 上的 IPv6 GUA 配置
 
@@ -601,7 +601,7 @@ R1(config-if)# no shutdown
 <h3 id="Windows-主机上的静态-GUA-配置"><a href="#Windows-主机上的静态-GUA-配置" class="headerlink" title="Windows 主机上的静态 GUA 配置"></a>Windows 主机上的静态 GUA 配置</h3><p>在主机上手动配置 IPv6 地址与配置 IPv4 地址相似。</p>
 <p>如图中所示，为 PC1 配置的默认网关地址为2001:DB8:ACAD:1::1。该地址是同一网络中 R1 千兆以太网接口的GUA。或者，也可以配置默认网关地址以与千兆以太网接口的LLA相匹配。使用路由器的LLA作为默认网关地址被认为是最佳实践。任一配置都可以。</p>
 <p>该图显示的是Windows Internet Protocol Version 6(TCP/IPv6) 属性窗口。单选按钮“使用下面的 IP 地址”已选择。IPv6 地址是2001:db8:acad:1::1。子网前缀长度为 64。默认网关是2001:db8:acad:1::1。单选按钮“使用下面的 DNS 服务器地址”已选择。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_14.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_14.png">
 
 <p>与使用 IPv4 一样，在客户端配置静态地址并不能扩展至更大的环境。因此，多数 IPv6 网络的管理员会启用 IPv6 地址的动态分配。</p>
 <p>设备可以通过两种方法自动获取 IPv6 GUA：</p>
@@ -616,7 +616,7 @@ R1(config-if)# no shutdown
 <h3 id="链路本地单播地址的静态配置"><a href="#链路本地单播地址的静态配置" class="headerlink" title="链路本地单播地址的静态配置"></a>链路本地单播地址的静态配置</h3><p>手动配置LLA可以让您创建的地址便于识别和记忆。一般来说，只需要在路由器上创建可识别的LLA。这样做很有用，因为路由器LLA将被用作默认网关地址并包含在路由通告消息中。</p>
 <p>LLA 可以使用 ipv6 address ipv6-链路本地地址 link-local 命令手动配置。当地址以 fe80 到 febf 范围的十六进制数开头时，link-local参数必须符合该地址。</p>
 <p>该图显示了一个示例拓扑，每个接口上都有LLA。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_15.png" alt="带有 LLA 的拓扑 示例"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_15.png" alt="带有 LLA 的拓扑 示例"></p>
 <pre><code class="CISCO"># 路由器 R1 上 LLA 的配置
 
 R1(config)# interface gigabitethernet 0/0/0
@@ -635,7 +635,7 @@ R1(config-if)# exit
 <hr>
 <h2 id="IPv6-GUA的动态编址"><a href="#IPv6-GUA的动态编址" class="headerlink" title="IPv6 GUA的动态编址"></a>IPv6 GUA的动态编址</h2><h3 id="RS-and-RA-消息"><a href="#RS-and-RA-消息" class="headerlink" title="RS and RA 消息"></a>RS and RA 消息</h3><p>如果您不想静态地配置IPv6 GUAs，也不必担心。大多数设备会动态获取其 IPv6 GUA。本主题说明如何使用路由器通告（RA）和路由器请求（RS）消息来完成此过程。本主题比较技术性，但是当您理解了路由器通告可以使用的三种方法之间的区别，以及创建接口ID的EUI-64进程与随机生成的进程的区别，您将在您的IPv6专业知识上有一个巨大的飞跃!</p>
 <p>对于 GUA，设备通过 Internet 控制消息协议版本 6 (ICMPv6) 消息动态获取地址。IPv6 路由器每 200 秒定期将 ICMPv6 RA 消息发送到网络上所有支持 IPv6 的设备。在响应发送 ICMPv6 路由器请求 (RS) 消息的主机时，也会发送 RA 消息，该消息是对RA消息的请求。这两条消息都显示在图中。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_16.png" alt="ICMPv6 RS 和 RA 消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_16.png" alt="ICMPv6 RS 和 RA 消息"></p>
 <p>RA消息位于IPv6路由器以太网接口上。必须为路由器启用 IPv6 路由，这在默认情况下是不启用的。若要将路由器启用为 IPv6 路由器，必须使用 ipv6 unicast-routing 全局配置命令。</p>
 <p>ICMPv6 RA 消息提示设备获取 IPv6 GUA的方式。最终决定取决于设备的操作系统。ICMPv6 RA 消息包括以下：</p>
 <ul>
@@ -665,7 +665,7 @@ R1(config-if)# exit
 <blockquote>
 <p>该图显示了局域网，其中路由器正在向 PC 发送 ICMPv6 路由器通告消息。个人电脑的 IPv6 地址为 2001:db8:acad:1:fc99:47ff:fe75:cee0/64。这是一个图形，表示在RA消息中接收到的网络前缀是2001:db8:acad:1:，由客户端设备EUI-64或随机64位数字创建的接口ID是fc99:47ff:fe75:cee0。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_17.png" alt="ICMPv6 RS 和 RA 消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_17.png" alt="ICMPv6 RS 和 RA 消息"></p>
 <hr>
 <h3 id="方法-2：SLAAC-和无状态-DHCPv6"><a href="#方法-2：SLAAC-和无状态-DHCPv6" class="headerlink" title="方法 2：SLAAC 和无状态 DHCPv6"></a>方法 2：SLAAC 和无状态 DHCPv6</h3><p>路由器的接口可配置为使用 SLAAC 和无状态 DHCPv6 或仅使用有状态 DHCPv6 发送路由器通告。</p>
 <p>如图所示，使用此方法，RA 消息建议设备使用以下内容：</p>
@@ -681,7 +681,7 @@ R1(config-if)# exit
 <blockquote>
 <p>该图显示了局域网和一台正在向路由器发送RS消息(标记为#1)的PC机。路由器正在发送作为回复的RA 消息（标记为#2）。PC还向无状态的 DHCPv6 服务器发送一条请求消息（标记为#3）。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_18.png" alt="ICMPv6 RS 和 RA 消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_18.png" alt="ICMPv6 RS 和 RA 消息"></p>
 <hr>
 <h3 id="方法-3：有状态的DHCPv6"><a href="#方法-3：有状态的DHCPv6" class="headerlink" title="方法 3：有状态的DHCPv6"></a>方法 3：有状态的DHCPv6</h3><p>路由器接口可以配置为仅使用有状态的DHCPv6发送RA。</p>
 <p>有状态 DHCPv6 与 IPv4 的 DHCP 相似。设备可以从有状态 DHCPv6 服务器自动接收编址信息，包括GUA、前缀长度和 DNS 服务器地址。</p>
@@ -695,7 +695,7 @@ R1(config-if)# exit
 <blockquote>
 <p>该图显示了局域网和一台正在向路由器发送消息(标记为#1)的PC机。路由器正在向PC发送消息（标记为#2）。PC还向服务器发送了一条消息（标记为#3）。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_19.png" alt="ICMPv6 RS 和 RA 消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_19.png" alt="ICMPv6 RS 和 RA 消息"></p>
 <p>使用有状态 DHCPv6 服务器分配并维持哪台设备接收哪个 IPv6 地址的清单。IPv4 的 DHCP 是有状态的。</p>
 <p>注意: 默认网关地址仅可从 RA 消息中动态获取。无状态或有状态 DHCPv6 服务器均不提供默认网关地址。</p>
 <hr>
@@ -703,7 +703,7 @@ R1(config-if)# exit
 <blockquote>
 <p>该图显示了路由器正在向 PC 发送 ICMPv6 路由器通告消息（标记为#1）。在标记为＃2的步骤中显示了PC，它从RA消息中创建其/ 64前缀，并使用EUI-64或64位随机数创建其接口ID。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_20.png" alt="ICMPv6 RS 和 RA 消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_20.png" alt="ICMPv6 RS 和 RA 消息"></p>
 <hr>
 <h3 id="EUI-64-流程"><a href="#EUI-64-流程" class="headerlink" title="EUI-64 流程"></a>EUI-64 流程</h3><p>IEEE 定义了扩展唯一标识符 (EUI) 或修改的 EUI-64 流程。该流程使用客户端的 48 位以太网 MAC 地址，并在该 48 位 MAC 地址的中间插入另外 16 位来创建 64 位接口 ID。</p>
 <p>以太网 MAC 地址一般使用十六进制表示，由两部分组成：</p>
@@ -726,7 +726,7 @@ R1(config-if)# exit
 <blockquote>
 <p>该图显示了 EUI-64 流程中的步骤。在图的顶部是MAC地址fc:99:47:75:ce:e0。第1步：拆分 MAC 地址，OUI fc:99:47的前24位二进制是1111 1100 1001 1001 0100 0111。设备的最后24位标识为75:ce:e0，二进制是1111 0101 1100 1110 1110 0000。第2步：插入ffee二进制表示变为1111 1100 1001 1001 0100 0111 1111 1111 1111 1110 1110 1111 0101 1100 1110 1110 0000。第3步：颠倒u/l位。从左边开始的第7位从0变成了1。二进制地址现在是1111 1110 1001 1001 0100 0111 1111 1111 1111 1110 1110 1111 0101 1100 1110 1110 0000。修改后的十六进制记法的EUI-64接口ID现在是fe:99:47:ff:fe:75:ce:e0。</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_21.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_21.png">
 
 <p><strong>ipconfig</strong> 命令的示例输出显示了使用 SLAAC 和 EUI-64 流程动态创建的 IPv6 GUA。识别地址可能是使用EUI-64创建的一个简单方法是位于接口ID中间的 <strong>fffe</strong>。</p>
 <p>EUI-64 优势在于可以使用以太网 MAC 地址确定接口 ID。这也允许网络管理员使用唯一 MAC 地址轻松跟踪终端设备的 IPv6 地址。然而，这引起了许多用户的隐私担忧，他们担心自己的数据包可能会被追踪到实际的物理计算机。出于这些顾虑，可以转而使用随机生成的接口 ID。</p>
@@ -759,7 +759,7 @@ C:\&gt;
 <hr>
 <h2 id="IPv6-LLA的动态编址"><a href="#IPv6-LLA的动态编址" class="headerlink" title="IPv6 LLA的动态编址"></a>IPv6 LLA的动态编址</h2><h3 id="动态-LLA"><a href="#动态-LLA" class="headerlink" title="动态 LLA"></a>动态 LLA</h3><p>所有 IPv6 设备都必须有 IPv6 LLA。与 IPv6 GUA一样，您也可以动态创建 LLA。无论您如何创建LLA(和GUA)，重要的是要验证所有IPv6地址配置。本主题介绍动态生成的 LLA和 IPv6 配置验证。</p>
 <p>该图显示了如何使用fe80::/10 前缀和通过 EUI-64 流程或随机生成的 64 位数字创建的接口 ID 动态创建LLA。</p>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_23.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_23.png">
 
 <hr>
 <h3 id="Windows上的动态LLA"><a href="#Windows上的动态LLA" class="headerlink" title="Windows上的动态LLA"></a>Windows上的动态LLA</h3><p>操作系统，如Windows，通常会对SLAAC创建的GUA和动态分配的LLA使用相同的方法。请参阅之前显示的以下示例中突出显示的区域。</p>
@@ -810,7 +810,7 @@ Serial0/1/1            [down/down]
 R1#
 </code></pre>
 <hr>
-<h3 id="验证-IPv6-地址配置"><a href="#验证-IPv6-地址配置" class="headerlink" title="验证 IPv6 地址配置"></a>验证 IPv6 地址配置</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_25.png" alt="示例拓扑"></p>
+<h3 id="验证-IPv6-地址配置"><a href="#验证-IPv6-地址配置" class="headerlink" title="验证 IPv6 地址配置"></a>验证 IPv6 地址配置</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_25.png" alt="示例拓扑"></p>
 <blockquote>
 <p>show ipv6 interface brief</p>
 </blockquote>
@@ -899,20 +899,20 @@ R1#
 <blockquote>
 <p>该图显示了两台IPv6 地址为2001:DB8: ACAD1:10/64 和 2001: DB8: ACAD1:20/64的PC、一台 IPv6 地址为2001: db8: ACAD1:8/64的服务器和一台IPv6 地址为2001:db8:acad:1::9/64的打印机连接到交换机，交换机连接到路由器。上图显示了fe80::1的源IPv6地址和ff02::1的目的IPv6地址。</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_27.png" alt="IPv6 全节点组播：RA消息"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_27.png" alt="IPv6 全节点组播：RA消息"></p>
 <hr>
 <h3 id="请求节点-IPv6-组播地址"><a href="#请求节点-IPv6-组播地址" class="headerlink" title="请求节点 IPv6 组播地址"></a>请求节点 IPv6 组播地址</h3><p>请求节点组播地址类似于全节点组播地址。请求节点组播地址的优势在于它被映射到特殊的以太网组播地址。这使得以太网网卡可以通过检查目的 MAC 地址过滤该帧，而不是将它发送给 IPv6 流程来判断该设备是否是 IPv6 数据包的既定目标。</p>
 <blockquote>
 <p>该图显示了三台PC正在接收来自路由器的消息。每台PC都有以下信息性文本：我的以太网网卡确定此组播不是给我的。上图表明，目的 MAC 地址是组播，目的 IPv6 地址是请求节点组播。</p>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_28.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_28.png">
 
 <hr>
 <h2 id="IPv6-网络的子网"><a href="#IPv6-网络的子网" class="headerlink" title="IPv6 网络的子网"></a>IPv6 网络的子网</h2><h3 id="使用子网-ID-划分子网"><a href="#使用子网-ID-划分子网" class="headerlink" title="使用子网 ID 划分子网"></a>使用子网 ID 划分子网</h3><p>回想一下，使用IPv4时，我们必须从主机部分借用位来创建子网。这是因为对IPv4来说，子网划分是事后才想到的。但是，IPv6 的设计考虑到了子网划分。IPv6 GUA中的一个单独的子网ID字段用于创建子网。如图所示，子网ID字段是全局路由前缀和接口ID之间的区域。</p>
 <blockquote>
 <p>该图显示了 GUA 的各个部分。首先是48位全局路由前缀，然后是16位子网ID，最后是64位接口ID。图下的文字显示：一个/ 48路由前缀 + 16 位子网 ID = /64前缀</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_29.png" alt="带有 16 位子网 ID 的 GUA"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_29.png" alt="带有 16 位子网 ID 的 GUA"></p>
 <p>128 位地址的好处在是，它可以为每个网络支持足够多的子网并为每个子网支持足够多的主机。地址保留不是问题。例如，如果全局路由前缀是a /48，并且使用一个典型的64位接口ID，这将创建一个16位子网ID:</p>
 <ul>
 <li><p><strong>16 位子网 ID</strong> - 创建多达 65,536 个子网。</p>
@@ -924,7 +924,7 @@ R1#
 <p>IPv6 子网划分也比 IPv4 容易实施，因为不需要转换为二进制。要确定下一个可用子网，只需要将十六进制数相加。</p>
 <hr>
 <h3 id="IPv6-子网划分示例"><a href="#IPv6-子网划分示例" class="headerlink" title="IPv6 子网划分示例"></a>IPv6 子网划分示例</h3><p>例如，假设一个组织分配了 2001:db8:acad::/48 全局路由前缀，并采用 16 位子网 ID。这将允许组织创建65,536个 /64 子网，如图所示。注意，所有子网的全局路由前缀是相同的。只为每个子网递增子网 ID 的十六位字节数（以十六进制形式）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_30.png" alt="使用16位子网 ID 划分子网"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_30.png" alt="使用16位子网 ID 划分子网"></p>
 <hr>
 <h3 id="IPv6-子网分配"><a href="#IPv6-子网分配" class="headerlink" title="IPv6 子网分配"></a>IPv6 子网分配</h3><p>由于有 65,536 个子网可供选择，网络管理员的任务就变为设计一个逻辑方案来分配网络地址。</p>
 <p>如图所示，示例拓扑需要五个子网，每个局域网一个，以及R1和R2之间的串行链路一个。与IPv4的示例不同，IPv6的串行链路子网将具有与局域网相同的前缀长度。虽然这可能会“浪费”地址，但是使用 IPv6 时地址保留并不是问题。</p>
@@ -934,7 +934,7 @@ R1#
 <p>在2001:db8:acad:3::/64网络中，路由器1和2通过它们的S0/1/0接口进行连接，R1的接口ID为::1,R2的接口ID为::2。</p>
 </blockquote>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_31_1.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_31_1.png">
 
 <p>在本示例中 5 个 IPv6 子网的分配将使用 0001 到 0005 的子网 ID 字段。每个 /64 子网提供的地址都远多于所需要的地址。</p>
 <blockquote>
@@ -943,7 +943,7 @@ R1#
 <p>注释显示：从65,536个可用子网中分配了5个子网，并表明分配的5个子网是：<br>2001:db8:acad:0001::/64，<br>2001:db8:acad:0002::/64，<br>2001:db8:acad:0003::/64，<br>2001:db8:acad:0004::/64，<br>2001:db8:acad:0005::/64。</p>
 </blockquote>
 </blockquote>
-<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Notes/Computer%20Network%20Technology/10_31_2.png">
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Computer%20Network%20Technology/10_31_2.png">
 
 <hr>
 <h3 id="配置了-IPv6-子网的路由器"><a href="#配置了-IPv6-子网的路由器" class="headerlink" title="配置了 IPv6 子网的路由器"></a>配置了 IPv6 子网的路由器</h3><p>与配置 IPv4 类似，示例显示了每个路由器接口都已经配置到不同的 IPv6 子网中。</p>
@@ -1032,7 +1032,7 @@ ping
                 <ul id="audio-list" style="display:none">
                     
                         
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/ImageBed@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
                         
                     
                 </ul>
@@ -1047,15 +1047,15 @@ ping
         <div class="sidebar">
             <div class="box animated fadeInRight">
                 <div class="subbox">
-                    <img src="/img/favicon.png" height=300 width=300></img>
+                    <img src="/img/favicon.png" height=300 width=300 />
                     <p>PhoenixNest</p>
                     <span>用实力让情怀落地</span>
                     
                 </div>
                 <ul>
-                    <li><a href="/">31 <p>文章</p></a></li>
-                    <li><a href="/categories">17 <p>分类</p></a></li>
-                    <li><a href="/tags">24 <p>标签</p></a></li>
+                    <li><a href="/">32 <p>文章</p></a></li>
+                    <li><a href="/categories">18 <p>分类</p></a></li>
+                    <li><a href="/tags">25 <p>标签</p></a></li>
                 </ul>
             </div>
             
