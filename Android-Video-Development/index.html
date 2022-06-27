@@ -112,13 +112,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    5.7k
+                    7k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    10 mins.
+                    13 mins.
                 </span>
                     
                     
@@ -365,6 +365,123 @@ videoView.setOnErrorListener(listener: MediaPlayer.OnErrorListener!)
 // 视频播放完成时，回调该监听器，该监听器类型为：MediaPlayer.OnCompletionListener
 videoView.setOnCompletionListener(listener: MediaPlayer.OnCompletionListener!)
 </code></pre>
+<hr>
+<h2 id="Wechat-Video-Editor"><a href="#Wechat-Video-Editor" class="headerlink" title="Wechat Video Editor"></a>Wechat Video Editor</h2><blockquote>
+<p>本章节将介绍如何仿制 Wechat （微信）的视频编辑页，使用到的技术如下：</p>
+</blockquote>
+<ul>
+<li><p>SurfaceView + MediaPlayer</p>
+</li>
+<li><p>Custom RangeSeekbar ( Thumbnail RecyclerView + Video Indicator )</p>
+</li>
+<li><p>Video Clipping &amp; Compress</p>
+</li>
+</ul>
+<hr>
+<h3 id="SurfaceView-MediaPlyer"><a href="#SurfaceView-MediaPlyer" class="headerlink" title="SurfaceView + MediaPlyer"></a>SurfaceView + MediaPlyer</h3><blockquote>
+<ol>
+<li><p>初始化 SurfaceView</p>
+</li>
+<li><p>初始化 MediaPlayer</p>
+</li>
+</ol>
+</blockquote>
+<pre><code class="kotlin">val mediaPlayer = MediaPlayer()
+
+// 通过 Surface + MediaPlayer 进行视频播放
+try &#123;
+  // 从videoPath中加载视频资源，该路径可以是视频路径，也可以是网络地址
+  mediaPlayer.setDataSource(videoPath)
+
+  // 配合 SurfaceView 进行视频渲染
+  val surface = Surface(surfaceTexture)
+  mediaPlayer.setSurface(surface)
+  surface.release() // 加载完毕后及时释放 Surface 资源
+
+  // 控制视频循环播放
+  mediaPlayer.isLooping = true
+
+  // 视频资源装载完成时，回调该监听器，该监听器类型为：MediaPlayer.OnPreparedListener
+  // 在该监听器中，可进行一些常用组件的自定义设置，比如通过获取视频宽高，动态调整相应布局
+  mediaPlayer.setOnPreparedListener&#123; player -&gt;
+    // 可对 Ui 布局进行适配，如：根据视频宽高动态设置 Ui 布局宽高
+  &#125;
+
+  // 视频播放预处理
+  mediaPlayer.prepare()
+
+  // 播放视频，该方法也可用来恢复当前播放进度
+  mediaPlayer.start()
+&#125; catch(exception: Exception) &#123;
+  println(&quot;mediaPlayer Error&quot;)
+&#125;
+</code></pre>
+<hr>
+<h3 id="Thumbnail-RecyclerView"><a href="#Thumbnail-RecyclerView" class="headerlink" title="Thumbnail RecyclerView"></a>Thumbnail RecyclerView</h3><blockquote>
+<ol>
+<li><p>准备 RecyclerView Item Layout</p>
+</li>
+<li><p>准备 RecyclerView Adapter</p>
+</li>
+<li><p>绑定RecyclerView OnScrollListener</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="Video-Indictor"><a href="#Video-Indictor" class="headerlink" title="Video Indictor"></a>Video Indictor</h3><blockquote>
+<ol>
+<li><p>准备 Indictor 外框</p>
+</li>
+<li><p>设置 Indictor 动画</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="Custom-RangeSeekbar"><a href="#Custom-RangeSeekbar" class="headerlink" title="Custom RangeSeekbar"></a>Custom RangeSeekbar</h3><blockquote>
+<ol>
+<li><p>从视频元数据抽取逐帧预览图</p>
+</li>
+<li><p>加载预览图至 Thumbnail RecyclerView</p>
+</li>
+<li><p>设置 RangeSeekbar 滑动监听</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="Video-Clipping"><a href="#Video-Clipping" class="headerlink" title="Video Clipping"></a>Video Clipping</h3><blockquote>
+<p>此方案使用来自GIthub的开源视频编辑库：<a target="_blank" rel="noopener" href="https://github.com/MasayukiSuda/Mp4Composer-android">Mp4Composer-android</a></p>
+</blockquote>
+<blockquote>
+<ol>
+<li><p>设置原始视频路径，裁剪视频输出路径，视频裁剪模式等参数</p>
+</li>
+<li><p>在子线程中进行视频裁剪</p>
+</li>
+<li><p>将裁剪完成的视频路径作为待压缩视频的原始路径</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="Video-Compress"><a href="#Video-Compress" class="headerlink" title="Video Compress"></a>Video Compress</h3><blockquote>
+<p>此方案使用来自Github的开源视频压缩库：<a target="_blank" rel="noopener" href="https://github.com/Tourenathan-G5organisation/SiliCompressor">SiliCompressor</a></p>
+</blockquote>
+<blockquote>
+<ol>
+<li><p>设置原始视频路径，压缩视频输出路径</p>
+</li>
+<li><p>在子线程中进行视频压缩</p>
+</li>
+<li><p>输出最终的视频路径</p>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><p>高仿微信视频编辑 + 视频滤镜：<a target="_blank" rel="noopener" href="https://github.com/LLhon/Android-Video-Editor">Github • Android Video Editor</a></p>
+</li>
+<li><p>高仿微信视频编辑：<a target="_blank" rel="noopener" href="https://github.com/ta893115871/VideoEdit">Github • VideoEdit</a></p>
+</li>
+</ul>
 
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
@@ -408,7 +525,7 @@ videoView.setOnCompletionListener(listener: MediaPlayer.OnCompletionListener!)
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceView"><span class="toc-number">2.</span> <span class="toc-text">SurfaceView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaPlayer"><span class="toc-number">3.</span> <span class="toc-text">MediaPlayer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaMetadataRetriever"><span class="toc-number">4.</span> <span class="toc-text">MediaMetadataRetriever</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaController"><span class="toc-number">5.</span> <span class="toc-text">MediaController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-MediaPlayerControl-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">与 MediaPlayerControl 配合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-VideoView-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.2.</span> <span class="toc-text">与 VideoView 配合使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceView-MediaPlayer"><span class="toc-number">6.</span> <span class="toc-text">SurfaceView + MediaPlayer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VideoView"><span class="toc-number">7.</span> <span class="toc-text">VideoView</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceView"><span class="toc-number">2.</span> <span class="toc-text">SurfaceView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaPlayer"><span class="toc-number">3.</span> <span class="toc-text">MediaPlayer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaMetadataRetriever"><span class="toc-number">4.</span> <span class="toc-text">MediaMetadataRetriever</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaController"><span class="toc-number">5.</span> <span class="toc-text">MediaController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-MediaPlayerControl-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">与 MediaPlayerControl 配合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-VideoView-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.2.</span> <span class="toc-text">与 VideoView 配合使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceView-MediaPlayer"><span class="toc-number">6.</span> <span class="toc-text">SurfaceView + MediaPlayer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VideoView"><span class="toc-number">7.</span> <span class="toc-text">VideoView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wechat-Video-Editor"><span class="toc-number">8.</span> <span class="toc-text">Wechat Video Editor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SurfaceView-MediaPlyer"><span class="toc-number">8.1.</span> <span class="toc-text">SurfaceView + MediaPlyer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thumbnail-RecyclerView"><span class="toc-number">8.2.</span> <span class="toc-text">Thumbnail RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Indictor"><span class="toc-number">8.3.</span> <span class="toc-text">Video Indictor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Custom-RangeSeekbar"><span class="toc-number">8.4.</span> <span class="toc-text">Custom RangeSeekbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Clipping"><span class="toc-number">8.5.</span> <span class="toc-text">Video Clipping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Compress"><span class="toc-number">8.6.</span> <span class="toc-text">Video Compress</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">9.</span> <span class="toc-text">Reference</span></a></li></ol>
                         </div>
                     </div>
                 
