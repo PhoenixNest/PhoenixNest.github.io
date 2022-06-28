@@ -112,13 +112,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    7k
+                    7.9k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    13 mins.
+                    14 mins.
                 </span>
                     
                     
@@ -417,14 +417,33 @@ try &#123;
 <hr>
 <h3 id="Thumbnail-RecyclerView"><a href="#Thumbnail-RecyclerView" class="headerlink" title="Thumbnail RecyclerView"></a>Thumbnail RecyclerView</h3><blockquote>
 <ol>
-<li><p>准备 RecyclerView Item Layout</p>
+<li><p>准备 RecyclerView Item Layout（此处省略）</p>
 </li>
-<li><p>准备 RecyclerView Adapter</p>
+<li><p>准备 RecyclerView Adapter（此处省略）</p>
 </li>
-<li><p>绑定RecyclerView OnScrollListener</p>
+<li><p>绑定 RecyclerView OnScrollListener</p>
 </li>
 </ol>
 </blockquote>
+<pre><code class="kotlin">private val rvScrollListener: RecyclerView.OnScrollListener = object: RecyclerView.OnScrollListener()&#123;
+    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int)&#123;
+        super.onScrollStateCHanged(recyclerView, newState)
+        if (newState == RecyclerView.SCROLL_STATE_IDLE) &#123;
+            // RecyclerView 停止滑动，进行相应事件处理
+        &#125; else &#123;
+            // RecyclerView 开始滑动，进行相应事件处理
+        &#125;
+    &#125;
+
+    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int)&#123;
+        super.onScrolled(recyclerView, dx, dy)
+        // RecyclerView 滑动中，进行相应事件处理
+    &#125;
+&#125;
+
+// 绑定滑动监听器至 RecyclerView
+recyclerView.addOnScrollListener(rvScrollListener)
+</code></pre>
 <hr>
 <h3 id="Video-Indictor"><a href="#Video-Indictor" class="headerlink" title="Video Indictor"></a>Video Indictor</h3><blockquote>
 <ol>
@@ -453,7 +472,7 @@ try &#123;
 <ol>
 <li><p>设置原始视频路径，裁剪视频输出路径，视频裁剪模式等参数</p>
 </li>
-<li><p>在子线程中进行视频裁剪</p>
+<li><p>在<code>子线程</code>中进行视频裁剪</p>
 </li>
 <li><p>将裁剪完成的视频路径作为待压缩视频的原始路径</p>
 </li>
@@ -467,12 +486,17 @@ try &#123;
 <ol>
 <li><p>设置原始视频路径，压缩视频输出路径</p>
 </li>
-<li><p>在子线程中进行视频压缩</p>
+<li><p>在<code>子线程</code>中进行视频压缩</p>
 </li>
 <li><p>输出最终的视频路径</p>
 </li>
 </ol>
 </blockquote>
+<pre><code class="kotlin">SiliCompressor.with(context).compressVideo(srcUri, destPath)
+SiliCompressor.with(context).compressVideo(srcPath, destPath)
+SiliCompressor.with(context).compressVideo(srcPath, destPath, outputVideoWidth, outputVideoHeight, outputBitrate)
+SiliCompressor.with(context).compressVideo(srcUri, destPath, outputVideoWidth, outputVideoHeight, outputBitrate)
+</code></pre>
 <hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><p>高仿微信视频编辑 + 视频滤镜：<a target="_blank" rel="noopener" href="https://github.com/LLhon/Android-Video-Editor">Github • Android Video Editor</a></p>
