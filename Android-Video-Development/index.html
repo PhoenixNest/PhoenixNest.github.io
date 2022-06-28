@@ -112,13 +112,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    7.9k
+                    8k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    14 mins.
+                    15 mins.
                 </span>
                     
                     
@@ -492,9 +492,14 @@ recyclerView.addOnScrollListener(rvScrollListener)
 </li>
 </ol>
 </blockquote>
-<pre><code class="kotlin">SiliCompressor.with(context).compressVideo(srcUri, destPath)
+<pre><code class="kotlin">// SiliCompressor 可在压缩前设置输出参数，包括输出视频宽高与比特率
+
+SiliCompressor.with(context).compressVideo(srcUri, destPath)
+
 SiliCompressor.with(context).compressVideo(srcPath, destPath)
+
 SiliCompressor.with(context).compressVideo(srcPath, destPath, outputVideoWidth, outputVideoHeight, outputBitrate)
+
 SiliCompressor.with(context).compressVideo(srcUri, destPath, outputVideoWidth, outputVideoHeight, outputBitrate)
 </code></pre>
 <hr>
