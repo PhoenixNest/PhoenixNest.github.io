@@ -118,7 +118,7 @@
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    17 mins.
+                    16 mins.
                 </span>
                     
                     
@@ -250,11 +250,16 @@ mediaPlayer.setVolume(leftVolume: Float, rightVolume: Float) // 左，右声道�
 
 // 设置视频资源
 mediaMetadataRetriever.setDataSource(path: String!)
-// mediaMetadataRetriever.setDataSource(path: String!, headers: (Mutable)Map&lt;String!, String!&gt;!)
-// mediaMetadataRetriever.setDataSource(fileDescriptor: FileDescriptor!)
-// mediaMetadataRetriever.setDataSource(fileDescriptor: FileDescriptor!, offset: Long, length: Long)
-// mediaMetadataRetriever.setDataSource(context: Context!, uri: Uri!)
-// mediaMetadataRetriever.setDataSource(dataSource: MediaDataSource!)
+
+mediaMetadataRetriever.setDataSource(path: String!, headers: (Mutable)Map&lt;String!, String!&gt;!)
+
+mediaMetadataRetriever.setDataSource(fileDescriptor: FileDescriptor!)
+
+mediaMetadataRetriever.setDataSource(fileDescriptor: FileDescriptor!, offset: Long, length: Long)
+
+mediaMetadataRetriever.setDataSource(context: Context!, uri: Uri!)
+
+mediaMetadataRetriever.setDataSource(dataSource: MediaDataSource!)
 </code></pre>
 <pre><code class="kotlin">// 常用的一些视频元数据信息
 MediaMetadataRetriever.METADATA_KEY_DURATION // 视频长度
@@ -281,6 +286,7 @@ val mediaController = MediaController(requireContext())
 
 // 显示控制器
 mediaController.show()
+
 mediaController.show(timeout: Int) // 在 timeout 个微秒时间后，自动隐藏控制器
 
 // 隐藏控制器
@@ -311,6 +317,7 @@ videoView.setMediaController(mediaController)
 <pre><code class="kotlin">// VideoView有多种方法可进行视频播放：
 // 方法1：通过视频Uri进行视频播放
 videoView.setVideoURI(uri: Uri!)
+
 videoView.setVideoURI(uri: Uri!, headers: (Mutable)Map&lt;String!, String!&gt;)
 
 // 方法2：通过视频文件路径进行视频播放，该方法也可用于播放在线视频
@@ -575,7 +582,7 @@ SiliCompressor.with(context).compressVideo(srcUri, destPath, outputVideoWidth, o
                     
                 </div>
                 <ul>
-                    <li><a href="/">32 <p>文章</p></a></li>
+                    <li><a href="/">33 <p>文章</p></a></li>
                     <li><a href="/categories">18 <p>分类</p></a></li>
                     <li><a href="/tags">25 <p>标签</p></a></li>
                 </ul>
