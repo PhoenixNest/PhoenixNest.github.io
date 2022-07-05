@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IDS • Snort - PhoenixNest&#39;s Blog</title>
+    <title>Android • File Development - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -14,10 +14,12 @@
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
-本篇将介绍我在工作期间，对办公室的一台测试用服务器部署IDS（Intrusion ddetection System）入侵检测系统时的一些笔记分享。
+本篇将介绍我最近在对公司 Android 项目进行功能开发时，对Assets文件操作的一些笔记分享。
 
 
-在1998年，Martin Roesc,">
+在阅读本文前，你需要了解常用的 Android 文件存储方式：
+
+（1）：保存到外部S,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -71,7 +73,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">IDS • Snort</h3>
+        <h3 class="subtitle">Android • File Development</h3>
         <div class="social">
             <div>
                 <div class="share">
@@ -93,35 +95,35 @@
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/IDS/snort.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/IDS"><b>「
-                        </b>IDS<b> 」</b></a>
+                    <a href="/categories/Android"><b>「
+                        </b>ANDROID<b> 」</b></a>
                 
-                八月 09, 2020
+                七月 05, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/IDS-Snort/" title="IDS • Snort" class="">IDS • Snort</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Android-File-Development/" title="Android • File Development" class="">Android • File Development</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    723
+                    2k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    4 mins.
                 </span>
                     
                     
-                        <span id="/IDS-Snort/" class="leancloud_visitors"
-                              data-flag-title="IDS • Snort">
+                        <span id="/Android-File-Development/" class="leancloud_visitors"
+                              data-flag-title="Android • File Development">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">0</span>
                 </span>
@@ -130,7 +132,7 @@
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/IDS/" rel="tag">IDS</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/File/" rel="tag">File</a></li></ul>
             
         </div>
     </div>
@@ -152,37 +154,89 @@
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p>
+<p>本篇将介绍我最近在对公司 <code>Android</code> 项目进行功能开发时，对<code>Assets文件操作</code>的一些笔记分享。</p>
 </blockquote>
 <blockquote>
-<p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p>
+<p>在阅读本文前，你需要了解常用的 Android 文件存储方式：</p>
+<ul>
+<li>（1）：保存到<code>外部SD卡</code>（由于现在的手机大部分不支持SD卡扩展，该方法的使用率也逐渐降低，通常用于对旧设备进行适配）；</li>
+<li>（2）：保存到<code>系统内部文件夹</code>（如存储照片与音视频），该方法需要提前在Manifest清单文件中申请文件读写权限；</li>
+<li>（3）：保存到当前App的<code>系统沙盒</code>中（较为常见）；</li>
+<li>（4）：保存到当前App的<code>缓存文件夹</code>中；</li>
+<li>（5）：在开发过程中，<code>将需要的文件存放到assets或resource文件夹中</code>，并集成到App安装包（若保存至assets文件夹，则通常需要先将其复制到手机内存中）</li>
+</ul>
 </blockquote>
 <hr>
-<h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flex
+<h2 id="assets-文件操作"><a href="#assets-文件操作" class="headerlink" title="assets 文件操作"></a>assets 文件操作</h2><blockquote>
+<p>拷贝 assets文件夹 到内部存储</p>
+</blockquote>
+<pre><code class="kotlin">// Copy Dir from Assets to Phone
+fun copyAssetsDirToPhone(context: Context, localAssetsPath: String) &#123;
+    var filePath = localAssetsPath
+    try &#123;
+        val fileList = context.assets.list(filePath)!!
 
-sudo apt-get install snort
-</code></pre>
-<h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v
-</code></pre>
-<h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd
-</code></pre>
-<h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogs
+        if (fileList.isNotEmpty()) &#123;
+            val file = context.filesDir.absolutePath + File.separator + filePath)
 
-sudo snort -d -l snortLogs
+            // Create new folder before first copy
+            file.mkdirs()
+            for (fileName in fileList) &#123;
+                filePath = filePath + File.separator + fileName
+                copyAssetsDirToPhone(context, filePath)
+                filePath = filePath.substring(0, filePath.lastIndexOf(File.separator))
+            &#125;
+        &#125; else &#123;
+            // Current selected assets is a file
+            val inputStream: InputStream = context.assets.open(filePath)
+            val file = context.filesDir.absolutePath + File.separator + filePath)
+
+            if (!file.exists() || file.length() == 0L) &#123;
+                val fileOutputStream = FileOutputStream(file)
+                var len: Int
+                val buffer = ByteArray(1024)
+
+                while (inputStream.read(buffer).also &#123; len = it &#125; != -1) &#123;
+                    fileOutputStream.write(buffer, 0, len)
+                &#125;
+
+                fileOutputStream.flush()
+                inputStream.close()
+                fileOutputStream.close()
+            &#125;
+        &#125;
+    &#125; catch (exception: Exception) &#123;
+        exception.printStackTrace()
+    &#125;
+&#125;
 </code></pre>
-<p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code><br>结尾的日志文件，要查看该文件，可直接通过<a target="_blank" rel="noopener" href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p>
-<pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx
-</code></pre>
-<h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p>
 <hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.snort.org/">Snort Official</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.wireshark.org/">WireShark</a></p>
-</li>
-</ul>
+<blockquote>
+<p>拷贝 assets文件 到内部存储</p>
+</blockquote>
+<pre><code class="kotlin">// Copy file from Assets to Phone
+fun copyAssetsFileToPhone(context: Context, fileName: String) &#123;
+    try &#123;
+        val inputStream: InputStream = context.assets.open(fileName)
+        val file = File(context.filesDir.absolutePath + File.separator + fileName)
+        if (!file.exists() || file.length() == 0L) &#123;
+            // if file not exist, FileOutputStream will auto create it
+            val fileOutputStream = FileOutputStream(file)
+            var len: Int
+            val buffer = ByteArray(1024)
+            while (inputStream.read(buffer).also &#123; len = it &#125; != -1) &#123;
+                fileOutputStream.write(buffer, 0, len)
+            &#125;
+
+            fileOutputStream.flush()
+            inputStream.close()
+            fileOutputStream.close()
+        &#125;
+    &#125; catch (exception: Exception) &#123;
+        exception.printStackTrace()
+    &#125;
+&#125;
+</code></pre>
 
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
@@ -226,7 +280,7 @@ sudo snort -d -l snortLogs
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E9%83%A8%E7%BD%B2Snort"><span class="toc-number">2.</span> <span class="toc-text">(一) 部署Snort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%97%85%E6%8E%A2"><span class="toc-number">3.</span> <span class="toc-text">(二) 嗅探</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">1. 基础用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B1%95%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%86%85%E5%AE%B9"><span class="toc-number">3.2.</span> <span class="toc-text">2. 展示数据内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%BD%91%E7%BB%9CIP%E6%95%B0%E6%8D%AE%E5%8C%85%E8%AE%B0%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">(三) 网络IP数据包记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-NIDS"><span class="toc-number">5.</span> <span class="toc-text">(四) NIDS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assets-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">assets 文件操作</span></a></li></ol>
                         </div>
                     </div>
                 
