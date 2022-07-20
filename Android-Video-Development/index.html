@@ -112,7 +112,7 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    9.1k
+                    9.4k
                 </span>
                     
                     
@@ -370,6 +370,19 @@ videoView.setOnErrorListener(listener: MediaPlayer.OnErrorListener!)
 // 视频播放完成时，回调该监听器，该监听器类型为：MediaPlayer.OnCompletionListener
 videoView.setOnCompletionListener(listener: MediaPlayer.OnCompletionListener!)
 </code></pre>
+<h3 id="与-MediaPlayer-配合使用"><a href="#与-MediaPlayer-配合使用" class="headerlink" title="与 MediaPlayer 配合使用"></a>与 MediaPlayer 配合使用</h3><blockquote>
+<p>循环播放</p>
+</blockquote>
+<pre><code class="kotlin">// 推荐写法：
+videoVideo.setOnPreparedListener &#123; mediaPlayer -&gt; 
+    mediaPlayer.isLooping = true
+&#125;
+
+// 也可在 setOnCompletionListener 中对 mediaPlayer 进行设置（本质上只是对 VideoView 中封装的 MediaPlayer 进行再播放设置）
+videoView.setOnCompletionListener &#123; mediaPlayer -&gt;
+    mediaPlayer.start()
+&#125;
+</code></pre>
 <hr>
 <h2 id="Open-Source-Framework"><a href="#Open-Source-Framework" class="headerlink" title="Open Source Framework"></a>Open Source Framework</h2><h3 id="Mp4Parser"><a href="#Mp4Parser" class="headerlink" title="Mp4Parser"></a>Mp4Parser</h3><blockquote>
 <p>作者仓库 README 中对于 <a target="_blank" rel="noopener" href="https://github.com/sannies/mp4parser">Mp4Parser</a> 的介绍：</p>
@@ -582,9 +595,9 @@ SiliCompressor.with(context).compressVideo(srcUri, destPath, outputVideoWidth, o
                     
                 </div>
                 <ul>
-                    <li><a href="/">34 <p>文章</p></a></li>
+                    <li><a href="/">35 <p>文章</p></a></li>
                     <li><a href="/categories">18 <p>分类</p></a></li>
-                    <li><a href="/tags">28 <p>标签</p></a></li>
+                    <li><a href="/tags">29 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -593,7 +606,7 @@ SiliCompressor.with(context).compressVideo(srcUri, destPath, outputVideoWidth, o
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceView"><span class="toc-number">2.</span> <span class="toc-text">SurfaceView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaPlayer"><span class="toc-number">3.</span> <span class="toc-text">MediaPlayer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaMetadataRetriever"><span class="toc-number">4.</span> <span class="toc-text">MediaMetadataRetriever</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaController"><span class="toc-number">5.</span> <span class="toc-text">MediaController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-MediaPlayerControl-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">与 MediaPlayerControl 配合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-VideoView-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.2.</span> <span class="toc-text">与 VideoView 配合使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VideoView"><span class="toc-number">6.</span> <span class="toc-text">VideoView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Source-Framework"><span class="toc-number">7.</span> <span class="toc-text">Open Source Framework</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mp4Parser"><span class="toc-number">7.1.</span> <span class="toc-text">Mp4Parser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mp4Composer-Android"><span class="toc-number">7.2.</span> <span class="toc-text">Mp4Composer-Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SiliCompressor"><span class="toc-number">7.3.</span> <span class="toc-text">SiliCompressor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wechat-Video-Editor"><span class="toc-number">8.</span> <span class="toc-text">Wechat Video Editor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SurfaceView-MediaPlyer"><span class="toc-number">8.1.</span> <span class="toc-text">SurfaceView + MediaPlyer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thumbnail-RecyclerView"><span class="toc-number">8.2.</span> <span class="toc-text">Thumbnail RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Indictor"><span class="toc-number">8.3.</span> <span class="toc-text">Video Indictor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Custom-RangeSeekbar"><span class="toc-number">8.4.</span> <span class="toc-text">Custom RangeSeekbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Clipping"><span class="toc-number">8.5.</span> <span class="toc-text">Video Clipping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Compress"><span class="toc-number">8.6.</span> <span class="toc-text">Video Compress</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">9.</span> <span class="toc-text">Reference</span></a></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SurfaceView"><span class="toc-number">2.</span> <span class="toc-text">SurfaceView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaPlayer"><span class="toc-number">3.</span> <span class="toc-text">MediaPlayer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaMetadataRetriever"><span class="toc-number">4.</span> <span class="toc-text">MediaMetadataRetriever</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MediaController"><span class="toc-number">5.</span> <span class="toc-text">MediaController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-MediaPlayerControl-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">与 MediaPlayerControl 配合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-VideoView-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">5.2.</span> <span class="toc-text">与 VideoView 配合使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VideoView"><span class="toc-number">6.</span> <span class="toc-text">VideoView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E-MediaPlayer-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">与 MediaPlayer 配合使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Source-Framework"><span class="toc-number">7.</span> <span class="toc-text">Open Source Framework</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mp4Parser"><span class="toc-number">7.1.</span> <span class="toc-text">Mp4Parser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mp4Composer-Android"><span class="toc-number">7.2.</span> <span class="toc-text">Mp4Composer-Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SiliCompressor"><span class="toc-number">7.3.</span> <span class="toc-text">SiliCompressor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Wechat-Video-Editor"><span class="toc-number">8.</span> <span class="toc-text">Wechat Video Editor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SurfaceView-MediaPlyer"><span class="toc-number">8.1.</span> <span class="toc-text">SurfaceView + MediaPlyer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thumbnail-RecyclerView"><span class="toc-number">8.2.</span> <span class="toc-text">Thumbnail RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Indictor"><span class="toc-number">8.3.</span> <span class="toc-text">Video Indictor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Custom-RangeSeekbar"><span class="toc-number">8.4.</span> <span class="toc-text">Custom RangeSeekbar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Clipping"><span class="toc-number">8.5.</span> <span class="toc-text">Video Clipping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-Compress"><span class="toc-number">8.6.</span> <span class="toc-text">Video Compress</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">9.</span> <span class="toc-text">Reference</span></a></li></ol>
                         </div>
                     </div>
                 
