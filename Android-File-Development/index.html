@@ -177,7 +177,7 @@ fun copyAssetsDirToPhone(context: Context, localAssetsPath: String) &#123;
         val fileList = context.assets.list(filePath)!!
 
         if (fileList.isNotEmpty()) &#123;
-            val file = context.filesDir.absolutePath + File.separator + filePath)
+            val file = context.filesDir.absolutePath + File.separator + filePath
 
             // Create new folder before first copy
             file.mkdirs()
@@ -189,7 +189,7 @@ fun copyAssetsDirToPhone(context: Context, localAssetsPath: String) &#123;
         &#125; else &#123;
             // Current selected assets is a file
             val inputStream: InputStream = context.assets.open(filePath)
-            val file = context.filesDir.absolutePath + File.separator + filePath)
+            val file = context.filesDir.absolutePath + File.separator + filePath
 
             if (!file.exists() || file.length() == 0L) &#123;
                 val fileOutputStream = FileOutputStream(file)
