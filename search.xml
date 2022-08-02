@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>Android • RecyclerView</title>
+      <link href="Android-RecyclerView/"/>
+      <url>Android-RecyclerView/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对自己 <code>Android</code> 项目进行开发时，使用<code>RecyclerView</code>的一些笔记分享。</p></blockquote><hr><h2 id="GridLayoutManager"><a href="#GridLayoutManager" class="headerlink" title="GridLayoutManager"></a>GridLayoutManager</h2><h3 id="等分间距"><a href="#等分间距" class="headerlink" title="等分间距"></a>等分间距</h3><blockquote><p>对除了第一个位置的 Item 设置左边与底边的边距，由于每行只有 spanCount 个 Item，故对于取余为0的 Item，设置左边距为0。</p></blockquote><pre><code class="kotlin">class GridSpacingItemDecoration(    private val spanCount: Int,  // 列数    private val spacing: Int,    // 间隔) : RecyclerView.ItemDecoration() &#123;    override fun getItemOffsets(        outRect: Rect,        view: View,        parent: RecyclerView,        state: RecyclerView.State    ) &#123;        outRect.left = spacing;        outRect.bottom = spacing;        if (parent.getChildLayoutPosition(view) % spanCount == 0) &#123;            outRect.left = 0;        &#125;    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ui </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android • Base Util</title>
       <link href="Android-Base-Util/"/>
       <url>Android-Base-Util/</url>
