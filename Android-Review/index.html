@@ -100,7 +100,7 @@ Java • Native
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -684,7 +684,7 @@ StringBuffer stringBuffer=new StringBuffer();
 <p>生命周期</p>
 </blockquote>
 <p>下图为Activity的生命周期示意图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/activity_lifecycle.png" alt="Activity Lifecycle"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/activity_lifecycle.png" alt="Activity Lifecycle"></p>
 <p>场景：用户点击 App图标 启动App</p>
 <p>Activity启动 -&gt; onCreate() -&gt; onStart() -&gt; onResume()</p>
 <ul>
@@ -823,11 +823,11 @@ Intent telIntent=new Intent(Intent.ACTION_DIAL)
 <li>Socket</li>
 </ul>
 <hr>
-<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/fragment-screen-sizes.png" alt="Fragment"></p>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/fragment-screen-sizes.png" alt="Fragment"></p>
 <blockquote>
 <p>生命周期</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/fragment-view-lifecycle.png" alt="Fragment Lifecycle"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/fragment-view-lifecycle.png" alt="Fragment Lifecycle"></p>
 <blockquote>
 <p>场景：Activity 携带的 Fragment 初始化。</p>
 </blockquote>
@@ -859,7 +859,7 @@ Intent telIntent=new Intent(Intent.ACTION_DIAL)
 </ul>
 <p>对于API级别28（Android 9）之前的设备，onSaveInstanceState() 函数将在 onStop() 前调用。</p>
 <p>对于API级别28（Android 9）之后的设备，则反之。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/fragment-stop-save-order.png" alt="onSaveInstanceState() 与 onStop()"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/fragment-stop-save-order.png" alt="onSaveInstanceState() 与 onStop()"></p>
 <hr>
 <blockquote>
 <p>场景：宿主Activity 或 当前Fragment 被回收、当前Fragment的FragmentManager被销毁。</p>
@@ -897,7 +897,7 @@ Intent telIntent=new Intent(Intent.ACTION_DIAL)
 <blockquote>
 <p>生命周期</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/service_lifecycle.png" alt="Service Lifecycle"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/service_lifecycle.png" alt="Service Lifecycle"></p>
 <p>onStartCommand() -&gt; onBind() -&gt; onCreate() -&gt; onDestroy()</p>
 <ul>
 <li>onStartCommand()</li>
@@ -1403,7 +1403,7 @@ _client.newCall(request).enqueue(
 
 > 拦截器（同步请求）
 
-<center><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/okhttp_interceptors.png" alt="拦截器" style="zoom:50%;" /></center>
+<center><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/okhttp_interceptors.png" alt="拦截器" style="zoom:50%;" /></center>
 
 将以下拦截器进行逐次调用，形成链条。
 
@@ -1435,7 +1435,7 @@ dispatcher().enqueue()方法中：
 
 > 事件
 
-| ![基本事件](https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/okhttp_events.png) | ![基本事件 + 失败事件](https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/okhttp_events_with_failures.png) | ![基本事件 + 失败事件 + 重试事件](https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/okhttp_events_with_failures_and_retries.png) |
+| ![基本事件](https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/okhttp_events.png) | ![基本事件 + 失败事件](https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/okhttp_events_with_failures.png) | ![基本事件 + 失败事件 + 重试事件](https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Review/okhttp_events_with_failures_and_retries.png) |
 |-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------| -->
 
 <hr>
@@ -1513,9 +1513,9 @@ dispatcher().enqueue()方法中：
                     
                 </div>
                 <ul>
-                    <li><a href="/">36 <p>文章</p></a></li>
-                    <li><a href="/categories">18 <p>分类</p></a></li>
-                    <li><a href="/tags">30 <p>标签</p></a></li>
+                    <li><a href="/">41 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">34 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -1543,7 +1543,7 @@ dispatcher().enqueue()方法中：
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2022
+        &copy; 2023
         <span class="gradient-text">
             PhoenixNest
         </span>.

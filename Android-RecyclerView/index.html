@@ -14,11 +14,10 @@
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
-本篇将介绍我最近在对自己 Android 项目进行开发时，使用RecyclerView的一些笔记分享。
+本篇将介绍我最近在对 Android 项目进行开发时，使用 RecyclerView 的一些笔记分享。
 
 
-GridLayoutManager等分间距
-对除了第一个位置的 Item 设置左边与,">
+Google Android Developer 中对 RecyclerView 的,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -94,7 +93,7 @@ GridLayoutManager等分间距
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -111,13 +110,13 @@ GridLayoutManager等分间距
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    495
+                    5.2k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    9 mins.
                 </span>
                     
                     
@@ -153,8 +152,107 @@ GridLayoutManager等分间距
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇将介绍我最近在对自己 <code>Android</code> 项目进行开发时，使用<code>RecyclerView</code>的一些笔记分享。</p>
+<p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，使用 <code>RecyclerView</code> 的一些笔记分享。</p>
 </blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/develop/ui/views/layout/recyclerview">Google Android Developer</a> 中对 RecyclerView 的介绍：</p>
+</blockquote>
+<p>RecyclerView makes it easy to efficiently display large sets of data. You supply the data and define how each item looks, and the RecyclerView library dynamically creates the elements when they’re needed.</p>
+<p>As the name implies, RecyclerView recycles those individual elements. When an item scrolls off the screen, RecyclerView doesn’t destroy its view. Instead, RecyclerView reuses the view for new items that have scrolled onscreen. This reuse vastly improves performance, improving your app’s responsiveness and reducing power consumption.</p>
+<hr>
+<h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><h3 id="ItemView状态改变（单选）"><a href="#ItemView状态改变（单选）" class="headerlink" title="ItemView状态改变（单选）"></a>ItemView状态改变（单选）</h3><blockquote>
+<p>对点击Item的状态进行改变，实现类似RadioGroup的单选效果。</p>
+</blockquote>
+<ul>
+<li>适配器：</li>
+</ul>
+<pre><code class="kotlin">class RVAdapter(
+    private val List: List&lt;Data&gt;,
+    private val itemClickFunction: (position: Int) -&gt; Unit // 将 itemView 点击事件暴露给外部
+) : RecyclerView.Adapter&lt;RVAdapter.RVVH&gt;() &#123;
+
+    // 声明选中位置监听
+    val selectedPosition: Int = 0
+
+    inner class RVVH(itemView: View) : RecyclerView.ViewHolder(itemView) &#123;
+        val binding = ItemVideoFaceBinding.bind(itemView)
+        fun bindItemData(data: Data) &#123;
+            // ...
+        &#125;
+    &#125;
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FaceSwapVH &#123;
+        return RVVH(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_rv,
+                parent,
+                false
+            )
+        )
+    &#125;
+
+    override fun onBindViewHolder(holder: RVAdapter.RVVH, position: Int) &#123;
+
+        val itemView = holder.itemView
+
+        // 绑定你的 RecyclerView Item 数据
+        val listItem = list[position]
+        holder.bindData(listItem)
+
+        // 处理你的 ItemView状态组件状态（若要对整个ItemView的状态进行修改，则直接修改 selectWidget 为 itemView 即可）
+        // 这里只展示将状态修改为：可见 / 不可见
+        if (selectedPosition == position) &#123;
+            itemView.findViewById&lt;View&gt;(R.id.selectWidget).visibility = View.VISIBLE
+            // itemView.visibility = View.VISIBLE
+        &#125; else &#123;
+            itemView.findViewById&lt;View&gt;(R.id.selectWidget).visibility = View.INVISIBLE
+            // itemView.visibility = View.INVISIBLE
+        &#125;
+
+        itemView.setOnClickListener &#123; 
+           // 处理点击事件
+           itemClickFunction.invoke(position)
+        &#125;
+    &#125;
+
+    override fun getItemCount(): Int &#123;
+        return list.size
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<ul>
+<li>Adapter处理ItemView点击事件：</li>
+</ul>
+<pre><code class="kotlin">RVAdapter() &#123; position -&gt;
+    selectedPosition = position
+
+    // 通知 RecyclerView 的 Item 发生变化
+    notifyDataSetChanged()
+&#125;
+</code></pre>
+<hr>
+<h3 id="获取指定位置-Item-的-childView"><a href="#获取指定位置-Item-的-childView" class="headerlink" title="获取指定位置 Item 的 childView"></a>获取指定位置 Item 的 childView</h3><blockquote>
+<p>假如我们要规定让 RecyclerView 的某一个 itemView 展示特殊的 layout，如插入一条广告或者让其播放视频，则需要动态获取某一个position的itemView。</p>
+</blockquote>
+<p>通常我们会使用 getChildAt(posotion) 方法获取 childView，该方法在带来便利的同时也有着巨大的缺陷。</p>
+<p>我们很容易忽略 RecyclerView 的 “Recycler” 命名由来，若用户不滑动 RecyclerView，我们可以很方便的通过传入 position 获取当前 childView，但当用户开始滑动时，我们再次想通过 position 来获取 childView 则变得十分困难，<code>由于 RecyclerView 的缓存与回收机制，旧的 childView 在不可见时会被缓存与回收，position 也因此会发生变化</code>。</p>
+<p>建议的获取 childView 的代码 (Java) 如下：</p>
+<pre><code class="java">// 此处我们模拟了一个使用 LinearLayoutManager 作为布局管理器的 RecyclerView
+LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+
+// 使用 layoutManager 的 findFirstVisibleItemPosition 尝试获取当前第一个可见的Item
+int firstItemPosition = layoutManager.findFirstVisibleItemPosition();
+
+// 计算差值确定位置
+int actualPosition = (position - firstItemPosition) &gt;= 0 ? position - firstItemPosition : 0;
+
+// 使用 layoutManager 的 findViewByPosition 方法，尝试获取 childView
+View childView = layoutManager.findViewByPosition(actualPosition);
+
+// 使用 childView
+...
+</code></pre>
 <hr>
 <h2 id="GridLayoutManager"><a href="#GridLayoutManager" class="headerlink" title="GridLayoutManager"></a>GridLayoutManager</h2><h3 id="等分间距"><a href="#等分间距" class="headerlink" title="等分间距"></a>等分间距</h3><blockquote>
 <p>对除了第一个位置的 Item 设置左边与底边的边距，由于每行只有 spanCount 个 Item，故对于取余为0的 Item，设置左边距为0。</p>
@@ -178,6 +276,58 @@ GridLayoutManager等分间距
     &#125;
 &#125;
 </code></pre>
+<hr>
+<h2 id="事件穿透"><a href="#事件穿透" class="headerlink" title="事件穿透"></a>事件穿透</h2><p>当我们在一个已有的 View 上重叠使用 RecyclerView 时，通常会遇到事件穿透问题，这个问题通常也出现在多控件搭配使用的使用场景，对于 RecyclerView 的事件穿透，假设我们有如下例子：</p>
+<p>当我们使用 RecyclerView 尝试实现类似下拉列表（与 Android 中的 Spinner、ExpandableListView 类似）时，下拉的RecyclerVire通常会重叠在其余控件之上，此时容易导致事件穿透问题（底部布局在 RecyclerView 出现时，仍响应操作手势操作等用户事件）。</p>
+<blockquote>
+<p>对于这种情况，通常需要通过重写 Activity 的 dispatchTouchEvent 方法进行设置：</p>
+</blockquote>
+<pre><code class="kotlin">override fun dispatchTouchEvent(event: MotionEvent?): Boolean &#123;
+        // 获得当前触摸动作的（x，y）轴坐标
+        val x = event.rawX.toInt()
+        val y = event.rawY.toInt()
+
+        if (!isTouchPointInView(binding.folderButton, x, y) // 判断当前触摸的控件是否为所需要展示下拉 RecyclerView 的控件（如用于提示用户可以点击显示下拉菜单的图片或按钮）
+            &amp;&amp; !isTouchPointInView(binding.folderRecyclerContainer, x, y) // 判断当前触摸的控件是否为所需要展示下拉 RecyclerView
+            &amp;&amp; binding.folderRecycler.isVisible // 判断当前下拉的 RecyclerView 是否已经显示
+        ) &#123;
+            // 当上述三个条件均满足时，则代表下拉列表已经完全展开并可处理用户事件，此时我们对事件进行拦截，避免穿透
+            topButtonsTouchEvent()
+            folderRecyclerTouchEvent()
+
+            ...
+
+            // 通过返回 false，对事件进行拦截
+            return false
+        &#125;
+
+        return super.dispatchTouchEvent(event)
+    &#125;
+</code></pre>
+<hr>
+<h2 id="RecyclerView-配合-Animator-相关问题"><a href="#RecyclerView-配合-Animator-相关问题" class="headerlink" title="RecyclerView 配合 Animator 相关问题"></a>RecyclerView 配合 Animator 相关问题</h2><h3 id="动画出现位置"><a href="#动画出现位置" class="headerlink" title="动画出现位置"></a>动画出现位置</h3><p>当使用RecyclerView实现下拉列表（与Android中的Spinner、ExpandableListView类似）的时候，我们通常需要对下拉菜单的动画进行设置，以下是一段简单的动画示例（XML实现）：</p>
+<blockquote>
+<p>in</p>
+</blockquote>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;translate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:duration=&quot;300&quot;
+    android:fromYDelta=&quot;-100%p&quot;
+    android:interpolator=&quot;@android:anim/decelerate_interpolator&quot;
+    android:toYDelta=&quot;0&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>out</p>
+</blockquote>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;translate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:duration=&quot;300&quot;
+    android:fromYDelta=&quot;0&quot;
+    android:interpolator=&quot;@android:anim/accelerate_interpolator&quot;
+    android:toYDelta=&quot;-100%p&quot; /&gt;
+</code></pre>
+<p>在上述两段动画中，不难发现：<code>进入动画</code> in 中的 fromYDelta 与<code>退出动画</code> out 中的 toYDelta均使用到了 <code>&quot;%p&quot;</code> 的参数。</p>
+<p>该参数设置了动画的触发位置，<code>&quot;p&quot;</code>表示动画将从包裹了控件的父布局内出现，若我们需要对下拉RecyclerView的动画出现位置进行设置，则可以在RecyclerView外部包裹一层父View，将动画处理时间交由父View进行设置即可。</p>
 
             <!--[if lt IE 9]>
             <script>document.createElement('audio');</script><![endif]-->
@@ -210,9 +360,9 @@ GridLayoutManager等分间距
                     
                 </div>
                 <ul>
-                    <li><a href="/">36 <p>文章</p></a></li>
-                    <li><a href="/categories">18 <p>分类</p></a></li>
-                    <li><a href="/tags">30 <p>标签</p></a></li>
+                    <li><a href="/">41 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">34 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -221,7 +371,7 @@ GridLayoutManager等分间距
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GridLayoutManager"><span class="toc-number">2.</span> <span class="toc-text">GridLayoutManager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%88%86%E9%97%B4%E8%B7%9D"><span class="toc-number">2.1.</span> <span class="toc-text">等分间距</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RecyclerView"><span class="toc-number">2.</span> <span class="toc-text">RecyclerView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ItemView%E7%8A%B6%E6%80%81%E6%94%B9%E5%8F%98%EF%BC%88%E5%8D%95%E9%80%89%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">ItemView状态改变（单选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE-Item-%E7%9A%84-childView"><span class="toc-number">2.2.</span> <span class="toc-text">获取指定位置 Item 的 childView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GridLayoutManager"><span class="toc-number">3.</span> <span class="toc-text">GridLayoutManager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%88%86%E9%97%B4%E8%B7%9D"><span class="toc-number">3.1.</span> <span class="toc-text">等分间距</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%A9%BF%E9%80%8F"><span class="toc-number">4.</span> <span class="toc-text">事件穿透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RecyclerView-%E9%85%8D%E5%90%88-Animator-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">RecyclerView 配合 Animator 相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E5%87%BA%E7%8E%B0%E4%BD%8D%E7%BD%AE"><span class="toc-number">5.1.</span> <span class="toc-text">动画出现位置</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
@@ -240,7 +390,7 @@ GridLayoutManager等分间距
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2022
+        &copy; 2023
         <span class="gradient-text">
             PhoenixNest
         </span>.

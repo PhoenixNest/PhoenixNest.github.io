@@ -13,7 +13,7 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,ViewBindingtry to use layout id directly in you Activity / Fragmentafter Gradle Version 6.5, if you,">
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,ViewBinding在 Activity / Fragment 中通过声明 layout id 获取 View在 Gradle 6.5 后, 若想直接使用 layout id，在 app 文件夹下,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -89,7 +89,7 @@
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android.png) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -106,13 +106,13 @@
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    4.2k
+                    3.8k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    8 mins.
+                    7 mins.
                 </span>
                     
                     
@@ -147,9 +147,9 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="ViewBinding"><a href="#ViewBinding" class="headerlink" title="ViewBinding"></a>ViewBinding</h2><h3 id="try-to-use-layout-id-directly-in-you-Activity-Fragment"><a href="#try-to-use-layout-id-directly-in-you-Activity-Fragment" class="headerlink" title="try to use layout id directly in you Activity / Fragment"></a>try to use layout id directly in you Activity / Fragment</h3><p>after Gradle Version 6.5, if you want to use layout id directly, you should modify build.gradle file<br>by yourself to enable this function.</p>
+            <h2 id="ViewBinding"><a href="#ViewBinding" class="headerlink" title="ViewBinding"></a>ViewBinding</h2><h3 id="在-Activity-Fragment-中通过声明-layout-id-获取-View"><a href="#在-Activity-Fragment-中通过声明-layout-id-获取-View" class="headerlink" title="在 Activity / Fragment 中通过声明 layout id 获取 View"></a>在 Activity / Fragment 中通过声明 layout id 获取 View</h3><p>在 Gradle 6.5 后, 若想直接使用 layout id，在 app 文件夹下 的build.gradle 添加如下代码启用该功能。</p>
 <blockquote>
-<p>PS: recommend to use ViewBinding or DataBinding</p>
+<p>PS: Google 已不建议在 Activity / Fragment 中直接使用layout id，建议迁移至 ViewBinding 或 DataBinding。</p>
 </blockquote>
 <pre><code class="gradle">plugins &#123;
     ...
@@ -159,11 +159,11 @@
 &#125;
 </code></pre>
 <hr>
-<h2 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h2><h3 id="navHostFragment-NavController-Error"><a href="#navHostFragment-NavController-Error" class="headerlink" title="navHostFragment: NavController Error"></a>navHostFragment: NavController Error</h3><p>Error output:</p>
-<pre><code class="output">java.lang.RuntimeException: Unable to start activity ComponentInfo&#123;xxx.MainActivity&#125;: java.lang.IllegalStateException: Activity xxx.MainActivity@xxx does not have a NavController set on xxx
+<h2 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h2><h3 id="navHostFragment-NavController-Error"><a href="#navHostFragment-NavController-Error" class="headerlink" title="navHostFragment: NavController Error"></a>navHostFragment: NavController Error</h3><p>错误输出如下:</p>
+<pre><code class="logcat">java.lang.RuntimeException: Unable to start activity ComponentInfo&#123;xxx.MainActivity&#125;: java.lang.IllegalStateException: Activity xxx.MainActivity@xxx does not have a NavController set on xxx
 </code></pre>
 <blockquote>
-<p>to Solve this<br>problem, <code>try this code in your MainActivity or any where you want to use NavController</code>:</p>
+<p>解决方案：在需要使用到 NavController 的地方进行如下设置（如：MainActivity）：</p>
 </blockquote>
 <ul>
 <li>before</li>
@@ -193,18 +193,18 @@
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        // set up the default AppBar to auto change the correct label
+        // 设置 ActionBar
         setupActionBarWithNavController(navController)
     &#125;
 &#125;
 </code></pre>
 <hr>
 <blockquote>
-<p>if you <code>don&#39;t want to add code at your Dev File</code>, Try this</p>
+<p>如果你不想使用代码控制 Navigation，也可直接在 xml 文件中对布局进行直接修改：</p>
 </blockquote>
-<p>Change the <code>FragmentContainerView</code> to <code>fragment</code></p>
+<p>将 <code>FragmentContainerView</code> 修改为 <code>fragment</code> 即可</p>
 <ul>
-<li>before</li>
+<li>修改前</li>
 </ul>
 <pre><code class="xml">
 &lt;androidx.fragment.app.FragmentContainerView
@@ -216,7 +216,7 @@
         app:navGraph=&quot;@navigation/nav&quot;/&gt;
 </code></pre>
 <ul>
-<li>after</li>
+<li>修改后</li>
 </ul>
 <pre><code class="xml">
 &lt;fragment
@@ -229,7 +229,7 @@
 </code></pre>
 <hr>
 <h3 id="Cannot-resolve-symbol-‘com-xxx-xxxFragmentArgs’-in-XML"><a href="#Cannot-resolve-symbol-‘com-xxx-xxxFragmentArgs’-in-XML" class="headerlink" title="Cannot resolve symbol ‘com.xxx.xxxFragmentArgs’ in XML"></a>Cannot resolve symbol ‘com.xxx.xxxFragmentArgs’ in XML</h3><blockquote>
-<p>if you are using DataBinding with Navigation, and try to pass value between Activity / Fragment in<br>XML like the code below:</p>
+<p>若配合使用 DataBinding 与 Navigation 并在 Activity / Fragment 间进行传值：</p>
 </blockquote>
 <pre><code class="xml">
 &lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -254,7 +254,7 @@
 </code></pre>
 <hr>
 <blockquote>
-<p>you can try add this code in your build.gradle</p>
+<p>则需在 build.gradle 文件中添加如下代码：</p>
 </blockquote>
 <pre><code class="gradle">sourceSets &#123;
         main &#123;
@@ -265,7 +265,7 @@
     &#125;
 </code></pre>
 <blockquote>
-<p>or Java Version:</p>
+<p>若需使用 Java:</p>
 </blockquote>
 <pre><code class="gradle">sourceSets &#123;
         main &#123;
@@ -277,15 +277,15 @@
 </code></pre>
 <hr>
 <h2 id="Room"><a href="#Room" class="headerlink" title="Room"></a>Room</h2><h3 id="Cannot-create-an-instance-of-xxx-xxxViewModel"><a href="#Cannot-create-an-instance-of-xxx-xxxViewModel" class="headerlink" title="Cannot create an instance of xxx.xxxViewModel"></a>Cannot create an instance of xxx.xxxViewModel</h3><blockquote>
-<p><code>if you don&#39;t want to use Hilt</code> and try to create an ViewModel use this code below:</p>
+<p>如果你想使用懒加载的方式创建 ViewModel：</p>
 </blockquote>
 <pre><code class="kotlin">private val mViewModel: MyViewModel by viewModels()
 </code></pre>
-<p>you should add this two line into your build.gradle.</p>
+<p>则需要在 app 文件夹下的 build.gradle 文件中添加如下代码：</p>
 <pre><code class="gradle">plugins &#123;
     ...
     
-    // Add
+    // 添加
     id &#39;kotlin-kapt&#39;
 &#125;
 
@@ -297,25 +297,29 @@ dependencies &#123;
     implementation &#39;androidx.appcompat:appcompat:x.x.x&#39;
     ...
 
-    // Add
+    // 添加
     kapt &quot;androidx.room:room-compiler:2.4.2&quot;
 &#125;
 </code></pre>
 <hr>
 <blockquote>
-<p><code>If you are using Hilt</code>, ensure your activity/fragment is having @AndroidEntryPoint annotation</p>
+<p>如果使用 Hilt 对 ViewModel 进行注入：</p>
 </blockquote>
-<p>Make your constructor public.</p>
-<p>Make sure your ViewModel has <code>constructor with only one parameter</code> i.e. Application.</p>
-<p>example:</p>
-<p>public MyViewModel(Application application) {<br>super(application);<br>…</p>
+<pre><code class="kotlin">@HiltViewModel
+class RecipesViewModel @Inject constructor(
+    application: Application,
+    private val dataStoreRepository: DataStoreRepository
+) : AndroidViewModel(application) &#123;
+    ...
+&#125;
+</code></pre>
 <hr>
-<h2 id="Dagger-Hilt"><a href="#Dagger-Hilt" class="headerlink" title="Dagger Hilt"></a>Dagger Hilt</h2><h3 id="Unresolved-reference-ApplicationComponent"><a href="#Unresolved-reference-ApplicationComponent" class="headerlink" title="Unresolved reference: ApplicationComponent"></a>Unresolved reference: ApplicationComponent</h3><p><code>After</code> Dagger-Version: <code>2.31</code>, <code>ApplicationComponent has been removed</code> by Google</p>
+<h2 id="Dagger-Hilt"><a href="#Dagger-Hilt" class="headerlink" title="Dagger Hilt"></a>Dagger Hilt</h2><h3 id="Unresolved-reference-ApplicationComponent"><a href="#Unresolved-reference-ApplicationComponent" class="headerlink" title="Unresolved reference: ApplicationComponent"></a>Unresolved reference: ApplicationComponent</h3><p>当 Hilt 更新版本大于：<code>2.31</code> 后, <code>ApplicationComponent</code> 注解将被 Google 移除。</p>
 <blockquote>
-<p>If you want to use the newer version, use SingletonComponent instead.</p>
+<p>新版的 ApplicationComponent 注解被替换为了 SingletonComponent</p>
 </blockquote>
 <ul>
-<li>before</li>
+<li>版本更新前</li>
 </ul>
 <pre><code class="kotlin">@InstallIn(ApplicationComponent::class)
 @Module
@@ -325,7 +329,7 @@ object NetworkModule &#123;
 &#125;
 </code></pre>
 <ul>
-<li>after</li>
+<li>版本更新后</li>
 </ul>
 <pre><code class="kotlin">@InstallIn(SingletonComponent::class)
 @Module
@@ -366,9 +370,9 @@ object NetworkModule &#123;
                     
                 </div>
                 <ul>
-                    <li><a href="/">36 <p>文章</p></a></li>
-                    <li><a href="/categories">18 <p>分类</p></a></li>
-                    <li><a href="/tags">30 <p>标签</p></a></li>
+                    <li><a href="/">41 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">34 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -377,7 +381,7 @@ object NetworkModule &#123;
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ViewBinding"><span class="toc-number">1.</span> <span class="toc-text">ViewBinding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#try-to-use-layout-id-directly-in-you-Activity-Fragment"><span class="toc-number">1.1.</span> <span class="toc-text">try to use layout id directly in you Activity &#x2F; Fragment</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navigation"><span class="toc-number">2.</span> <span class="toc-text">Navigation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#navHostFragment-NavController-Error"><span class="toc-number">2.1.</span> <span class="toc-text">navHostFragment: NavController Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cannot-resolve-symbol-%E2%80%98com-xxx-xxxFragmentArgs%E2%80%99-in-XML"><span class="toc-number">2.2.</span> <span class="toc-text">Cannot resolve symbol ‘com.xxx.xxxFragmentArgs’ in XML</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Room"><span class="toc-number">3.</span> <span class="toc-text">Room</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cannot-create-an-instance-of-xxx-xxxViewModel"><span class="toc-number">3.1.</span> <span class="toc-text">Cannot create an instance of xxx.xxxViewModel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dagger-Hilt"><span class="toc-number">4.</span> <span class="toc-text">Dagger Hilt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unresolved-reference-ApplicationComponent"><span class="toc-number">4.1.</span> <span class="toc-text">Unresolved reference: ApplicationComponent</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ViewBinding"><span class="toc-number">1.</span> <span class="toc-text">ViewBinding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Activity-Fragment-%E4%B8%AD%E9%80%9A%E8%BF%87%E5%A3%B0%E6%98%8E-layout-id-%E8%8E%B7%E5%8F%96-View"><span class="toc-number">1.1.</span> <span class="toc-text">在 Activity &#x2F; Fragment 中通过声明 layout id 获取 View</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navigation"><span class="toc-number">2.</span> <span class="toc-text">Navigation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#navHostFragment-NavController-Error"><span class="toc-number">2.1.</span> <span class="toc-text">navHostFragment: NavController Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cannot-resolve-symbol-%E2%80%98com-xxx-xxxFragmentArgs%E2%80%99-in-XML"><span class="toc-number">2.2.</span> <span class="toc-text">Cannot resolve symbol ‘com.xxx.xxxFragmentArgs’ in XML</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Room"><span class="toc-number">3.</span> <span class="toc-text">Room</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cannot-create-an-instance-of-xxx-xxxViewModel"><span class="toc-number">3.1.</span> <span class="toc-text">Cannot create an instance of xxx.xxxViewModel</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dagger-Hilt"><span class="toc-number">4.</span> <span class="toc-text">Dagger Hilt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unresolved-reference-ApplicationComponent"><span class="toc-number">4.1.</span> <span class="toc-text">Unresolved reference: ApplicationComponent</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
@@ -396,7 +400,7 @@ object NetworkModule &#123;
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2022
+        &copy; 2023
         <span class="gradient-text">
             PhoenixNest
         </span>.

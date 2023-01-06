@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jenkins - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍我在学习并使用 Jenkins 进行自动化部署时的一些笔记分享。
+本篇所使用的开发环境如下：
+
+OS：Ubuntu 22.04 LTS
+Jenkins：v2.346.3
+
+PS：必要,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Jenkins</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/jenkins.jpeg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/Cloud Serving"><b>「
+                        </b>CLOUD SERVING<b> 」</b></a>
+                
+                八月 29, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Jenkins-Manual/" title="Jenkins" class="">Jenkins</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    1.2k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    2 mins.
+                </span>
+                    
+                    
+                        <span id="/Jenkins-Manual/" class="leancloud_visitors"
+                              data-flag-title="Jenkins">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Jenkins/" rel="tag">Jenkins</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍我在学习并使用 <code>Jenkins</code> 进行自动化部署时的一些笔记分享。</p>
+<p>本篇所使用的开发环境如下：</p>
+<ul>
+<li>OS：Ubuntu 22.04 LTS</li>
+<li>Jenkins：v2.346.3</li>
+</ul>
+<p>PS：必要时请使用 sudo 权限。</p>
+</blockquote>
+<hr>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="导入-Jenkins-仓库"><a href="#导入-Jenkins-仓库" class="headerlink" title="导入 Jenkins 仓库"></a>导入 Jenkins 仓库</h3><pre><code class="bash"># 安装 curl，已安装的可跳过该步骤
+apt install curl
+
+# 导入 Jenkins 仓库
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc &gt; /dev/null
+</code></pre>
+<h3 id="通过-apt-安装-Jenkins"><a href="#通过-apt-安装-Jenkins" class="headerlink" title="通过 apt 安装 Jenkins"></a>通过 apt 安装 Jenkins</h3><pre><code class="bash">apt update
+
+apt install jenkins
+</code></pre>
+<h3 id="开启-Jenkins-服务"><a href="#开启-Jenkins-服务" class="headerlink" title="开启 Jenkins 服务"></a>开启 Jenkins 服务</h3><pre><code class="bash"># 设置开机自动启动 Jenkins 服务（可选）
+systemctl enable jenkins
+
+# 启动 Jenkins
+systemctl start jenkins
+
+# 查看 Jenkins 运行状态 
+systemctl status jenkins
+
+# 重启 Jenkins 服务
+systemctl restart jenkins
+
+# 关闭 Jenkins 服务
+systemctl stop jenkins
+</code></pre>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="初始密码登录"><a href="#初始密码登录" class="headerlink" title="初始密码登录"></a>初始密码登录</h3><blockquote>
+<p>安装并启动 Jenkins 后，通过访问 localhost:8080，进入 Jenkins 后台管理 GUI。</p>
+</blockquote>
+<p>初次进入管理后台，需要<code>使用初始管理员密码进行登录</code>；</p>
+<ul>
+<li>初始密码可在该路径中找到：/var/lib/jenkins/secrets/initialAdminPassword</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-0.png" alt="使用初始密码进行登录"></p>
+<hr>
+<h3 id="插件初始化"><a href="#插件初始化" class="headerlink" title="插件初始化"></a>插件初始化</h3><p>登录后进入<code>插件初始化配置</code>页，<code>选择推荐设置</code>即可；</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-1-1.png" alt="插件初始化 - 1"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-1-2.png" alt="插件初始化 - 2"></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h3 id="初始全局配置"><a href="#初始全局配置" class="headerlink" title="初始全局配置"></a>初始全局配置</h3><p>等待插件下载安装后，进入 Jenkins <code>初始全局配置</code>，此处按需求进行设置即可，<code>本文将跳过该设置</code>。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-2-1.png" alt="初始全局设置 - 1"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-2-2.png" alt="初始全局设置 - 2"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-2-3.png" alt="初始全局设置 - 3"></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h3 id="配置结束"><a href="#配置结束" class="headerlink" title="配置结束"></a>配置结束</h3><p>配置结束后，主页展示如下：</p>
+<ul>
+<li>Jenkins 将根据浏览器语言自动加载语言包，此处展示 <code>English</code> 与 <code>简体中文</code> 两种语言格式下的主页效果。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-3-1.png" alt="主页 - English"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Setup/jenkins-setup-3-2.png" alt="主页 - 简体中文"></th>
+</tr>
+</thead>
+</table>
+<hr>
+<h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2><p>通过<code>左侧的功能栏</code>中的 Manage Jenkins 可对 Jenkins 进行额外配置，此处展示常用的 Jenkins 配置；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Configure/jenkins-manage.png" alt="Manage Jenkins"></p>
+<hr>
+<h3 id="Executor-数量"><a href="#Executor-数量" class="headerlink" title="Executor 数量"></a>Executor 数量</h3><p>Executor（执行者），该值影响到可以同时进行构建的数量；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Configure/Global/jenkins-global-configure-1.png" alt="Executor 数量设置"></p>
+<hr>
+<h3 id="Jenkins-Location"><a href="#Jenkins-Location" class="headerlink" title="Jenkins Location"></a>Jenkins Location</h3><p>添加 Jenkins 后台管理主机名；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Configure/Global/jenkins-global-configure-2.png" alt="Jenkins Location"></p>
+<hr>
+<h3 id="全局环境变量"><a href="#全局环境变量" class="headerlink" title="全局环境变量"></a>全局环境变量</h3><p>编译过程中可能用到的所有的工具及环境，如：开发中所使用到的 SDK 等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Configure/Global/jenkins-global-configure-3.png" alt="全局环境变量"></p>
+<hr>
+<h2 id="凭据"><a href="#凭据" class="headerlink" title="凭据"></a>凭据</h2><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Security/jenkins-security.png" alt="安全性设置"></p>
+<hr>
+<blockquote>
+<p>这里模拟一个使用场景：使用 Jenkins 构建 Android Apk，由于构建 Apk 的特殊性，在构建时需要为 Apk 进行签名。</p>
+</blockquote>
+<p>在 Jenkins 中，可通过导入凭据实现上述需求。</p>
+<hr>
+<h3 id="添加域（按需求添加）"><a href="#添加域（按需求添加）" class="headerlink" title="添加域（按需求添加）"></a>添加域（按需求添加）</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Security/Credentials/jenkins-security-credentials-1.png" alt="添加域（按需求添加）"></p>
+<hr>
+<h3 id="添加凭据"><a href="#添加凭据" class="headerlink" title="添加凭据"></a>添加凭据</h3><p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Security/Credentials/jenkins-security-credentials-2.png" alt="添加凭据"></p>
+<hr>
+<h3 id="导入-jsk-文件"><a href="#导入-jsk-文件" class="headerlink" title="导入 .jsk 文件"></a>导入 .jsk 文件</h3><pre><code class="bash">keytool -importkeystore -srckeystore &#123;替换为你的本地 .jks 文件&#125; -srcstoretype JKS -deststoretype PKCS12 -destkeystore ConvertedCertificate.p12
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/Security/Credentials/jenkins-security-credentials-3.png" alt="导入 .jsk 文件"></p>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300 />
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">41 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">34 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5-Jenkins-%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">导入 Jenkins 仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-apt-%E5%AE%89%E8%A3%85-Jenkins"><span class="toc-number">2.2.</span> <span class="toc-text">通过 apt 安装 Jenkins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF-Jenkins-%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.3.</span> <span class="toc-text">开启 Jenkins 服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="toc-number">3.1.</span> <span class="toc-text">初始密码登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.2.</span> <span class="toc-text">插件初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">初始全局配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9D%9F"><span class="toc-number">3.4.</span> <span class="toc-text">配置结束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">系统配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Executor-%E6%95%B0%E9%87%8F"><span class="toc-number">4.1.</span> <span class="toc-text">Executor 数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins-Location"><span class="toc-number">4.2.</span> <span class="toc-text">Jenkins Location</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.3.</span> <span class="toc-text">全局环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%AD%E6%8D%AE"><span class="toc-number">5.</span> <span class="toc-text">凭据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%9F%9F%EF%BC%88%E6%8C%89%E9%9C%80%E6%B1%82%E6%B7%BB%E5%8A%A0%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">添加域（按需求添加）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%87%AD%E6%8D%AE"><span class="toc-number">5.2.</span> <span class="toc-text">添加凭据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5-jsk-%E6%96%87%E4%BB%B6"><span class="toc-number">5.3.</span> <span class="toc-text">导入 .jsk 文件</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2023
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

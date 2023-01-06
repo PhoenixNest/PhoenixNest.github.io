@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Android • File Development - PhoenixNest&#39;s Blog</title>
+    <title>Tag: Jenkins - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -13,13 +13,7 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
-本篇将介绍我最近在对公司 Android 项目进行功能开发时，对文件操作的一些笔记分享。
-
-
-在阅读本文前，你需要了解常用的 Android 文件存储方式：
-
-（1）：保存到外部SD卡（由于现,">
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -66,76 +60,149 @@
 </div>
 <span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
 <div id="loader"></div>
-<div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Android • File Development</h3>
-        <div class="social">
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+<div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/about/" title="ABOUT" external="false">ABOUT</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" external="false">CATEGORIES</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" external="false">TAGS</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/links/" title="LINKS" external="false">LINKS</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" external="false">ARCHIVES</a>
+            </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2023 PhoenixNest.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input"/>
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+             data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-                animation-delay: 600ms;
-                animation-duration: 1.2s;
-                background-image:
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android.jpg) ">
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
         </div>
-        <div class="else">
+        <ul id="menu-menu" class="menu text-menu">
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/about/" title="ABOUT" external="false" class="menu-link">ABOUT</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/categories/" title="CATEGORIES" external="false" class="menu-link">CATEGORIES</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/tags/" title="TAGS" external="false" class="menu-link">TAGS</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/links/" title="LINKS" external="false" class="menu-link">LINKS</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/archives/" title="ARCHIVES" external="false" class="menu-link">ARCHIVES</a>
+                </li>
+            
+            
+                <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+                animation-delay: 900ms;
+                animation-duration: 2.8s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Jenkins/jenkins.jpeg);">
+        </div>
+    </div>
+    
+        <div id="post0" class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/Android"><b>「
-                        </b>ANDROID<b> 」</b></a>
+                    <a href="/categories/Cloud Serving"><b>「
+                        </b>CLOUD SERVING<b> 」</b></a>
                 
-                七月 05, 2022
+                八月 29, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Android-File-Development/" title="Android • File Development" class="">Android • File Development</a>
-            </h3>
+            <h3 class="post-title animated fadeInDown">
+                <a href="/Jenkins-Manual/" title="Jenkins" class="posttitle">Jenkins</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
-                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2k
-                </span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                1.2k
+            </span>
                     
                     
                         <span>
-                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    4 mins.
-                </span>
-                    
-                    
-                        <span id="/Android-File-Development/" class="leancloud_visitors"
-                              data-flag-title="Android • File Development">
-                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">0</span>
-                </span>
-                    
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                2 mins.
+            </span>
                     
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/File/" rel="tag">File</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Jenkins/" rel="tag">Jenkins</a></li></ul>
             
+            <div class="md-content animated fadeIn">
+                
+                    <blockquote>
+<p>本篇将介绍我在学习并使用 <code>Jenkins</code> 进行自动化部署时的一些笔记分享。</p>
+<p>本篇所使用的开发环境如下：</p>
+<ul>
+<li>OS：Ubuntu 22.04 LTS</li>
+<li>Jenkins：v2.346.3</li>
+</ul>
+<p>PS：必要时请使用 sudo 权限。</p>
+</blockquote>
+<hr>
+<h3 id="导入-Jenkins-仓库"><a href="#导入-Jenkins-仓库" class="headerlink" title="导入 Jenkins 仓库"></a>导入 Jenkins 仓库</h3><pre><code class="bash"># 安装 curl，已安装的可跳过该步骤
+apt install curl
+
+# 导入 Jenkins 仓库
+curl -fsSL https...</code></pre>
+                
+                <span class="read-more"><a href="/Jenkins-Manual/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            </div>
         </div>
-    </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -143,154 +210,21 @@
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇将介绍我最近在对公司 <code>Android</code> 项目进行功能开发时，对<code>文件操作</code>的一些笔记分享。</p>
-</blockquote>
-<blockquote>
-<p>在阅读本文前，你需要了解常用的 Android 文件存储方式：</p>
-<ul>
-<li>（1）：保存到<code>外部SD卡</code>（由于现在的手机大部分不支持SD卡扩展，该方法的使用率也逐渐降低，通常用于对旧设备进行适配）；</li>
-<li>（2）：保存到<code>系统内部文件夹</code>（如存储照片与音视频），该方法需要提前在Manifest清单文件中申请文件读写权限；</li>
-<li>（3）：保存到当前App的<code>系统沙盒</code>中（较为常见）；</li>
-<li>（4）：保存到当前App的<code>缓存文件夹</code>中；</li>
-<li>（5）：在开发过程中，<code>将需要的文件存放到assets或resource文件夹中</code>，并集成到App安装包（若保存至assets文件夹，则通常需要先将其复制到手机内存中）</li>
-</ul>
-</blockquote>
-<hr>
-<h2 id="assets-文件操作"><a href="#assets-文件操作" class="headerlink" title="assets 文件操作"></a>assets 文件操作</h2><blockquote>
-<p>拷贝 assets文件夹 到内部存储</p>
-</blockquote>
-<pre><code class="kotlin">// Copy Dir from Assets to Phone
-fun copyAssetsDirToPhone(context: Context, localAssetsPath: String) &#123;
-    var filePath = localAssetsPath
-    try &#123;
-        val fileList = context.assets.list(filePath)!!
-
-        if (fileList.isNotEmpty()) &#123;
-            val file = context.filesDir.absolutePath + File.separator + filePath
-
-            // Create new folder before first copy
-            file.mkdirs()
-            for (fileName in fileList) &#123;
-                filePath = filePath + File.separator + fileName
-                copyAssetsDirToPhone(context, filePath)
-                filePath = filePath.substring(0, filePath.lastIndexOf(File.separator))
-            &#125;
-        &#125; else &#123;
-            // Current selected assets is a file
-            val inputStream: InputStream = context.assets.open(filePath)
-            val file = context.filesDir.absolutePath + File.separator + filePath
-
-            if (!file.exists() || file.length() == 0L) &#123;
-                val fileOutputStream = FileOutputStream(file)
-                var len: Int
-                val buffer = ByteArray(1024)
-
-                while (inputStream.read(buffer).also &#123; len = it &#125; != -1) &#123;
-                    fileOutputStream.write(buffer, 0, len)
-                &#125;
-
-                fileOutputStream.flush()
-                inputStream.close()
-                fileOutputStream.close()
-            &#125;
-        &#125;
-    &#125; catch (exception: Exception) &#123;
-        exception.printStackTrace()
-    &#125;
-&#125;
-</code></pre>
-<hr>
-<blockquote>
-<p>拷贝 assets文件 到内部存储</p>
-</blockquote>
-<pre><code class="kotlin">// Copy file from Assets to Phone
-fun copyAssetsFileToPhone(context: Context, fileName: String) &#123;
-    try &#123;
-        val inputStream: InputStream = context.assets.open(fileName)
-        val file = File(context.filesDir.absolutePath + File.separator + fileName)
-        if (!file.exists() || file.length() == 0L) &#123;
-            // if file not exist, FileOutputStream will auto create it
-            val fileOutputStream = FileOutputStream(file)
-            var len: Int
-            val buffer = ByteArray(1024)
-            while (inputStream.read(buffer).also &#123; len = it &#125; != -1) &#123;
-                fileOutputStream.write(buffer, 0, len)
-            &#125;
-
-            fileOutputStream.flush()
-            inputStream.close()
-            fileOutputStream.close()
-        &#125;
-    &#125; catch (exception: Exception) &#123;
-        exception.printStackTrace()
-    &#125;
-&#125;
-</code></pre>
-
-            <!--[if lt IE 9]>
-            <script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                   data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
-                        
-                    
-                </ul>
-            
-            
-            
-            
-                <hr>
-                <div id="vcomments"></div>
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="/img/favicon.png" height=300 width=300 />
-                    <p>PhoenixNest</p>
-                    <span>用实力让情怀落地</span>
-                    
-                </div>
-                <ul>
-                    <li><a href="/">36 <p>文章</p></a></li>
-                    <li><a href="/categories">18 <p>分类</p></a></li>
-                    <li><a href="/tags">30 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-                
-                
-                    <div class="box sticky animated fadeInRight faster">
-                        <div id="toc" class="subbox">
-                            <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assets-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">assets 文件操作</span></a></li></ol>
-                        </div>
-                    </div>
-                
-            
-        </div>
+    <div id="primary">
+        
     </div>
+    
 </div>
+<div id="preview"></div>
 
-    </div>
-</div>
+
 <div id="back-to-top" class="animated fadeIn faster">
     <div class="flow"></div>
     <span class="percentage animated fadeIn faster">0%</span>
@@ -299,7 +233,7 @@ fun copyAssetsFileToPhone(context: Context, fileName: String) &#123;
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2022
+        &copy; 2023
         <span class="gradient-text">
             PhoenixNest
         </span>.

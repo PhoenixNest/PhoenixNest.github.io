@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Android • File - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍我最近在对 Android 项目进行功能开发时，对文件操作的一些笔记分享。
+
+
+在阅读本文前，你需要了解常用的 Android 文件存储方式：
+
+（1）：保存到外部SD卡（由于现在的,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Android • File</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/Android"><b>「
+                        </b>ANDROID<b> 」</b></a>
+                
+                七月 05, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Android-File/" title="Android • File" class="">Android • File</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    2k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    4 mins.
+                </span>
+                    
+                    
+                        <span id="/Android-File/" class="leancloud_visitors"
+                              data-flag-title="Android • File">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/File/" rel="tag">File</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍我最近在对 <code>Android</code> 项目进行功能开发时，对<code>文件操作</code>的一些笔记分享。</p>
+</blockquote>
+<blockquote>
+<p>在阅读本文前，你需要了解常用的 Android 文件存储方式：</p>
+<ul>
+<li>（1）：保存到<code>外部SD卡</code>（由于现在的手机大部分不支持SD卡扩展，该方法的使用率也逐渐降低，通常用于对旧设备进行适配）；</li>
+<li>（2）：保存到<code>系统内部文件夹</code>（如存储照片与音视频），该方法需要提前在Manifest清单文件中申请文件读写权限；</li>
+<li>（3）：保存到当前App的<code>系统沙盒</code>中（较为常见）；</li>
+<li>（4）：保存到当前App的<code>缓存文件夹</code>中；</li>
+<li>（5）：在开发过程中，<code>将需要的文件存放到assets或resource文件夹中</code>，并集成到App安装包（若保存至assets文件夹，则通常需要先将其复制到手机内存中）</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="assets-文件操作"><a href="#assets-文件操作" class="headerlink" title="assets 文件操作"></a>assets 文件操作</h2><blockquote>
+<p>拷贝 assets文件夹 到内部存储</p>
+</blockquote>
+<pre><code class="kotlin">// Copy Dir from Assets to Phone
+fun copyAssetsDirToPhone(context: Context, localAssetsPath: String) &#123;
+    var filePath = localAssetsPath
+    try &#123;
+        val fileList = context.assets.list(filePath)!!
+
+        if (fileList.isNotEmpty()) &#123;
+            val file = context.filesDir.absolutePath + File.separator + filePath
+
+            // Create new folder before first copy
+            file.mkdirs()
+            for (fileName in fileList) &#123;
+                filePath = filePath + File.separator + fileName
+                copyAssetsDirToPhone(context, filePath)
+                filePath = filePath.substring(0, filePath.lastIndexOf(File.separator))
+            &#125;
+        &#125; else &#123;
+            // Current selected assets is a file
+            val inputStream: InputStream = context.assets.open(filePath)
+            val file = context.filesDir.absolutePath + File.separator + filePath
+
+            if (!file.exists() || file.length() == 0L) &#123;
+                val fileOutputStream = FileOutputStream(file)
+                var len: Int
+                val buffer = ByteArray(1024)
+
+                while (inputStream.read(buffer).also &#123; len = it &#125; != -1) &#123;
+                    fileOutputStream.write(buffer, 0, len)
+                &#125;
+
+                fileOutputStream.flush()
+                inputStream.close()
+                fileOutputStream.close()
+            &#125;
+        &#125;
+    &#125; catch (exception: Exception) &#123;
+        exception.printStackTrace()
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<blockquote>
+<p>拷贝 assets文件 到内部存储</p>
+</blockquote>
+<pre><code class="kotlin">// Copy file from Assets to Phone
+fun copyAssetsFileToPhone(context: Context, fileName: String) &#123;
+    try &#123;
+        val inputStream: InputStream = context.assets.open(fileName)
+        val file = File(context.filesDir.absolutePath + File.separator + fileName)
+        if (!file.exists() || file.length() == 0L) &#123;
+            // if file not exist, FileOutputStream will auto create it
+            val fileOutputStream = FileOutputStream(file)
+            var len: Int
+            val buffer = ByteArray(1024)
+            while (inputStream.read(buffer).also &#123; len = it &#125; != -1) &#123;
+                fileOutputStream.write(buffer, 0, len)
+            &#125;
+
+            fileOutputStream.flush()
+            inputStream.close()
+            fileOutputStream.close()
+        &#125;
+    &#125; catch (exception: Exception) &#123;
+        exception.printStackTrace()
+    &#125;
+&#125;
+</code></pre>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/favicon.png" height=300 width=300 />
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">41 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">34 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assets-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">assets 文件操作</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2023
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

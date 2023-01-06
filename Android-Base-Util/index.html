@@ -14,13 +14,13 @@
     
     
         <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
-本篇将介绍我最近在对自己 Android 项目进行开发时，对基类封装的一些笔记分享。
+本篇将介绍我最近在对 Android 项目进行开发时，对基类封装的一些笔记分享。
 
 
 UiBaseActivity
 Activity 基类封装
 
-open class BaseActivi,">
+open class BaseActivity,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -96,7 +96,7 @@ open class BaseActivi,">
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android.jpg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -113,13 +113,13 @@ open class BaseActivi,">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    538
+                    1.5k
                 </span>
                     
                     
                         <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    3 mins.
                 </span>
                     
                     
@@ -155,7 +155,7 @@ open class BaseActivi,">
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇将介绍我最近在对自己 <code>Android</code> 项目进行开发时，对<code>基类封装</code>的一些笔记分享。</p>
+<p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，对<code>基类封装</code>的一些笔记分享。</p>
 </blockquote>
 <hr>
 <h2 id="Ui"><a href="#Ui" class="headerlink" title="Ui"></a>Ui</h2><h3 id="BaseActivity"><a href="#BaseActivity" class="headerlink" title="BaseActivity"></a>BaseActivity</h3><blockquote>
@@ -177,6 +177,42 @@ open class BaseActivi,">
     &#125;
 
     ...
+
+&#125;
+</code></pre>
+<hr>
+<h3 id="BaseFragment"><a href="#BaseFragment" class="headerlink" title="BaseFragment"></a>BaseFragment</h3><blockquote>
+<p>Fragment 基类封装</p>
+</blockquote>
+<p>相较于 BaseActivity，Fragment 的基础基类如下：</p>
+<ul>
+<li><p>在获取上下文时，可通过重写 Fragment 的 onAttach 函数，对上下文进行获取并赋值，之后可通过 hostActivity 动态获取当前宿主Activity上下文；</p>
+</li>
+<li><p>由于 ViewModel 的特殊性，其生命周期观察者可为外层 Activity 或内部 Fragment，故对 ViewModelProvider 进行区分。</p>
+</li>
+</ul>
+<pre><code class="kotlin">open class BaseFragment : Fragment() &#123;
+
+    lateinit var hostActivity: AppCompatActivity
+    private val vpByActivity: ViewModelProvider by lazy &#123; ViewModelProvider(hostActivity) &#125;
+    private val vpByFragment: ViewModelProvider by lazy &#123; ViewModelProvider(this) &#125;
+
+    /* ======================== Logical Function ======================== */
+
+    fun &lt;T : ViewModel&gt; provideViewModelByActivity(type: Class&lt;T&gt;): T &#123;
+        return vpByActivity[type]
+    &#125;
+
+    fun &lt;T : ViewModel&gt; provideViewModelByFragment(type: Class&lt;T&gt;): T &#123;
+        return vpByFragment[type]
+    &#125;
+
+    /* ======================== Lifecycle ======================== */
+
+    override fun onAttach(context: Context) &#123;
+        super.onAttach(context)
+        hostActivity = context as AppCompatActivity
+    &#125;
 
 &#125;
 </code></pre>
@@ -212,9 +248,9 @@ open class BaseActivi,">
                     
                 </div>
                 <ul>
-                    <li><a href="/">36 <p>文章</p></a></li>
-                    <li><a href="/categories">18 <p>分类</p></a></li>
-                    <li><a href="/tags">30 <p>标签</p></a></li>
+                    <li><a href="/">41 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">34 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -223,7 +259,7 @@ open class BaseActivi,">
                     <div class="box sticky animated fadeInRight faster">
                         <div id="toc" class="subbox">
                             <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ui"><span class="toc-number">2.</span> <span class="toc-text">Ui</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BaseActivity"><span class="toc-number">2.1.</span> <span class="toc-text">BaseActivity</span></a></li></ol></li></ol>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ui"><span class="toc-number">2.</span> <span class="toc-text">Ui</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BaseActivity"><span class="toc-number">2.1.</span> <span class="toc-text">BaseActivity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BaseFragment"><span class="toc-number">2.2.</span> <span class="toc-text">BaseFragment</span></a></li></ol></li></ol>
                         </div>
                     </div>
                 
@@ -242,7 +278,7 @@ open class BaseActivi,">
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2022
+        &copy; 2023
         <span class="gradient-text">
             PhoenixNest
         </span>.
