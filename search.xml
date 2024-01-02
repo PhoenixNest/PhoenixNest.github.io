@@ -8,7 +8,7 @@
       <link href="Welcome/"/>
       <url>Welcome/</url>
       
-        <content type="html"><![CDATA[<h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>👋 欢迎来到我的博客, 我是<code>PhoenixNest • (Peter Chen)</code>。</p><blockquote><ul><li>一个 <code>吉林大学珠海学院 • 计算机学院 • 软件工程专业</code>的<strong>应届本科毕业生</strong>。</li><li>一个知晓 C++、Java、MySQL、SQL Server 等拼写的程序猿（发量犹在，Still a ROOKIE）。</li><li>一个做过<strong>服务器运维</strong>，知晓 <strong>Linux</strong>，调配过数据库与服务器底层硬件的苦逼练习生。</li><li>一个知晓 MVVM 开发架构，使用过 <strong>Google JetPack</strong> 快速开发框架的Android程序猿。</li><li>一个做过高德地图（<strong>Android</strong>）开发，正在转入 <strong>Flutter</strong> 跨平台开发的新人。</li><li>一个热爱星际争霸2，喜欢暴雪游戏，梦想进入暴雪公司（<strong>Blizzard</strong>）的SCer。</li><li>一个喜欢游泳，曾做过<strong>蛙泳与自由泳教练</strong>的泳客。</li><li>一个接触计算机编程开发<strong>3年</strong>，喜欢学习新技术的<strong>软硬件攻城狮</strong>。</li><li>一个做过高达模型评测，开过电台的小 Up 主。</li><li>一个喜欢拍照，喜欢记录生活，不会讲粤语的广东潮汕人。</li></ul></blockquote>]]></content>
+        <content type="html"><![CDATA[<h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>👋 欢迎来到我的博客, 我是<code>PhoenixNest • (Peter Chen)</code>。</p><blockquote><ul><li>一个 <code>吉林大学珠海学院 • 计算机学院 • 软件工程专业</code>的<strong>菜鸡本科生</strong>。</li><li>一个知晓 C++、Java、MySQL、SQL Server 等拼写的程序猿（发量犹在，Still a ROOKIE）。</li><li>一个做过<strong>服务器运维</strong>，知晓 <strong>Linux</strong>，调配过数据库与服务器底层硬件的苦逼练习生。</li><li>一个知晓 MVVM 开发架构，使用过 <strong>Google JetPack</strong> 快速开发框架的Android程序猿。</li><li>一个做过高德地图（<strong>Android</strong>）开发，正在转入 <strong>Flutter</strong> 跨平台开发的新人。</li><li>一个热爱星际争霸2，喜欢暴雪游戏，梦想进入暴雪公司（<strong>Blizzard</strong>）的SCer。</li><li>一个喜欢游泳，曾做过<strong>蛙泳与自由泳教练</strong>的泳客。</li><li>一个接触计算机编程开发<strong>5年</strong>，喜欢学习新技术的<strong>软硬件攻城狮</strong>。</li><li>一个做过高达模型评测，开过电台的小 Up 主。</li><li>一个喜欢拍照，喜欢记录生活，不会讲粤语的广东潮汕人。</li></ul></blockquote>]]></content>
       
       
       <categories>
@@ -29,11 +29,88 @@
     
     
     <entry>
-      <title>Android Expand View</title>
+      <title>Daily Notes</title>
+      <link href="Daily-Notes/"/>
+      <url>Daily-Notes/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我日常生活中遇到并记录的一些问题与解决方法。</p></blockquote><hr><h2 id="问题清单"><a href="#问题清单" class="headerlink" title="问题清单"></a>问题清单</h2><h3 id="Android-Studio-无法正常渲染-Markdown"><a href="#Android-Studio-无法正常渲染-Markdown" class="headerlink" title="Android Studio 无法正常渲染 Markdown"></a>Android Studio 无法正常渲染 Markdown</h3><p>在 Android Studio 中任一位置<code>双击 Shift</code>，打开全局菜单后，选择 <code>Action 一栏</code>，在输入框中输入：</p><blockquote><p>Choose Boot Java Runtime for the IDE</p></blockquote><p>在弹出窗口中的 <code>Select Runtime</code> 选项框中选择任意一个 <code>xxx JetBrains Runtime With JCEF</code>，待 IDE 下载完成后，重启 Android Studio 即可正常渲染 Markdown。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验分享 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 经验分享 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android • Jetpack Compose</title>
+      <link href="Android-Jetpack-Compose-Basic/"/>
+      <url>Android-Jetpack-Compose-Basic/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，使用 <code>Jetpack Compose Ui 组件库</code> 的一些笔记分享。</p></blockquote><blockquote><p><a href="https://developer.android.google.cn/jetpack/compose">Google Android Developer</a> 中对 Jetpack Compose 的介绍：</p></blockquote><p>Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI<br>development on Android. Quickly bring your app to life with less code, powerful tools, and intuitive Kotlin APIs.</p><table><thead><tr><th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Compose/row.gif" alt="Row"></th><th><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Compose/column.gif" alt="Column"></th></tr></thead></table><hr><h2 id="引入-Jetpack-Compose-Ui-库"><a href="#引入-Jetpack-Compose-Ui-库" class="headerlink" title="引入 Jetpack Compose Ui 库"></a>引入 Jetpack Compose Ui 库</h2><p>本章节参考链接：<a href="https://developer.android.google.cn/jetpack/compose/setup">Quick start</a></p><blockquote><p>为项目开启 Compose Feature</p></blockquote><p>在 app 目录下的 build.gradle 文件中添加：</p><pre><code class="gradle">android &#123;    buildFeatures &#123;        compose true    &#125;    composeOptions &#123;        kotlinCompilerExtensionVersion = kotlin_compiler_version    &#125;&#125;</code></pre><hr><blockquote><p>主流的引入 Jetpack Compose 有两种方式，分别是：</p></blockquote><ul><li><p>修改 build.gradle 并引入特定版本的 Groovy 脚本或 ktx 脚本</p></li><li><p>使用 BoM 动态引入统一版本的 Compose 库</p></li></ul><hr><h3 id="通过-Groovy-引入-ktx-同理"><a href="#通过-Groovy-引入-ktx-同理" class="headerlink" title="通过 Groovy 引入 ( ktx 同理 )"></a>通过 Groovy 引入 ( ktx 同理 )</h3><blockquote><p>在 app 目录下的 build.gradle 文件中添加：</p></blockquote><pre><code class="gradle">implementation &quot;androidxcomposeui:ui:$compose_ui_version&quot;implementation &quot;androidx.compose.ui:ui-tooling-preview:$compose_ui_version&quot;implementation &quot;androidx.activity:activity-compose:$compose_activity_version&quot;androidTestImplementation &quot;androidx.compose.ui:ui-test-junit4:$compose_ui_version&quot;debugImplementation &quot;androidx.compose.ui:ui-tooling:$compose_ui_version&quot;debugImplementation &quot;androidx.compose.ui:ui-test-manifest:$compose_ui_version&quot;</code></pre><hr><h3 id="通过-BoM-引入"><a href="#通过-BoM-引入" class="headerlink" title="通过 BoM 引入"></a>通过 BoM 引入</h3><blockquote><p><a href="https://developer.android.google.cn/jetpack/compose/bom/bom">Google Android Delevoper</a> 中对于 BoM 的定义：</p></blockquote><p>The Compose Bill of Materials (BOM) lets you manage all of your Compose library versions by specifying only the BOM’s version. The BOM itself has links to the stable versions of the different Compose libraries, in such a way that they work well together. When using the BOM in your app, you don’t need to add any version to the Compose library dependencies themselves. When you update the BOM version, all the libraries that you’re using are automatically updated to their new versions.</p><blockquote><p>在 app 目录下的 build.gradle 文件中添加：</p></blockquote><pre><code class="gradle">dependencies &#123;    def composeBom = platform(&#39;androidx.compose:compose-bom:2022.12.00&#39;)    implementation composeBom    androidTestImplementation composeBom    // Choose one of the following:    // Material Design 3    implementation &#39;androidx.compose.material3:material3&#39;    // or Material Design 2    implementation &#39;androidx.compose.material:material&#39;    // or skip Material Design and build directly on top of foundational components    implementation &#39;androidx.compose.foundation:foundation&#39;    // or only import the main APIs for the underlying toolkit systems,    // such as input and measurement/layout    implementation &#39;androidx.compose.ui:ui&#39;    // Android Studio Preview support    implementation &#39;androidx.compose.ui:ui-tooling-preview&#39;    debugImplementation &#39;androidx.compose.ui:ui-tooling&#39;    // UI Tests    androidTestImplementation &#39;androidx.compose.ui:ui-test-junit4&#39;    debugImplementation &#39;androidx.compose.ui:ui-test-manifest&#39;    // Optional - Included automatically by material, only add when you need    // the icons but not the material library (e.g. when using Material3 or a    // custom design system based on Foundation)    implementation &#39;androidx.compose.material:material-icons-core&#39;    // Optional - Add full set of material icons    implementation &#39;androidx.compose.material:material-icons-extended&#39;    // Optional - Add window size utils    implementation &#39;androidx.compose.material3:material3-window-size-class&#39;    // Optional - Integration with activities    implementation &#39;androidx.activity:activity-compose:1.5.1&#39;    // Optional - Integration with ViewModels    implementation &#39;androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1&#39;    // Optional - Integration with LiveData    implementation &#39;androidx.compose.runtime:runtime-livedata&#39;    // Optional - Integration with RxJava    implementation &#39;androidx.compose.runtime:runtime-rxjava2&#39;&#125;</code></pre><hr><h2 id="使用-Compose"><a href="#使用-Compose" class="headerlink" title="使用 Compose"></a>使用 Compose</h2><p>对于从 Flutter 开发转到 Compose 的开发者来说，Compose 的写法与 Flutter 如出一辙。</p><p>即：使用不断组合的 Widget 组成 Page，将每一个页面拆分成若干个小组件，通过类似搭积木的方式，组装成一个完整的页面。</p><blockquote><p>在 Compose 中，我们还是通过 Activity 的 onCreate 方法加载 App 的入口页面，只需将原本的 setContentView() 方法改为用于加载 Compose 的 setContent() 即可。</p></blockquote><pre><code class="kotlin">setContent &#123;    MyApplicationTheme &#123;        Scaffold(          bottomBar = &#123; MyBottomNavigationBar() &#125;        ) &#123; padding -&gt;            // A surface container using the &#39;background&#39; color from the theme            Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) &#123;                HomePage()            &#125;        &#125;    &#125;&#125;</code></pre><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://developer.android.com/courses">Android Developer Courses</a></p></li><li><p><a href="https://developer.android.google.cn/jetpack/compose/setup">Compose Dev Docs</a></p></li><li><p><a href="https://codelabs.developers.google.com/?cat=Android&text=Compose">Codelabs • Compose</a></p></li><li><p><a href="https://github.com/android/compose-samples">Github • Compose samples</a></p></li><li><p><a href="https://m3.material.io/">Material Design</a></p></li><li><p><a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ElevatedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)">androidx.compose.material3</a></p></li></ul><hr><h3 id="协程-参考资料"><a href="#协程-参考资料" class="headerlink" title="[协程] 参考资料"></a>[协程] 参考资料</h3><ul><li><p><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.sync/-mutex/">Kotlin Official • Mutex</a></p></li><li><p><a href="https://medium.com/mobile-app-development-publication/mutex-for-coroutines-5f4a4ca60763">Mutex For Kotlin Coroutines</a></p></li></ul><hr><h3 id="Room-参考资料"><a href="#Room-参考资料" class="headerlink" title="[Room] 参考资料"></a>[Room] 参考资料</h3><ul><li><p><a href="https://www.sqlitetutorial.net/">SQLite Tutorial - An Easy Way to Master SQLite Fast</a></p></li><li><p><a href="https://medium.com/androiddevelopers/7-pro-tips-for-room-fbadea4bfbd1">7 Pro-tips for Room</a></p></li></ul><hr><h3 id="Retrofit-参考资料"><a href="#Retrofit-参考资料" class="headerlink" title="[Retrofit] 参考资料"></a>[Retrofit] 参考资料</h3><ul><li><p><a href="https://www.geeksforgeeks.org/how-to-handle-api-responses-success-error-in-android/?ref=gcse">How to Handle API Responses (Success/Error) in Android?</a></p></li><li><p><a href="https://codersee.com/retrofit-with-kotlin-the-ultimate-guide/">Retrofit With Kotlin- The Ultimate Guide</a></p></li><li><p><a href="https://androidwave.com/retrying-request-with-retrofit-android/">Retrying Request with Retrofit Android</a></p></li><li><p><a href="https://www.jianshu.com/p/ea2055db3dd3">Android-Retrofit-超时-重试-缓存-拦截器</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Jetpack </tag>
+            
+            <tag> Compose Ui </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SVN • Subversion</title>
+      <link href="SVN-Manual/"/>
+      <url>SVN-Manual/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在学习<code>SVN</code>的一些笔记分享。</p></blockquote><blockquote><p>SVN 是 subversion 的缩写，是一个开放源代码的版本控制系统，通过采用分支管理系统的高效管理，简而言之就是用于多个人共同开发同一个项目，实现共享资源，实现最终集中式的管理。</p></blockquote><hr><h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><pre><code class="bash"># svn cp -m &quot;提交信息&quot; [你想要作为新分支代码基础的分支(如：trunk分支)] [新分支地址]svn cp -m &quot;Commit message&quot; http://example.com/MyProject/trunk http://example.com/MyProject/new_branche</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> SVN </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SVN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android • Expand View</title>
       <link href="Android-Expand-View/"/>
       <url>Android-Expand-View/</url>
       
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对 <code>Android</code> 项目进行功能开发时，对<code>展开 View</code>的一些笔记分享。</p></blockquote><p>在日常项目开发中，通常会使用到如展开列表样式的布局实现，通常适用于用户个人页介绍用户信息或其他使用场景。</p><blockquote><p>在阅读本文前，你需要了解：<a href="https://developer.android.com/reference/android/transition/AutoTransition">Android 简单过渡动画 AutoTransition()</a></p></blockquote><p>本篇将介绍并实现如下展开效果：</p><image height="360" width="180" src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Expand%20View/example.gif" alt="Example" /><hr><h2 id="Layout-准备"><a href="#Layout-准备" class="headerlink" title="Layout 准备"></a>Layout 准备</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!-- 外层mainView --&gt;&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    xmlns:tools=&quot;http://schemas.android.com/tools&quot;    android:id=&quot;@+id/mainView&quot;    android:layout_width=&quot;match_parent&quot;    android:layout_height=&quot;match_parent&quot;    android:layout_margin=&quot;16dp&quot;    android:fitsSystemWindows=&quot;true&quot;    android:orientation=&quot;vertical&quot;    tools:context=&quot;.ui.MainActivity&quot;&gt;    &lt;LinearLayout        android:id=&quot;@+id/topView&quot;        android:layout_width=&quot;match_parent&quot;        android:layout_height=&quot;200dp&quot;        android:background=&quot;#CC000000&quot;        android:gravity=&quot;center&quot;        android:orientation=&quot;vertical&quot;&gt;        &lt;ImageView            android:layout_width=&quot;96dp&quot;            android:layout_height=&quot;96dp&quot;            android:src=&quot;@mipmap/ic_launcher_round&quot; /&gt;        &lt;!-- 展开 Button --&gt;        &lt;Button            android:id=&quot;@+id/expandButton&quot;            android:layout_width=&quot;wrap_content&quot;            android:layout_height=&quot;wrap_content&quot;            android:layout_marginTop=&quot;16dp&quot;            android:text=&quot;Expand&quot; /&gt;    &lt;/LinearLayout&gt;    &lt;!-- 待隐藏的 hiddenView --&gt;    &lt;View        android:id=&quot;@+id/hiddenView&quot;        android:layout_width=&quot;match_parent&quot;        android:layout_height=&quot;100dp&quot;        android:background=&quot;#82B1FF&quot;        android:orientation=&quot;horizontal&quot;        android:visibility=&quot;gone&quot; /&gt;&lt;/LinearLayout&gt;</code></pre><hr><h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><pre><code class="kotlin">// mainView：外层父布局，即：隐藏 View 的父布局；// hiddenView：准备设置可见性的 View；// function：可见性修改时，回调函数给外层进行额外操作，如：监听可见性动态切换按钮的 Icon，该函数可加可不加，根据实际情况添加即可。fun expandView(    mainView: ViewGroup,    hiddenView: View,    function: (isVisible: Boolean) -&gt; Unit = &#123;&#125;) &#123;    // 如果 View 已展开，则将其可见性修改为 GONE，在该方法里也可对切换展开按钮的 Icon 进行修改。    if (hiddenView.visibility == View.VISIBLE) &#123;        function.invoke(hiddenView.isVisible)        // 在将待隐藏 View 隐藏前，使用 AutoTransition() 简单过渡动画进行修饰，在动画结束后将 View 进行隐藏        TransitionManager.beginDelayedTransition(mainView, AutoTransition())        hiddenView.visibility = View.GONE    &#125;    // 反之修改 View 可见性为 VISIBLE。    else &#123;        function.invoke(hiddenView.isVisible)        TransitionManager.beginDelayedTransition(mainView, AutoTransition())        hiddenView.visibility = View.VISIBLE    &#125;&#125;</code></pre><hr><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code class="kotlin">binding.expandButton.setOnClickListener &#123;    UiUtil.expandView(        mainView = binding.mainView,        hiddenView = binding.hiddenView,    ) &#123;        Log.d(&quot;TAG&quot;, &quot;visible: $it&quot;)    &#125;&#125;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对 <code>Android</code> 项目进行功能开发时，对<code>展开 View</code>的一些笔记分享。</p></blockquote><p>在日常项目开发中，通常会使用到如展开列表样式的布局实现，通常适用于用户个人页介绍用户信息或其他使用场景。</p><blockquote><p>在阅读本文前，你需要了解：<a href="https://developer.android.com/reference/android/transition/AutoTransition">Android 简单过渡动画 AutoTransition()</a>，<a href="https://developer.android.google.cn/reference/android/transition/AutoTransition">Android Developer</a> 中对于 AutoTransition的介绍如下：</p></blockquote><p>Utility class for creating a default transition that automatically fades, moves, and resizes views during a scene change.</p><p>An AutoTransition can be described in a resource file by using the tag autoTransition, along with the other standard attributes of R.styleable.Transition.</p><blockquote><p>本篇将介绍并实现如下展开效果：</p></blockquote><image height="360" width="180" src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Expand%20View/example.gif" alt="Example" /><hr><h2 id="Layout-准备"><a href="#Layout-准备" class="headerlink" title="Layout 准备"></a>Layout 准备</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!-- 外层mainView --&gt;&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    xmlns:tools=&quot;http://schemas.android.com/tools&quot;    android:id=&quot;@+id/mainView&quot;    android:layout_width=&quot;match_parent&quot;    android:layout_height=&quot;match_parent&quot;    android:layout_margin=&quot;16dp&quot;    android:fitsSystemWindows=&quot;true&quot;    android:orientation=&quot;vertical&quot;    tools:context=&quot;.ui.MainActivity&quot;&gt;    &lt;LinearLayout        android:id=&quot;@+id/topView&quot;        android:layout_width=&quot;match_parent&quot;        android:layout_height=&quot;200dp&quot;        android:background=&quot;#CC000000&quot;        android:gravity=&quot;center&quot;        android:orientation=&quot;vertical&quot;&gt;        &lt;ImageView            android:layout_width=&quot;96dp&quot;            android:layout_height=&quot;96dp&quot;            android:src=&quot;@mipmap/ic_launcher_round&quot; /&gt;        &lt;!-- 展开 Button --&gt;        &lt;Button            android:id=&quot;@+id/expandButton&quot;            android:layout_width=&quot;wrap_content&quot;            android:layout_height=&quot;wrap_content&quot;            android:layout_marginTop=&quot;16dp&quot;            android:text=&quot;Expand&quot; /&gt;    &lt;/LinearLayout&gt;    &lt;!-- 待隐藏的 hiddenView --&gt;    &lt;View        android:id=&quot;@+id/hiddenView&quot;        android:layout_width=&quot;match_parent&quot;        android:layout_height=&quot;100dp&quot;        android:background=&quot;#82B1FF&quot;        android:orientation=&quot;horizontal&quot;        android:visibility=&quot;gone&quot; /&gt;&lt;/LinearLayout&gt;</code></pre><hr><h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><pre><code class="kotlin">// mainView：外层父布局，即：隐藏 View 的父布局；// hiddenView：准备设置可见性的 View；// function：可见性修改时，回调函数给外层进行额外操作，如：监听可见性动态切换按钮的 Icon，该函数可加可不加，根据实际情况添加即可。fun expandView(    mainView: ViewGroup,    hiddenView: View,    function: (isVisible: Boolean) -&gt; Unit = &#123;&#125;) &#123;    // 如果 View 已展开，则将其可见性修改为 GONE，在该方法里也可对切换展开按钮的 Icon 进行修改。    if (hiddenView.visibility == View.VISIBLE) &#123;        function.invoke(hiddenView.isVisible)        // 在将待隐藏 View 隐藏前，使用 AutoTransition() 简单过渡动画进行修饰，在动画结束后将 View 进行隐藏        TransitionManager.beginDelayedTransition(mainView, AutoTransition())        hiddenView.visibility = View.GONE    &#125;    // 反之修改 View 可见性为 VISIBLE。    else &#123;        function.invoke(hiddenView.isVisible)        TransitionManager.beginDelayedTransition(mainView, AutoTransition())        hiddenView.visibility = View.VISIBLE    &#125;&#125;</code></pre><hr><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code class="kotlin">binding.expandButton.setOnClickListener &#123;    UiUtil.expandView(        mainView = binding.mainView,        hiddenView = binding.hiddenView,    ) &#123;        Log.d(&quot;TAG&quot;, &quot;visible: $it&quot;)    &#125;&#125;</code></pre>]]></content>
       
       
       <categories>
@@ -46,31 +123,6 @@
         <tags>
             
             <tag> Ui </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Android Gson</title>
-      <link href="Android-Gson/"/>
-      <url>Android-Gson/</url>
-      
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><hr>]]></content>
-      
-      
-      <categories>
-          
-          <category> Android </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Network </tag>
             
         </tags>
       
@@ -129,9 +181,9 @@
     
     
     <entry>
-      <title>Android • Navigation</title>
-      <link href="Android-Navigation/"/>
-      <url>Android-Navigation/</url>
+      <title>Android • Jetpack • Navigation</title>
+      <link href="Android-Jetpack-Navigation/"/>
+      <url>Android-Jetpack-Navigation/</url>
       
         <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，有关 Navigation 方面的笔记分享。</p></blockquote><blockquote><p><a href="https://developer.android.com/guide/navigation">Google Android Developer</a> 中对 Navigation 的介绍：</p></blockquote><p>Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app. Android Jetpack’s Navigation component helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer. The Navigation component also ensures a consistent and predictable user experience by adhering to an established set of principles.</p><hr><h2 id="Navigation-场景操作"><a href="#Navigation-场景操作" class="headerlink" title="Navigation 场景操作"></a>Navigation 场景操作</h2><h3 id="Splash-Screen-finish"><a href="#Splash-Screen-finish" class="headerlink" title="Splash Screen finish()"></a>Splash Screen finish()</h3><blockquote><p>假设有如下使用场景：</p></blockquote><ol><li><p>项目仅可使用 Android 原生组件 或 Jetpack 组件库，不可使用第三方库或插件；</p></li><li><p>当用户<code>首次安装</code>应用时，优先弹出<code>引导页（Splash Screen）</code>，提示用户需要对 App 相应权限进行授权；当用户授权相应权限后 2s 进入主页；此后若用户手动在设置取消授权，则需再次展示该权限申请页；</p></li><li><p>当用户<code>首次打开</code>应用时，优先弹出<code>欢迎页（对引导 Splash Screen 进行修改即可）</code>，并在 2s 后进入主页；</p></li><li><p><code>引导页与欢迎页均需要在展示后进行销毁</code>（启动新页面并关闭当前页面），类似 Activity 的 finish() 方法。</p></li></ol><hr><blockquote><p>假定有欢迎页A，主页B，则相应操作与配置如下：</p></blockquote><ol><li><p>在 nav.xml 文件中，添加 <code>欢迎页A -&gt; 主页B</code> 的跳转路径；</p></li><li><p><code>对跳转路径进行设置</code>，代码如下（主要修改点位于 popUpTo 与 popUpToInclusive 两个属性）：</p></li></ol><pre><code class="xml">&lt;fragment android:id=&quot;@+id/A&quot;          android:name=&quot;com.xx.A&quot;          android:label=&quot;A&quot;&gt;    &lt;action        android:id=&quot;@+id/action_A_to_B&quot;        app:destination=&quot;@id/B&quot;        app:popUpTo=&quot;@id/A&quot;        app:popUpToInclusive=&quot;true&quot;/&gt;&lt;/fragment&gt;</code></pre>]]></content>
       
@@ -185,7 +237,7 @@
       <link href="Android-Base-Util/"/>
       <url>Android-Base-Util/</url>
       
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，对<code>基类封装</code>的一些笔记分享。</p></blockquote><hr><h2 id="Ui"><a href="#Ui" class="headerlink" title="Ui"></a>Ui</h2><h3 id="BaseActivity"><a href="#BaseActivity" class="headerlink" title="BaseActivity"></a>BaseActivity</h3><blockquote><p>Activity 基类封装</p></blockquote><pre><code class="kotlin">open class BaseActivity : AppCompatActivity() &#123;    private val viewModelProvideForActivity: ViewModelProvider by lazy &#123; ViewModelProvider(this) &#125;    fun &lt;T : ViewModel&gt; provideViewModel(type: Class&lt;T&gt;): T &#123;        return viewModelProvideForActivity[type]    &#125;    /* ======================== Lifecycle ======================== */    override fun onCreate(savedInstanceState: Bundle?) &#123;        WindowCompat.setDecorFitsSystemWindows(window, false)        super.onCreate(savedInstanceState)    &#125;    ...&#125;</code></pre><hr><h3 id="BaseFragment"><a href="#BaseFragment" class="headerlink" title="BaseFragment"></a>BaseFragment</h3><blockquote><p>Fragment 基类封装</p></blockquote><p>相较于 BaseActivity，Fragment 的基础基类如下：</p><ul><li><p>在获取上下文时，可通过重写 Fragment 的 onAttach 函数，对上下文进行获取并赋值，之后可通过 hostActivity 动态获取当前宿主Activity上下文；</p></li><li><p>由于 ViewModel 的特殊性，其生命周期观察者可为外层 Activity 或内部 Fragment，故对 ViewModelProvider 进行区分。</p></li></ul><pre><code class="kotlin">open class BaseFragment : Fragment() &#123;    lateinit var hostActivity: AppCompatActivity    private val vpByActivity: ViewModelProvider by lazy &#123; ViewModelProvider(hostActivity) &#125;    private val vpByFragment: ViewModelProvider by lazy &#123; ViewModelProvider(this) &#125;    /* ======================== Logical Function ======================== */    fun &lt;T : ViewModel&gt; provideViewModelByActivity(type: Class&lt;T&gt;): T &#123;        return vpByActivity[type]    &#125;    fun &lt;T : ViewModel&gt; provideViewModelByFragment(type: Class&lt;T&gt;): T &#123;        return vpByFragment[type]    &#125;    /* ======================== Lifecycle ======================== */    override fun onAttach(context: Context) &#123;        super.onAttach(context)        hostActivity = context as AppCompatActivity    &#125;&#125;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，对<code>基类封装</code>的一些笔记分享。</p></blockquote><hr><h2 id="Ui"><a href="#Ui" class="headerlink" title="Ui"></a>Ui</h2><h3 id="BaseActivity"><a href="#BaseActivity" class="headerlink" title="BaseActivity"></a>BaseActivity</h3><blockquote><p>Activity 基类封装</p></blockquote><pre><code class="kotlin">open class BaseActivity : AppCompatActivity() &#123;    private val viewModelProvideForActivity: ViewModelProvider by lazy &#123; ViewModelProvider(this) &#125;    fun &lt;T : ViewModel&gt; provideViewModel(type: Class&lt;T&gt;): T &#123;        return viewModelProvideForActivity[type]    &#125;    /* ======================== Lifecycle ======================== */    override fun onCreate(savedInstanceState: Bundle?) &#123;        WindowCompat.setDecorFitsSystemWindows(window, false)        super.onCreate(savedInstanceState)    &#125;    // ......&#125;</code></pre><hr><h3 id="BaseFragment"><a href="#BaseFragment" class="headerlink" title="BaseFragment"></a>BaseFragment</h3><blockquote><p>Fragment 基类封装</p></blockquote><p>相较于 BaseActivity，Fragment 的基础基类如下：</p><ul><li><p>在获取上下文时，可通过重写 Fragment 的 onAttach 函数，对上下文进行获取并赋值，之后可通过 hostActivity 动态获取当前宿主Activity上下文；</p></li><li><p>由于 ViewModel 的特殊性，其生命周期观察者可为外层 Activity 或内部 Fragment，故对 ViewModelProvider 进行区分。</p></li></ul><pre><code class="kotlin">open class BaseFragment : Fragment() &#123;    lateinit var hostActivity: AppCompatActivity    private val vpByActivity: ViewModelProvider by lazy &#123; ViewModelProvider(hostActivity) &#125;    private val vpByFragment: ViewModelProvider by lazy &#123; ViewModelProvider(this) &#125;    /* ======================== Logical Function ======================== */    fun &lt;T : ViewModel&gt; provideViewModelByActivity(type: Class&lt;T&gt;): T &#123;        return vpByActivity[type]    &#125;    fun &lt;T : ViewModel&gt; provideViewModelByFragment(type: Class&lt;T&gt;): T &#123;        return vpByFragment[type]    &#125;    /* ======================== Lifecycle ======================== */    override fun onAttach(context: Context) &#123;        super.onAttach(context)        hostActivity = context as AppCompatActivity    &#125;&#125;</code></pre>]]></content>
       
       
       <categories>
@@ -852,31 +904,6 @@
     
     
     <entry>
-      <title>IDS • Snort</title>
-      <link href="IDS-Snort/"/>
-      <url>IDS-Snort/</url>
-      
-        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p></blockquote><blockquote><p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p></blockquote><hr><h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flexsudo apt-get install snort</code></pre><h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre><h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre><h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogssudo snort -d -l snortLogs</code></pre><p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code><br>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p><pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre><h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://www.snort.org/">Snort Official</a></p></li><li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p></li><li><p><a href="https://www.wireshark.org/">WireShark</a></p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> IDS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> IDS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux Command Manual</title>
       <link href="Linux-Command-Manual/"/>
       <url>Linux-Command-Manual/</url>
@@ -894,6 +921,31 @@
         <tags>
             
             <tag> Terminal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IDS • Snort</title>
+      <link href="IDS-Snort/"/>
+      <url>IDS-Snort/</url>
+      
+        <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote><p>本篇将介绍我在工作期间，对办公室的一台<code>测试用服务器</code>部署<code>IDS（Intrusion ddetection System）入侵检测系统</code>时的一些笔记分享。</p></blockquote><blockquote><p>在1998年，Martin Roesch用C语言开发了开放源代码(Open Source)的入侵检测系统Snort。直至今天，Snort已发展成为一个具有多平台(Multi-Platform)、<code>实时(Real-Time)流量分析</code>、<code>网络IP数据包(Pocket)记录</code>等特性的强大的网络入侵检测/防御系统(Network Intrusion Detection/Prevention System)，即<code>NIDS/NIPS</code>。Snort符合通用公共许可(GPL——GNU General Pubic License)，在网上可以通过免费下载获得Snort，并且只需要几分钟就可以安装并开始使用。</p></blockquote><hr><h2 id="一-部署Snort"><a href="#一-部署Snort" class="headerlink" title="(一) 部署Snort"></a>(一) 部署Snort</h2><pre><code class="bash">sudo apt-get install libpcap-dev bison flexsudo apt-get install snort</code></pre><h2 id="二-嗅探"><a href="#二-嗅探" class="headerlink" title="(二) 嗅探"></a>(二) 嗅探</h2><h3 id="1-基础用法"><a href="#1-基础用法" class="headerlink" title="1. 基础用法"></a>1. 基础用法</h3><pre><code class="bash">sudo snort -v</code></pre><h3 id="2-展示数据内容"><a href="#2-展示数据内容" class="headerlink" title="2. 展示数据内容"></a>2. 展示数据内容</h3><pre><code class="bash">sudo snort -vd</code></pre><h2 id="三-网络IP数据包记录"><a href="#三-网络IP数据包记录" class="headerlink" title="(三) 网络IP数据包记录"></a>(三) 网络IP数据包记录</h2><pre><code class="bash">sudo mkdir snortLogssudo snort -d -l snortLogs</code></pre><p>以上命令将会在snortLogs文件夹(用户可自行选择日志文件保存位置)下创建一个<code>.log.xxxxxx</code><br>结尾的日志文件，要查看该文件，可直接通过<a href="https://www.wireshark.org/download.html">WireShark</a>打开，或使用以下命令：</p><pre><code class="bash">snort -d -v -r your-log-file-name.log.xxxxxx</code></pre><h2 id="四-NIDS"><a href="#四-NIDS" class="headerlink" title="(四) NIDS"></a>(四) NIDS</h2><p>未完待续…</p><hr><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><p><a href="https://www.snort.org/">Snort Official</a></p></li><li><p><a href="https://linuxhint.com/snort-ubuntu-tutorial/">LinuxHint • Snort Ubuntu Tutorial</a></p></li><li><p><a href="https://www.wireshark.org/">WireShark</a></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDS </tag>
             
         </tags>
       

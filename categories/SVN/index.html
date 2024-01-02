@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Android • Navigation - PhoenixNest&#39;s Blog</title>
+    <title>Category: SVN - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -13,12 +13,7 @@
         <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
     
     
-        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
-本篇将介绍我最近在对 Android 项目进行开发时，有关 Navigation 方面的笔记分享。
-
-
-Google Android Developer 中对 Navigation 的介绍：
-,">
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,">
     
     
         <meta name="author" content="PhoenixNest">
@@ -65,76 +60,143 @@ Google Android Developer 中对 Navigation 的介绍：
 </div>
 <span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
 <div id="loader"></div>
-<div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Android • Navigation</h3>
-        <div class="social">
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+<div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/about/" title="ABOUT" external="false">ABOUT</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" external="false">CATEGORIES</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" external="false">TAGS</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/links/" title="LINKS" external="false">LINKS</a>
+            </li>
+        
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" external="false">ARCHIVES</a>
+            </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2024 PhoenixNest.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input"/>
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+             data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-                animation-delay: 600ms;
-                animation-duration: 1.2s;
-                background-image:
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
         </div>
-        <div class="else">
+        <ul id="menu-menu" class="menu text-menu">
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/about/" title="ABOUT" external="false" class="menu-link">ABOUT</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/categories/" title="CATEGORIES" external="false" class="menu-link">CATEGORIES</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/tags/" title="TAGS" external="false" class="menu-link">TAGS</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/links/" title="LINKS" external="false" class="menu-link">LINKS</a>
+                </li>
+            
+                <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                    <a href="/archives/" title="ARCHIVES" external="false" class="menu-link">ARCHIVES</a>
+                </li>
+            
+            
+                <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+                animation-delay: 900ms;
+                animation-duration: 2.8s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/svn.png);">
+        </div>
+    </div>
+    
+        <div id="post0" class="else">
             <p class="animated fadeInDown">
                 
-                    <a href="/categories/Android"><b>「
-                        </b>ANDROID<b> 」</b></a>
+                    <a href="/categories/SVN"><b>「
+                        </b>SVN<b> 」</b></a>
                 
-                八月 26, 2022
+                一月 12, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Android-Navigation/" title="Android • Navigation" class="">Android • Navigation</a>
-            </h3>
+            <h3 class="post-title animated fadeInDown">
+                <a href="/SVN-Manual/" title="SVN • Subversion" class="posttitle">SVN • Subversion</a></h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
-                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.1k
-                </span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                284
+            </span>
                     
                     
                         <span>
-                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    2 mins.
-                </span>
-                    
-                    
-                        <span id="/Android-Navigation/" class="leancloud_visitors"
-                              data-flag-title="Android • Navigation">
-                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">0</span>
-                </span>
-                    
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                1 mins.
+            </span>
                     
                 </p>
             
             
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Jetpack/" rel="tag">Jetpack</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Navigation/" rel="tag">Navigation</a></li></ul>
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/SVN/" rel="tag">SVN</a></li></ul>
             
+            <div class="md-content animated fadeIn">
+                
+                    <blockquote>
+<p>本篇将介绍我在学习<code>SVN</code>的一些笔记分享。</p>
+</blockquote>
+<blockquote>
+<p>SVN 是 subversion 的缩写，是一个开放源代码的版本控制系统，通过采用分支管理系统的高效管理，简而言之就是用于多个人共同开发同一个项目，实现共享资源，实现最终集中式的管理。</p>
+</blockquote>
+<hr>
+<h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><pre><code class="bash"># svn cp -m &quot;提交信息&quot; [你想要作为新分支代码基础的分支(如：trunk分支)] [新分支地址]
+svn...</code></pre>
+                
+                <span class="read-more"><a href="/SVN-Manual/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            </div>
         </div>
-    </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -142,111 +204,20 @@ Google Android Developer 中对 Navigation 的介绍：
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
-<p>本篇将介绍我最近在对 <code>Android</code> 项目进行开发时，有关 Navigation 方面的笔记分享。</p>
-</blockquote>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.android.com/guide/navigation">Google Android Developer</a> 中对 Navigation 的介绍：</p>
-</blockquote>
-<p>Navigation refers to the interactions that allow users to navigate across, into, and back out from the different pieces of content within your app. Android Jetpack’s Navigation component helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer. The Navigation component also ensures a consistent and predictable user experience by adhering to an established set of principles.</p>
-<hr>
-<h2 id="Navigation-场景操作"><a href="#Navigation-场景操作" class="headerlink" title="Navigation 场景操作"></a>Navigation 场景操作</h2><h3 id="Splash-Screen-finish"><a href="#Splash-Screen-finish" class="headerlink" title="Splash Screen finish()"></a>Splash Screen finish()</h3><blockquote>
-<p>假设有如下使用场景：</p>
-</blockquote>
-<ol>
-<li><p>项目仅可使用 Android 原生组件 或 Jetpack 组件库，不可使用第三方库或插件；</p>
-</li>
-<li><p>当用户<code>首次安装</code>应用时，优先弹出<code>引导页（Splash Screen）</code>，提示用户需要对 App 相应权限进行授权；当用户授权相应权限后 2s 进入主页；此后若用户手动在设置取消授权，则需再次展示该权限申请页；</p>
-</li>
-<li><p>当用户<code>首次打开</code>应用时，优先弹出<code>欢迎页（对引导 Splash Screen 进行修改即可）</code>，并在 2s 后进入主页；</p>
-</li>
-<li><p><code>引导页与欢迎页均需要在展示后进行销毁</code>（启动新页面并关闭当前页面），类似 Activity 的 finish() 方法。</p>
-</li>
-</ol>
-<hr>
-<blockquote>
-<p>假定有欢迎页A，主页B，则相应操作与配置如下：</p>
-</blockquote>
-<ol>
-<li><p>在 nav.xml 文件中，添加 <code>欢迎页A -&gt; 主页B</code> 的跳转路径；</p>
-</li>
-<li><p><code>对跳转路径进行设置</code>，代码如下（主要修改点位于 popUpTo 与 popUpToInclusive 两个属性）：</p>
-</li>
-</ol>
-<pre><code class="xml">&lt;fragment android:id=&quot;@+id/A&quot;
-          android:name=&quot;com.xx.A&quot;
-          android:label=&quot;A&quot;&gt;
-    &lt;action
-        android:id=&quot;@+id/action_A_to_B&quot;
-        app:destination=&quot;@id/B&quot;
-        app:popUpTo=&quot;@id/A&quot;
-        app:popUpToInclusive=&quot;true&quot;/&gt;
-&lt;/fragment&gt;
-</code></pre>
-
-            <!--[if lt IE 9]>
-            <script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                   data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
-                        
-                    
-                </ul>
-            
-            
-            
-            
-                <hr>
-                <div id="vcomments"></div>
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="/img/favicon.png" height=300 width=300 />
-                    <p>PhoenixNest</p>
-                    <span>用实力让情怀落地</span>
-                    
-                </div>
-                <ul>
-                    <li><a href="/">41 <p>文章</p></a></li>
-                    <li><a href="/categories">17 <p>分类</p></a></li>
-                    <li><a href="/tags">34 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-                
-                
-                    <div class="box sticky animated fadeInRight faster">
-                        <div id="toc" class="subbox">
-                            <h4>目录</h4>
-                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navigation-%E5%9C%BA%E6%99%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">Navigation 场景操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Splash-Screen-finish"><span class="toc-number">2.1.</span> <span class="toc-text">Splash Screen finish()</span></a></li></ol></li></ol>
-                        </div>
-                    </div>
-                
-            
-        </div>
+    <div id="primary">
+        
     </div>
+    
 </div>
+<div id="preview"></div>
 
-    </div>
-</div>
 <div id="back-to-top" class="animated fadeIn faster">
     <div class="flow"></div>
     <span class="percentage animated fadeIn faster">0%</span>
@@ -255,7 +226,7 @@ Google Android Developer 中对 Navigation 的介绍：
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2023
+        &copy; 2024
         <span class="gradient-text">
             PhoenixNest
         </span>.

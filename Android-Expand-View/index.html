@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Android Expand View - PhoenixNest&#39;s Blog</title>
+    <title>Android • Expand View - PhoenixNest&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate"/>
@@ -70,7 +70,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Android Expand View</h3>
+        <h3 class="subtitle">Android • Expand View</h3>
         <div class="social">
             <div>
                 <div class="share">
@@ -92,7 +92,7 @@
                 animation-duration: 1.2s;
                 background-image:
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/android_jetpack.jpeg) ">
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Android.png) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -102,14 +102,14 @@
                 
                 九月 15, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Android-Expand-View/" title="Android Expand View" class="">Android Expand View</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Android-Expand-View/" title="Android • Expand View" class="">Android • Expand View</a>
             </h3>
             
                 <p class="post-count animated fadeInDown">
                     
                         <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.5k
+                    2.8k
                 </span>
                     
                     
@@ -120,7 +120,7 @@
                     
                     
                         <span id="/Android-Expand-View/" class="leancloud_visitors"
-                              data-flag-title="Android Expand View">
+                              data-flag-title="Android • Expand View">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">0</span>
                 </span>
@@ -155,9 +155,13 @@
 </blockquote>
 <p>在日常项目开发中，通常会使用到如展开列表样式的布局实现，通常适用于用户个人页介绍用户信息或其他使用场景。</p>
 <blockquote>
-<p>在阅读本文前，你需要了解：<a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/transition/AutoTransition">Android 简单过渡动画 AutoTransition()</a></p>
+<p>在阅读本文前，你需要了解：<a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/transition/AutoTransition">Android 简单过渡动画 AutoTransition()</a>，<a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/android/transition/AutoTransition">Android Developer</a> 中对于 AutoTransition的介绍如下：</p>
 </blockquote>
+<p>Utility class for creating a default transition that automatically fades, moves, and resizes views during a scene change.</p>
+<p>An AutoTransition can be described in a resource file by using the tag autoTransition, along with the other standard attributes of R.styleable.Transition.</p>
+<blockquote>
 <p>本篇将介绍并实现如下展开效果：</p>
+</blockquote>
 <image height="360" width="180" src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Android/Expand%20View/example.gif" alt="Example" />
 
 <hr>
@@ -273,9 +277,9 @@ fun expandView(
                     
                 </div>
                 <ul>
-                    <li><a href="/">41 <p>文章</p></a></li>
-                    <li><a href="/categories">17 <p>分类</p></a></li>
-                    <li><a href="/tags">34 <p>标签</p></a></li>
+                    <li><a href="/">43 <p>文章</p></a></li>
+                    <li><a href="/categories">18 <p>分类</p></a></li>
+                    <li><a href="/tags">35 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -303,7 +307,7 @@ fun expandView(
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2023
+        &copy; 2024
         <span class="gradient-text">
             PhoenixNest
         </span>.
