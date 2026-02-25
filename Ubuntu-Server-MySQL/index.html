@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ubuntu Server • MySQL - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍最近在Ubuntu Server 20.04LTS上折腾 MySQL时的一些笔记分享。
+
+
+MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Ubuntu Server • MySQL</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/MySQL/mysql_logo.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/Ubuntu"><b>「
+                        </b>UBUNTU<b> 」</b></a>
+                
+                八月 05, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Ubuntu-Server-MySQL/" title="Ubuntu Server • MySQL" class="">Ubuntu Server • MySQL</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    5.9k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    11 mins.
+                </span>
+                    
+                    
+                        <span id="/Ubuntu-Server-MySQL/" class="leancloud_visitors"
+                              data-flag-title="Ubuntu Server • MySQL">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu-Server/" rel="tag">Ubuntu Server</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍最近在<code>Ubuntu Server 20.04LTS</code>上折腾 <code>MySQL</code>时的一些笔记分享。</p>
+</blockquote>
+<blockquote>
+<p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的<br>RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。<br>MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。<br>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。MySQL<br>软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。</p>
+</blockquote>
+<hr>
+<p>在对MySQL进行部署与配置前，你需要执行👇：</p>
+<pre><code class="bash"># refresh software list
+sudo apt-get update
+
+# [Optional] Upgrade your local software
+sudo apt-get upgrade
+
+# install MySQL
+sudo apt-get install mysql-server
+</code></pre>
+<hr>
+<h2 id="（一）修改MySQL数据源Data文件夹位置"><a href="#（一）修改MySQL数据源Data文件夹位置" class="headerlink" title="（一）修改MySQL数据源Data文件夹位置"></a>（一）修改MySQL数据源Data文件夹位置</h2><p><code>Tips:</code> 原有MySQL的Data路径为/var/lib/mysql/，当我们进行长期存储时，硬盘空间将会持续吃紧，故本章介绍如何迁移MySQL中的Data路径以将MySQL的数据保存更换到新硬盘。</p>
+<h3 id="Step1-关闭MySQL服务"><a href="#Step1-关闭MySQL服务" class="headerlink" title="Step1: 关闭MySQL服务"></a>Step1: 关闭MySQL服务</h3><pre><code class="bash"># 检查原有Data目录位置，默认的MySQL中Data文件夹位置位于 /var/lib/mysql/
+sudo mysql
+
+# 输出结果：
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.21-0ubuntu0.20.04.3 (Ubuntu)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; select @@datadir;
++-------------------+
+| @@datadir         |
++-------------------+
+| /var/lib/mysql/ |
++-------------------+
+1 row in set (0.00 sec)
+
+# 关闭MySQL服务
+sudo systemctl stop mysql
+</code></pre>
+<hr>
+<h3 id="Step2-检查MySQL运行状况"><a href="#Step2-检查MySQL运行状况" class="headerlink" title="Step2: 检查MySQL运行状况"></a>Step2: 检查MySQL运行状况</h3><pre><code class="bash">sudo systemctl status mysql
+
+# 输出结果：
+• mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Mon 2020-08-03 03:32:37 UTC; 1h 55min ago
+   Main PID: 5065 (code=exited, status=0/SUCCESS)
+     Status: &quot;Server shutdown complete&quot;
+
+Aug 03 03:06:59 ubuntu-server systemd[1]: Starting MySQL Community Server...
+Aug 03 03:07:00 ubuntu-server systemd[1]: Started MySQL Community Server.
+Aug 03 03:32:35 ubuntu-server systemd[1]: Stopping MySQL Community Server...
+Aug 03 03:32:37 ubuntu-server systemd[1]: mysql.service: Succeeded.
+Aug 03 03:32:37 ubuntu-server systemd[1]: Stopped MySQL Community Server.
+</code></pre>
+<hr>
+<h3 id="Step3-迁移原MySQL数据文件"><a href="#Step3-迁移原MySQL数据文件" class="headerlink" title="Step3: 迁移原MySQL数据文件"></a>Step3: 迁移原MySQL数据文件</h3><p><code>Tips:</code> 假定待迁移Data目录为: /data/test</p>
+<pre><code class="bash">sudo rsync -av /var/lib/mysql /data/test
+</code></pre>
+<hr>
+<h3 id="Step4-备份原MySQL数据文件"><a href="#Step4-备份原MySQL数据文件" class="headerlink" title="Step4: 备份原MySQL数据文件"></a>Step4: 备份原MySQL数据文件</h3><pre><code class="bash">sudo mv /var/lib/mysql /var/lib/mysql.bak
+</code></pre>
+<hr>
+<h3 id="Step5-交接目标目录权限"><a href="#Step5-交接目标目录权限" class="headerlink" title="Step5: 交接目标目录权限"></a>Step5: 交接目标目录权限</h3><pre><code class="bash">sudo chown -R mysql:mysql /data/test
+</code></pre>
+<hr>
+<h3 id="Step6-修改MySQL配置文件"><a href="#Step6-修改MySQL配置文件" class="headerlink" title="Step6: 修改MySQL配置文件"></a>Step6: 修改MySQL配置文件</h3><pre><code class="bash">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre>
+<p><code>Tips:</code> 修改[mysqld]组中datadir的属性值，新增一行datadir键值。</p>
+<pre><code class="bash">······
+[mysqld]
+#
+# * Basic Settings
+#
+user            = mysql
+# pid-file      = /var/run/mysqld/mysqld.pid
+# socket        = /var/run/mysqld/mysqld.sock
+# port          = 3306
+# datadir       = /var/lib/mysql
+  datadir       = /data/test/mysql
+······
+</code></pre>
+<hr>
+<h3 id="Step7-修改apparmor的别名配置文件"><a href="#Step7-修改apparmor的别名配置文件" class="headerlink" title="Step7: 修改apparmor的别名配置文件"></a>Step7: 修改apparmor的别名配置文件</h3><pre><code class="bash">sudo vim /etc/apparmor.d/tunables/alias
+</code></pre>
+<p><code>Tips:</code> 新增一项别名，并指向目标位置。</p>
+<pre><code class="bash"># Alias rules can be used to rewrite paths and are done after variable
+# resolution. For example, if &#39;/usr&#39; is on removable media:
+# alias /usr/ -&gt; /mnt/usr/,
+#
+# Or if mysql databases are stored in /home:
+# alias /var/lib/mysql/ -&gt; /home/mysql/,
+  alias /var/lib/mysql/ -&gt; /data/test/mysql/,
+</code></pre>
+<hr>
+<h3 id="Step8-重启系统apparmor服务"><a href="#Step8-重启系统apparmor服务" class="headerlink" title="Step8: 重启系统apparmor服务"></a>Step8: 重启系统apparmor服务</h3><pre><code class="bash">sudo invoke-rc.d apparmor reload
+sudo systemctl restart apparmor
+</code></pre>
+<hr>
+<h3 id="Step9-越过MySQL检查"><a href="#Step9-越过MySQL检查" class="headerlink" title="Step9: 越过MySQL检查"></a>Step9: 越过MySQL检查</h3><pre><code class="bash">sudo mkdir /var/lib/mysql/mysql -p
+</code></pre>
+<hr>
+<h3 id="Step10-重启MySQL服务"><a href="#Step10-重启MySQL服务" class="headerlink" title="Step10: 重启MySQL服务"></a>Step10: 重启MySQL服务</h3><pre><code class="bash">sudo systemctl start mysql
+sudo systemctl status mysql
+
+# 输出结果：
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2020-08-03 05:42:18 UTC; 7s ago
+    Process: 10205 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status&gt;
+   Main PID: 10228 (mysqld)
+     Status: &quot;Server is operational&quot;
+      Tasks: 39 (limit: 2249)
+     Memory: 334.7M
+     CGroup: /system.slice/mysql.service
+             └─10228 /usr/sbin/mysqld
+
+Aug 03 05:42:17 ubuntu-server systemd[1]: Starting MySQL Community Server...
+Aug 03 05:42:18 ubuntu-server systemd[1]: Started MySQL Community Server.
+</code></pre>
+<hr>
+<h3 id="End-修改后的MySQL中Data位置"><a href="#End-修改后的MySQL中Data位置" class="headerlink" title="End: 修改后的MySQL中Data位置"></a>End: 修改后的MySQL中Data位置</h3><pre><code class="bash">sudo mysql
+
+# 输出结果：
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.21-0ubuntu0.20.04.3 (Ubuntu)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&gt; select @@datadir;
++-------------------+
+| @@datadir         |
++-------------------+
+| /data/test/mysql/ |
++-------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<hr>
+<h2 id="（二）通过mysqlslap对MySQL进行压力测试"><a href="#（二）通过mysqlslap对MySQL进行压力测试" class="headerlink" title="（二）通过mysqlslap对MySQL进行压力测试"></a>（二）通过mysqlslap对MySQL进行压力测试</h2><h3 id="mysqlLslap"><a href="#mysqlLslap" class="headerlink" title="mysqlLslap"></a>mysqlLslap</h3><p>先来看看MySQL官方对mysqlslap工具的介绍：mysqlslap is a diagnostic program designed to emulate client load for a MySQL server and to report the timing of each stage. It works as if multiple clients are accessing the server.</p>
+<p><code>简明概括</code>就是mysqlslap是MySQL5.1.4之后<code>自带</code>的benchmark<code>基准测试</code>工具，该工具可以模拟多个客户端同时<code>并发</code>的向服务器发出查询更新，给出了<code>性能测试</code>数据而且提供了<code>多种引擎的性能比较</code>。</p>
+<p>该工具有诸多可选项可供选择以实现大部分场景下对MySQL<code>模拟</code>进行压力测试。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/UbuntuServer/MySQL/mysqlslap.png">
+
+<hr>
+<h3 id="Tips-以下是常用的部分参数"><a href="#Tips-以下是常用的部分参数" class="headerlink" title="Tips: 以下是常用的部分参数"></a><code>Tips:</code> 以下是常用的部分参数</h3><pre><code class="bash">
+# 连接到的MySQL服务器的主机名(或IP地址)，默认为本地localhost
+--host=host_name
+
+# 连接MySQL服务时用的用户名(如：root)
+--user=root
+
+# 连接MySQL服务时用的密码(如：root)
+--password
+
+# 指定测试时生成的临时数据库名称(如：test)
+--create-schema=test
+
+# 工具自动生成测试用SQL语句
+--auto-generate-sql
+
+# 选择生成的SQL语句的格式(write, read, update, mixed)
+--auto-generate-sql-load-type=write
+
+# 执行的SQL总数量
+--number-of-queries=100000
+
+# 并发数，模拟多少个客户端同时执行query
+--concurrency=200
+
+# 引擎(如：myisam,innodb)
+--engines=innodb
+
+# 迭代的实验次数
+--iterations=100
+</code></pre>
+<hr>
+<h3 id="以下是我的机器上对MySQL进行一组压力测试的结果"><a href="#以下是我的机器上对MySQL进行一组压力测试的结果" class="headerlink" title="以下是我的机器上对MySQL进行一组压力测试的结果"></a>以下是我的机器上对MySQL进行一组压力测试的结果</h3><p><code>写入:</code></p>
+<pre><code class="bash"># 写入脚本
+sudo mysqlslap --user=root --password=root --create-schema=test --auto-generate-sql --auto-generate-sql-load-type=write --concurrency=20 --number-of-queries=1000 --iterations=100
+
+# 结果
+mysqlslap: [Warning] Using a password on the command line interface can be insecure.
+Benchmark
+    Average number of seconds to run all queries: 0.205 seconds
+    Minimum number of seconds to run all queries: 0.173 seconds
+    Maximum number of seconds to run all queries: 0.395 seconds
+    Number of clients running queries: 20
+    Average number of queries per client: 50
+</code></pre>
+<hr>
+<p><code>读取:</code></p>
+<pre><code class="bash"># 读取脚本
+sudo mysqlslap --user=root --password=root --create-schema=test --auto-generate-sql --auto-generate-sql-load-type=read --concurrency=20 --number-of-queries=1000 --iterations=100
+
+# 结果
+mysqlslap: [Warning] Using a password on the command line interface can be insecure.
+Benchmark
+    Average number of seconds to run all queries: 0.132 seconds
+    Minimum number of seconds to run all queries: 0.120 seconds
+    Maximum number of seconds to run all queries: 0.191 seconds
+    Number of clients running queries: 20
+    Average number of queries per client: 50
+</code></pre>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-move-a-mysql-data-directory-to-a-new-location-on-ubuntu-16-04">Digital Ocean - How To Move a MySQL Data Directory to a New Location on Ubuntu</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89427540?utm_source=wechat_session">知乎 • MySQL骨灰级性能优化</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html">mysqlslap — A Load Emulation Client</a></p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/portrait.png" height=300 width=300 />
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">31 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">26 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E4%BF%AE%E6%94%B9MySQL%E6%95%B0%E6%8D%AE%E6%BA%90Data%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">（一）修改MySQL数据源Data文件夹位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-%E5%85%B3%E9%97%ADMySQL%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 关闭MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E6%A3%80%E6%9F%A5MySQL%E8%BF%90%E8%A1%8C%E7%8A%B6%E5%86%B5"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 检查MySQL运行状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-%E8%BF%81%E7%A7%BB%E5%8E%9FMySQL%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 迁移原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-%E5%A4%87%E4%BB%BD%E5%8E%9FMySQL%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 备份原MySQL数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-%E4%BA%A4%E6%8E%A5%E7%9B%AE%E6%A0%87%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 交接目标目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-%E4%BF%AE%E6%94%B9MySQL%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 修改MySQL配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-%E4%BF%AE%E6%94%B9apparmor%E7%9A%84%E5%88%AB%E5%90%8D%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 修改apparmor的别名配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-%E9%87%8D%E5%90%AF%E7%B3%BB%E7%BB%9Fapparmor%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: 重启系统apparmor服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-%E8%B6%8A%E8%BF%87MySQL%E6%A3%80%E6%9F%A5"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: 越过MySQL检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-%E9%87%8D%E5%90%AFMySQL%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 重启MySQL服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84MySQL%E4%B8%ADData%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.11.</span> <span class="toc-text">End: 修改后的MySQL中Data位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E9%80%9A%E8%BF%87mysqlslap%E5%AF%B9MySQL%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">（二）通过mysqlslap对MySQL进行压力测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysqlLslap"><span class="toc-number">3.1.</span> <span class="toc-text">mysqlLslap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips-%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B8%B8%E7%94%A8%E7%9A%84%E9%83%A8%E5%88%86%E5%8F%82%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">Tips: 以下是常用的部分参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%88%91%E7%9A%84%E6%9C%BA%E5%99%A8%E4%B8%8A%E5%AF%B9MySQL%E8%BF%9B%E8%A1%8C%E4%B8%80%E7%BB%84%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">3.3.</span> <span class="toc-text">以下是我的机器上对MySQL进行一组压力测试的结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2026
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

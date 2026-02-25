@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ubuntu Server • Initialization - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍最近在Dell PowerEdge R420服务器上折腾Ubuntu Server 20.04LTS的一些笔记分享。
+
+
+Ubuntu是一个以桌面应用为主的Linux操作系统，其名称,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Ubuntu Server • Initialization</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/ubuntu_server.png) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/Ubuntu"><b>「
+                        </b>UBUNTU<b> 」</b></a>
+                
+                八月 04, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Ubuntu-Server-Initialization/" title="Ubuntu Server • Initialization" class="">Ubuntu Server • Initialization</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    3.9k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    7 mins.
+                </span>
+                    
+                    
+                        <span id="/Ubuntu-Server-Initialization/" class="leancloud_visitors"
+                              data-flag-title="Ubuntu Server • Initialization">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu-Server/" rel="tag">Ubuntu Server</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍最近在Dell PowerEdge R420服务器上折腾<code>Ubuntu Server 20.04LTS</code>的一些笔记分享。</p>
+</blockquote>
+<blockquote>
+<p>Ubuntu是一个以<code>桌面应用</code>为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词，意思是“人性”“我的存在是因为大家的存在”，是非洲传统的一种价值观。<br>Ubuntu基于<code>Debian发行版</code>和Gnome桌面环境，而从11.04版起，Ubuntu发行版放弃了Gnome桌面环境，改为Unity。从前人们认为Linux难以安装、难以使用，在Ubuntu出现后这些都成为了历史。<br>Ubuntu也拥有庞大的社区力量，用户可以方便地从社区获得帮助。自Ubuntu 18.04 LTS其，Ubuntu发行版又重新开始使用GNOME3桌面环境。</p>
+</blockquote>
+<hr>
+<p>在对服务器进行配置与操作前，你需要准备👇：</p>
+<ul>
+<li><p>下载<a target="_blank" rel="noopener" href="http://releases.ubuntu.com/20.04/">Ubuntu Server 20.04LTS</a>镜像并将其<a target="_blank" rel="noopener" href="https://rufus.ie/zh_CN.html">刷入U盘</a></p>
+</li>
+<li><p><code>(建议)</code>在<code>有网络</code>连接的情况下安装Ubuntu Server 20.04LTS</p>
+</li>
+</ul>
+<hr>
+<h2 id="（一）-安装Ubuntu-Server"><a href="#（一）-安装Ubuntu-Server" class="headerlink" title="（一）. 安装Ubuntu Server"></a>（一）. 安装Ubuntu Server</h2><h3 id="Step1-选择语言"><a href="#Step1-选择语言" class="headerlink" title="Step1: 选择语言"></a>Step1: 选择语言</h3><p><code>Tips:</code> Ubuntu Server无简中，本章节将介绍英文版安装。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_1.png">
+
+<hr>
+<h3 id="Step2-选择键盘布局"><a href="#Step2-选择键盘布局" class="headerlink" title="Step2: 选择键盘布局"></a>Step2: 选择键盘布局</h3><p><code>Tips:</code> 该处使用美式键盘布局即可，通用大部分的键盘布局。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_2.png">
+
+<hr>
+<h3 id="Step3-网络设置"><a href="#Step3-网络设置" class="headerlink" title="Step3: 网络设置"></a>Step3: 网络设置</h3><p><code>Tips:</code> 建议在安装过程中联网进行安装，这样既能在后续的安装过程中同步升级软件包。如果选择离线安装，后续官方虽然说可以在安装后进行配置，但在多次配置ip却仍旧无法联网，不知道是20.04版本的小Bug还是其他原因。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_3.png">
+
+<hr>
+<h3 id="Step4-代理设置"><a href="#Step4-代理设置" class="headerlink" title="Step4: 代理设置"></a>Step4: 代理设置</h3><p><code>Tips:</code> 有的话可以填写，本章节暂不进行配置。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_4.png">
+
+<hr>
+<h3 id="Step5-镜像源配置"><a href="#Step5-镜像源配置" class="headerlink" title="Step5: 镜像源配置"></a>Step5: 镜像源配置</h3><p><code>Tips:</code> Ubuntu Server软件下载镜像源可以在安装时进行修改，本篇建议修改为<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">清华大学开源软件镜像</a>：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a></p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_5.png">
+
+<hr>
+<h3 id="Step6-引导空间配置"><a href="#Step6-引导空间配置" class="headerlink" title="Step6: 引导空间配置"></a>Step6: 引导空间配置</h3><p><code>Tips:</code> 可根据需求对引导空间进行调整，本章节暂不进行配置。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_6.png">
+
+<hr>
+<h3 id="Step7-分区配置"><a href="#Step7-分区配置" class="headerlink" title="Step7: 分区配置"></a>Step7: 分区配置</h3><p><code>Tips:</code> Linux对于分区较为敏感，类如：/usr /bin /home /efi等等分区都有及其重要的作用，使用时稍有不慎对系统分区进行错误操作将造成毁灭性的严重后果，此处暂不展开分析系统分区的规则与建议，有兴趣的读者可自行前往<a target="_blank" rel="noopener" href="https://www.linux.org/">Linux官方网站</a>学习。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_7.png">
+
+<hr>
+<h3 id="Step8-Ubuntu-Server账号配置"><a href="#Step8-Ubuntu-Server账号配置" class="headerlink" title="Step8: Ubuntu Server账号配置"></a>Step8: Ubuntu Server账号配置</h3><p><code>Tips:</code> 设置一个账号用以登录系统，此处要注意username的命名限制。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_9.png">
+
+<hr>
+<h3 id="Step9-SSH设置"><a href="#Step9-SSH设置" class="headerlink" title="Step9: SSH设置"></a>Step9: SSH设置</h3><p><code>Tips:</code> Ubuntu Server默认不开放SSH，但配置SSH能使工程师远程连接服务器，本章勾选并下载OpenSSH Server客户端。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_10.png">
+
+<hr>
+<h3 id="Step10-等待Ubuntu-Server安装结束"><a href="#Step10-等待Ubuntu-Server安装结束" class="headerlink" title="Step10: 等待Ubuntu Server安装结束"></a>Step10: 等待Ubuntu Server安装结束</h3><p><code>Tips:</code> 若用户在联网状态下安装Ubuntu Server时，安装过程中将会自动检测并下载对应软件包更新。系统安装后需要去除安装介质(U盘\移动硬盘\光驱安装)，并单击Enter键重启，即安装完毕。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_11.png">
+
+<hr>
+<h3 id="End-登录系统"><a href="#End-登录系统" class="headerlink" title="End: 登录系统"></a>End: 登录系统</h3><img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/install_end.png">
+
+<hr>
+<h2 id="（二）-远程连接Ubuntu-Server"><a href="#（二）-远程连接Ubuntu-Server" class="headerlink" title="（二）. 远程连接Ubuntu Server"></a>（二）. 远程连接Ubuntu Server</h2><h3 id="Step1-安装net-tools用以查看ip"><a href="#Step1-安装net-tools用以查看ip" class="headerlink" title="Step1: 安装net-tools用以查看ip"></a>Step1: 安装net-tools用以查看ip</h3><pre><code class="bash">sudo apt update
+sudo apt upgrade
+
+# 若前期安装过程中未联网或未启用ssh的话，需要先下载openssh-server
+sudo apt install openssh-server
+
+# 安装net-tools工具
+sudo apt install net-tools
+</code></pre>
+<hr>
+<h3 id="Step2-查看本机ip"><a href="#Step2-查看本机ip" class="headerlink" title="Step2: 查看本机ip"></a>Step2: 查看本机ip</h3><pre><code class="bash">sudo ifconfig
+</code></pre>
+<hr>
+<h3 id="Step3-修改远程访问权限"><a href="#Step3-修改远程访问权限" class="headerlink" title="Step3: 修改远程访问权限"></a>Step3: 修改远程访问权限</h3><pre><code class="bash"># 修改该文件中PermitRootLogin的值为yes
+vim /etc/ssh/sshd_config
+</code></pre>
+<hr>
+<h3 id="Step4-使用指令查看ip"><a href="#Step4-使用指令查看ip" class="headerlink" title="Step4: 使用指令查看ip"></a>Step4: 使用指令查看ip</h3><pre><code class="bash">sudo ifconfig
+
+# 查看ip地址
+ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 192.168.116.134  netmask 255.255.255.0  broadcast 192.168.116.255
+        inet6 fe80::20c:29ff:fecb:6b67  prefixlen 64  scopeid 0x20&lt;link&gt;
+        ether 00:0c:29:cb:6b:67  txqueuelen 1000  (Ethernet)
+        RX packets 47090  bytes 68633562 (68.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 6040  bytes 421820 (421.8 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 190  bytes 16652 (16.6 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 190  bytes 16652 (16.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<hr>
+<h3 id="Step5-使用远程链接工具链接"><a href="#Step5-使用远程链接工具链接" class="headerlink" title="Step5: 使用远程链接工具链接"></a>Step5: 使用远程链接工具链接</h3><p><code>Tips:</code> 本章节选用<code>XShell</code>进行远程连接。</p>
+<img src="https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/Ubuntu/Server/ubuntu_ssh.png">
+
+<hr>
+<h2 id="（三）-Server常用命令"><a href="#（三）-Server常用命令" class="headerlink" title="（三）. Server常用命令"></a>（三）. Server常用命令</h2><pre><code class="bash"># Scan local disk
+sudo fdisk -l
+
+# Check disk information
+sudo df -HT
+
+# Create test dir
+sudo mkdir xxx
+# Eg: that you can create a test folder
+sudo mkdir /test
+
+# Mount a HDD/SDD to your system
+sudo mount xxxxxx xxxxxx
+# Eg: you can mount /dev/nvme0n1 with you localDir with /data
+sudo mount /dev/nvme0n1 /data
+
+# Change filesystem to xfs
+sudo mkfs.xfs xxxxxx
+# Eg: you can make the default change to the disk into xfs filesystem or the other filesystem you want to change(eg: ext4, ext3, ntfs)
+sudo mkfs.xfs /dev/nvme0n1
+
+# If you want to set the block size to another big one, try to add &#39;-b size=8k&#39;
+sudo mkfs.xfs -b size=xx xxxxxx
+# Eg: you can change the /dev/nvme0n1 into xfs with it&#39;s blocksize=8k
+# NOTICE: disk blocksize can not bigger than system default page size
+sudo mkfs.xfs -b size=8k /dev/nvme0n1
+
+# Get default system pagesize
+sudo getconf PAGESIZE
+
+# Reboot the computer immediately
+sudo reboot -h now
+
+# Shut down the computer immediately
+sudo shutdown -h now
+</code></pre>
+<hr>
+<h2 id="（四）-通过”dd”关键字对硬盘进行读写测试"><a href="#（四）-通过”dd”关键字对硬盘进行读写测试" class="headerlink" title="（四）. 通过”dd”关键字对硬盘进行读写测试"></a>（四）. 通过”dd”关键字对硬盘进行读写测试</h2><pre><code class="bash"># R/W Test
+# The server&#39;s write file size is usually 4k and 8K, here the disk will be written test from 4K, 8K, 64K, 1M order, and after the memory cache is cleared, the 1M file on the disk will be read and deleted.
+
+# Create Tiny Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=4k count=1024
+
+# Create Small Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=8k count=1024
+
+# Create Middle Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=64k count=1024
+
+# Create Large Size Test File &amp;&amp;  Start Write Speed Test
+sudo dd if=/dev/zero of=./largefile bs=1M count=1024
+
+# Remove RAM Cache
+sudo sh -c &quot;sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches&quot;
+
+# Check Read Speed
+sudo dd if=./largefile of=./null bs=8k
+</code></pre>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://ubuntu.com/download/server">Download Ubuntu Server</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ubuntu.com/tutorials/install-ubuntu-server#1-overview">Install Ubuntu Server</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.tecmint.com/install-ubuntu-20-04-server/">How to Install Ubuntu 20.04 Server</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-20-04/#:~:text=%20Perform%20the%20following%20steps%20as%20root%20or,verify%20that%20SSH%20is%20running%20by...%20More%20">How to Enable SSH on Ubuntu 20.04</a></p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/portrait.png" height=300 width=300 />
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">31 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">26 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85Ubuntu-Server"><span class="toc-number">2.</span> <span class="toc-text">（一）. 安装Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">Step1: 选择语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E9%80%89%E6%8B%A9%E9%94%AE%E7%9B%98%E5%B8%83%E5%B1%80"><span class="toc-number">2.2.</span> <span class="toc-text">Step2: 选择键盘布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">Step3: 网络设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.4.</span> <span class="toc-text">Step4: 代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text">Step5: 镜像源配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step6-%E5%BC%95%E5%AF%BC%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE"><span class="toc-number">2.6.</span> <span class="toc-text">Step6: 引导空间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step7-%E5%88%86%E5%8C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">2.7.</span> <span class="toc-text">Step7: 分区配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step8-Ubuntu-Server%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE"><span class="toc-number">2.8.</span> <span class="toc-text">Step8: Ubuntu Server账号配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step9-SSH%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.9.</span> <span class="toc-text">Step9: SSH设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step10-%E7%AD%89%E5%BE%85Ubuntu-Server%E5%AE%89%E8%A3%85%E7%BB%93%E6%9D%9F"><span class="toc-number">2.10.</span> <span class="toc-text">Step10: 等待Ubuntu Server安装结束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#End-%E7%99%BB%E5%BD%95%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.11.</span> <span class="toc-text">End: 登录系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Ubuntu-Server"><span class="toc-number">3.</span> <span class="toc-text">（二）. 远程连接Ubuntu Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step1-%E5%AE%89%E8%A3%85net-tools%E7%94%A8%E4%BB%A5%E6%9F%A5%E7%9C%8Bip"><span class="toc-number">3.1.</span> <span class="toc-text">Step1: 安装net-tools用以查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step2-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E6%9C%BAip"><span class="toc-number">3.2.</span> <span class="toc-text">Step2: 查看本机ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step3-%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-number">3.3.</span> <span class="toc-text">Step3: 修改远程访问权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step4-%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9F%A5%E7%9C%8Bip"><span class="toc-number">3.4.</span> <span class="toc-text">Step4: 使用指令查看ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step5-%E4%BD%BF%E7%94%A8%E8%BF%9C%E7%A8%8B%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7%E9%93%BE%E6%8E%A5"><span class="toc-number">3.5.</span> <span class="toc-text">Step5: 使用远程链接工具链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89-Server%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">（三）. Server常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89-%E9%80%9A%E8%BF%87%E2%80%9Ddd%E2%80%9D%E5%85%B3%E9%94%AE%E5%AD%97%E5%AF%B9%E7%A1%AC%E7%9B%98%E8%BF%9B%E8%A1%8C%E8%AF%BB%E5%86%99%E6%B5%8B%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">（四）. 通过”dd”关键字对硬盘进行读写测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2026
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

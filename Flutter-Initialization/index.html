@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flutter • Initialization - PhoenixNest&#39;s Blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate"/>
+    
+        <meta name="keywords" content="PhoenixNest,PhoenixNest&#39;s Blog,">
+    
+    
+        <meta name="description" content="PhoenixNest&#39;s Blog • 用实力让情怀落地,引言
+本篇将介绍我在学习有关Flutter时的一些笔记分享。
+
+
+Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。 Flutter,">
+    
+    
+        <meta name="author" content="PhoenixNest">
+    
+    
+        <link rel="alternative" href="atom.xml" title="PhoenixNest&#39;s Blog" type="application/atom+xml">
+    
+    
+        <link rel="icon" href="/img/favicon.png">
+    
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="loading">
+<div class="loader">
+    <div class="la-ball-atom la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<span id="config-title" style="display:none">PhoenixNest&#39;s Blog</span>
+<div id="loader"></div>
+<div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://phoenixnest.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Flutter • Initialization</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+                animation-delay: 600ms;
+                animation-duration: 1.2s;
+                background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Notes/flutter.png) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                    <a href="/categories/Flutter"><b>「
+                        </b>FLUTTER<b> 」</b></a>
+                
+                五月 23, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Flutter-Initialization/" title="Flutter • Initialization" class="">Flutter • Initialization</a>
+            </h3>
+            
+                <p class="post-count animated fadeInDown">
+                    
+                        <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    2.9k
+                </span>
+                    
+                    
+                        <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    5 mins.
+                </span>
+                    
+                    
+                        <span id="/Flutter-Initialization/" class="leancloud_visitors"
+                              data-flag-title="Flutter • Initialization">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">0</span>
+                </span>
+                    
+                    
+                </p>
+            
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Cross-Platform/" rel="tag">Cross Platform</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Flutter/" rel="tag">Flutter</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s">Beyond The World</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><blockquote>
+<p>本篇将介绍我在学习有关<code>Flutter</code>时的一些笔记分享。</p>
+</blockquote>
+<blockquote>
+<p>Flutter是 Google 的移动UI框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。 Flutter可以与现有的代码一起工作。在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。</p>
+</blockquote>
+<blockquote>
+<p><strong>为什么</strong>使用 Flutter ：</p>
+<ul>
+<li><p>快速开发 - 毫秒级的热重载，修改后，您的应用界面会立即更新。使用丰富的、完全可定制的widget在几分钟内构建原生界面。</p>
+</li>
+<li><p>富有表现力和灵活的UI - 快速发布聚焦于原生体验的功能。分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</p>
+</li>
+<li><p>富有表现力和灵活的UI - Flutter包含了许多核心的widget，如滚动、导航、图标和字体等，这些都可以在iOS和Android上达到原生应用一样的性能。</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="获取-Flutter-SDK"><a href="#获取-Flutter-SDK" class="headerlink" title="获取 Flutter SDK"></a>获取 Flutter SDK</h2><p><a target="_blank" rel="noopener" href="https://flutter.dev/docs/get-started/install">Get the Flutter SDK</a></p>
+<blockquote>
+<p>下载完成后解压到任意位置。</p>
+</blockquote>
+<hr>
+<h2 id="安装-Android-Studio"><a href="#安装-Android-Studio" class="headerlink" title="安装 Android Studio"></a>安装 Android Studio</h2><p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio?hl=zh-cn">Download Android Studio and SDK tools  |  Android Developers</a></p>
+<p><code>Android Studio</code> 将用于下载 <code>Android SDK</code> 与 <code>Flutter</code> &amp;&amp; <code>Dart</code> 两个插件。</p>
+<blockquote>
+<p>插件的下载在 Android Studio 的 Setting - Plugins中，搜索 Flutter 并点击 Install，期间会提示捆绑下载 Dart 插件，两个都下载即可。</p>
+</blockquote>
+<hr>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><blockquote>
+<p>将刚才解压的 flutter 文件路径添加到系统变量的 Path 变量中。</p>
+</blockquote>
+<ul>
+<li>例：D:\flutter\bin</li>
+</ul>
+<hr>
+<h3 id="配置-Flutter-环境变量"><a href="#配置-Flutter-环境变量" class="headerlink" title="配置 Flutter 环境变量"></a>配置 Flutter 环境变量</h3><blockquote>
+<p>在系统变量中新建两个值。</p>
+</blockquote>
+<ul>
+<li><p>PUB_HOSTED_URL = <a target="_blank" rel="noopener" href="https://pub.flutter-io.cn/">https://pub.flutter-io.cn</a></p>
+</li>
+<li><p>FLUTTER_STORAGE_BASE_URL = <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn</a></p>
+</li>
+</ul>
+<hr>
+<h3 id="配置-Android-SDK-环境变量"><a href="#配置-Android-SDK-环境变量" class="headerlink" title="配置 Android SDK 环境变量"></a>配置 Android SDK 环境变量</h3><blockquote>
+<p>SDK 下载完毕后，在系统变量中新建 ANDROID_HOME 变量，将 SDK 的地址填入即可。</p>
+</blockquote>
+<ul>
+<li>ANDROID_HOME = D:\Android\Android SDK</li>
+</ul>
+<hr>
+<h3 id="配置-Android-toolchain"><a href="#配置-Android-toolchain" class="headerlink" title="配置 Android toolchain"></a>配置 Android toolchain</h3><p><code>Android toolchain</code> 将用于<code>证书许可</code>。</p>
+<p>将 Android SDK 配置到环境变量中后，终端执行：</p>
+<pre><code class="bash">flutter doctor --android-licenses
+</code></pre>
+<p>根据提示，输入 y ，直到全部许可都得到授权。</p>
+<hr>
+<h3 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h3><p>所有配置完成后，终端执行</p>
+<pre><code class="bash">flutter doctor
+</code></pre>
+<p>最终结果如下，</p>
+<pre><code class="bash">Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel beta, 2.2.0-10.3.pre, on Microsoft Windows [Version 10.0.19043.1023], locale zh-CN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+[✓] Android Studio (version 4.2.1)
+[✓] IntelliJ IDEA Ultimate Edition (version 2021.1)
+[✓] Connected device (2 available)
+
+! No issues found!
+</code></pre>
+<hr>
+<h2 id="Apple-macOS"><a href="#Apple-macOS" class="headerlink" title="Apple macOS"></a>Apple macOS</h2><h3 id="通过终端编辑配置文件"><a href="#通过终端编辑配置文件" class="headerlink" title="通过终端编辑配置文件"></a>通过终端编辑配置文件</h3><blockquote>
+<p>这里使用 vim 进行编辑。</p>
+</blockquote>
+<pre><code class="bash">vim ~/.bash_profile
+</code></pre>
+<hr>
+<h3 id="配置-Flutter-环境变量-1"><a href="#配置-Flutter-环境变量-1" class="headerlink" title="配置 Flutter 环境变量"></a>配置 Flutter 环境变量</h3><pre><code class="bash">export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+
+# 这里的 hackintosh 改为你的 macOS 用户名
+export PATH=/Users/hackintosh/flutter/bin:$PATH
+</code></pre>
+<hr>
+<h3 id="配置-Android-SDK-环境变量-1"><a href="#配置-Android-SDK-环境变量-1" class="headerlink" title="配置 Android SDK 环境变量"></a>配置 Android SDK 环境变量</h3><pre><code class="bash"># 这里的 hackintosh 改为你的 macOS 用户名
+export ANDROID_HOME=&quot;/Users/hackintosh/Library/Android/sdk&quot;
+export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/tools
+export PATH=$&#123;PATH&#125;:$&#123;ANDROID_HOME&#125;/platform-tools
+</code></pre>
+<blockquote>
+<p>保存上述配置</p>
+</blockquote>
+<pre><code class="bash">source ~/.bash_profile
+</code></pre>
+<hr>
+<h3 id="配置-Android-toolchain-1"><a href="#配置-Android-toolchain-1" class="headerlink" title="配置 Android toolchain"></a>配置 Android toolchain</h3><p><code>Android toolchain</code> 将用于<code>证书许可</code>。</p>
+<p>将 Android SDK 配置到环境变量中后，终端执行：</p>
+<pre><code class="bash">flutter doctor --android-licenses
+</code></pre>
+<p>根据提示，输入 y ，直到全部许可都得到授权。</p>
+<hr>
+<h3 id="flutter-doctor-1"><a href="#flutter-doctor-1" class="headerlink" title="flutter doctor"></a>flutter doctor</h3><p>所有配置完成后，终端执行</p>
+<pre><code class="bash">flutter doctor
+</code></pre>
+<p>最终结果如下，</p>
+<pre><code class="bash">Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel beta, 2.2.0, on Mac OS X 10.13.6 17G14042 darwin-x64, locale zh-Hans-CN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+[!] Xcode - develop for iOS and macOS
+    ✗ Xcode installation is incomplete; a full installation is necessary for iOS development.
+      Download at: https://developer.apple.com/xcode/download/
+      Or install Xcode via the App Store.
+      Once installed, run:
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+        sudo xcodebuild -runFirstLaunch
+[✓] Chrome - develop for the web
+[✓] Android Studio (version 4.2)
+[✓] IntelliJ IDEA Ultimate Edition (version 2021.1.1)
+[✓] VS Code (version 1.56.2)
+[!] Proxy Configuration
+    ! NO_PROXY is not set
+
+[✓] Connected device (1 available)
+
+! Doctor found issues in 2 categories.
+</code></pre>
+<blockquote>
+<p>由于我的机器是黑苹果，且止步于 macOS 10.13.6，无法向上升级（10.14以上不支持 Nvidia 显卡），无法下载 Xcode。</p>
+<p>有能力的读者可以购买白果，或者自行组一台 AMD 的黑苹果，即可解决 Xcode 的系统版本限制问题。</p>
+</blockquote>
+
+            <!--[if lt IE 9]>
+            <script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                   data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://cdn.jsdelivr.net/gh/PhoenixNest/Blog-Repository@master/Music/StarCraft%20Terran%20Band%20-%20Blood%20and%20Glory.mp3'></li>
+                        
+                    
+                </ul>
+            
+            
+            
+            
+                <hr>
+                <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/portrait.png" height=300 width=300 />
+                    <p>PhoenixNest</p>
+                    <span>用实力让情怀落地</span>
+                    
+                </div>
+                <ul>
+                    <li><a href="/">31 <p>文章</p></a></li>
+                    <li><a href="/categories">17 <p>分类</p></a></li>
+                    <li><a href="/tags">26 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+                
+                
+                    <div class="box sticky animated fadeInRight faster">
+                        <div id="toc" class="subbox">
+                            <h4>目录</h4>
+                            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96-Flutter-SDK"><span class="toc-number">2.</span> <span class="toc-text">获取 Flutter SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Android-Studio"><span class="toc-number">3.</span> <span class="toc-text">安装 Android Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">4.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Flutter-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.</span> <span class="toc-text">配置 Flutter 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-SDK-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">4.2.</span> <span class="toc-text">配置 Android SDK 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-toolchain"><span class="toc-number">4.3.</span> <span class="toc-text">配置 Android toolchain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flutter-doctor"><span class="toc-number">4.4.</span> <span class="toc-text">flutter doctor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apple-macOS"><span class="toc-number">5.</span> <span class="toc-text">Apple macOS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%BB%88%E7%AB%AF%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">通过终端编辑配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Flutter-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="toc-number">5.2.</span> <span class="toc-text">配置 Flutter 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-SDK-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="toc-number">5.3.</span> <span class="toc-text">配置 Android SDK 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Android-toolchain-1"><span class="toc-number">5.4.</span> <span class="toc-text">配置 Android toolchain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flutter-doctor-1"><span class="toc-number">5.5.</span> <span class="toc-text">flutter doctor</span></a></li></ol></li></ol>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="back-to-top" class="animated fadeIn faster">
+    <div class="flow"></div>
+    <span class="percentage animated fadeIn faster">0%</span>
+    <span class="iconfont icon-top02 animated fadeIn faster"></span>
+</div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2026
+        <span class="gradient-text">
+            PhoenixNest
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+    </p>
+</footer>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                preferredFont: "TeX",
+                availableFonts: ["STIX", "TeX"],
+                linebreaks: {
+                    automatic: true
+                },
+                EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+            },
+            tex2jax: {
+                inlineMath: [
+                    ["$", "$"],
+                    ["\\(", "\\)"]
+                ],
+                processEscapes: true,
+                ignoreClass: "tex2jax_ignore|dno",
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            TeX: {
+                noUndefined: {
+                    attributes: {
+                        mathcolor: "red",
+                        mathbackground: "#FFEEEE",
+                        mathsize: "90%"
+                    }
+                },
+                Macros: {
+                    href: "{}"
+                }
+            },
+            messageStyle: "none"
+        });
+    </script>
+    <script>
+        function initialMathJax() {
+            MathJax.Hub.Queue(function () {
+                var all = MathJax.Hub.getAllJax(),
+                    i;
+                // console.log(all);
+                for (i = 0; i < all.length; i += 1) {
+                    console.log(all[i].SourceElement().parentNode)
+                    all[i].SourceElement().parentNode.className += ' has-jax';
+                }
+            });
+        }
+
+        function reprocessMathJax() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        }
+    </script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+  
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        if ($('span[id^="busuanzi_"]').length) {
+            initialBusuanzi();
+        }
+    });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+    function initialTyped() {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ['Beyond The World', '用实力让情怀落地'],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+    var valine = new Valine();
+
+    function initValine(path) {
+        if (!path) path = window.location.pathname;
+        let language = 'zh-CN';
+        if (!language) {
+            language = 'en';
+        } else {
+            language = language.toLowerCase();
+        }
+        valine.init({
+            el: '#vcomments',
+            appId: 'HDzkYOSz3NGcQuXbWMLin1mS-gzGzoHsz',
+            appKey: 'pJ9JxbsY5D5aEmhxtCSNBlCT',
+            notify: '',
+            verify: '',
+            avatar: '',
+            placeholder: '温酒会知音 😉',
+            visitor: 'true',
+            path: path,
+            lang: language,
+        });
+    }
+
+    $(document).ready(function () {
+        initValine();
+    });
+</script>
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>
